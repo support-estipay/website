@@ -95,16 +95,19 @@ body {
 /* Hero Section */
 .hero-section-careers {
     position: relative;
-    height: 638px;
+    height: fit-content;
+    max-height: 650px;
     display: flex;
     align-items: center;
     background-color: #ffffff;
+    overflow: hidden;
 }
 
 .hero-image {
     position: absolute;
     width: 50vw;
-    height: 50vw;
+    height: inherit;
+    max-height: inherit;
     overflow: hidden;
 }
 
@@ -504,13 +507,13 @@ body {
     .hero-content,
     .work-together-section,
     .footer {
-        padding-left: 40px;
+        /* padding-left: 40px; */
         padding-right: 40px;
     }
 
-    .hero-content {
+    /* .hero-content {
         padding: 0 40px;
-    }
+    } */
 
     .work-together-section {
         padding: 60px 40px;
