@@ -2,8 +2,10 @@
 .contact-banner {
     position: relative;
     width: 100%;
-    height: 32rem;                 /* same height as screenshot */
-    background-image: url("ContactUs.png"); /* your image */
+    height: 32rem;
+    /* same height as screenshot */
+    background-image: url("ContactUs.png");
+    /* your image */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -19,7 +21,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.45);   /* dark transparent layer */
 }
 
 /* CENTER TEXT */
@@ -28,16 +29,41 @@
     color: #ffffff;
     font-size: 36px;
     font-weight: 600;
-    z-index: 2;                   /* above overlay */
+    z-index: 2;
+    /* above overlay */
 }
+
+/* PILOT PROGRAM BUTTON */
+.pilot-btn {
+    position: absolute;
+    right: 28px;
+    bottom: 0;
+    z-index: 3;
+    background: #f57c21;
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 12px 12px 0 0;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(245, 124, 33, 0.18);
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .contact-banner {
         height: 200px;
     }
+
     .contact-banner h1 {
         font-size: 28px;
+    }
+
+    .pilot-btn {
+        right: 18px;
+        bottom: 0;
+        padding: 12px 18px;
     }
 }
 
@@ -45,10 +71,20 @@
     .contact-banner {
         height: 160px;
     }
+
     .contact-banner h1 {
         font-size: 22px;
     }
+
+    .pilot-btn {
+        right: 16px;
+        bottom: 0px;
+        padding: 10px 14px;
+        font-size: 14px;
+        border-radius: 10px 10px 0 0;
+    }
 }
+
 /* CONTACT SECTION LAYOUT */
 .contact-section {
     width: 100%;
@@ -119,6 +155,9 @@
 /* RIGHT SIDE BOX + LOCATION */
 .contact-right {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* CONTACT CARD */
@@ -181,17 +220,22 @@
 }
 
 .location-map {
-    width: 100%;
-    max-width: 480px;
+    width: 650px;
+    max-width: 650px;
     margin: 0 auto;
     display: block;
+    margin-top: 60px;
+}
+
+.location-map:hover {
+    transform: scale(1.1);
 }
 
 .location-list {
-    margin-top: 12px;
+    margin-top: 30px;
     text-align: center;
     color: #444;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 /* RESPONSIVE */
@@ -199,14 +243,18 @@
     .contact-section {
         flex-direction: column;
         padding: 0 20px;
+        width: 75%;
+        max-width: 100%;
+        gap: 5rem;
     }
 
     .location-map {
-        max-width: 350px;
+        max-width: 300px;
     }
 }
 
 @media (max-width: 600px) {
+
     .contact-left h2,
     .location-heading {
         font-size: 24px;
