@@ -2310,6 +2310,15 @@ img:hover {
     color: #0A8460;
 }
 
+.footer-column-newsletter {
+    display: flex;
+    flex-direction: column;
+}
+
+.engage-hub-form-embed > .JFzgTMDYpV {
+    height: 3.75rem !important;
+}
+
 @media (max-width: 900px) {
     .fusion-copyright-notice div {
         flex-direction: column;
