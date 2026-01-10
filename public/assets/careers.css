@@ -116,7 +116,6 @@ body {
     height: 100%;
     object-fit: contain;
     /* transform: scaleY(-1) rotate(180deg); */
-    /* animation: float 5s ease-in-out infinite; */
 }
 
 .hero-gradient {
@@ -181,16 +180,13 @@ body {
 .form-input {
     width: 100%;
     height: 58px;
-    padding: 0 56px 0 50px;
+    padding: 0 20px 0 50px;
     border: 1px solid rgba(0,0,0,0.15);
     border-radius: 8px;
     font-size: 16px;
     font-weight: 500;
     color: #404040;
     background-color: white;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 
 .form-input::placeholder {
@@ -213,22 +209,6 @@ body {
     display: block;
     overflow: visible;
     flex-shrink: 0;
-}
-
-/* Custom caret for selects: slightly inset to the left of the edge */
-.form-input-wrapper::after {
-    content: "";
-    position: absolute;
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%23125E92' d='M5 7l5 5 5-5z'/></svg>");
-    background-size: 20px;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 2;
 }
 
 /* Team icon - wider aspect ratio (28:18) */
@@ -315,104 +295,6 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    /* animation: float 4s ease-in-out infinite; */
-    transition: transform 0.3s ease;
-}
-
-/* Staggered floating animations for career photos */
-.photo-item:nth-child(1) img {
-    /* animation: float 4s ease-in-out infinite; */
-    animation-delay: 0s;
-}
-
-.photo-item:nth-child(2) img {
-    /* animation: floatSlow 5s ease-in-out infinite; */
-    animation-delay: 0.3s;
-}
-
-.photo-item:nth-child(3) img {
-    /* animation: floatFast 4.5s ease-in-out infinite; */
-    animation-delay: 0.6s;
-}
-
-.photo-item:nth-child(4) img {
-    /* animation: float 5s ease-in-out infinite; */
-    animation-delay: 0.9s;
-}
-
-.photo-item:nth-child(5) img {
-    /* animation: smoothBounce 4.5s ease-in-out infinite; */
-    animation-delay: 1.2s;
-}
-
-.photo-item:nth-child(6) img {
-    /* animation: floatSlow 5.5s ease-in-out infinite; */
-    animation-delay: 1.5s;
-}
-
-.photo-item:nth-child(7) img {
-    /* animation: float 4.5s ease-in-out infinite; */
-    animation-delay: 1.8s;
-}
-
-.photo-item:nth-child(8) img {
-    /* animation: floatFast 5s ease-in-out infinite; */
-    animation-delay: 2.1s;
-}
-
-.photo-item:nth-child(9) img {
-    animation: smoothBounce 4s ease-in-out infinite;
-    animation-delay: 2.4s;
-}
-
-.photo-item:nth-child(10) img {
-    /* animation: float 5.5s ease-in-out infinite; */
-    animation-delay: 2.7s;
-}
-
-.photo-item:nth-child(11) img {
-    /* animation: floatSlow 4.5s ease-in-out infinite; */
-    animation-delay: 3s;
-}
-
-/* Float animations */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-25px);
-    }
-}
-
-@keyframes floatSlow {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes floatFast {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-30px);
-    }
-}
-
-@keyframes smoothBounce {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    25% {
-        transform: translateY(-15px);
-    }
-    75% {
-        transform: translateY(-10px);
-    }
 }
 
 /* Top Row: 4 photos evenly spaced */
