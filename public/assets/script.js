@@ -368,5 +368,70 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    console.log('🎉 All animations initialized!');
+    // ============================================
+    // GOOGLE SHEETS SUBSCRIPTION FORM
+    // ============================================
+
+    // const subscribeForm = document.getElementById('subscribe-form');
+    // const subscribeBtn = document.getElementById('subscribe-btn');
+    // // const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzz7jMitJ5f115ZrV--RY1Pcbeq5du3IKVYyUOXDDg8xAAajBRL_j10qvvVHCh3lnJR/exec';
+    // const SCRIPT_URL = 'https://defaultca6e3ab58f4a4f0f99c00cef53c7ae.6d.environment.api.powerplatform.com/powerautomate/automations/direct/workflows/e72179c31b884d0ca19172e7c5dd8369/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=lUAPRK9F2VEmo7Kie4jur_mi71rTVleF3_0CKzWFcP0';
+    // if (subscribeForm) {
+    //     subscribeForm.addEventListener('submit', async function (e) {
+    //         e.preventDefault();
+
+    //         // UI Feedback: Disable button and show loading icon
+    //         subscribeBtn.disabled = true;
+    //         const originalContent = subscribeBtn.innerHTML;
+    //         subscribeBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+
+    //         try {
+    //             const email = document.getElementById('subscribe-email').value;
+    //             console.log('Attempting to subscribe:', email);
+
+    //             // Switching to GET for better reliability with Google Apps Script
+    //             const finalUrl = `${SCRIPT_URL}?email=${encodeURIComponent(email)}`;
+
+    //             // await fetch(SCRIPT_URL, {
+    //             //     method: 'POST',
+    //             //     mode: 'no-cors'
+    //             // });
+    //             await fetch(SCRIPT_URL, {
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'Content-Type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify({
+    //                     email: email
+    //                 })
+    //             });
+
+    //             console.log('Subscription request sent.');
+
+    //             subscribeForm.reset();
+    //         } catch (error) {
+    //             console.error('Fetch error:', error);
+    //             alert('Connection error. Please try again.');
+    //         } finally {
+    //             subscribeBtn.disabled = false;
+    //             subscribeBtn.innerHTML = originalContent;
+    //         }
+    //     });
+    // }
+
+
+    (window.EhDynamicRef ||= []).push(() => {
+        EhForms.create({
+            "formId": "6529917257515008", // Required: The unique ID of your form
+            "target": "", // Optional: Use a selector like ".class" or "#id"
+            "onFormReady": function (el, setValue) { // Optional
+                // Example: Automatically fill the email field
+                // setValue("email", "hello@example.com");
+
+                // Write your custom code below
+            }
+        });
+    });
+
 });
+

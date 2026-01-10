@@ -295,7 +295,7 @@
   .impact-container {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 3px;
   }
 
   /* UNBOX .impact-right so its children become flex items of .impact-container */
@@ -354,7 +354,7 @@
 
   .before-head {
     text-align: center;
-    margin-right: 3rem;
+    margin-right: 0rem;
   }
 
   .after-head {
