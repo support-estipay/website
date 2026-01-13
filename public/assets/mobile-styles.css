@@ -185,10 +185,11 @@
        VIDEO SECTION
        ========================= */
 
-       .vedio-width {
-        width: 100% !important;
-        height: auto;
-       }
+  .vedio-width {
+    width: 100% !important;
+    height: auto;
+  }
+
   .video-section {
     padding: 40px 20px;
   }
