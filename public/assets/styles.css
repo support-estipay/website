@@ -8,7 +8,9 @@
     top: 0;
     z-index: 999;
 }
-
+a {
+    text-decoration: none;
+}
 .powered-by {
     display: none;
 }
@@ -889,7 +891,7 @@ span.pay {
     font-size: 14px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1400px) {
     .impact-container {
         flex-direction: column;
         text-align: center;
