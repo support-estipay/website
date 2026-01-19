@@ -889,7 +889,7 @@ span.pay {
     font-size: 14px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1400px) {
     .impact-container {
         flex-direction: column;
         text-align: center;
