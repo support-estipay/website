@@ -8,11 +8,13 @@
     top: 0;
     z-index: 999;
 }
+
 a {
     text-decoration: none;
 }
-.powered-by {
-    display: none;
+
+.form-panel-body .powered-by {
+    display: none !important;
 }
 
 * {
@@ -404,13 +406,18 @@ a {
 /* TODO: Remove Redundant classes */
 .damage-image-wrapper {
     flex: 1;
-    max-width: fit-content;
+    /* max-width: fit-content; REMOVED to allow full width scaling if needed */
+    max-width: 600px;
+    /* Added a reasonable max-width */
+    width: 100%;
 }
 
 .damage-full-img {
-    width: auto;
-    height: inherit;
+    width: 100%;
+    height: auto;
     display: block;
+    object-fit: contain;
+    /* Ensures image isn't cropped */
 }
 
 .damage-points {
@@ -1032,9 +1039,10 @@ span.pay {
     background-image: url('Compliance.png');
     background-size: cover;
     background-position: center;
-    padding: 100px 40px;
+    padding: 100px 0;
     min-height: 350px;
     display: flex;
+    justify-content: center;
     align-items: center;
     color: #111;
 }
@@ -1055,9 +1063,17 @@ span.pay {
 
 .compliance-content {
     position: relative;
-    max-width: 480px;
-    left: 1rem;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
     z-index: 10;
+}
+
+.compliance-content h2,
+.compliance-content p,
+.compliance-content ul,
+.compliance-content h4 {
+    max-width: 550px;
 }
 
 .compliance-content h2 {
@@ -1934,7 +1950,7 @@ html {
 
 .comp-points li {
     transition: all 0.3s ease;
-    padding: 8px;
+    padding: 8px 0PX;
     border-radius: 5px;
 }
 
@@ -2316,7 +2332,7 @@ img:hover {
     flex-direction: column;
 }
 
-.engage-hub-form-embed > .JFzgTMDYpV {
+.engage-hub-form-embed>.JFzgTMDYpV {
     height: 3.75rem !important;
 }
 

@@ -494,6 +494,7 @@
     /* More padding for importance */
     text-align: center;
     background-size: cover;
+    margin-left: 0%;
   }
 
   .compliance-content {
