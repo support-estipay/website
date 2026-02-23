@@ -430,7 +430,7 @@ a {
 
 .point-item {
     margin-bottom: 65px;
-    text-align: justify;
+    text-align: left;
 }
 
 .point-item h4 {
@@ -2332,7 +2332,7 @@ img:hover {
     flex-direction: column;
 }
 
-.engage-hub-form-embed>.JFzgTMDYpV {
+.engage-hub-form-embed > .JFzgTMDYpV {
     height: 3.75rem !important;
 }
 
