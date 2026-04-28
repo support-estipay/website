@@ -1,0 +1,425 @@
+/* ============================================
+   Why EstiPay Section
+   ============================================ */
+
+#why-estipay {
+    padding: 110px 0 120px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+#why-estipay .container {
+    max-width: 1200px;
+}
+
+/* Subtle background grid */
+#why-estipay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(41, 193, 165, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(41, 193, 165, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ---- Header ---- */
+.we-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 72px;
+    position: relative;
+    z-index: 1;
+}
+
+.we-header > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s cubic-bezier(.22, 1, .36, 1);
+}
+
+.we-visible .we-header > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.we-header .we-badge { transition-delay: 0.1s; }
+.we-header .we-title { transition-delay: 0.25s; }
+.we-header .we-subtitle { transition-delay: 0.4s; }
+
+.we-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(245, 130, 32, 0.10);
+    color: #F58220;
+    border: 1px solid rgba(245, 130, 32, 0.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin-bottom: 20px;
+}
+
+.we-title {
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+.we-green {
+    color: #29c1a5;
+}
+
+.we-subtitle {
+    font-size: 1.1rem;
+    color: #6b7280;
+    line-height: 1.65;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+/* ---- Cards Grid ---- */
+.we-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---- Individual Card ---- */
+.we-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    transition: 
+        translate 0.5s cubic-bezier(.16, 1, .3, 1),
+        transform 0.5s cubic-bezier(.16, 1, .3, 1),
+        box-shadow 0.5s cubic-bezier(.16, 1, .3, 1),
+        opacity 0.8s cubic-bezier(.16, 1, .3, 1);
+
+    /* Reveal animation */
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.we-visible .we-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.we-card:hover {
+    translate: 0 -12px;
+    box-shadow: 0 30px 60px rgba(41, 193, 165, 0.15), 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-color: rgba(41, 193, 165, 0.4);
+}
+
+/* ---- Mockup Area ---- */
+.we-mockup-wrap {
+    background: #f6f8fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 24px 24px 0;
+    height: 220px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.we-mockup {
+    background: #ffffff;
+    border-radius: 12px 12px 0 0;
+    border: 1px solid #e5e7eb;
+    border-bottom: none;
+    overflow: hidden;
+    flex: 1;
+    height: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    
+    /* Parallax Effect */
+    transform: translateY(var(--parallax-y, 0));
+    transition: transform 0.1s linear;
+}
+
+/* Traffic light dots */
+.we-mockup-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #f1f3f5;
+    background: #fafafa;
+}
+
+.we-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.we-dot.red    { background: #ff5f57; }
+.we-dot.yellow { background: #febc2e; }
+.we-dot.green  { background: #28c840; }
+
+.we-mockup-title {
+    font-size: 0.72rem;
+    color: #9ca3af;
+    font-weight: 500;
+    margin-left: 6px;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Claims Mockup ---- */
+.we-claim-list {
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.we-claim-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.we-claim-meta {
+    display: flex;
+    flex-direction: column;
+    min-width: 90px;
+}
+
+.we-claim-id {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #374151;
+    font-family: 'Courier New', monospace;
+}
+
+.we-claim-carrier {
+    font-size: 0.65rem;
+    color: #9ca3af;
+}
+
+.we-claim-bar-wrap {
+    flex: 1;
+    height: 6px;
+    background: #f1f3f5;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.we-claim-bar {
+    height: 100%;
+    border-radius: 100px;
+    transition: width 1.2s cubic-bezier(.22, 1, .36, 1);
+}
+
+.we-claim-status {
+    font-size: 0.68rem;
+    font-weight: 600;
+    min-width: 72px;
+    text-align: right;
+}
+
+/* ---- Docs Mockup ---- */
+.we-doc-list {
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.we-doc-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #f9fafb;
+    border: 1px solid #f1f3f5;
+}
+
+.we-doc-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.we-doc-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.we-doc-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+}
+
+.we-doc-size {
+    font-size: 0.62rem;
+    color: #9ca3af;
+}
+
+.we-doc-badge {
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 100px;
+}
+
+.we-doc-badge.ready {
+    background: rgba(41, 193, 165, 0.12);
+    color: #29c1a5;
+}
+
+.we-doc-badge.processing {
+    background: rgba(245, 130, 32, 0.12);
+    color: #F58220;
+}
+
+/* ---- Analytics Mockup ---- */
+.we-analytics-stats {
+    display: flex;
+    gap: 8px;
+    padding: 12px 14px 8px;
+}
+
+.we-stat-card {
+    flex: 1;
+    background: #f9fafb;
+    border: 1px solid #f1f3f5;
+    border-radius: 8px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.we-stat-value {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.we-stat-label {
+    font-size: 0.65rem;
+    color: #9ca3af;
+    margin-bottom: 4px;
+}
+
+.we-stat-delta {
+    font-size: 0.62rem;
+    font-weight: 600;
+}
+
+.we-stat-delta.positive {
+    color: #29c1a5;
+}
+
+.we-stat-delta.negative {
+    color: #F58220;
+}
+
+.we-bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 54px;
+    padding: 0 14px 12px;
+}
+
+.we-bar-col {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.we-bar-fill {
+    width: 100%;
+    background: linear-gradient(180deg, #29c1a5 0%, #1da896 100%);
+    border-radius: 4px 4px 0 0;
+    opacity: 0.85;
+    transition: height 1.4s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* ---- Card Body ---- */
+.we-card-body {
+    padding: 24px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.we-feature-icon {
+    font-size: 1.6rem;
+    margin-bottom: 2px;
+}
+
+.we-feature-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #29c1a5;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.we-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+}
+
+.we-card-desc {
+    font-size: 0.92rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+    .we-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .we-cards .we-card:last-child {
+        grid-column: span 2;
+        max-width: 480px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    #why-estipay {
+        padding: 72px 0 80px;
+    }
+
+    .we-cards,
+    .we-cards .we-card:last-child {
+        grid-template-columns: 1fr;
+        grid-column: span 1;
+        max-width: 100%;
+    }
+}

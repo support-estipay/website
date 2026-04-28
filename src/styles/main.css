@@ -1,0 +1,565 @@
+:root {
+    --primary-green: #29c1a5;
+    --primary-dark: #237a6d;
+    --secondary-orange: #F58220;
+    --secondary-orange-hover: #e07a2e;
+    --footer-blue: #0f1c30;
+    --text-dark: #333333;
+    --text-gray: #8c92a0;
+    --bg-light: #f4f7f9;
+    --white: #FFFFFF;
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--secondary-orange);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-orange-hover);
+}
+
+.btn-orange {
+    background-color: var(--secondary-orange);
+    color: var(--white);
+    box-shadow: 0 4px 6px rgba(244, 139, 57, 0.2);
+}
+
+.btn-orange:hover {
+    background-color: var(--secondary-orange-hover);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background-color: var(--white);
+    color: var(--text-dark);
+    border: 1px solid #E5E7EB;
+    margin-left: 16px;
+}
+
+.btn-outline:hover {
+    border-color: var(--text-dark);
+    background-color: #F3F4F6;
+}
+
+.highlight {
+    background: linear-gradient(275.93deg,
+            #38C96F 9.75%,
+            #419FB9 67.59%,
+            #125E92 140.7%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.text-dark {
+    color: var(--text-dark);
+}
+
+.text-blue {
+    color: #3B82F6;
+    /* Adjusted based on screenshot blue usage if any, otherwise stick to primary */
+    /* Re-evaluating screenshot: "The Claims" is blue-ish, "Process is Broken" is dark. 
+       Actually "The Claims" looks like a teal/blue. using a custom one. */
+    color: #2E9E8C;
+    /* sticking to primary green for consistency unless specifically blue */
+}
+
+/* Utilities */
+.section-header {
+    text-align: center;
+    /* max-width: 700px; */
+    margin: 0 auto 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-header p {
+    color: var(--text-gray);
+    font-size: 1.125rem;
+}
+
+
+/* ====================================== section 3 */
+
+
+.claims-section {
+    padding: 100px 0;
+    background-color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Shapes */
+.bg-shape {
+    position: absolute;
+    background-color: #f4f7f9;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.shape-left {
+    width: 800px;
+    height: 800px;
+    top: -300px;
+    left: -200px;
+    border: 60px solid #fcfdfd;
+}
+
+.shape-right {
+    width: 900px;
+    height: 900px;
+    top: 50px;
+    right: -300px;
+    background-color: #f8fafc;
+}
+
+.relative-z {
+    position: relative;
+    z-index: 1;
+}
+
+.text-teal {
+    color: #308ca3;
+}
+
+.section-header p {
+    color: #8c92a0;
+    font-size: 1.125rem;
+    margin: 0 auto;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+}
+
+/* =========================================
+   Cut Corner Card Design (Updated)
+   ========================================= */
+
+.cut-card {
+    position: relative;
+    /* DEFAULT STATE: This color acts as the Border */
+    background-color: #29c1a5;
+    /* This padding creates the border thickness */
+    padding: 1px;
+    border-radius: 16px;
+
+    /* The Cut Shape */
+    --notchSize: 40px;
+    clip-path: polygon(0 0,
+            calc(100% - var(--notchSize)) 0,
+            100% var(--notchSize),
+            100% 100%,
+            0 100%);
+    transition: all 0.3s ease;
+    /* Create the Gradient for Hover state (hidden initially) */
+    background-image: linear-gradient(135deg, #38C96F 0%, #419FB9 50%, #125E92 100%);
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+}
+
+.cut-card-inner {
+    /* DEFAULT STATE: White Background */
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    /* Slightly less than outer */
+    /* Clip inner to match outer shape */
+    clip-path: polygon(0 0,
+            calc(100% - var(--notchSize) + 0.5px) 0,
+            100% calc(var(--notchSize) - 0.5px),
+            100% 100%,
+            0 100%);
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.3s ease;
+}
+
+/* --- Icon Styles --- */
+.card-icon {
+    width: 55px;
+    height: 55px;
+    /* DEFAULT: Pale Green Background */
+    background-color: #eaf8f6;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 24px;
+    /* DEFAULT: Dark Green Icon */
+    color: #00897b;
+    border: 1px solid transparent;
+    /* Placeholder for hover border */
+    transition: all 0.3s ease;
+}
+
+.card-icon-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+/* --- Text Styles --- */
+.cut-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1f2937;
+    /* Default Dark Text */
+    transition: color 0.3s ease;
+}
+
+.cut-card p {
+    font-size: 0.95rem;
+    color: #6b7280;
+    /* Default Gray Text */
+    line-height: 1.5;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+/* =========================================
+   HOVER EFFECTS (The Transformation)
+   ========================================= */
+
+.cut-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(43, 122, 158, 0.25);
+    /* No change needed to background here, the inner transparency reveals the gradient */
+}
+
+.cut-card:hover .cut-card-inner {
+    /* Make the white inner background transparent to show parent gradient */
+    background-color: transparent;
+}
+
+.cut-card:hover .card-icon {
+    /* HOVER: Transparent BG, White Border, White Icon */
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+}
+
+.cut-card:hover h3 {
+    color: #ffffff;
+    /* Text becomes white */
+}
+
+.cut-card:hover p {
+    color: rgba(255, 255, 255, 0.9);
+    /* Text becomes off-white */
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   Section 4: How It Works (Big Rings + Ripple)
+   ========================================= */
+
+#how-it-works {
+    position: relative;
+}
+
+/* --- Ripple Animation (Adjusted for Big Rings) --- */
+@keyframes ripple-wave {
+    0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        /* Start slightly smaller */
+        opacity: 0.6;
+        border-width: 1px;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.4);
+        /* Bada hokar phailna */
+        opacity: 0;
+        border-width: 0px;
+    }
+}
+
+/* --- Ring Container --- */
+.ring-container {
+    position: absolute;
+    top: 50%;
+    /* Center point ko screen ke kaafi left me shift kiya hai */
+    left: -50% !important;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- Common Ring Styles --- */
+.ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    /* Border ko thoda subtle (halka) rakha hai image jaisa */
+    border: 1px solid rgb(41 193 165);
+    background: transparent;
+
+    /* Animation: 8 seconds (Slow and smooth) */
+    animation: ripple-wave 8s infinite linear;
+}
+
+/* --- LARGE SIZES (Yehi change hai) --- */
+/* Hum 'vh' (Viewport Height) use kar rahe hain taaki rings screen se bhi bade bane */
+
+.ring-1 {
+    width: 100vh;
+    /* Screen height ke barabar */
+    height: 100vh;
+    animation-delay: 0s;
+    border: 1px solid rgb(41 193 165) !important;
+}
+
+.ring-2 {
+    width: 140vh;
+    /* Screen se bada */
+    height: 140vh;
+    animation-delay: 2.5s;
+    border: 1px solid rgb(41 193 165) !important;
+}
+
+.ring-3 {
+    width: 180vh;
+    /* Bahut bada (Massive arc) */
+    height: 180vh;
+    animation-delay: 5s;
+    border: 1px solid rgb(41 193 165) !important;
+}
+
+
+/* --- Layout (Content) --- */
+.how-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.how-left {
+    flex: 0 0 30%;
+    padding-right: 39px;
+    margin-left: 5rem;
+}
+
+.how-left h2 {
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.green-subtitle {
+    color: #00b894;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.how-right {
+    flex: 1;
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+/* SVG Line Positioning */
+.timeline-svg {
+    /* position: absolute;
+    top: -100%;
+    left: -48%;
+    height: 1500px;
+    width: 96%;
+    z-index: 0;
+    overflow: visible; */
+
+    position: absolute;
+    top: -250px;
+    left: -63px;
+    height: 200%;
+    width: 200px;
+    z-index: 0;
+    overflow: visible;
+}
+
+.steps-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* All numbers and text form a flush, straight vertical column */
+.step-01, .step-02, .step-03, .step-04, .step-05 { margin-left: 0; }
+
+/* Number Circles */
+.step-number {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #38C671 0%, #338EAC 100%);
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(45, 168, 149, 0.35);
+    border: 4px solid #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.step-text h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.step-text p {
+    font-size: 1rem;
+    color: #7a869a;
+    line-height: 1.5;
+    max-width: 450px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .how-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .how-left {
+        width: 100%;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    /* Mobile me rings ko center kar dete hain */
+    .ring-container {
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .timeline-svg {
+        display: none;
+    }
+
+    .how-right {
+        height: auto;
+        gap: 40px;
+    }
+
+    .steps-wrapper {
+        gap: 40px;
+    }
+
+    .step-item {
+        padding-left: 0;
+        gap: 24px;
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+
+    .step-01, .step-02, .step-03, .step-04, .step-05 {
+        margin-left: 0 !important;
+    }
+
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+        top: 0 !important;
+    }
+}
