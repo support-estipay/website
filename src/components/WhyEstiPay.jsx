@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 
 const features = [
     {
@@ -15,9 +15,9 @@ const features = [
                 </div>
                 <div className="we-claim-list">
                     {[
-                        { id: 'CLM-1041', carrier: 'State Farm', status: 'Followed Up', pct: 85, color: '#29c1a5' },
-                        { id: 'CLM-1038', carrier: 'Allstate', status: 'Pending', pct: 45, color: '#F58220' },
-                        { id: 'CLM-1029', carrier: 'Progressive', status: 'Approved', pct: 100, color: '#10b981' },
+                        { id: 'CLM-1041', carrier: 'State Farm', status: 'Followed Up', pct: 85, color: 'var(--md-primary)' },
+                        { id: 'CLM-1038', carrier: 'Allstate', status: 'Pending', pct: 45, color: 'var(--md-secondary)' },
+                        { id: 'CLM-1029', carrier: 'Progressive', status: 'Approved', pct: 100, color: 'var(--md-primary)' },
                     ].map(c => (
                         <div key={c.id} className="we-claim-row">
                             <div className="we-claim-meta">
@@ -186,3 +186,4 @@ const WhyEstiPay = () => {
 };
 
 export default WhyEstiPay;
+

@@ -1,0 +1,204 @@
+/* ============================================================
+   EstiPay -- Material Design 3 Token Layer
+   Single source of truth for all design decisions.
+   All other stylesheets reference these variables.
+
+   Brand palette (three exact colors):
+     #009b6c  -- Forest green  (primary action, buttons, success)
+     #125e92  -- Corporate blue (structure, gradients, depth)
+     #f48027  -- Amber orange   (CTA, alerts, accent)
+   ============================================================ */
+:root {
+
+  /* -- Color Roles (MD3) ------------------------------------- */
+  --md-primary:              #009b6c;
+  --md-primary-dark:         #007a55;   /* AA-compliant shade for small text */
+  --md-on-primary:           #FFFFFF;
+  --md-primary-container:    #cceedd;   /* light primary tint */
+  --md-on-primary-container: #003824;
+
+  --md-secondary:            #f48027;   /* amber orange -- CTA / accent */
+  --md-secondary-dark:       #d96f1a;
+  --md-on-secondary:         #FFFFFF;
+  --md-secondary-container:  #fde8cf;
+
+  --md-tertiary:             #125e92;   /* corporate blue */
+  --md-on-tertiary:          #FFFFFF;
+
+  --md-error:                #B3261E;
+  --md-on-error:             #FFFFFF;
+
+  /* -- Surface & Background ---------------------------------- */
+  --md-background:           #FFFFFF;
+  --md-on-background:        #1C1B1F;
+
+  --md-surface:              #FFFFFF;
+  --md-surface-variant:      #F4F7F9;   /* alternate section bg */
+  --md-surface-container:    #F6F8FA;   /* card / mockup inner bg */
+  --md-on-surface:           #1C1B1F;   /* primary body text */
+  --md-on-surface-variant:   #6B7280;   /* secondary / muted text */
+
+  --md-inverse-surface:      #005f40;   /* footer dark green */
+  --md-on-inverse-surface:   #F2F0F4;   /* text on dark surfaces */
+
+  --md-outline:              #E5E7EB;   /* borders, dividers */
+  --md-outline-variant:      #F1F3F5;   /* subtle dividers */
+
+  /* -- Brand Gradients: #009b6c -> #125e92 ------------------- */
+  --gradient-brand:      linear-gradient(135deg, #009b6c 0%, #125e92 100%);
+  --gradient-brand-135:  linear-gradient(135deg, #009b6c 0%, #125e92 100%);
+  --gradient-step:       linear-gradient(135deg, #009b6c 0%, #0d7bbf 100%);
+  --gradient-teal:       linear-gradient(135deg, #009b6c 0%, #007a55 100%);
+  --gradient-teal-180:   linear-gradient(180deg, #009b6c 0%, #007a55 100%);
+  --gradient-orange:     linear-gradient(135deg, #f48027, #d96f1a);
+
+  /* -- Elevation (MD3 tonal shadows) ------------------------- */
+  --elevation-0: none;
+  --elevation-1: 0 1px 2px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.08);
+  --elevation-2: 0 2px 6px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.06);
+  --elevation-3: 0 4px 12px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.06);
+  --elevation-4: 0 8px 24px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  --elevation-5: 0 16px 40px rgba(0,0,0,.14), 0 6px 12px rgba(0,0,0,.06);
+
+  /* Brand-tinted elevations */
+  --elevation-teal-2: 0 2px 8px rgba(0,155,108,.12);
+  --elevation-teal-3: 0 4px 16px rgba(0,155,108,.18);
+  --elevation-teal-4: 0 12px 32px rgba(0,155,108,.22);
+  --elevation-teal-5: 0 20px 48px rgba(0,155,108,.25);
+  --elevation-orange-3: 0 4px 12px rgba(244,128,39,.18);
+  --elevation-orange-4: 0 8px 28px rgba(244,128,39,.35);
+  --elevation-orange-5: 0 14px 36px rgba(244,128,39,.5);
+
+  /* -- Shape Scale (MD3) ------------------------------------- */
+  --shape-xs:   4px;
+  --shape-sm:   8px;
+  --shape-md:   12px;
+  --shape-lg:   16px;
+  --shape-xl:   20px;
+  --shape-2xl:  28px;
+  --shape-full: 9999px;
+
+  /* -- Spacing (8px base grid) ------------------------------- */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-28: 112px;
+  --space-30: 120px;
+
+  /* -- Typography Scale (Inter) ------------------------------ */
+  /* Inter: geometric, neutral, industry-leading web UI font  */
+  --font-main:  'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:  'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Display ? hero headlines */
+  --type-display-lg-size:   3.25rem;    /* 52px */
+  --type-display-lg-weight: 800;
+  --type-display-lg-line:   1.1;
+  --type-display-lg-letter: -0.035em;
+
+  --type-display-md-size:   2.625rem;   /* 42px */
+  --type-display-md-weight: 800;
+  --type-display-md-line:   1.15;
+  --type-display-md-letter: -0.03em;
+
+  /* Headline ? section titles */
+  --type-headline-lg-size:   2.125rem;  /* 34px */
+  --type-headline-lg-weight: 700;
+  --type-headline-lg-line:   1.2;
+  --type-headline-lg-letter: -0.025em;
+
+  --type-headline-md-size:   1.625rem;  /* 26px */
+  --type-headline-md-weight: 700;
+  --type-headline-md-line:   1.3;
+  --type-headline-md-letter: -0.02em;
+
+  --type-headline-sm-size:   1.25rem;   /* 20px */
+  --type-headline-sm-weight: 600;
+  --type-headline-sm-line:   1.4;
+  --type-headline-sm-letter: -0.01em;
+
+  /* Title ? card/label titles */
+  --type-title-lg-size:   1.125rem;     /* 18px */
+  --type-title-lg-weight: 600;
+  --type-title-lg-line:   1.5;
+
+  --type-title-md-size:   1rem;         /* 16px */
+  --type-title-md-weight: 500;
+  --type-title-md-line:   1.5;
+
+  --type-title-sm-size:   0.9375rem;    /* 15px */
+  --type-title-sm-weight: 500;
+  --type-title-sm-line:   1.5;
+
+  /* Body ? readable prose, Inter optimised */
+  --type-body-lg-size:   1.0625rem;     /* 17px */
+  --type-body-lg-weight: 400;
+  --type-body-lg-line:   1.7;
+
+  --type-body-md-size:   1rem;          /* 16px */
+  --type-body-md-weight: 400;
+  --type-body-md-line:   1.65;
+
+  --type-body-sm-size:   0.875rem;      /* 14px */
+  --type-body-sm-weight: 400;
+  --type-body-sm-line:   1.6;
+
+  /* Label ? UI tags, badges, captions */
+  --type-label-lg-size:   0.875rem;     /* 14px */
+  --type-label-lg-weight: 600;
+  --type-label-lg-letter: 0.005em;
+
+  --type-label-md-size:   0.8125rem;    /* 13px */
+  --type-label-md-weight: 600;
+  --type-label-md-letter: 0.03em;
+
+  --type-label-sm-size:   0.6875rem;    /* 11px */
+  --type-label-sm-weight: 600;
+  --type-label-sm-letter: 0.05em;
+
+  /* -- Motion (MD3 easing) ----------------------------------- */
+  --easing-standard:   cubic-bezier(0.2, 0, 0, 1);
+  --easing-emphasized: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --easing-decelerate: cubic-bezier(0, 0, 0, 1);
+  --easing-accelerate: cubic-bezier(0.3, 0, 1, 1);
+
+  --duration-short-1:    50ms;
+  --duration-short-2:   100ms;
+  --duration-short-3:   150ms;
+  --duration-short-4:   200ms;
+  --duration-medium-1:  250ms;
+  --duration-medium-2:  300ms;
+  --duration-long-1:    350ms;
+  --duration-long-2:    400ms;
+  --duration-extra-long: 700ms;
+
+  /* -- Z-index Stack ----------------------------------------- */
+  --z-below:   -1;
+  --z-base:     0;
+  --z-above:    1;
+  --z-sticky:  100;
+  --z-navbar:  200;
+  --z-modal:  300;
+  --z-tooltip: 400;
+
+  /* -- Legacy aliases (keep old names alive during cleanup) -- */
+  --primary-green:          var(--md-primary);
+  --primary-dark:           var(--md-primary-dark);
+  --secondary-orange:       var(--md-secondary);
+  --secondary-orange-hover: var(--md-secondary-dark);
+  --footer-blue:            var(--md-inverse-surface);
+  --text-dark:              var(--md-on-surface);
+  --text-gray:              var(--md-on-surface-variant);
+  --bg-light:               var(--md-surface-variant);
+  --white:                  var(--md-surface);
+}

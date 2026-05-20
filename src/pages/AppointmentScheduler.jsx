@@ -71,25 +71,25 @@ const PROBLEMS = [
 
 const CAPABILITIES = [
     {
-        icon: 'fa-solid fa-clipboard-list',
+        icon: 'assignment',
         title: 'Conversational Damage Intake',
         desc: 'EstiPay asks the customer about the type of loss (water, fire, wind, hail, etc.), when it occurred, the extent of visible damage, and any immediate concerns — capturing all intake data in structured form without a staff member on the line.',
         tags: ['Loss type', 'Damage description', 'Structured data capture'],
     },
     {
-        icon: 'fa-solid fa-location-dot',
+        icon: 'location_on',
         title: 'Address and Site Access Collection',
         desc: 'Collects the full property address, access details such as gate codes, entry instructions, and any other site-specific information your executive needs before arriving — so the visit starts without surprises.',
         tags: ['Address capture', 'Gate codes', 'Access instructions'],
     },
     {
-        icon: 'fa-solid fa-calendar-days',
+        icon: 'calendar_month',
         title: 'Executive Visit Scheduling',
         desc: 'Checks your executives\' real-time availability and presents the customer with clear date and time options for the site assessment visit — capturing their confirmed preference without back-and-forth.',
         tags: ['Calendar sync', 'Time-window selection', 'Confirmation capture'],
     },
     {
-        icon: 'fa-solid fa-bell',
+        icon: 'notifications',
         title: 'Appointment Reminders',
         desc: 'Sends confirmation and reminder calls before the scheduled visit to ensure the customer is present and any access arrangements (gate codes, unlocking doors) are ready when your executive arrives.',
         tags: ['Reminder calls', 'Confirmation follow-up', 'No-show reduction'],
@@ -108,21 +108,21 @@ const STEPS = [
 const RELATED = [
     {
         slug: '/products/insurance-agent',
-        icon: 'fa-solid fa-phone-volume',
+        icon: 'phone_in_talk',
         label: 'B2B Intelligence',
         title: 'Insurance Agent',
         desc: 'Once the site is assessed and a claim is filed, automate all carrier coordination — status checks, documentation requests, and approvals — without your team picking up the phone.',
     },
     {
         slug: '/products/payment-collector',
-        icon: 'fa-solid fa-circle-dollar-to-slot',
+        icon: 'payments',
         label: 'Financial Recovery',
         title: 'Payment Collector',
         desc: 'After restoration work is completed and verified, automatically follow up on payment to close the revenue cycle.',
     },
     {
         slug: '/products',
-        icon: 'fa-solid fa-layer-group',
+        icon: 'layers',
         label: 'Full Platform',
         title: 'View the Full Platform',
         desc: 'See how all three agents work together — from the first customer call to the last payment collected.',
@@ -189,9 +189,9 @@ const AppointmentScheduler = () => {
                 <div className="container sec-hero-container">
                     <nav className="prod-breadcrumb" aria-label="Breadcrumb">
                         <Link to="/">Home</Link>
-                        <span className="prod-breadcrumb-sep"><i className="fa-solid fa-chevron-right" /></span>
+                        <span className="prod-breadcrumb-sep"><span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.85rem', verticalAlign: 'middle' }}>chevron_right</span></span>
                         <Link to="/products">Products</Link>
-                        <span className="prod-breadcrumb-sep"><i className="fa-solid fa-chevron-right" /></span>
+                        <span className="prod-breadcrumb-sep"><span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.85rem', verticalAlign: 'middle' }}>chevron_right</span></span>
                         <span>Appointment Scheduler</span>
                     </nav>
                     <div className="prod-hero-badge-wrap">
@@ -207,7 +207,7 @@ const AppointmentScheduler = () => {
                     </p>
                     <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 32px', fontSize: '1rem' }}>
-                            Contact Sales <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }} />
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/products" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
                             ← All Products
@@ -252,7 +252,7 @@ const AppointmentScheduler = () => {
                         {CAPABILITIES.map((c, i) => (
                             <article className="prod-cap-card" key={i}>
                                 <div className="prod-cap-icon-wrap" aria-hidden="true">
-                                    <i className={c.icon} />
+                                    <span className="material-symbols-outlined">{c.icon}</span>
                                 </div>
                                 <h3 className="prod-cap-title">{c.title}</h3>
                                 <p className="prod-cap-desc">{c.desc}</p>
@@ -344,12 +344,12 @@ const AppointmentScheduler = () => {
                                 className={`prod-related-card ${r.isPlatform ? 'prod-related-card--platform' : ''}`}
                                 key={i}
                             >
-                                <div className="prod-related-icon"><i className={r.icon} /></div>
+                                <div className="prod-related-icon"><span className="material-symbols-outlined">{r.icon}</span></div>
                                 <span className="prod-related-label">{r.label}</span>
                                 <div className="prod-related-title">{r.title}</div>
                                 <p className="prod-related-desc">{r.desc}</p>
                                 <div className="prod-related-link">
-                                    Learn more <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.75rem' }} />
+                                    Learn more <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.9rem', verticalAlign: 'middle' }}>arrow_forward</span>
                                 </div>
                             </Link>
                         ))}
@@ -367,7 +367,7 @@ const AppointmentScheduler = () => {
                     </p>
                     <div className="prod-cta-actions">
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 36px', fontSize: '1rem' }}>
-                            Contact Sales <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }} />
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/products" className="btn btn-outline" style={{ padding: '15px 36px', fontSize: '1rem' }}>
                             View All Products
@@ -380,3 +380,4 @@ const AppointmentScheduler = () => {
 };
 
 export default AppointmentScheduler;
+

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+﻿import React, { useRef, useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import DemoModal from './DemoModal';
 
@@ -53,7 +53,7 @@ const Hero = () => {
 
         if (Math.random() < 0.25) {
             const id = Date.now() + Math.random();
-            const colors = ['#29c1a5', '#F58220', '#10b981'];
+            const colors = ['var(--md-primary)', 'var(--md-secondary)', 'var(--md-primary)'];
             const newSparkle = {
                 id,
                 x: curX + (Math.random() * 20 - 10),
@@ -101,6 +101,11 @@ const Hero = () => {
                 </svg>
             ))}
 
+            {/* Ambient glow orbs */}
+            <div className="hero-glow-primary" aria-hidden="true" />
+            <div className="hero-glow-secondary" aria-hidden="true" />
+            <div className="hero-glow-accent" aria-hidden="true" />
+
             <Navbar />
 
             <div className="container hero-split-container">
@@ -110,8 +115,8 @@ const Hero = () => {
                     </div>
 
                     <h1 className="hero-animate" style={{ animationDelay: '0.25s' }}>
-                        <span style={{ color: 'black' }}>AI That Calls Carriers.</span><br />
-                        <span style={{ color: 'var(--primary-green)' }}>
+                        <span style={{ color: 'var(--md-on-surface)' }}>AI That Calls Carriers.</span><br />
+                        <span style={{ color: 'var(--md-primary)' }}>
                             So Your Team Doesn’t Have To.
                         </span>
                     </h1>
@@ -125,8 +130,14 @@ const Hero = () => {
                     </p>
 
                     <div className="cta-group hero-cta-group hero-animate" style={{ animationDelay: '0.7s', justifyContent: 'center', alignItems: 'center' }}>
-                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-orange" style={{ backgroundColor: '#ff7a00', border: '2px solid #ff7a00', color: '#fff', cursor: 'pointer', padding: '12px 32px', borderRadius: '50px', fontSize: '1.1rem', fontWeight: 'bold', transition: 'all 0.3s ease', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', textDecoration: 'none' }}>Join Our Pilot Program <i className="fa-solid fa-arrow-right" /></a>
-                        <a href="#how-it-works" className="btn btn-demo" style={{ background: 'transparent', border: '2px solid #10b981', color: '#10b981', cursor: 'pointer', padding: '12px 32px', borderRadius: '50px', fontSize: '1.1rem', fontWeight: 'bold', transition: 'all 0.3s ease', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', textDecoration: 'none' }}>See How It Works <i className="fa-solid fa-arrow-down" /></a>
+                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-orange btn-hero-pill">
+                            Join Our Pilot Program
+                            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1.1rem' }}>arrow_forward</span>
+                        </a>
+                        <a href="#how-it-works" className="btn btn-hero-pill" style={{ background: 'transparent', border: '2px solid var(--md-primary)', color: 'var(--md-primary)' }}>
+                            See How It Works
+                            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1.1rem' }}>arrow_downward</span>
+                        </a>
                     </div>
                 </div>
 
@@ -142,6 +153,13 @@ const Hero = () => {
                 >
                     <img src="/assets/dashboard-light.png" alt="EstiPay Dashboard UI" className="hero-dashboard-img" />
                 </div>
+            </div>
+
+            {/* Bottom wave transition into trust bar */}
+            <div className="hero-wave-bottom" aria-hidden="true">
+                <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', width: '100%', height: '100%' }}>
+                    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70Z" fill="#f4f7f9" />
+                </svg>
             </div>
 
             <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />

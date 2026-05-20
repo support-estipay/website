@@ -1,27 +1,26 @@
+﻿/* ============================================================
+   sections.css — Shared section components
+   (Claims cards, HowItWorks, BuiltForRole legacy, FAQ)
+   ============================================================ */
 
-/* Section 3 & 5: Claims Process (Cut Corner Cards) */
+/* ── Claims Grid (legacy .claims-section) ───────────────── */
 .claims-section {
-    padding: 100px 0;
-    background-color: var(--white);
+    padding: var(--space-28) 0;
+    background-color: var(--md-surface);
 }
 
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-top: 60px;
+    gap: var(--space-6);
 }
 
 .grid-cards-6 {
     grid-template-columns: repeat(3, 1fr);
 }
 
-
-
-
-/* Section 4: How It Works (Circular Layout) */
+/* ── How It Works (legacy circular layout) ──────────────── */
 #how-it-works {
-    /* Legacy how-it-works styles have been replaced by claims-process-section */
     scroll-margin-top: 80px;
 }
 
@@ -32,7 +31,7 @@
     transform: translateY(-50%);
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: var(--z-above);
     pointer-events: none;
 }
 
@@ -46,27 +45,13 @@
     max-width: 1100px;
 }
 
-.bg-circle-1 {
-    z-index: 1;
-    opacity: 0.8;
-}
-
-.bg-circle-2 {
-    z-index: 2;
-    opacity: 0.9;
-}
-
-.bg-circle-3 {
-    z-index: 3;
-}
-
 .circular-row {
     position: relative;
     z-index: 2;
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 80px;
+    gap: var(--space-20);
 }
 
 .how-it-works-left {
@@ -75,24 +60,24 @@
 }
 
 .how-it-works-left h2 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 30px;
-    color: #333;
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    font-size: var(--type-headline-lg-size);
+    line-height: var(--type-headline-lg-line);
+    margin-bottom: var(--space-8);
+    color: var(--md-on-surface);
+    font-weight: var(--type-headline-lg-weight);
+    letter-spacing: var(--type-headline-lg-letter);
 }
 
 .how-it-works-left .green-text {
-    color: var(--primary-green);
-    font-size: 1.25rem;
+    color: var(--md-primary-dark);
+    font-size: var(--type-title-lg-size);
     font-weight: 500;
 }
 
 .how-it-works-right {
     flex: 1;
     position: relative;
-    padding-left: 60px;
+    padding-left: var(--space-16);
 }
 
 .workflow-steps {
@@ -114,424 +99,46 @@
     transform: translateY(-50%);
     width: 80px;
     height: 80px;
-    background-color: var(--primary-green);
-    color: var(--white);
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     font-size: 2rem;
-    box-shadow: 0 12px 30px rgba(41, 193, 165, 0.45);
+    box-shadow: var(--elevation-teal-4);
     z-index: 10;
 }
 
-/* Adjust steps to follow the curve visually */
-.workflow-step:nth-child(1) {
-    transform: translateX(-60px);
-}
-
-.workflow-step:nth-child(2) {
-    transform: translateX(40px);
-}
-
-.workflow-step:nth-child(3) {
-    transform: translateX(-60px);
-}
+.workflow-step:nth-child(1) { transform: translateX(-60px); }
+.workflow-step:nth-child(2) { transform: translateX(40px); }
+.workflow-step:nth-child(3) { transform: translateX(-60px); }
 
 .workflow-step h3 {
-    font-size: 2rem;
-    margin-bottom: 12px;
-    color: #333;
-    font-weight: 700;
+    font-size: var(--type-headline-md-size);
+    margin-bottom: var(--space-3);
+    color: var(--md-on-surface);
+    font-weight: var(--type-headline-md-weight);
 }
 
 .workflow-step p {
-    color: #8c92a0;
-    font-size: 1.1rem;
-    line-height: 1.5;
+    color: var(--md-on-surface-variant);
+    font-size: var(--type-body-lg-size);
+    line-height: var(--type-body-lg-line);
     max-width: 440px;
 }
 
-@media (max-width: 1024px) {
-    #how-it-works {
-        min-height: auto;
-    }
-
-    .how-it-works-bg {
-        display: none;
-    }
-
-    .how-it-works-left {
-        padding-left: 0;
-        text-align: center;
-        margin-bottom: 60px;
-    }
-
-    .how-it-works-left h2 {
-        font-size: 2.5rem;
-    }
-
-    .how-it-works-right {
-        padding-left: 0;
-    }
-
-    .workflow-step {
-        padding-left: 100px;
-        transform: none !important;
-    }
-}
-
-    /* Section 6: Built for Your Role */
-    #built-for-role {
-        padding: 100px 0;
-        background-color: #fff;
-    }
-
-    .role-cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        margin-top: 60px;
-    }
-
-    .role-card {
-        padding: 40px;
-        border: 1px solid #eee;
-        border-radius: 12px;
-        background: #fff;
-        transition: transform 0.3s ease;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .role-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .role-icon {
-        font-size: 30px;
-        margin-bottom: 24px;
-        color: var(--primary-green);
-    }
-
-    .role-label {
-        font-size: 0.9rem;
-        color: #999;
-        margin-bottom: 8px;
-    }
-
-    .role-card h3 {
-        font-size: 1.25rem;
-        color: var(--primary-green);
-        margin-bottom: 20px;
-    }
-
-    .role-card h4 {
-        font-size: 0.85rem;
-        color: #555;
-        margin-bottom: 12px;
-        text-transform: uppercase;
-    }
-
-    .role-card ul {
-        margin-bottom: 30px;
-        flex-grow: 1;
-    }
-
-    .role-card ul li {
-        font-size: 0.9rem;
-        color: #666;
-        margin-bottom: 8px;
-        display: flex;
-        align-items: center;
-    }
-
-    .role-card ul li::before {
-        content: '✓';
-        color: var(--primary-green);
-        margin-right: 8px;
-        font-weight: bold;
-    }
-
-    .role-card .btn {
-        width: 100%;
-    }
-
-    /* Section 7: FAQ */
-    #faq {
-        padding: 100px 0;
-    }
-
-    .faq-container {
-        display: flex;
-        gap: 80px;
-    }
-
-    .faq-title {
-        flex: 1;
-    }
-
-    .faq-title h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-    }
-
-    .faq-title h2 span {
-        color: var(--primary-green);
-    }
-
-    .faq-content {
-        flex: 1.5;
-    }
-
-    .faq-item {
-        border-bottom: 1px solid #eee;
-        padding: 24px 0;
-    }
-
-    .faq-question {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        font-weight: 500;
-        color: #333;
-    }
-
-    /* Toggle Transition */
-    .faq-toggle {
-        transition: transform 0.3s ease;
-    }
-
-    /* Animated Accordion Logic */
-    details>summary {
-        list-style: none;
-    }
-
-    details>summary::-webkit-details-marker {
-        display: none;
-    }
-
-    /* Target the details when open */
-    details.faq-item[open] .toggle-icon {
-        transform: rotate(180deg);
-        color: var(--primary-green);
-    }
-
-    /* Animation Keyframes not strictly needed if we use JS for height, but let's prep formatting */
-    .faq-answer {
-        overflow: hidden;
-        transition: max-height 0.4s ease-out, opacity 0.4s ease-out, margin-top 0.4s ease;
-        max-height: 0;
-        opacity: 0;
-    }
-
-    /* When open, we will set max-height via JS, or use a large value if pure CSS (less smooth)
-       But since user wants 'smoothly', we should control it via class or JS inline style.
-       Here we set a default 'open' state style which JS will override or toggle.
-    */
-
-    /* If we use the class 'open-active' for animation */
-    .faq-item.open-active .faq-answer {
-        opacity: 1;
-        margin-top: 10px;
-    }
-
-
-
-
-
-    /* Footer */
-    footer {
-        background-color: var(--footer-blue);
-        color: #fff;
-        padding: 80px 0 40px;
-    }
-
-    .footer-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 60px;
-        margin-bottom: 60px;
-    }
-
-    .footer-about .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 20px;
-        font-size: 1.5rem;
-        font-weight: 700;
-    }
-
-    .footer-about p {
-        color: #8c92a0;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        margin-bottom: 24px;
-    }
-
-    .footer-socials {
-        display: flex;
-        gap: 15px;
-    }
-
-    .social-link {
-        width: 36px;
-        height: 36px;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-    }
-
-    .footer-links h4 {
-        margin-bottom: 24px;
-        font-size: 1.1rem;
-    }
-
-    .footer-links ul li {
-        margin-bottom: 12px;
-    }
-
-    .footer-links ul li a {
-        color: #8c92a0;
-        font-size: 0.95rem;
-    }
-
-    .footer-links ul li a:hover {
-        color: var(--primary-green);
-    }
-
-    .newsletter-box {
-        position: relative;
-        margin-top: 20px;
-    }
-
-    .newsletter-box input {
-        width: 100%;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 12px 15px;
-        border-radius: 6px;
-        color: #fff;
-    }
-
-    .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 30px;
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.85rem;
-        color: #666;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-
-        .grid-cards,
-        .grid-cards-6,
-        .role-cards,
-        .footer-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .circular-row,
-        .faq-container {
-            flex-direction: column;
-        }
-    }
-
-    @media (max-width: 768px) {
-
-        .grid-cards,
-        .grid-cards-6,
-        .role-cards,
-        .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        /* Card UX improvements for mobile */
-        .cut-card {
-            margin-bottom: 10px;
-            /* Ensure clip-path doesn't cut off content on small screens */
-            /* We might want to reduce the notch size or adjust padding */
-            --notchSize: 30px;
-        }
-
-        .cut-card-inner {
-            padding: 24px 20px;
-        }
-
-        .role-card {
-            padding: 24px;
-        }
-
-        /* How it works mobile tweaks */
-        .how-left h2 {
-            font-size: 2.5rem;
-        }
-
-        .how-left {
-            margin-left: 0;
-            padding-right: 0;
-            margin-bottom: 40px;
-        }
-
-        .step-item {
-            flex-direction: column;
-            text-align: center;
-            gap: 20px;
-        }
-
-        .step-number {
-            margin: 0 auto;
-        }
-
-        .step-02 {
-            margin-left: 0;
-        }
-
-        /* FAQ Mobile */
-        .faq-container {
-            gap: 40px;
-        }
-
-        .faq-title h2 {
-            font-size: 2.5rem;
-            text-align: center;
-        }
-
-        .faq-title p {
-            text-align: center;
-        }
-    }
-
-
-/* =========================================
-   Section 4: How It Works (Exact Replica)
-   ========================================= */
-
-#how-it-works-legacy-placeholder {
-    display: none;
-}
-
-/* --- 3 Concentric "Bubble" Rings --- */
-/* Center them vertically on the left edge to match the image arc */
+/* ── How It Works — Animated rings ─────────────────────── */
 .ring-container {
     position: absolute;
     top: 50%;
     left: -20%;
-    /* Shift left so we only see the right side of circles */
     transform: translateY(-50%);
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 0;
+    z-index: var(--z-base);
 }
 
 .ring {
@@ -540,289 +147,137 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 1px solid rgba(41, 193, 165, 0.15);
-    /* Subtle border line */
+    border: 1px solid rgba(0, 155, 108, 0.15);
     background: transparent;
-    box-shadow: 0 0 60px rgba(41, 193, 165, 0.05);
-    /* Very faint glow */
+    box-shadow: 0 0 60px rgba(0, 155, 108, 0.05);
 }
 
-/* Sizes for the 3 bubbles */
-.ring-1 {
-    width: 80vh;
-    height: 80vh;
-}
+.ring-1 { width: 80vh;  height: 80vh;  }
+.ring-2 { width: 110vh; height: 110vh; }
+.ring-3 { width: 140vh; height: 140vh; border-color: rgba(0, 155, 108, 0.1); }
 
-.ring-2 {
-    width: 110vh;
-    height: 110vh;
-}
-
-.ring-3 {
-    width: 140vh;
-    height: 140vh;
-    border-color: rgba(41, 193, 165, 0.1);
-}
-
-
-/* ─── How It Works — Entry Animations ───────────────── */
+/* ── How It Works entry animations ─────────────────────── */
 @keyframes hiw-fade-up-left {
-    from {
-        opacity: 0;
-        transform: translateX(-40px) translateY(16px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0) translateY(0);
-    }
+    from { opacity: 0; transform: translateX(-40px) translateY(16px); }
+    to   { opacity: 1; transform: translateX(0) translateY(0); }
 }
 
 @keyframes hiw-fade-up-right {
-    from {
-        opacity: 0;
-        transform: translateX(50px) translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0) translateY(0);
-    }
+    from { opacity: 0; transform: translateX(50px) translateY(10px); }
+    to   { opacity: 1; transform: translateX(0) translateY(0); }
 }
 
-.hiw-animate {
-    opacity: 0;
-}
+.hiw-animate { opacity: 0; }
 
 .hiw-animate.hiw-fade-left.hiw-visible {
-    animation: hiw-fade-up-left 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--hiw-delay, 0s) forwards;
+    animation: hiw-fade-up-left 0.7s var(--easing-emphasized) var(--hiw-delay, 0s) forwards;
 }
 
 .hiw-animate.hiw-fade-right.hiw-visible {
-    animation: hiw-fade-up-right 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--hiw-delay, 0s) forwards;
+    animation: hiw-fade-up-right 0.65s var(--easing-emphasized) var(--hiw-delay, 0s) forwards;
 }
 
-/* ─── How It Works — Layout ──────────────────────────── */
-/* --- Layout --- */
+/* ── How It Works step layout ───────────────────────────── */
 .how-container {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-above);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* Left Content */
 .how-left {
     flex: 0 0 45%;
-    padding-right: 40px;
+    padding-right: var(--space-10);
 }
 
 .how-left h2 {
-    font-size: 2.5rem;
-    color: #333;
-    /* Dark Grey */
-    font-weight: 700;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    font-size: var(--type-headline-lg-size);
+    color: var(--md-on-surface);
+    font-weight: var(--type-headline-lg-weight);
+    margin-bottom: var(--space-4);
+    letter-spacing: var(--type-headline-lg-letter);
+    line-height: var(--type-headline-lg-line);
 }
 
 .green-subtitle {
-    color: #00b894;
-    /* The specific Green from image */
-    font-size: 1.2rem;
+    color: var(--md-primary-dark);
+    font-size: var(--type-title-lg-size);
     font-weight: 500;
 }
 
-/* Right Content (Timeline) */
 .how-right {
     flex: 1;
     position: relative;
-    /* Create height for the items to space out vertically */
     height: 500px;
     display: flex;
     align-items: center;
 }
 
-/* The Curved Line SVG */
-/* .timeline-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100px;
-    z-index: 0;
-    overflow: visible;
-} */
-
 .steps-wrapper {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-above);
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Spreads 01, 02, 03 evenly top to bottom */
 }
 
-/* Individual Step Row */
 .step-item {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: var(--space-10);
 }
 
-/* --- Positioning Logic for the Curve --- */
-/* Step 1: Start */
-.step-01 {
-    margin-left: 0px;
-}
+.step-01 { margin-left: 0px; }
+.step-02 { margin-left: 42px; }
+.step-03 { margin-left: 0px; }
 
-/* Step 2: Middle - Pushed Right to match the curve */
-.step-02 {
-    margin-left: 42px;
-    /* This pushes the circle and text to the right */
-}
-
-/* Step 3: End - Back to start alignment */
-.step-03 {
-    margin-left: 0px;
-}
-
-/* Number Circle Styling */
 .step-number {
     width: 80px;
     height: 80px;
     flex-shrink: 0;
     border-radius: 50%;
-
-    /* Gradient: Teal to Darker Teal */
-    background: linear-gradient(135deg, #42cba9 0%, #2da895 100%);
-
-    /* Text */
-    color: #fff;
+    background: var(--gradient-teal);
+    color: var(--md-on-primary);
     font-size: 1.8rem;
     font-weight: 700;
-
-    /* Centering */
     display: flex;
     align-items: center;
     justify-content: center;
-
-    /* Shadow & Border to match image */
-    box-shadow: 0 10px 20px rgba(45, 168, 149, 0.35);
-    border: 4px solid #fff;
-    /* White ring around the gradient */
+    box-shadow: var(--elevation-teal-4);
+    border: 4px solid var(--md-surface);
     position: relative;
 }
 
-/* Text Content */
 .step-text h3 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 8px;
+    font-size: var(--type-headline-sm-size);
+    font-weight: var(--type-headline-sm-weight);
+    color: var(--md-on-surface);
+    margin-bottom: var(--space-2);
 }
 
 .step-text p {
-    font-size: 1rem;
-    color: #7a869a;
-    /* Muted text color */
-    line-height: 1.5;
+    font-size: var(--type-body-md-size);
+    color: var(--md-on-surface-variant);
+    line-height: var(--type-body-md-line);
     max-width: 450px;
 }
 
-/* --- Responsive --- */
-@media (max-width: 992px) {
-    .how-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .how-left {
-        width: 100%;
-        margin-bottom: 50px;
-        text-align: center;
-        margin-left: 0;
-        padding-right: 0;
-    }
-
-    /* Mobile Rings: Make them smaller and centered */
-    .ring-container {
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0.3;
-        /* Fade them out a bit so text is readable */
-    }
-
-    .ring-1 {
-        width: 60vw;
-        height: 60vw;
-    }
-
-    .ring-2 {
-        width: 90vw;
-        height: 90vw;
-    }
-
-    .ring-3 {
-        width: 120vw;
-        height: 120vw;
-    }
-
-    /* Disable complex curve on mobile for readability */
-    /* .timeline-svg {
-        display: none;
-    } */
-
-    .how-right {
-        height: auto;
-        gap: 40px;
-        width: 100%;
-        justify-content: center;
-        /* Center the steps */
-    }
-
-    .steps-wrapper {
-        gap: 40px;
-        align-items: center;
-        /* Center items */
-    }
-
-    .step-02 {
-        margin-left: 0;
-    }
-
-    .step-number {
-        width: 60px;
-        height: 60px;
-        font-size: 1.4rem;
-        border-width: 3px;
-    }
-}
-
-
-/* =========================================
-   Section: Built for Your Role (Black Theme)
-   ========================================= */
-
+/* ── Built for Role (legacy card styles) ────────────────── */
 #built-for-role {
-    background: #F2F7F9;
-
-    /* Pure Black Background */
-    padding: 120px 0;
+    background: var(--md-surface-variant);
+    padding: var(--space-30) 0;
     position: relative;
     overflow: hidden;
-    color: white;
 }
 
-/* --- Background Abstract Circles --- */
 .bg-circle-deco {
     position: absolute;
-    background: #29c1a514;
-    /* White/Light Grey */
+    background: rgba(0, 155, 108, 0.08);
     border-radius: 50%;
-    z-index: 1;
+    z-index: var(--z-above);
 }
 
 .circle-top-left {
@@ -845,197 +300,171 @@
     height: 600px;
 }
 
-/* --- Header Styling --- */
 .section-header.dark-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: var(--space-20);
 }
 
 .dark-header h2 {
-    font-size: 3.5rem;
+    font-size: var(--type-display-md-size);
     margin-bottom: 15px;
     font-weight: 700;
 }
 
-.text-teal {
-    color: #29c1a5;
-    /* Teal Color */
-}
-
-.text-dark-gray {
-    color: #333333;
-    /* Dark Gray for "Your Role" to blend with black */
-}
+.text-teal       { color: var(--md-primary); }
+.text-dark-gray  { color: var(--md-on-surface); }
 
 .dark-header p {
-    color: #999;
-    font-size: 1.1rem;
+    color: var(--md-on-surface-variant);
+    font-size: var(--type-body-lg-size);
 }
 
-/* --- Card Grid --- */
+/* Role cards (legacy) */
 .role-cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 60px;
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
     align-items: start;
-    /* Prevents cards from stretching when sibling grows */
 }
 
-/* --- Card Design --- */
 .role-card {
-    background: white;
-    border-radius: 16px;
-    /* Hide footer when collapsed */
+    background: var(--md-surface);
+    border-radius: var(--shape-xl);
     display: flex;
     flex-direction: column;
     text-align: left;
     position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+        transform var(--duration-medium-2) var(--easing-emphasized),
+        box-shadow var(--duration-medium-2) var(--easing-standard);
 }
 
 .role-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
+    box-shadow: var(--elevation-3);
 }
 
-/* Icon on top (Overlapping border) */
 .role-icon-wrapper {
     width: 70px;
     height: 70px;
-    background: white;
+    background: var(--md-surface);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    color: #00b894;
+    color: var(--md-primary-dark);
     position: absolute;
     top: -35px;
-    /* Pulls half icon out */
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--elevation-2);
     z-index: 2;
 }
 
 .role-content {
-    padding: 50px 30px 30px 30px;
-    /* Top padding jyada icon ke liye */
+    padding: 50px var(--space-8) var(--space-8) var(--space-8);
     flex-grow: 1;
-    color: #333;
+    color: var(--md-on-surface);
 }
 
 .role-content h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: #111;
+    font-size: var(--type-headline-sm-size);
+    font-weight: var(--type-headline-sm-weight);
+    margin-bottom: var(--space-1);
+    color: var(--md-on-surface);
 }
 
 .role-subtitle {
-    color: #114e7a;
-    /* Blue subtitle */
+    color: var(--md-tertiary);
     font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
+    font-size: var(--type-body-md-size);
+    margin-bottom: var(--space-8);
+    border-bottom: 1px solid var(--md-outline);
+    padding-bottom: var(--space-5);
 }
 
-/* Pain Point Section */
 .pain-point-box .pain-label {
-    color: #eb5757;
-    /* Red Label */
+    color: var(--md-error);
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: var(--type-label-sm-size);
     text-transform: uppercase;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: var(--space-2);
 }
 
 .pain-point-box p {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: var(--type-body-sm-size);
+    color: var(--md-on-surface-variant);
     line-height: 1.4;
 }
 
-/* --- Orange Footer (Hover Interaction) --- */
 .role-footer {
-    background: #f07e24;
-    color: white;
-    padding: 0 30px;
-    border-radius: 0 0 16px 16px;
-    /* Match card bottom corners */
-
-    /* Animation Logic */
-    /* Absolute positioning to prevent layout shift */
+    background: var(--md-secondary);
+    color: var(--md-on-secondary);
+    padding: 0 var(--space-8);
+    border-radius: 0 0 var(--shape-xl) var(--shape-xl);
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     transform: translateY(100%);
-    /* Start completely hidden below */
     z-index: 5;
-
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease, transform 0.4s ease;
+    transition:
+        max-height var(--duration-long-2) var(--easing-standard),
+        opacity var(--duration-long-2) var(--easing-standard),
+        padding var(--duration-long-2) var(--easing-standard),
+        transform var(--duration-long-2) var(--easing-standard);
 }
 
-/* HOVER STATE: Open the footer */
 .role-card:hover .role-footer {
     max-height: 200px;
-    /* Allow enough height */
     opacity: 1;
-    padding: 25px 30px;
+    padding: 25px var(--space-8);
     transform: translateY(98%);
-    /* Slide down just enough to look attached */
-    /* Note: We use 98% or so to keep it attached to the bottom edge visually */
 }
 
-.role-card {
-    /* Ensure z-index is higher on hover so footer goes over other content */
-    z-index: 1;
-}
-
-.role-card:hover {
-    z-index: 10;
-}
+.role-card     { z-index: 1; }
+.role-card:hover { z-index: 10; }
 
 .role-footer strong {
     display: block;
-    font-size: 0.75rem;
+    font-size: var(--type-label-sm-size);
     text-transform: uppercase;
-    margin-bottom: 5px;
+    margin-bottom: var(--space-1);
     opacity: 0.9;
 }
 
 .role-footer p {
-    font-size: 0.95rem;
+    font-size: var(--type-body-md-size);
     margin: 0;
     line-height: 1.4;
 }
 
-/* --- Bottom Button --- */
+/* Center button */
 .center-btn-wrapper {
     text-align: center;
     margin-top: 10%;
 }
 
 .btn-white-pill {
-    background: white;
-    color: #114e7a;
-    padding: 12px 30px;
-    border-radius: 50px;
+    background: var(--md-surface);
+    color: var(--md-tertiary);
+    padding: var(--space-3) var(--space-8);
+    border-radius: var(--shape-full);
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: var(--type-body-md-size);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
+    gap: var(--space-2);
+    transition:
+        background var(--duration-medium-1) var(--easing-standard),
+        transform var(--duration-short-4) var(--easing-standard);
 }
 
 .btn-white-pill:hover {
@@ -1043,69 +472,97 @@
     transform: translateY(-2px);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .role-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* ── FAQ (legacy inline styles) ─────────────────────────── */
+#faq {
+    padding: var(--space-28) 0;
 }
 
-@media (max-width: 768px) {
-    .role-cards-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .circle-top-left,
-    .circle-bottom-right {
-        display: none;
-        /* Mobile par circles hata dein taki clean dikhe */
-    }
-
-    /* Mobile: Always show the "With EstiPay" footer */
-    .role-footer {
-        position: static;
-        /* Reset absolute positioning */
-        transform: none;
-        max-height: none;
-        opacity: 1;
-        padding: 20px 24px;
-        background: #f07e24;
-    }
-
-    .role-card:hover {
-        transform: none;
-        /* Disable hover lift on mobile */
-        box-shadow: none;
-    }
-
-    .role-card {
-        border-color: #ddd;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        /* Subtle shadow by default */
-    }
+.faq-container {
+    display: flex;
+    gap: var(--space-20);
 }
 
+.faq-title { flex: 1; }
 
-/* =========================================
-   Section 7: FAQ — Redesigned
-   ========================================= */
+.faq-title h2 {
+    font-size: var(--type-headline-lg-size);
+    margin-bottom: var(--space-5);
+}
 
-/* --- Section Shell --- */
+.faq-title h2 span { color: var(--md-primary); }
+
+.faq-content { flex: 1.5; }
+
+.faq-item {
+    border-bottom: 1px solid var(--md-outline);
+    padding: var(--space-6) 0;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--md-on-surface);
+}
+
+.faq-toggle {
+    transition: transform var(--duration-medium-1) var(--easing-standard);
+}
+
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+
+details.faq-item[open] .toggle-icon {
+    transform: rotate(180deg);
+    color: var(--md-primary);
+}
+
+.faq-answer {
+    overflow: hidden;
+    transition:
+        max-height var(--duration-long-2) var(--easing-standard),
+        opacity var(--duration-long-2) var(--easing-standard),
+        margin-top var(--duration-long-2) var(--easing-standard);
+    max-height: 0;
+    opacity: 0;
+}
+
+.faq-item.open-active .faq-answer {
+    opacity: 1;
+    margin-top: var(--space-2) + 2px;
+}
+
+/* ── FAQ v2 (Redesigned) ────────────────────────────────── */
 #faq.faq2-section,
 .faq2-section {
-    padding: 120px 0 100px;
-    background: #dcf0e7 !important;
+    padding: 100px 0 var(--space-28);
+    background: linear-gradient(160deg, var(--md-primary-container) 0%, #e8f7f2 100%) !important;
     position: relative;
     overflow: hidden;
 }
 
-/* --- Background Blobs --- */
+/* Top wave into FAQ */
+#faq.faq2-section::before,
+.faq2-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: var(--md-surface);
+    clip-path: ellipse(55% 100% at 50% 0%);
+    z-index: 2;
+}
+
 .faq2-blob {
     position: absolute;
     border-radius: 50%;
     filter: blur(90px);
     pointer-events: none;
-    z-index: 0;
+    z-index: var(--z-base);
 }
 
 .faq2-blob--tl {
@@ -1113,7 +570,7 @@
     height: 520px;
     top: -160px;
     left: -160px;
-    background: radial-gradient(circle, rgba(41, 193, 165, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 155, 108, 0.18) 0%, transparent 70%);
 }
 
 .faq2-blob--br {
@@ -1121,18 +578,16 @@
     height: 440px;
     bottom: -140px;
     right: -120px;
-    background: radial-gradient(circle, rgba(245, 130, 32, 0.14) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(244, 128, 39, 0.14) 0%, transparent 70%);
 }
 
-/* --- Container --- */
 .faq2-container {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-above);
     max-width: 860px;
     margin: 0 auto;
 }
 
-/* --- Header --- */
 .faq2-header {
     text-align: center;
     margin-bottom: 52px;
@@ -1140,14 +595,14 @@
 
 .faq2-badge {
     display: inline-block;
-    padding: 6px 18px;
-    border-radius: 100px;
+    padding: var(--space-1) + 2px var(--space-4) + 2px;
+    border-radius: var(--shape-full);
     background: rgba(244, 125, 38, 0.12);
     border: 1px solid rgba(244, 125, 38, 0.3);
-    color: #f47d26;
-    font-size: 0.8rem;
+    color: var(--md-secondary);
+    font-size: var(--type-label-md-size);
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--type-label-md-letter);
     text-transform: uppercase;
     margin-bottom: 22px;
 }
@@ -1155,119 +610,109 @@
 .faq2-title {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
-    color: #0b1220;
+    color: var(--md-on-surface);
     line-height: 1.1;
     letter-spacing: -0.03em;
     margin-bottom: 18px;
 }
 
-.faq2-title--accent {
-    color: #29c1a5;
-}
+.faq2-title--accent { color: var(--md-primary); }
 
 .faq2-subtitle {
-    font-size: 1.05rem;
-    color: #4b5563;
+    font-size: var(--type-body-lg-size);
+    color: var(--md-on-surface-variant);
     max-width: 520px;
     margin: 0 auto;
-    line-height: 1.65;
+    line-height: var(--type-body-lg-line);
 }
 
 .faq2-inline-link {
-    color: #29c1a5;
+    color: var(--md-primary-dark);
     text-decoration: underline;
     text-underline-offset: 3px;
-    transition: opacity 0.2s;
+    transition: opacity var(--duration-medium-1) var(--easing-standard);
 }
 
-.faq2-inline-link:hover {
-    opacity: 0.75;
-}
+.faq2-inline-link:hover { opacity: 0.75; }
 
-/* --- Category Filter Pills --- */
+/* Filter Pills */
 .faq2-filters {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: var(--space-2) + 2px;
     margin-bottom: 44px;
 }
 
 .faq2-filter-btn {
-    padding: 8px 22px;
-    border-radius: 100px;
+    padding: var(--space-2) 22px;
+    border-radius: var(--shape-full);
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: rgba(255, 255, 255, 0.5);
-    color: #4b5563;
-    font-size: 0.875rem;
+    color: var(--md-on-surface-variant);
+    font-size: var(--type-label-lg-size);
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.22s ease;
+    transition: all var(--duration-short-4) var(--easing-standard);
 }
 
 .faq2-filter-btn:hover {
-    border-color: rgba(41, 193, 165, 0.4);
-    color: #1f2937;
+    border-color: rgba(0, 155, 108, 0.4);
+    color: var(--md-on-surface);
     background: rgba(255, 255, 255, 0.8);
 }
 
 .faq2-filter-btn--active {
-    background: #29c1a5;
-    border-color: #29c1a5;
-    color: #ffffff;
+    background: var(--md-primary);
+    border-color: var(--md-primary);
+    color: var(--md-on-primary);
     font-weight: 700;
 }
 
 .faq2-filter-btn--active:hover {
-    background: #23ad93;
-    border-color: #23ad93;
-    color: #ffffff;
+    background: var(--md-primary-dark);
+    border-color: var(--md-primary-dark);
+    color: var(--md-on-primary);
 }
 
-/* --- Accordion List --- */
+/* Accordion */
 .faq2-list {
     display: flex;
     flex-direction: column;
     gap: 0;
     border: 1px solid rgba(0, 0, 0, 0.07);
-    border-radius: 16px;
+    border-radius: var(--shape-lg);
     overflow: hidden;
 }
 
-/* --- Accordion Item --- */
 .faq2-item {
     border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     background: rgba(255, 255, 255, 0.4);
     cursor: pointer;
-    transition: background 0.22s ease;
+    transition: background var(--duration-short-4) var(--easing-standard);
 }
 
-.faq2-item:last-child {
-    border-bottom: none;
-}
+.faq2-item:last-child { border-bottom: none; }
 
-.faq2-item:hover {
-    background: rgba(255, 255, 255, 0.6);
-}
+.faq2-item:hover { background: rgba(255, 255, 255, 0.6); }
 
 .faq2-item--open {
-    background: rgba(41, 193, 165, 0.06);
-    border-left: 3px solid #29c1a5;
+    background: rgba(0, 155, 108, 0.06);
+    border-left: 3px solid var(--md-primary);
 }
 
-/* --- Question Row --- */
 .faq2-question {
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 26px 28px;
+    gap: var(--space-5);
+    padding: 26px var(--space-8);
     user-select: none;
 }
 
 .faq2-index {
-    font-size: 0.75rem;
+    font-size: var(--type-label-md-size);
     font-weight: 700;
-    color: #0b1220;
+    color: var(--md-on-surface);
     opacity: 0.7;
     letter-spacing: 0.05em;
     flex-shrink: 0;
@@ -1276,16 +721,14 @@
 
 .faq2-question-text {
     flex: 1;
-    font-size: 1.02rem;
+    font-size: var(--type-body-lg-size);
     font-weight: 600;
-    color: #1f2937;
+    color: var(--md-on-surface);
     line-height: 1.4;
-    transition: color 0.2s ease;
+    transition: color var(--duration-medium-1) var(--easing-standard);
 }
 
-.faq2-item--open .faq2-question-text {
-    color: #0b1220;
-}
+.faq2-item--open .faq2-question-text { color: var(--md-on-surface); }
 
 .faq2-toggle {
     flex-shrink: 0;
@@ -1296,39 +739,35 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #4b5563;
-    transition: background 0.22s ease, color 0.22s ease;
+    color: var(--md-on-surface-variant);
+    transition:
+        background var(--duration-short-4) var(--easing-standard),
+        color var(--duration-short-4) var(--easing-standard);
 }
 
-.faq2-item--open .faq2-toggle {
-    background: rgba(0, 0, 0, 0.06);
-    color: #4b5563;
-}
-
-/* --- Answer --- */
 .faq2-answer {
     overflow: hidden;
-    padding: 0 28px 0 74px;
+    padding: 0 var(--space-8) 0 74px;
 }
 
 .faq2-answer p {
-    font-size: 0.95rem;
-    color: #4b5563;
+    font-size: var(--type-body-md-size);
+    color: var(--md-on-surface-variant);
     line-height: 1.75;
-    padding-bottom: 24px;
+    padding-bottom: var(--space-6);
     border-top: 1px solid rgba(0, 0, 0, 0.05);
-    padding-top: 4px;
+    padding-top: var(--space-1);
     margin: 0;
 }
 
-/* --- Bottom CTA --- */
+/* FAQ bottom CTA */
 .faq2-cta {
     margin-top: 52px;
     display: flex;
     align-items: center;
-    gap: 20px;
-    padding: 28px 32px;
-    border-radius: 16px;
+    gap: var(--space-5);
+    padding: var(--space-8);
+    border-radius: var(--shape-lg);
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(0, 0, 0, 0.08);
     flex-wrap: wrap;
@@ -1337,26 +776,26 @@
 .faq2-cta-icon {
     width: 52px;
     height: 52px;
-    border-radius: 12px;
-    background: rgba(41, 193, 165, 0.12);
-    border: 1px solid rgba(41, 193, 165, 0.2);
+    border-radius: var(--shape-md);
+    background: rgba(0, 155, 108, 0.12);
+    border: 1px solid rgba(0, 155, 108, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #29c1a5;
+    color: var(--md-primary-dark);
     flex-shrink: 0;
 }
 
 .faq2-cta-heading {
-    font-size: 1rem;
+    font-size: var(--type-body-md-size);
     font-weight: 700;
-    color: #0b1220;
-    margin: 0 0 4px;
+    color: var(--md-on-surface);
+    margin: 0 0 var(--space-1);
 }
 
 .faq2-cta-sub {
-    font-size: 0.875rem;
-    color: #4b5563;
+    font-size: var(--type-label-lg-size);
+    color: var(--md-on-surface-variant);
     margin: 0;
 }
 
@@ -1370,28 +809,110 @@
     white-space: nowrap;
 }
 
-/* --- Responsive --- */
-@media (max-width: 768px) {
-    .faq2-section {
-        padding: 80px 0 70px;
-    }
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    #how-it-works { min-height: auto; }
 
-    .faq2-question {
-        padding: 22px 20px;
-        gap: 14px;
-    }
+    .how-it-works-bg { display: none; }
 
-    .faq2-answer {
-        padding: 0 20px 0 20px;
-    }
-
-    .faq2-cta {
-        flex-direction: column;
+    .how-it-works-left {
+        padding-left: 0;
         text-align: center;
+        margin-bottom: var(--space-16);
+    }
+
+    .how-it-works-right { padding-left: 0; }
+
+    .workflow-step {
+        padding-left: 100px;
+        transform: none !important;
+    }
+
+    .grid-cards,
+    .grid-cards-6,
+    .role-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .circular-row,
+    .faq-container {
+        flex-direction: column;
+    }
+
+    .ring-container {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.3;
+    }
+
+    .ring-1 { width: 60vw; height: 60vw; }
+    .ring-2 { width: 90vw; height: 90vw; }
+    .ring-3 { width: 120vw; height: 120vw; }
+
+    .how-right {
+        height: auto;
+        gap: var(--space-10);
+        width: 100%;
+        justify-content: center;
+    }
+
+    .steps-wrapper {
+        gap: var(--space-10);
         align-items: center;
     }
 
-    .faq2-cta > div {
-        min-width: unset;
+    .step-02 { margin-left: 0; }
+
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+        border-width: 3px;
     }
+}
+
+@media (max-width: 768px) {
+    .grid-cards,
+    .grid-cards-6,
+    .role-cards-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+
+    .how-left h2 { font-size: var(--type-headline-lg-size); }
+    .how-left { margin-left: 0; padding-right: 0; margin-bottom: var(--space-10); }
+
+    .step-item {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-5);
+    }
+
+    .step-number { margin: 0 auto; }
+    .step-02     { margin-left: 0; }
+
+    .faq-container  { gap: var(--space-10); }
+    .faq-title h2   { font-size: var(--type-headline-lg-size); text-align: center; }
+    .faq-title p    { text-align: center; }
+
+    .circle-top-left,
+    .circle-bottom-right { display: none; }
+
+    .role-footer {
+        position: static;
+        transform: none;
+        max-height: none;
+        opacity: 1;
+        padding: var(--space-5) var(--space-6);
+        background: var(--md-secondary);
+    }
+
+    .role-card:hover  { transform: none; box-shadow: none; }
+    .role-card        { border-color: var(--md-outline); box-shadow: var(--elevation-1); }
+
+    .faq2-section     { padding: var(--space-20) 0 var(--space-20); }
+    .faq2-question    { padding: 22px var(--space-5); gap: 14px; }
+    .faq2-answer      { padding: 0 var(--space-5); }
+    .faq2-cta         { flex-direction: column; text-align: center; align-items: center; }
+    .faq2-cta > div   { min-width: unset; }
 }

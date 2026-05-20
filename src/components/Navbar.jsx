@@ -4,19 +4,19 @@ import { Link, useLocation } from 'react-router-dom';
 const PRODUCTS_NAV = [
     {
         to: '/products/insurance-agent',
-        icon: 'fa-solid fa-phone-volume',
+        icon: 'phone_in_talk',
         name: 'Insurance Agent',
         desc: 'Negotiate claims & coordinate carriers',
     },
     {
         to: '/products/appointment-scheduler',
-        icon: 'fa-solid fa-calendar-check',
+        icon: 'event_available',
         name: 'Appointment Scheduler',
         desc: 'Book field visits & eliminate no-shows',
     },
     {
         to: '/products/payment-collector',
-        icon: 'fa-solid fa-circle-dollar-to-slot',
+        icon: 'payments',
         name: 'Payment Collector',
         desc: 'Secure payments & reduce DSO',
     },
@@ -25,8 +25,15 @@ const PRODUCTS_NAV = [
 const Navbar = () => {
     const [isNavActive, setIsNavActive] = useState(false);
     const [isProductsOpen, setIsProductsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const dropdownRef = useRef(null);
     const location = useLocation();
+
+    useEffect(() => {
+        const onScroll = () => setIsScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     const toggleNav = () => setIsNavActive(prev => !prev);
 
@@ -61,7 +68,7 @@ const Navbar = () => {
     const isProductsActive = location.pathname.startsWith('/products');
 
     return (
-        <nav className="navbar">
+        <nav className={`navbar${isScrolled ? ' scrolled' : ''}`}>
             <Link to="/products" className="logo" onClick={closeNav}>
                 <img src="/assets/logoF.png" alt="EstiPay Logo" className="logo-img" />
             </Link>
@@ -81,7 +88,7 @@ const Navbar = () => {
                         style={{ color: isProductsActive ? 'var(--primary-green)' : undefined }}
                     >
                         Products
-                        <i className="fa-solid fa-chevron-down nav-dropdown-chevron" aria-hidden="true" />
+                        <span className="material-symbols-outlined nav-dropdown-chevron" aria-hidden="true" style={{ fontSize: '1rem' }}>expand_more</span>
                     </button>
 
                     <div className="nav-dropdown-menu" role="menu">
@@ -94,7 +101,7 @@ const Navbar = () => {
                                 onClick={closeNav}
                             >
                                 <span className="nav-dropdown-item-icon" aria-hidden="true">
-                                    <i className={p.icon} />
+                                    <span className="material-symbols-outlined">{p.icon}</span>
                                 </span>
                                 <span className="nav-dropdown-item-text">
                                     <span className="nav-dropdown-item-name">{p.name}</span>
@@ -107,7 +114,7 @@ const Navbar = () => {
 
                         <Link to="/products" className="nav-dropdown-all" role="menuitem" onClick={closeNav}>
                             View Full Platform
-                            <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.75rem' }} aria-hidden="true" />
+                            <span className="material-symbols-outlined" style={{ fontSize: '1rem' }} aria-hidden="true">arrow_forward</span>
                         </Link>
                     </div>
                 </li>

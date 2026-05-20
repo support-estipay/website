@@ -26,7 +26,7 @@ const StepCard = ({ step, index, setActiveStep }) => {
         >
             <div className="step-info">
                 <div className="step-icon-main">
-                    <i className={step.icon}></i>
+                    <span className="material-symbols-outlined">{step.icon}</span>
                 </div>
                 <h3>{step.number} {step.title}</h3>
                 <p>{step.text}</p>
@@ -51,35 +51,35 @@ const HowItWorks = () => {
         {
             number: '01.',
             title: 'Enter Claim Details',
-            icon: 'fa-solid fa-file-invoice',
+            icon: 'description',
             text: 'Input the claim number and policy information. EstiPay takes it from there.',
             image: '/assets/dashboard-light.png'
         },
         {
             number: '02.',
             title: 'AI Initiates the Outbound Call',
-            icon: 'fa-solid fa-robot',
+            icon: 'smart_toy',
             text: 'Your AI agent automatically dials the insurance provider. No human needed to start the process.',
             image: '/assets/robot-wave.png'
         },
         {
             number: '03.',
             title: 'Navigates Every IVR Menu',
-            icon: 'fa-solid fa-sitemap',
+            icon: 'account_tree',
             text: 'EstiPay intelligently selects the right menu paths — no wrong departments, no repeated transfers, no wasted time.',
             image: '/assets/ai_calling_interface.png'
         },
         {
             number: '04.',
             title: 'Speaks to the Human Agent When Needed',
-            icon: 'fa-solid fa-headset',
+            icon: 'headset_mic',
             text: 'When a live agent is required, EstiPay handles the conversation naturally — verifying details, asking the right questions, and moving the call forward.',
             image: '/assets/audio_wave_new1.png'
         },
         {
             number: '05.',
             title: 'Returns Structured Claim Status',
-            icon: 'fa-solid fa-chart-line',
+            icon: 'trending_up',
             text: 'Claim status, next steps, and supporting documentation are returned to your dashboard automatically — clean, organized, and ready to act on.',
             image: '/assets/dashboard-light.png'
         }
@@ -111,7 +111,7 @@ const HowItWorks = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            style={{ marginTop: '20px', color: '#6b7280', fontSize: '1.1rem' }}
+                            style={{ marginTop: '20px', color: 'var(--md-on-surface-variant)', fontSize: '1.1rem' }}
                         >
                             From claim input to structured status output — EstiPay handles the entire process without your team picking up the phone.
                         </motion.p>
@@ -128,9 +128,9 @@ const HowItWorks = () => {
                                         }
                                     }}
                                 >
-                                    <div className="nav-icon">
-                                        <i className={step.icon}></i>
-                                    </div>
+                    <div className="nav-icon">
+                        <span className="material-symbols-outlined">{step.icon}</span>
+                    </div>
                                     {step.title}
                                 </div>
                             ))}

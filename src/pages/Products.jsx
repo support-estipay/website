@@ -31,7 +31,7 @@ const SCHEMA = {
 const PRODUCTS = [
     {
         slug: '/products/insurance-agent',
-        icon: 'fa-solid fa-phone-volume',
+        icon: 'phone_in_talk',
         label: 'B2B Intelligence',
         title: 'Insurance Agent',
         desc: 'Negotiates and coordinates with insurance carriers — handling claim status, documentation requests, and approvals without human intervention.',
@@ -39,7 +39,7 @@ const PRODUCTS = [
     },
     {
         slug: '/products/appointment-scheduler',
-        icon: 'fa-solid fa-calendar-check',
+        icon: 'event_available',
         label: 'Operational Flow',
         title: 'Appointment Scheduler',
         desc: 'Manages logistics with policyholders, syncs field-tech calendars in real time, and drives no-show rates down with proactive voice reminders.',
@@ -47,7 +47,7 @@ const PRODUCTS = [
     },
     {
         slug: '/products/payment-collector',
-        icon: 'fa-solid fa-circle-dollar-to-slot',
+        icon: 'payments',
         label: 'Financial Recovery',
         title: 'Payment Collector',
         desc: 'Finalizes the revenue cycle via automated, empathetic voice interaction — securing payments as soon as restoration work is verified.',
@@ -57,14 +57,14 @@ const PRODUCTS = [
 
 const INTELLIGENCE = [
     {
-        icon: 'fa-solid fa-shield-halved',
+        icon: 'security',
         label: 'Control & Compliance',
         title: 'Compliance & Audit Agent',
         desc: 'Records, transcribes, and tags every call with disclosures and consent markers — generating audit-ready logs that reduce regulatory friction.',
         list: ['Automated disclosure tagging', 'Consent marker detection', 'Searchable audit trail', 'Carrier-specific compliance'],
     },
     {
-        icon: 'fa-solid fa-chart-line',
+        icon: 'trending_up',
         label: 'Data & Insights',
         title: 'Post-Call Analytics & Insights',
         desc: 'Analyzes every call transcript to refine agent behavior, detect risk patterns, and surface product-feedback signals.',
@@ -143,7 +143,7 @@ const Products = () => {
                     </p>
                     <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '14px 28px', fontSize: '0.95rem' }}>
-                            Talk to Sales <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }} />
+                            Talk to Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/solutions" className="btn btn-outline" style={{ padding: '14px 28px', fontSize: '0.95rem' }}>
                             See Use Cases
@@ -179,7 +179,7 @@ const Products = () => {
                                 aria-label={`Learn more about ${p.title}`}
                             >
                                 <div className="prod-overview-compact-icon" aria-hidden="true">
-                                    <i className={p.icon} />
+                                    <span className="material-symbols-outlined">{p.icon}</span>
                                 </div>
                                 <span className="prod-overview-compact-label">{p.label}</span>
                                 <h3 className="prod-overview-compact-title">{p.title}</h3>
@@ -189,7 +189,7 @@ const Products = () => {
                                 </ul>
                                 <div className="prod-overview-compact-link">
                                     Explore {p.title}
-                                    <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.72rem' }} aria-hidden="true" />
+                                    <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.9rem', verticalAlign: 'middle' }}>arrow_forward</span>
                                 </div>
                             </Link>
                         ))}
@@ -218,7 +218,7 @@ const Products = () => {
                             {INTELLIGENCE.map((item) => (
                                 <div className="prod-intel-row" key={item.title}>
                                     <div className="prod-intel-row-icon" aria-hidden="true">
-                                        <i className={item.icon} />
+                                        <span className="material-symbols-outlined">{item.icon}</span>
                                     </div>
                                     <div>
                                         <span className="prod-intel-row-label">{item.label}</span>
@@ -272,7 +272,7 @@ const Products = () => {
                     </p>
                     <div className="prod-cta-actions">
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '14px 32px', fontSize: '0.95rem' }}>
-                            Contact Sales <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }} />
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/solutions" className="btn btn-outline" style={{ padding: '14px 32px', fontSize: '0.95rem' }}>
                             Explore Use Cases
@@ -286,3 +286,4 @@ const Products = () => {
 };
 
 export default Products;
+

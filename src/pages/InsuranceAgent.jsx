@@ -77,25 +77,25 @@ const PROBLEMS = [
 
 const CAPABILITIES = [
     {
-        icon: 'fa-solid fa-phone',
+        icon: 'call',
         title: 'Autonomous Outbound Calling',
         desc: 'Initiates carrier calls automatically with intelligent dialing, connection management, and retry logic when calls fail or go unanswered — no human required.',
         tags: ['Auto-dial', 'Smart retry', 'Connection mgmt'],
     },
     {
-        icon: 'fa-solid fa-sitemap',
+        icon: 'account_tree',
         title: 'Intelligent IVR Navigation',
         desc: 'Parses complex phone menus with AI-powered decision-making — selecting optimal paths, avoiding dead ends, and recovering mid-call without losing context.',
         tags: ['Menu parsing', 'Path optimization', 'Error recovery'],
     },
     {
-        icon: 'fa-solid fa-comments',
+        icon: 'forum',
         title: 'Natural Human-Agent Interaction',
         desc: 'When a live agent answers, EstiPay engages in fluent, professional conversation — verifying information, handling clarifying questions, and advancing toward resolution.',
         tags: ['Natural language', 'Context-aware', 'Professional tone'],
     },
     {
-        icon: 'fa-solid fa-database',
+        icon: 'storage',
         title: 'Structured Data Extraction',
         desc: 'Extracts claim status information, approval conditions, and documentation requirements from every call — delivering clean, structured data directly to your dashboard.',
         tags: ['Data parsing', 'Validation', 'CRM-ready output'],
@@ -114,21 +114,21 @@ const STEPS = [
 const RELATED = [
     {
         slug: '/products/appointment-scheduler',
-        icon: 'fa-solid fa-calendar-check',
+        icon: 'event_available',
         label: 'Operational Flow',
         title: 'Appointment Scheduler',
         desc: 'Once a claim is approved, schedule field-tech visits with policyholders — automatically.',
     },
     {
         slug: '/products/payment-collector',
-        icon: 'fa-solid fa-circle-dollar-to-slot',
+        icon: 'payments',
         label: 'Financial Recovery',
         title: 'Payment Collector',
         desc: 'After restoration work is verified, collect payment via automated, empathetic voice follow-up.',
     },
     {
         slug: '/products',
-        icon: 'fa-solid fa-layer-group',
+        icon: 'layers',
         label: 'Full Platform',
         title: 'View the Full Platform',
         desc: 'See how all three agents work together to automate your entire revenue cycle end to end.',
@@ -195,9 +195,9 @@ const InsuranceAgent = () => {
                 <div className="container sec-hero-container">
                     <nav className="prod-breadcrumb" aria-label="Breadcrumb">
                         <Link to="/">Home</Link>
-                        <span className="prod-breadcrumb-sep"><i className="fa-solid fa-chevron-right" /></span>
+                        <span className="prod-breadcrumb-sep"><span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.85rem', verticalAlign: 'middle' }}>chevron_right</span></span>
                         <Link to="/products">Products</Link>
-                        <span className="prod-breadcrumb-sep"><i className="fa-solid fa-chevron-right" /></span>
+                        <span className="prod-breadcrumb-sep"><span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.85rem', verticalAlign: 'middle' }}>chevron_right</span></span>
                         <span>Insurance Agent</span>
                     </nav>
                     <div className="prod-hero-badge-wrap">
@@ -213,7 +213,7 @@ const InsuranceAgent = () => {
                     </p>
                     <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 32px', fontSize: '1rem' }}>
-                            Contact Sales <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }} />
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/products" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
                             ← All Products
@@ -258,7 +258,7 @@ const InsuranceAgent = () => {
                         {CAPABILITIES.map((c, i) => (
                             <article className="prod-cap-card" key={i}>
                                 <div className="prod-cap-icon-wrap" aria-hidden="true">
-                                    <i className={c.icon} />
+                                    <span className="material-symbols-outlined">{c.icon}</span>
                                 </div>
                                 <h3 className="prod-cap-title">{c.title}</h3>
                                 <p className="prod-cap-desc">{c.desc}</p>
@@ -352,12 +352,12 @@ const InsuranceAgent = () => {
                                 className={`prod-related-card ${r.isPlatform ? 'prod-related-card--platform' : ''}`}
                                 key={i}
                             >
-                                <div className="prod-related-icon"><i className={r.icon} /></div>
+                                <div className="prod-related-icon"><span className="material-symbols-outlined">{r.icon}</span></div>
                                 <span className="prod-related-label">{r.label}</span>
                                 <div className="prod-related-title">{r.title}</div>
                                 <p className="prod-related-desc">{r.desc}</p>
                                 <div className="prod-related-link">
-                                    Learn more <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.75rem' }} />
+                                    Learn more <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.9rem', verticalAlign: 'middle' }}>arrow_forward</span>
                                 </div>
                             </Link>
                         ))}
@@ -375,7 +375,7 @@ const InsuranceAgent = () => {
                     </p>
                     <div className="prod-cta-actions">
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 36px', fontSize: '1rem' }}>
-                            Contact Sales <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }} />
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/products" className="btn btn-outline" style={{ padding: '15px 36px', fontSize: '1rem' }}>
                             View All Products
@@ -388,3 +388,5 @@ const InsuranceAgent = () => {
 };
 
 export default InsuranceAgent;
+
+

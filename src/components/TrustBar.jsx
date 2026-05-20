@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 const TrustBar = () => {
     const items = [
@@ -10,7 +10,7 @@ const TrustBar = () => {
     ];
 
     return (
-        <section className="trust-bar" style={{ backgroundColor: '#125e92', padding: '16px 0', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+        <section className="trust-bar" style={{ backgroundColor: 'var(--md-tertiary)', padding: '16px 0', overflow: 'hidden', whiteSpace: 'nowrap' }}>
             <style>
                 {`
                 @keyframes scroll-trustbar {
@@ -42,13 +42,13 @@ const TrustBar = () => {
             <div className="marquee-content">
                 {items.map((text, idx) => (
                     <span key={idx} className="marquee-item">
-                        <span style={{ color: '#ff7a00', fontSize: '1.1rem' }}>⚡</span> 
+                        <span style={{ color: 'var(--md-secondary)', fontSize: '1.1rem' }}>⚡</span> 
                         {text}
                     </span>
                 ))}
                 {items.map((text, idx) => (
                     <span key={'dup-'+idx} className="marquee-item">
-                        <span style={{ color: '#ff7a00', fontSize: '1.1rem' }}>⚡</span> 
+                        <span style={{ color: 'var(--md-secondary)', fontSize: '1.1rem' }}>⚡</span> 
                         {text}
                     </span>
                 ))}

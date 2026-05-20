@@ -36,7 +36,7 @@ VideoEmbed.propTypes = {
 
 const VideoPlaceholder = ({ isMain }) => (
     <div className="prod-video-placeholder">
-        <i className={`fa-regular fa-circle-play prod-video-placeholder-icon ${isMain ? '' : 'fa-2x'}`} />
+        <span className={`material-symbols-outlined prod-video-placeholder-icon${isMain ? '' : ' ms-2x'}`} aria-hidden="true">play_circle</span>
         <p className="prod-video-placeholder-title">Recording coming soon</p>
         <p className="prod-video-placeholder-sub">
             {isMain

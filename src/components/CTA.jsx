@@ -20,8 +20,8 @@ const CTA = () => {
                 </h2>
 
                 <ul className="cta-trust-row">
-                    <li><i className="fa-solid fa-check" /> No credit card required</li>
-                    <li><i className="fa-solid fa-check" /> Demo available on request</li>
+                    <li><span className="material-symbols-outlined ms-icon" aria-hidden="true">check_circle</span> No credit card required</li>
+                    <li><span className="material-symbols-outlined ms-icon" aria-hidden="true">check_circle</span> Demo available on request</li>
                 </ul>
 
                 <p className="cta-subtitle">
@@ -29,9 +29,9 @@ const CTA = () => {
                 </p>
 
                 <div className="cta-actions">
-                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn-cta btn-cta--primary" style={{ backgroundColor: '#ff7a00', borderColor: '#ff7a00' }}>
+                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn-cta btn-cta--primary">
                         Join Our Pilot Program
-                        <i className="fa-solid fa-arrow-right" />
+                        <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem' }}>arrow_forward</span>
                     </a>
                 </div>
             </div>

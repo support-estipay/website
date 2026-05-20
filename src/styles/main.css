@@ -1,440 +1,627 @@
-:root {
-    --primary-green: #29c1a5;
-    --primary-dark: #237a6d;
-    --secondary-orange: #F58220;
-    --secondary-orange-hover: #e07a2e;
-    --footer-blue: #0f1c30;
-    --text-dark: #333333;
-    --text-gray: #8c92a0;
-    --bg-light: #f4f7f9;
-    --white: #FFFFFF;
-    --font-main: 'Inter', sans-serif;
+/* ============================================================
+   main.css -- Base layer + UI utilities
+   All color/spacing/shape/motion values come from tokens.css
+   ============================================================ */
+
+/* -- Smooth scrolling ------------------------------------- */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
-* {
+/* -- Reset ------------------------------------------------- */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Remove default outline only when not keyboard-navigating */
+*:focus { outline: none; }
+
+/* WCAG AA keyboard focus ring */
+*:focus-visible {
+    outline: 2px solid var(--md-primary);
+    outline-offset: 3px;
+    border-radius: var(--shape-xs);
+}
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--md-primary);
+    outline-offset: 3px;
+    border-radius: var(--shape-full);
+}
+
+/* -- Base Elements ----------------------------------------- */
 body {
     font-family: var(--font-main);
-    color: var(--text-dark);
-    background-color: var(--white);
-    line-height: 1.5;
+    font-size: var(--type-body-md-size);
+    font-weight: 400;
+    color: var(--md-on-surface);
+    background-color: var(--md-background);
+    line-height: var(--type-body-md-line);
     overflow-x: hidden;
 }
 
+/* Inter OpenType features for crisp rendering */
+body, input, button, textarea, select {
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+/* -- Typography Hierarchy --------------------------------- */
+h1 {
+    font-family: var(--font-main);
+    font-size: var(--type-display-md-size);
+    font-weight: var(--type-display-md-weight);
+    line-height: var(--type-display-md-line);
+    letter-spacing: var(--type-display-md-letter);
+    color: var(--md-on-surface);
+}
+
 h2 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    font-weight: 700;
+    font-family: var(--font-main);
+    font-size: var(--type-headline-lg-size);
+    font-weight: var(--type-headline-lg-weight);
+    line-height: var(--type-headline-lg-line);
+    letter-spacing: var(--type-headline-lg-letter);
+    color: var(--md-on-surface);
+}
+
+h3 {
+    font-family: var(--font-main);
+    font-size: var(--type-headline-sm-size);
+    font-weight: var(--type-headline-sm-weight);
+    line-height: var(--type-headline-sm-line);
+    letter-spacing: var(--type-headline-sm-letter);
+    color: var(--md-on-surface);
+}
+
+h4 {
+    font-family: var(--font-main);
+    font-size: var(--type-title-lg-size);
+    font-weight: var(--type-title-lg-weight);
+    line-height: var(--type-title-lg-line);
+    color: var(--md-on-surface);
+}
+
+p {
+    font-size: var(--type-body-md-size);
+    line-height: var(--type-body-md-line);
+    color: var(--md-on-surface-variant);
 }
 
 a {
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: color var(--duration-medium-1) var(--easing-standard);
 }
 
-ul {
-    list-style: none;
-}
+ul { list-style: none; }
 
+/* -- Layout Utilities -------------------------------------- */
 .container {
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--space-6);
 }
 
+@media (max-width: 768px) {
+    .container { padding: 0 var(--space-4); }
+}
+
+/* -- Material Symbols -------------------------------------- */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+    line-height: 1;
+    user-select: none;
+}
+.ms-2x  { font-size: 2em; }
+.ms-icon {
+    font-size: 1rem;
+    vertical-align: middle;
+    color: var(--md-primary);
+    margin-right: var(--space-1);
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.65rem 1.375rem;
+    border-radius: var(--shape-sm);
+    font-family: var(--font-main);
+    font-size: var(--type-label-lg-size);
+    font-weight: var(--type-label-lg-weight);
+    letter-spacing: 0.01em;
     cursor: pointer;
     text-align: center;
     white-space: nowrap;
+    border: none;
+    text-decoration: none;
+    transition:
+        background-color var(--duration-medium-1) var(--easing-standard),
+        box-shadow       var(--duration-medium-1) var(--easing-standard),
+        transform        var(--duration-short-4)  var(--easing-standard),
+        border-color     var(--duration-medium-1) var(--easing-standard);
 }
 
 .btn-primary {
-    background-color: var(--secondary-orange);
-    color: var(--white);
+    background-color: var(--md-secondary);
+    color: var(--md-on-secondary);
+    box-shadow: var(--elevation-2);
+}
+.btn-primary:hover {
+    background-color: var(--md-secondary-dark);
+    box-shadow: var(--elevation-orange-4);
+    transform: translateY(-2px);
 }
 
-.btn-primary:hover {
-    background-color: var(--secondary-orange-hover);
+.btn-green {
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
+    box-shadow: var(--elevation-teal-2);
+}
+.btn-green:hover {
+    background-color: var(--md-primary-dark);
+    box-shadow: var(--elevation-teal-4);
+    transform: translateY(-2px);
 }
 
 .btn-orange {
-    background-color: var(--secondary-orange);
-    color: var(--white);
-    box-shadow: 0 4px 6px rgba(244, 139, 57, 0.2);
+    background-color: var(--md-secondary);
+    color: var(--md-on-secondary);
+    box-shadow: var(--elevation-orange-3);
 }
-
 .btn-orange:hover {
-    background-color: var(--secondary-orange-hover);
+    background-color: var(--md-secondary-dark);
+    box-shadow: var(--elevation-orange-4);
     transform: translateY(-2px);
 }
 
 .btn-outline {
-    background-color: var(--white);
-    color: var(--text-dark);
-    border: 1px solid #E5E7EB;
-    margin-left: 16px;
+    background-color: transparent;
+    color: var(--md-on-surface);
+    border: 1.5px solid var(--md-outline);
 }
-
 .btn-outline:hover {
-    border-color: var(--text-dark);
-    background-color: #F3F4F6;
+    border-color: var(--md-primary);
+    color: var(--md-primary);
+    background-color: var(--md-primary-container);
 }
 
+.btn-outline-light {
+    background-color: transparent;
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.4);
+}
+.btn-outline-light:hover {
+    border-color: #fff;
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Hero pill CTA */
+.btn-hero-pill {
+    cursor: pointer;
+    padding: 0.8rem 1.75rem;
+    border-radius: var(--shape-full);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    transition: all var(--duration-medium-2) var(--easing-standard);
+}
+
+/* ============================================================
+   TEXT UTILITIES
+   ============================================================ */
+
+/* Gradient text — brand colors */
+.text-gradient,
 .highlight {
-    background: linear-gradient(275.93deg,
-            #38C96F 9.75%,
-            #419FB9 67.59%,
-            #125E92 140.7%);
+    background: var(--gradient-brand);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
 }
 
-.text-dark {
-    color: var(--text-dark);
+/* Colour helpers */
+.text-dark    { color: var(--md-on-surface); }
+.text-gray    { color: var(--md-on-surface-variant); }
+.text-green   { color: var(--md-primary); }
+.text-teal    { color: var(--md-primary-dark); }
+.text-blue    { color: var(--md-tertiary); }
+.text-orange  { color: var(--md-secondary); }
+.text-center  { text-align: center; }
+.text-white   { color: #fff; }
+
+/* ============================================================
+   GLASS CARD  (glassmorphism)
+   ============================================================ */
+.glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
 }
 
-.text-blue {
-    color: #3B82F6;
-    /* Adjusted based on screenshot blue usage if any, otherwise stick to primary */
-    /* Re-evaluating screenshot: "The Claims" is blue-ish, "Process is Broken" is dark. 
-       Actually "The Claims" looks like a teal/blue. using a custom one. */
-    color: #2E9E8C;
-    /* sticking to primary green for consistency unless specifically blue */
+/* Dark glass variant */
+.glass-card--dark {
+    background: rgba(10, 20, 40, 0.6);
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
-/* Utilities */
-.section-header {
-    text-align: center;
-    /* max-width: 700px; */
-    margin: 0 auto 60px;
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-}
-
-.section-header p {
-    color: var(--text-gray);
-    font-size: 1.125rem;
-}
-
-
-/* ====================================== section 3 */
-
-
-.claims-section {
-    padding: 100px 0;
-    background-color: var(--white);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Background Shapes */
-.bg-shape {
+/* ============================================================
+   AMBIENT GLOW ORBS  (decorative, pointer-events: none)
+   ============================================================ */
+.glow-orb {
     position: absolute;
-    background-color: #f4f7f9;
     border-radius: 50%;
-    z-index: 0;
     pointer-events: none;
+    z-index: 0;
+    filter: blur(70px);
+    opacity: 0;
+    animation: orb-pulse 8s ease-in-out infinite;
+}
+.glow-orb--primary   { background: var(--md-primary);   opacity: 0.18; }
+.glow-orb--secondary { background: var(--md-secondary); opacity: 0.14; }
+.glow-orb--tertiary  { background: var(--md-tertiary);  opacity: 0.12; }
+.glow-orb--sm  { width: 200px; height: 200px; }
+.glow-orb--md  { width: 400px; height: 400px; }
+.glow-orb--lg  { width: 600px; height: 600px; }
+.glow-orb--xl  { width: 900px; height: 900px; }
+
+@keyframes orb-pulse {
+    0%, 100% { transform: scale(1) translate(0, 0); }
+    33%       { transform: scale(1.08) translate(20px, -15px); }
+    66%       { transform: scale(0.95) translate(-15px, 20px); }
 }
 
-.shape-left {
-    width: 800px;
-    height: 800px;
-    top: -300px;
-    left: -200px;
-    border: 60px solid #fcfdfd;
+/* ============================================================
+   SECTION BADGES (pill labels above h2 headings)
+   ============================================================ */
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: var(--shape-full);
+    font-family: var(--font-main);
+    font-size: var(--type-label-md-size);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--md-primary-container);
+    color: var(--md-primary-dark);
+    margin-bottom: var(--space-4);
+    border: 1px solid rgba(0,155,108,0.2);
+}
+.section-badge--blue {
+    background: rgba(18,94,146,0.1);
+    color: var(--md-tertiary);
+    border-color: rgba(18,94,146,0.2);
+}
+.section-badge--orange {
+    background: var(--md-secondary-container);
+    color: var(--md-secondary-dark);
+    border-color: rgba(244,128,39,0.2);
+}
+.section-badge--dark {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.85);
+    border-color: rgba(255,255,255,0.15);
 }
 
-.shape-right {
-    width: 900px;
-    height: 900px;
-    top: 50px;
-    right: -300px;
-    background-color: #f8fafc;
-}
+/* ============================================================
+   SECTION FLOW UTILITIES
+   Prevent "slide" look — organic transitions
+   ============================================================ */
 
-.relative-z {
+/* Diagonal bottom cut (section flows downward into next) */
+.section-diagonal {
     position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 60px), 0 100%);
+    margin-bottom: -60px;
+    padding-bottom: 80px;
     z-index: 1;
 }
 
-.text-teal {
-    color: #308ca3;
+/* Wave bottom using CSS clip-path ellipse */
+.section-wave {
+    position: relative;
+}
+.section-wave::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: inherit;
+    clip-path: ellipse(55% 50% at 50% 0%);
+    z-index: 2;
 }
 
+/* Soft curved top edge — apply on section AFTER a darker one */
+.section-curve-top {
+    position: relative;
+    padding-top: 80px;
+}
+.section-curve-top::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: inherit;
+    clip-path: ellipse(55% 50% at 50% 100%);
+    z-index: 2;
+}
+
+/* Section header centering utility */
+.section-header {
+    text-align: center;
+    margin: 0 auto var(--space-16);
+    max-width: 640px;
+}
+.section-header h2 {
+    font-size: var(--type-headline-lg-size);
+    font-weight: var(--type-headline-lg-weight);
+    letter-spacing: var(--type-headline-lg-letter);
+    margin-bottom: var(--space-4);
+}
 .section-header p {
-    color: #8c92a0;
-    font-size: 1.125rem;
-    margin: 0 auto;
+    color: var(--md-on-surface-variant);
+    font-size: var(--type-body-lg-size);
+    line-height: var(--type-body-lg-line);
 }
 
-.grid-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-top: 60px;
+/* Dot-matrix background pattern */
+.bg-dots {
+    background-image: radial-gradient(var(--md-outline) 1.5px, transparent 1.5px);
+    background-size: 28px 28px;
 }
 
-/* =========================================
-   Cut Corner Card Design (Updated)
-   ========================================= */
+/* Grid-line background pattern */
+.bg-grid {
+    background-image:
+        linear-gradient(rgba(0,155,108,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,155,108,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
 
+/* ============================================================
+   DIVIDER LINE
+   ============================================================ */
+.divider {
+    width: 48px;
+    height: 3px;
+    border-radius: var(--shape-full);
+    background: var(--gradient-brand);
+    margin: var(--space-4) 0 var(--space-6);
+}
+.divider--center { margin: var(--space-4) auto var(--space-6); }
+
+/* ============================================================
+   CARD BASE
+   ============================================================ */
+.card {
+    background: var(--md-surface);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--shape-xl);
+    padding: var(--space-8);
+    transition:
+        transform     var(--duration-medium-2) var(--easing-emphasized),
+        box-shadow    var(--duration-medium-2) var(--easing-emphasized),
+        border-color  var(--duration-medium-1) var(--easing-standard);
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--elevation-teal-4);
+    border-color: rgba(0,155,108,0.25);
+}
+
+/* ============================================================
+   FLOATING FEATURE CHIP
+   ============================================================ */
+.feature-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 6px 14px;
+    border-radius: var(--shape-full);
+    background: var(--md-surface);
+    border: 1px solid var(--md-outline-variant);
+    font-size: var(--type-label-md-size);
+    font-weight: 600;
+    color: var(--md-on-surface);
+    box-shadow: var(--elevation-2);
+    white-space: nowrap;
+}
+.feature-chip .material-symbols-outlined {
+    font-size: 0.875rem;
+    color: var(--md-primary);
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+}
+
+/* ============================================================
+   STAT / KPI BLOCK
+   ============================================================ */
+.stat-block {
+    text-align: center;
+}
+.stat-block__value {
+    font-size: var(--type-display-md-size);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: var(--type-display-md-letter);
+    color: var(--md-primary);
+}
+.stat-block__label {
+    font-size: var(--type-body-sm-size);
+    color: var(--md-on-surface-variant);
+    margin-top: var(--space-1);
+    font-weight: 500;
+}
+
+/* ============================================================
+   CUT-CORNER CARD (brand element)
+   ============================================================ */
 .cut-card {
     position: relative;
-    /* DEFAULT STATE: This color acts as the Border */
-    background-color: #29c1a5;
-    /* This padding creates the border thickness */
-    padding: 1px;
-    border-radius: 16px;
-
-    /* The Cut Shape */
-    --notchSize: 40px;
-    clip-path: polygon(0 0,
-            calc(100% - var(--notchSize)) 0,
-            100% var(--notchSize),
-            100% 100%,
-            0 100%);
-    transition: all 0.3s ease;
-    /* Create the Gradient for Hover state (hidden initially) */
-    background-image: linear-gradient(135deg, #38C96F 0%, #419FB9 50%, #125E92 100%);
+    background-color: var(--md-primary);
+    background-image: var(--gradient-brand-135);
     background-size: 200% 200%;
     background-position: 0% 50%;
+    padding: 1px;
+    border-radius: var(--shape-lg);
+    --notchSize: 40px;
+    clip-path: polygon(0 0,
+        calc(100% - var(--notchSize)) 0,
+        100% var(--notchSize),
+        100% 100%,
+        0 100%);
+    transition:
+        transform    var(--duration-medium-2) var(--easing-standard),
+        box-shadow   var(--duration-medium-2) var(--easing-standard);
 }
 
 .cut-card-inner {
-    /* DEFAULT STATE: White Background */
-    background-color: #ffffff;
+    background-color: var(--md-surface);
     height: 100%;
     width: 100%;
-    border-radius: 15px;
-    /* Slightly less than outer */
-    /* Clip inner to match outer shape */
+    border-radius: calc(var(--shape-lg) - 1px);
     clip-path: polygon(0 0,
-            calc(100% - var(--notchSize) + 0.5px) 0,
-            100% calc(var(--notchSize) - 0.5px),
-            100% 100%,
-            0 100%);
-    padding: 30px 24px;
+        calc(100% - var(--notchSize) + 0.5px) 0,
+        100% calc(var(--notchSize) - 0.5px),
+        100% 100%,
+        0 100%);
+    padding: var(--space-8) var(--space-6);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    transition: all 0.3s ease;
+    transition: background-color var(--duration-medium-1) var(--easing-standard);
 }
 
-/* --- Icon Styles --- */
 .card-icon {
-    width: 55px;
-    height: 55px;
-    /* DEFAULT: Pale Green Background */
-    background-color: #eaf8f6;
-    border-radius: 12px;
+    width: 52px;
+    height: 52px;
+    background-color: var(--md-primary-container);
+    border-radius: var(--shape-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
-    font-size: 24px;
-    /* DEFAULT: Dark Green Icon */
-    color: #00897b;
-    border: 1px solid transparent;
-    /* Placeholder for hover border */
-    transition: all 0.3s ease;
+    margin-bottom: var(--space-6);
+    font-size: 22px;
+    color: var(--md-primary);
+    border: 1px solid rgba(0,155,108,0.15);
+    transition: all var(--duration-medium-1) var(--easing-standard);
 }
 
-.card-icon-img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-}
-
-/* --- Text Styles --- */
 .cut-card h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #1f2937;
-    /* Default Dark Text */
-    transition: color 0.3s ease;
+    font-size: var(--type-headline-sm-size);
+    font-weight: var(--type-headline-sm-weight);
+    margin-bottom: var(--space-3);
+    transition: color var(--duration-medium-1) var(--easing-standard);
 }
-
 .cut-card p {
-    font-size: 0.95rem;
-    color: #6b7280;
-    /* Default Gray Text */
-    line-height: 1.5;
+    font-size: var(--type-body-md-size);
+    color: var(--md-on-surface-variant);
+    line-height: var(--type-body-md-line);
     margin: 0;
-    transition: color 0.3s ease;
 }
-
-/* =========================================
-   HOVER EFFECTS (The Transformation)
-   ========================================= */
 
 .cut-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(43, 122, 158, 0.25);
-    /* No change needed to background here, the inner transparency reveals the gradient */
+    box-shadow: var(--elevation-teal-5);
 }
-
-.cut-card:hover .cut-card-inner {
-    /* Make the white inner background transparent to show parent gradient */
-    background-color: transparent;
-}
-
+.cut-card:hover .cut-card-inner { background-color: transparent; }
 .cut-card:hover .card-icon {
-    /* HOVER: Transparent BG, White Border, White Icon */
     background-color: transparent;
-    border-color: rgba(255, 255, 255, 0.8);
-    color: #ffffff;
+    border-color: rgba(255,255,255,0.8);
+    color: var(--md-on-primary);
 }
+.cut-card:hover h3 { color: var(--md-on-primary); }
+.cut-card:hover p  { color: rgba(255,255,255,0.9); }
 
-.cut-card:hover h3 {
-    color: #ffffff;
-    /* Text becomes white */
-}
+/* ============================================================
+   HOW IT WORKS RINGS
+   ============================================================ */
+#how-it-works { position: relative; }
 
-.cut-card:hover p {
-    color: rgba(255, 255, 255, 0.9);
-    /* Text becomes off-white */
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .grid-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .grid-cards {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* =========================================
-   Section 4: How It Works (Big Rings + Ripple)
-   ========================================= */
-
-#how-it-works {
-    position: relative;
-}
-
-/* --- Ripple Animation (Adjusted for Big Rings) --- */
 @keyframes ripple-wave {
-    0% {
-        transform: translate(-50%, -50%) scale(0.9);
-        /* Start slightly smaller */
-        opacity: 0.6;
-        border-width: 1px;
-    }
-
-    100% {
-        transform: translate(-50%, -50%) scale(1.4);
-        /* Bada hokar phailna */
-        opacity: 0;
-        border-width: 0px;
-    }
+    0%   { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1.4); opacity: 0; }
 }
 
-/* --- Ring Container --- */
 .ring-container {
     position: absolute;
     top: 50%;
-    /* Center point ko screen ke kaafi left me shift kiya hai */
     left: -50% !important;
     transform: translateY(-50%);
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 0;
+    z-index: var(--z-below);
 }
-
-/* --- Common Ring Styles --- */
 .ring {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    /* Border ko thoda subtle (halka) rakha hai image jaisa */
-    border: 1px solid rgb(41 193 165);
+    border: 1px solid var(--md-primary);
     background: transparent;
-
-    /* Animation: 8 seconds (Slow and smooth) */
     animation: ripple-wave 8s infinite linear;
 }
+.ring-1 { width: 100vh; height: 100vh; animation-delay: 0s;   }
+.ring-2 { width: 140vh; height: 140vh; animation-delay: 2.5s; }
+.ring-3 { width: 180vh; height: 180vh; animation-delay: 5s;   }
 
-/* --- LARGE SIZES (Yehi change hai) --- */
-/* Hum 'vh' (Viewport Height) use kar rahe hain taaki rings screen se bhi bade bane */
-
-.ring-1 {
-    width: 100vh;
-    /* Screen height ke barabar */
-    height: 100vh;
-    animation-delay: 0s;
-    border: 1px solid rgb(41 193 165) !important;
-}
-
-.ring-2 {
-    width: 140vh;
-    /* Screen se bada */
-    height: 140vh;
-    animation-delay: 2.5s;
-    border: 1px solid rgb(41 193 165) !important;
-}
-
-.ring-3 {
-    width: 180vh;
-    /* Bahut bada (Massive arc) */
-    height: 180vh;
-    animation-delay: 5s;
-    border: 1px solid rgb(41 193 165) !important;
-}
-
-
-/* --- Layout (Content) --- */
+/* ============================================================
+   HOW IT WORKS LAYOUT
+   ============================================================ */
 .how-container {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-above);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
 .how-left {
     flex: 0 0 30%;
     padding-right: 39px;
     margin-left: 5rem;
 }
-
 .how-left h2 {
-    font-size: 2.5rem;
-    color: #333;
-    font-weight: 700;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    font-size: var(--type-headline-lg-size);
+    color: var(--md-on-surface);
+    font-weight: var(--type-headline-lg-weight);
+    margin-bottom: var(--space-4);
+    letter-spacing: var(--type-headline-lg-letter);
+    line-height: var(--type-headline-lg-line);
 }
-
 .green-subtitle {
-    color: #00b894;
-    font-size: 1.2rem;
+    color: var(--md-primary-dark);
+    font-size: var(--type-title-lg-size);
     font-weight: 500;
 }
-
 .how-right {
     flex: 1;
     position: relative;
@@ -442,125 +629,135 @@ ul {
     display: flex;
     align-items: center;
 }
-
-/* SVG Line Positioning */
 .timeline-svg {
-    /* position: absolute;
-    top: -100%;
-    left: -48%;
-    height: 1500px;
-    width: 96%;
-    z-index: 0;
-    overflow: visible; */
-
     position: absolute;
     top: -250px;
     left: -63px;
     height: 200%;
     width: 200px;
-    z-index: 0;
+    z-index: var(--z-base);
     overflow: visible;
 }
-
 .steps-wrapper {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-above);
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
 .step-item {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: var(--space-10);
 }
-
-/* All numbers and text form a flush, straight vertical column */
 .step-01, .step-02, .step-03, .step-04, .step-05 { margin-left: 0; }
-
-/* Number Circles */
 .step-number {
     width: 80px;
     height: 80px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: linear-gradient(135deg, #38C671 0%, #338EAC 100%);
-    color: #fff;
+    background: var(--gradient-step);
+    color: var(--md-on-primary);
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 20px rgba(45, 168, 149, 0.35);
-    border: 4px solid #fff;
+    box-shadow: var(--elevation-teal-4);
+    border: 4px solid var(--md-surface);
     position: relative;
     z-index: 2;
 }
-
 .step-text h3 {
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 8px;
+    font-size: var(--type-headline-sm-size);
+    font-weight: var(--type-headline-sm-weight);
+    color: var(--md-on-surface);
+    margin-bottom: var(--space-2);
 }
-
 .step-text p {
-    font-size: 1rem;
-    color: #7a869a;
-    line-height: 1.5;
+    font-size: var(--type-body-md-size);
+    color: var(--md-on-surface-variant);
+    line-height: var(--type-body-md-line);
     max-width: 450px;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .how-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+/* ============================================================
+   BACKGROUND DECORATIONS
+   ============================================================ */
+.bg-shape {
+    position: absolute;
+    background-color: var(--md-surface-variant);
+    border-radius: 50%;
+    z-index: var(--z-below);
+    pointer-events: none;
+}
+.shape-left {
+    width: 800px; height: 800px;
+    top: -300px; left: -200px;
+    border: 60px solid #fcfdfd;
+}
+.shape-right {
+    width: 900px; height: 900px;
+    top: 50px; right: -300px;
+    background-color: var(--md-surface-container);
+}
+.relative-z {
+    position: relative;
+    z-index: var(--z-above);
+}
 
-    .how-left {
-        width: 100%;
-        margin-bottom: 50px;
-        text-align: center;
-    }
+/* ============================================================
+   ACCESSIBILITY — focus-visible
+   ============================================================ */
+.sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
 
-    /* Mobile me rings ko center kar dete hain */
-    .ring-container {
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+/* ============================================================
+   RESPONSIVE GRID HELPERS
+   ============================================================ */
+.claims-section {
+    padding: var(--space-24) 0;
+    background-color: var(--md-surface);
+    position: relative;
+    overflow: hidden;
+}
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-16);
+}
 
-    .timeline-svg {
-        display: none;
-    }
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+@media (max-width: 1024px) {
+    .grid-cards { grid-template-columns: repeat(2, 1fr); }
+    .how-container { flex-direction: column; align-items: flex-start; }
+    .how-left { width: 100%; margin-bottom: var(--space-12); text-align: center; margin-left: 0; }
+    .ring-container { left: 50%; transform: translate(-50%, -50%); }
+    .timeline-svg { display: none; }
+    .how-right { height: auto; gap: var(--space-10); }
+    .steps-wrapper { gap: var(--space-10); }
+    .step-item { padding-left: 0; gap: var(--space-6); align-items: flex-start; }
+    .step-01, .step-02, .step-03, .step-04, .step-05 { margin-left: 0 !important; }
+    .step-number { width: 60px; height: 60px; font-size: 1.4rem; top: 0 !important; }
+}
 
-    .how-right {
-        height: auto;
-        gap: 40px;
-    }
-
-    .steps-wrapper {
-        gap: 40px;
-    }
-
-    .step-item {
-        padding-left: 0;
-        gap: 24px;
-        align-items: flex-start;
-        padding-top: 10px;
-    }
-
-    .step-01, .step-02, .step-03, .step-04, .step-05 {
-        margin-left: 0 !important;
-    }
-
-    .step-number {
-        width: 60px;
-        height: 60px;
-        font-size: 1.4rem;
-        top: 0 !important;
-    }
+@media (max-width: 768px) {
+    h1 { font-size: clamp(1.75rem, 5vw, var(--type-display-md-size)); }
+    h2 { font-size: clamp(1.375rem, 4vw, var(--type-headline-lg-size)); }
+    .grid-cards { grid-template-columns: 1fr; }
+    .cut-card { margin-bottom: var(--space-2); --notchSize: 30px; }
+    .cut-card-inner { padding: var(--space-6) var(--space-5); }
+    .section-header { margin-bottom: var(--space-10); }
 }

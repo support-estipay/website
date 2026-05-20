@@ -71,25 +71,25 @@ const PROBLEMS = [
 
 const CAPABILITIES = [
     {
-        icon: 'fa-solid fa-robot',
+        icon: 'smart_toy',
         title: 'Automated Post-Verification Outreach',
         desc: 'As soon as restoration work is verified, EstiPay initiates payment follow-up calls automatically — no manual trigger required. Timing is configurable to your business workflow.',
         tags: ['Auto-trigger', 'Verification-linked', 'Configurable timing'],
     },
     {
-        icon: 'fa-solid fa-heart',
+        icon: 'favorite',
         title: 'Empathetic Yet Firm Voice Tone',
         desc: 'EstiPay\'s Payment Collector is trained to acknowledge the policyholder\'s experience while professionally and persistently advancing toward a payment commitment — balancing empathy with results.',
         tags: ['Empathetic tone', 'Professional firmness', 'Objection handling'],
     },
     {
-        icon: 'fa-solid fa-handshake',
+        icon: 'handshake',
         title: 'Promise-to-Pay Capture',
         desc: 'When a policyholder commits to a payment date, EstiPay logs the promise, schedules a confirmation follow-up, and escalates automatically if the commitment isn\'t honored.',
         tags: ['Commitment tracking', 'Follow-up scheduling', 'Escalation logic'],
     },
     {
-        icon: 'fa-solid fa-shield-halved',
+        icon: 'security',
         title: 'Compliant Collection Interactions',
         desc: 'Every collection call is recorded, transcribed, and tagged with required consent markers and disclosures — ensuring your payment interactions are audit-ready and regulatory-safe.',
         tags: ['Consent recording', 'Disclosure tagging', 'Audit trail'],
@@ -108,21 +108,21 @@ const STEPS = [
 const RELATED = [
     {
         slug: '/products/insurance-agent',
-        icon: 'fa-solid fa-phone-volume',
+        icon: 'phone_in_talk',
         label: 'B2B Intelligence',
         title: 'Insurance Agent',
         desc: 'Automate the upstream carrier coordination that makes the job possible — so collection conversations are clean and undisputed.',
     },
     {
         slug: '/products/appointment-scheduler',
-        icon: 'fa-solid fa-calendar-check',
+        icon: 'event_available',
         label: 'Operational Flow',
         title: 'Appointment Scheduler',
         desc: 'Ensure field visits actually happen on schedule — reducing the delays that make policyholders dispute invoices.',
     },
     {
         slug: '/products',
-        icon: 'fa-solid fa-layer-group',
+        icon: 'layers',
         label: 'Full Platform',
         title: 'View the Full Platform',
         desc: 'See how all three agents work together to automate your entire claims-to-cash pipeline end to end.',
@@ -189,9 +189,9 @@ const PaymentCollector = () => {
                 <div className="container sec-hero-container">
                     <nav className="prod-breadcrumb" aria-label="Breadcrumb">
                         <Link to="/">Home</Link>
-                        <span className="prod-breadcrumb-sep"><i className="fa-solid fa-chevron-right" /></span>
+                        <span className="prod-breadcrumb-sep"><span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.85rem', verticalAlign: 'middle' }}>chevron_right</span></span>
                         <Link to="/products">Products</Link>
-                        <span className="prod-breadcrumb-sep"><i className="fa-solid fa-chevron-right" /></span>
+                        <span className="prod-breadcrumb-sep"><span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.85rem', verticalAlign: 'middle' }}>chevron_right</span></span>
                         <span>Payment Collector</span>
                     </nav>
                     <div className="prod-hero-badge-wrap">
@@ -207,7 +207,7 @@ const PaymentCollector = () => {
                     </p>
                     <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 32px', fontSize: '1rem' }}>
-                            Contact Sales <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }} />
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/products" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
                             ← All Products
@@ -252,7 +252,7 @@ const PaymentCollector = () => {
                         {CAPABILITIES.map((c, i) => (
                             <article className="prod-cap-card" key={i}>
                                 <div className="prod-cap-icon-wrap" aria-hidden="true">
-                                    <i className={c.icon} />
+                                    <span className="material-symbols-outlined">{c.icon}</span>
                                 </div>
                                 <h3 className="prod-cap-title">{c.title}</h3>
                                 <p className="prod-cap-desc">{c.desc}</p>
@@ -344,12 +344,12 @@ const PaymentCollector = () => {
                                 className={`prod-related-card ${r.isPlatform ? 'prod-related-card--platform' : ''}`}
                                 key={i}
                             >
-                                <div className="prod-related-icon"><i className={r.icon} /></div>
+                                <div className="prod-related-icon"><span className="material-symbols-outlined">{r.icon}</span></div>
                                 <span className="prod-related-label">{r.label}</span>
                                 <div className="prod-related-title">{r.title}</div>
                                 <p className="prod-related-desc">{r.desc}</p>
                                 <div className="prod-related-link">
-                                    Learn more <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.75rem' }} />
+                                    Learn more <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.9rem', verticalAlign: 'middle' }}>arrow_forward</span>
                                 </div>
                             </Link>
                         ))}
@@ -367,7 +367,7 @@ const PaymentCollector = () => {
                     </p>
                     <div className="prod-cta-actions">
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 36px', fontSize: '1rem' }}>
-                            Contact Sales <i className="fa-solid fa-arrow-right" style={{ marginLeft: '8px' }} />
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/products" className="btn btn-outline" style={{ padding: '15px 36px', fontSize: '1rem' }}>
                             View All Products
@@ -380,3 +380,4 @@ const PaymentCollector = () => {
 };
 
 export default PaymentCollector;
+
