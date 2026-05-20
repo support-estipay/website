@@ -1,36 +1,34 @@
 ﻿import React, { useEffect, useRef, useState } from 'react';
-import CTA from '../components/CTA';
-import claimsImage from '../assets/claims_communication.png';
 
 const IconCustomerFirst = () => (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="8" r="4" fill="#29c1a5" opacity="0.2" stroke="#29c1a5" strokeWidth="1.6"/>
-        <path d="M5 20C5 16.6863 8.13401 14 12 14C15.866 14 19 16.6863 19 20" stroke="#29c1a5" strokeWidth="1.6" strokeLinecap="round"/>
-        <path d="M18 10C19.6569 10 21 11.3431 21 13C21 14.6569 19.6569 16 18 16" stroke="#29c1a5" strokeWidth="1.6" strokeLinecap="round"/>
-        <path d="M6 10C4.34315 10 3 11.3431 3 13C3 14.6569 4.34315 16 6 16" stroke="#29c1a5" strokeWidth="1.6" strokeLinecap="round"/>
+        <circle cx="12" cy="8" r="4" fill="var(--md-primary)" opacity="0.2" stroke="var(--md-primary)" strokeWidth="1.6"/>
+        <path d="M5 20C5 16.6863 8.13401 14 12 14C15.866 14 19 16.6863 19 20" stroke="var(--md-primary)" strokeWidth="1.6" strokeLinecap="round"/>
+        <path d="M18 10C19.6569 10 21 11.3431 21 13C21 14.6569 19.6569 16 18 16" stroke="var(--md-primary)" strokeWidth="1.6" strokeLinecap="round"/>
+        <path d="M6 10C4.34315 10 3 11.3431 3 13C3 14.6569 4.34315 16 6 16" stroke="var(--md-primary)" strokeWidth="1.6" strokeLinecap="round"/>
     </svg>
 );
 
 
 const IconInnovation = () => (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 3L14.472 8.52796L20 11L14.472 13.472L12 19L9.52796 13.472L4 11L9.52796 8.52796L12 3Z" fill="#29c1a5" opacity="0.2" stroke="#29c1a5" strokeWidth="1.6" strokeLinejoin="round"/>
-        <path d="M20 4L21 6L23 7L21 8L20 10L19 8L17 7L19 6L20 4Z" stroke="#29c1a5" strokeWidth="1.6" strokeLinejoin="round"/>
-        <path d="M5 18L5.5 19L6.5 19.5L5.5 20L5 21L4.5 20L3.5 19.5L4.5 19L5 18Z" stroke="#29c1a5" strokeWidth="1.6" strokeLinejoin="round"/>
+        <path d="M12 3L14.472 8.52796L20 11L14.472 13.472L12 19L9.52796 13.472L4 11L9.52796 8.52796L12 3Z" fill="var(--md-primary)" opacity="0.2" stroke="var(--md-primary)" strokeWidth="1.6" strokeLinejoin="round"/>
+        <path d="M20 4L21 6L23 7L21 8L20 10L19 8L17 7L19 6L20 4Z" stroke="var(--md-primary)" strokeWidth="1.6" strokeLinejoin="round"/>
+        <path d="M5 18L5.5 19L6.5 19.5L5.5 20L5 21L4.5 20L3.5 19.5L4.5 19L5 18Z" stroke="var(--md-primary)" strokeWidth="1.6" strokeLinejoin="round"/>
     </svg>
 );
 
 const IconIntegrity = () => (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 5C7.58172 5 3 12 3 12C3 12 7.58172 19 12 19C16.4183 19 21 12 21 12C21 12 16.4183 5 12 5Z" fill="#29c1a5" opacity="0.2" stroke="#29c1a5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="12" cy="12" r="3" stroke="#29c1a5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 5C7.58172 5 3 12 3 12C3 12 7.58172 19 12 19C16.4183 19 21 12 21 12C21 12 16.4183 5 12 5Z" fill="var(--md-primary)" opacity="0.2" stroke="var(--md-primary)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="12" r="3" stroke="var(--md-primary)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
 
 const IconExcellence = () => (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 3L4 7.5V16.5L12 21L20 16.5V7.5L12 3Z" fill="#29c1a5" opacity="0.2" stroke="#29c1a5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M12 3V21M4 7.5L12 12M20 7.5L12 12" stroke="#29c1a5" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 3L4 7.5V16.5L12 21L20 16.5V7.5L12 3Z" fill="var(--md-primary)" opacity="0.2" stroke="var(--md-primary)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 3V21M4 7.5L12 12M20 7.5L12 12" stroke="var(--md-primary)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
 
@@ -40,7 +38,7 @@ const values = [
         label: 'Foundation',
         title: 'The Operator Comes First',
         features: [
-            'Every decision starts with the people doing the work — contractors, adjusters, and claims ops teams. If it doesn’t make their day faster and simpler, we don’t ship it.'
+            `Every decision starts with the people doing the work — contractors, adjusters, and claims ops teams. If it doesn't make their day faster and simpler, we don't ship it.`
         ],
     },
     {
@@ -56,7 +54,7 @@ const values = [
         label: 'Commitment',
         title: 'Radical Transparency',
         features: [
-            'We are honest about where the product is. We don’t oversell. We don’t use fake metrics. We show you exactly what EstiPay does — and we let the demo speak for itself.'
+            `We are honest about where the product is. We don't oversell. We don't use fake metrics. We show you exactly what EstiPay does — and we let the demo speak for itself.`
         ],
     },
     {
@@ -106,7 +104,7 @@ const About = () => {
     return (
         <div className="page-container">
 
-            {/* ── Hero ─────────────────────────────────────────── */}
+            {/* -- Hero ------------------------------------------- */}
             <section
                 ref={heroRef}
                 className={`sec-hero${heroVisible ? ' sec-hero-visible' : ''}`}
@@ -128,7 +126,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* ── Mission ──────────────────────────────────────── */}
+            {/* -- Mission ---------------------------------------- */}
             <section
                 ref={missionRef}
                 className={`abt-mission-section${missionVisible ? ' abt-mission-visible' : ''}`}
@@ -150,30 +148,30 @@ const About = () => {
                             <p className="abt-mission-body" style={{ marginBottom: '30px' }}>
                                 We are currently in active development and onboarding our first beta partners. If you work in insurance claims and want to be part of shaping this product — we want to hear from you.
                             </p>
-                            <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ backgroundColor: '#ff7a00', borderColor: '#ff7a00', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                                Join the Beta <i className="fa-solid fa-arrow-right"></i>
+                            <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                                Join the Beta <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle' }}>arrow_forward</span>
                             </a>
                         </div>
                         <div className="abt-mission-visual" style={{ position: 'relative' }}>
                             <div style={{ position: 'absolute', inset: '-20px', background: 'radial-gradient(circle at center, rgba(41, 193, 165, 0.15) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 0 }}></div>
-                            <img src={claimsImage} alt="Claims Dashboard UI" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px rgba(41,193,165,0.1)', border: '1px solid rgba(41,193,165,0.2)', position: 'relative', zIndex: 1, objectFit: 'cover' }} />
+                            <img src="/assets/dashboard-light.png" alt="Claims Dashboard UI" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px rgba(41,193,165,0.1)', border: '1px solid rgba(41,193,165,0.2)', position: 'relative', zIndex: 1, objectFit: 'cover' }} />
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* ── Values ───────────────────────────────────────── */}
+            {/* -- Values ----------------------------------------- */}
             <section
                 ref={valuesRef}
                 className={`content-section sol-cards-section${valuesVisible ? ' abt-section-visible' : ''}`}
-                style={{ background: '#dcf0e7', borderTop: '1px solid rgba(0,0,0,0.08)', borderBottom: '1px solid rgba(0,0,0,0.08)', padding: '100px 0' }}
+                style={{ background: 'var(--md-primary-container)', borderTop: '1px solid rgba(0,0,0,0.08)', borderBottom: '1px solid rgba(0,0,0,0.08)', padding: '100px 0' }}
             >
                 <div className="container">
                     <div className="abt-values-header">
                         <span className="sec-badge sec-badge--dark">Our Values</span>
                         <h2 className="sec-section-title sec-section-title--light" style={{ color: '#1a1a2e' }}>The Principles Behind Every Product Decision</h2>
                         <p className="sec-section-subtitle sec-section-subtitle--light" style={{ color: '#4b5563' }}>
-                            These aren’t wall decorations. They are the standards we hold every build decision, every conversation, and every partnership to.
+                            These aren't wall decorations. They are the standards we hold every build decision, every conversation, and every partnership to.
                         </p>
                     </div>
                     <div className={`sol-cards sol-cards--4col${valuesVisible ? ' sol-visible' : ''}`} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
@@ -187,7 +185,7 @@ const About = () => {
                                     <div className="sol-icon-bubble" style={{ background: 'rgba(41, 193, 165, 0.08)', borderColor: 'rgba(41, 193, 165, 0.15)' }}>{item.icon}</div>
                                 </div>
                                 <div className="sol-card-body" style={{ padding: 0 }}>
-                                    <span className="sol-label" style={{ color: '#ff7a00', fontWeight: 'bold' }}>{item.label}</span>
+                                    <span className="sol-label" style={{ color: 'var(--md-secondary)', fontWeight: 'bold' }}>{item.label}</span>
                                     <h3 className="sol-card-title" style={{ fontSize: '1.2rem', margin: '10px 0', color: '#1a1a2e' }}>{item.title}</h3>
                                     {item.features.map(f => (
                                         <p key={f} style={{ color: '#374151', fontSize: '0.95rem', lineHeight: '1.6' }}>{f}</p>
@@ -199,7 +197,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* ── Product Status ─────────────────────────── */}
+            {/* -- Product Status --------------------------- */}
             <section
                 ref={statusRef}
                 className={`abt-stats-section${statusVisible ? ' abt-stats-visible' : ''}`}
@@ -214,16 +212,16 @@ const About = () => {
                     </div>
                     <div style={{ maxWidth: '600px', margin: '0 auto', background: '#f9fafb', padding: '40px', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '20px', color: '#1a1a2e', fontSize: '1.1rem' }}>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: '#10b981', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><i className="fa-solid fa-layer-group" /></span> Core architecture — Complete</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: '#10b981', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><i className="fa-solid fa-sitemap" /></span> IVR navigation engine — Built and tested</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: '#10b981', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><i className="fa-solid fa-microphone-lines" /></span> AI voice agent — Active in demo environment</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: '#10b981', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><i className="fa-solid fa-headset" /></span> Human agent interaction layer — Complete</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: '#10b981', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><i className="fa-solid fa-chart-line" /></span> Dashboard and data extraction — In final build</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px', borderTop: '1px solid #e5e7eb', paddingTop: '20px' }}><span style={{ color: '#F58220', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><i className="fa-solid fa-user-plus" /></span> Beta partner onboarding — Open now</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: '#F58220', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><i className="fa-solid fa-calendar-check" /></span> General availability — Coming Q4 2026</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>layers</span></span> Core architecture — Complete</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>account_tree</span></span> IVR navigation engine — Built and tested</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>mic</span></span> AI voice agent — Active in demo environment</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>headset_mic</span></span> Human agent interaction layer — Complete</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>trending_up</span></span> Dashboard and data extraction — In final build</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px', borderTop: '1px solid #e5e7eb', paddingTop: '20px' }}><span style={{ color: 'var(--md-secondary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>person_add</span></span> Beta partner onboarding — Open now</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-secondary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>event_available</span></span> General availability — Coming Q4 2026</li>
                         </ul>
                         <div style={{ marginTop: '40px', textAlign: 'center' }}>
-                            <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ backgroundColor: '#ff7a00', borderColor: '#ff7a00' }}>Become a Beta Partner <i className="fa-solid fa-arrow-right"></i></a>
+                            <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)' }}>Become a Beta Partner <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle' }}>arrow_forward</span></a>
                         </div>
                     </div>
                 </div>
@@ -236,3 +234,5 @@ const About = () => {
 };
 
 export default About;
+
+

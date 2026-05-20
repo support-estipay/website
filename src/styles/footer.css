@@ -1,16 +1,16 @@
-/* =========================================
-   Section 8: CTA (Ready to accelerate)
-   ========================================= */
+﻿/* ============================================================
+   CTA Section + Footer
+   ============================================================ */
 
+/* ── CTA Section — fluid, transparent ──────────────────── */
 #ready-cta {
-    padding: 120px 0;
-    background: #ffffff;
+    padding: var(--space-20) 0 var(--space-24);
+    background: transparent;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
-/* Decorative blobs */
 .cta-blob {
     position: absolute;
     border-radius: 50%;
@@ -20,21 +20,21 @@
 .cta-blob--tl {
     width: 420px;
     height: 420px;
-    background: rgba(41, 193, 165, 0.08);
+    background: rgba(0, 155, 108, 0.08);
     top: -120px;
     left: -100px;
 }
 .cta-blob--br {
     width: 360px;
     height: 360px;
-    background: rgba(245, 130, 32, 0.06);
+    background: rgba(244, 128, 39, 0.06);
     bottom: -100px;
     right: -80px;
 }
 
 .cta-content {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-above);
     max-width: 760px;
     margin: 0 auto;
 }
@@ -43,49 +43,44 @@
 .cta-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--space-2);
     background: rgba(244, 125, 38, 0.1);
     border: 1px solid rgba(244, 125, 38, 0.2);
-    color: #f47d26;
-    font-size: 0.82rem;
-    font-weight: 600;
+    color: var(--md-secondary);
+    font-size: var(--type-label-md-size);
+    font-weight: var(--type-label-md-weight);
     letter-spacing: 0.03em;
-    padding: 6px 16px;
-    border-radius: 100px;
-    margin-bottom: 28px;
+    padding: var(--space-1) var(--space-4);
+    border-radius: var(--shape-full);
+    margin-bottom: var(--space-8);
 }
 .cta-badge-dot {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #f47d26;
+    background: var(--md-secondary);
     box-shadow: 0 0 6px rgba(244, 125, 38, 0.4);
     flex-shrink: 0;
 }
 
 /* Heading */
 .cta-content h2 {
-    font-size: 3.2rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800;
-    color: #0b1220;
-    line-height: 1.15;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
+    color: var(--md-on-surface);
+    line-height: 1.12;
+    margin-bottom: var(--space-5);
+    letter-spacing: -0.03em;
 }
-.cta-highlight {
-    color: #0b1220;
-}
-
-.cta-part-1 {
-    color: #009b6c;
-}
+.cta-highlight { color: var(--md-on-surface); }
+.cta-part-1    { color: var(--md-primary-dark); }
 
 /* Subtitle */
 .cta-subtitle {
-    font-size: 1.12rem;
-    color: #4b5563;
-    line-height: 1.7;
-    margin-bottom: 40px;
+    font-size: var(--type-body-lg-size);
+    color: var(--md-on-surface-variant);
+    line-height: var(--type-body-lg-line);
+    margin-bottom: var(--space-10);
     max-width: 580px;
     margin-left: auto;
     margin-right: auto;
@@ -96,40 +91,42 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
+    gap: var(--space-4);
     flex-wrap: wrap;
-    margin-bottom: 36px;
+    margin-bottom: var(--space-8);
 }
 
 .btn-cta {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 15px 32px;
-    border-radius: 10px;
+    gap: var(--space-2) + 2px;
+    padding: 15px var(--space-8);
+    border-radius: var(--shape-sm);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: var(--type-body-md-size);
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition:
+        transform var(--duration-short-4) var(--easing-standard),
+        box-shadow var(--duration-medium-1) var(--easing-standard);
     white-space: nowrap;
 }
 .btn-cta--primary {
-    background: linear-gradient(135deg, #F58220, #e06b10);
-    color: #fff;
-    box-shadow: 0 8px 28px rgba(245, 130, 32, 0.35);
+    background: var(--gradient-orange);
+    color: var(--md-on-secondary);
+    box-shadow: var(--elevation-orange-4);
 }
 .btn-cta--primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 36px rgba(245, 130, 32, 0.5);
+    box-shadow: var(--elevation-orange-5);
 }
 .btn-cta--ghost {
     background: transparent;
-    border: 1.5px solid #d1d5db;
-    color: #374151;
+    border: 1.5px solid var(--md-outline);
+    color: var(--md-on-surface);
 }
 .btn-cta--ghost:hover {
-    background: #f9fafb;
-    border-color: #9ca3af;
+    background: var(--md-surface-variant);
+    border-color: var(--md-on-surface-variant);
     transform: translateY(-3px);
 }
 
@@ -138,40 +135,38 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 8px 28px;
+    gap: var(--space-2) 28px;
     list-style: none;
     padding: 0;
-    margin: 24px 0 32px;
-    font-size: 0.88rem;
-    color: #6b7280;
+    margin: var(--space-6) 0 var(--space-8);
+    font-size: var(--type-body-sm-size);
+    color: var(--md-on-surface-variant);
 }
 .cta-trust-row li {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: var(--space-2);
 }
-.cta-trust-row li .fa-check {
-    color: #29c1a5;
-    font-size: 0.75rem;
+/* icon inside trust row */
+.cta-trust-row li .ms-icon {
+    color: var(--md-primary-dark);
+    font-size: 0.85rem;
+    font-variation-settings: 'FILL' 1;
 }
 
-/* =========================================
-   Footer
-   ========================================= */
-
+/* ── Footer ─────────────────────────────────────────────── */
 footer {
-    background-color: #0a8460;
+    background-color: var(--md-inverse-surface);
     background-image:
         linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
     background-size: 44px 44px;
-    color: white;
+    color: var(--md-on-inverse-surface);
     padding: 72px 0 0;
     position: relative;
     overflow: hidden;
 }
 
-/* Subtle radial vignette to soften grid edges */
 footer::before {
     content: '';
     position: absolute;
@@ -182,18 +177,17 @@ footer::before {
 
 footer .container {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-above);
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.6fr;
-    gap: 48px;
+    gap: var(--space-12);
     padding-bottom: 52px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-/* Footer Logo + About */
 .footer-about {
     display: flex;
     flex-direction: column;
@@ -203,15 +197,15 @@ footer .container {
 .footer-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 1.5rem;
+    gap: var(--space-3);
+    font-size: var(--type-headline-md-size);
     font-weight: 700;
-    color: white;
+    color: var(--md-on-inverse-surface);
 }
 
 .footer-tagline {
-    font-size: 0.92rem;
-    color: #ffffff !important;
+    font-size: var(--type-body-sm-size);
+    color: var(--md-on-inverse-surface) !important;
     line-height: 1.65;
     max-width: 260px;
 }
@@ -219,22 +213,25 @@ footer .container {
 /* Social Icons */
 .footer-socials {
     display: flex;
-    gap: 10px;
+    gap: var(--space-2) + 2px;
 }
 
 .social-link {
     width: 38px;
     height: 38px;
-    border-radius: 10px;
+    border-radius: var(--shape-sm);
     background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.18);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--md-on-inverse-surface);
     font-size: 0.85rem;
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition:
+        background var(--duration-medium-1) var(--easing-standard),
+        transform var(--duration-short-4) var(--easing-standard),
+        box-shadow var(--duration-medium-1) var(--easing-standard);
     backdrop-filter: blur(4px);
 }
 
@@ -242,18 +239,18 @@ footer .container {
     background: rgba(255, 255, 255, 0.24);
     border-color: rgba(255, 255, 255, 0.35);
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--elevation-3);
 }
 
-/* Footer Links Columns */
+/* Footer Links */
 .footer-links h4,
 .footer-newsletter h4 {
-    font-size: 0.78rem;
+    font-size: var(--type-label-md-size);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: white;
-    margin-bottom: 20px;
+    color: var(--md-on-inverse-surface);
+    margin-bottom: var(--space-5);
 }
 
 .footer-links ul {
@@ -266,35 +263,37 @@ footer .container {
 }
 
 .footer-links a {
-    color: #ffffff !important;
+    color: var(--md-on-inverse-surface) !important;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: var(--type-body-md-size);
     font-weight: 500;
-    transition: color 0.2s ease, padding-left 0.2s ease;
+    transition: padding-left var(--duration-medium-1) var(--easing-standard);
     display: inline-block;
 }
 
 .footer-links a:hover {
-    color: #ffffff !important;
-    padding-left: 4px;
+    color: var(--md-on-inverse-surface) !important;
+    padding-left: var(--space-1);
 }
 
 /* Newsletter */
 .footer-newsletter p {
-    font-size: 0.88rem;
-    color: white;
-    margin-bottom: 16px;
+    font-size: var(--type-body-sm-size);
+    color: var(--md-on-inverse-surface);
+    margin-bottom: var(--space-4);
     line-height: 1.6;
 }
 
 .newsletter-form {
     display: flex;
-    border-radius: 10px;
+    border-radius: var(--shape-sm);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.22);
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(6px);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    transition:
+        border-color var(--duration-medium-1) var(--easing-standard),
+        box-shadow var(--duration-medium-1) var(--easing-standard);
 }
 
 .newsletter-form:focus-within {
@@ -304,16 +303,16 @@ footer .container {
 
 .newsletter-form input {
     flex: 1;
-    padding: 13px 16px;
+    padding: 13px var(--space-4);
     background: transparent;
     border: none;
-    color: white;
-    font-size: 0.88rem;
+    color: var(--md-on-inverse-surface);
+    font-size: var(--type-body-sm-size);
     min-width: 0;
 }
 
 .newsletter-form input::placeholder {
-    color: white;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .newsletter-form input:focus {
@@ -321,14 +320,14 @@ footer .container {
 }
 
 .newsletter-form button {
-    padding: 13px 18px;
+    padding: 13px var(--space-4) + 2px;
     background: rgba(255, 255, 255, 0.18);
     border: none;
     border-left: 1px solid rgba(255, 255, 255, 0.15);
-    color: white;
+    color: var(--md-on-inverse-surface);
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: background 0.25s ease;
+    font-size: var(--type-body-md-size);
+    transition: background var(--duration-medium-1) var(--easing-standard);
     flex-shrink: 0;
 }
 
@@ -336,46 +335,46 @@ footer .container {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Footer Bottom Bar */
+/* Footer Bottom */
 .footer-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 22px 0;
-    gap: 16px;
+    gap: var(--space-4);
     flex-wrap: wrap;
 }
 
 .footer-copyright {
-    font-size: 0.88rem;
-    color: white;
+    font-size: var(--type-body-sm-size);
+    color: var(--md-on-inverse-surface);
     line-height: 1.6;
 }
 
 .footer-bottom-links {
     display: flex;
-    gap: 24px;
+    gap: var(--space-6);
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .footer-bottom-links a {
-    font-size: 0.85rem;
-    color: white;
+    font-size: var(--type-body-sm-size);
+    color: var(--md-on-inverse-surface);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: opacity var(--duration-short-4) var(--easing-standard);
 }
 
 .footer-bottom-links a:hover {
-    color: white;
+    opacity: 0.8;
 }
 
-/* Responsive */
+/* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 992px) {
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 36px;
+        gap: var(--space-8);
     }
 }
 
@@ -398,7 +397,7 @@ footer .container {
 
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: var(--space-8);
     }
 
     .footer-tagline {
@@ -408,6 +407,6 @@ footer .container {
     .footer-bottom {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: var(--space-2) + 2px;
     }
 }

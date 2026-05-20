@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import WhyEstiPay from '../components/WhyEstiPay';
 import CTA from '../components/CTA';
 
@@ -120,7 +120,7 @@ const Solutions = () => {
                         EstiPay was designed specifically for claims professionals who need faster communication, better visibility, and less time on the phone with carriers. Every solution is purpose-built for your workflow.
                     </p>
                     <div className="sol-cta-wrap" style={{ marginTop: '30px', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
-                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary sol-cta-btn" style={{ backgroundColor: '#ff7a00', borderColor: '#ff7a00', padding: '15px 30px', fontSize: '1.1rem', display: 'inline-block' }}>Join Our Pilot Program <i className="fa-solid fa-arrow-right" /></a>
+                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary sol-cta-btn" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)', padding: '15px 30px', fontSize: '1.1rem', display: 'inline-block' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
                     </div>
                 </div>
             </section>
@@ -136,7 +136,7 @@ const Solutions = () => {
                             >
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
                                     <div className="sol-icon-bubble" style={{ position: 'relative', width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(18, 94, 146, 0.1)', borderRadius: '50%' }}>{item.icon}</div>
-                                    <span className="sol-label" style={{ margin: 0, fontWeight: 'bold', color: '#125e92' }}>{item.label}</span>
+                                    <span className="sol-label" style={{ margin: 0, fontWeight: 'bold', color: 'var(--md-tertiary)' }}>{item.label}</span>
                                 </div>
                                 <div className="sol-card-body" style={{ padding: 0 }}>
                                     <h3 className="sol-card-title" style={{ fontSize: '2rem', marginBottom: '15px' }}>{item.title}</h3>
@@ -153,11 +153,11 @@ const Solutions = () => {
                                         </ul>
                                     </div>
 
-                                    <div style={{ background: 'rgba(41, 193, 165, 0.05)', padding: '20px', borderRadius: '8px', borderLeft: '4px solid #10b981', marginBottom: '25px' }}>
+                                    <div style={{ background: 'rgba(41, 193, 165, 0.05)', padding: '20px', borderRadius: '8px', borderLeft: '4px solid var(--md-primary)', marginBottom: '25px' }}>
                                         <strong style={{ color: '#1a1a2e' }}>Result:</strong> <span style={{ color: '#555' }}>{item.result}</span>
                                     </div>
 
-                                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#10b981', fontWeight: 'bold', textDecoration: 'none' }}>
+                                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--md-primary)', fontWeight: 'bold', textDecoration: 'none' }}>
                                         {item.cta}
                                     </a>
                                 </div>
@@ -171,7 +171,7 @@ const Solutions = () => {
                 <div className="container">
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '15px', color: '#111' }}>Not Sure Which Solution Fits Your Team?</h2>
                     <p style={{ fontSize: '1.2rem', color: '#555', marginBottom: '30px', maxWidth: '600px', margin: '0 auto 30px' }}>Talk to us in 15 minutes and we’ll show you exactly how EstiPay maps to your specific workflow.</p>
-                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary sol-cta-btn" style={{ backgroundColor: '#ff7a00', borderColor: '#ff7a00', padding: '15px 30px', fontSize: '1.1rem', display: 'inline-block' }}>Join Our Pilot Program <i className="fa-solid fa-arrow-right" /></a>
+                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary sol-cta-btn" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)', padding: '15px 30px', fontSize: '1.1rem', display: 'inline-block' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
                     <p style={{ marginTop: '15px', fontSize: '0.9rem', color: '#888' }}>Currently accepting beta partners across all three segments.</p>
                 </div>
             </section>
@@ -180,3 +180,5 @@ const Solutions = () => {
 };
 
 export default Solutions;
+
+

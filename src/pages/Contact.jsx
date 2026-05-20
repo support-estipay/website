@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 
 const IconEmail = () => (
     <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="6" y="11" width="28" height="20" rx="3" fill="#29c1a5" opacity="0.10" stroke="#29c1a5" strokeWidth="1.8"/>
-        <path d="M6 15L20 24L34 15" stroke="#29c1a5" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        <rect x="6" y="11" width="28" height="20" rx="3" fill="var(--md-primary)" opacity="0.10" stroke="var(--md-primary)" strokeWidth="1.8"/>
+        <path d="M6 15L20 24L34 15" stroke="var(--md-primary)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
 
 const IconPhone = () => (
     <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 8H18L21 15L17.5 17.5C19.2 21 21 22.8 24.5 24.5L27 21L34 24V30C34 32.2 32.2 34 30 34C17.8 34 6 22.2 6 10C6 7.8 7.8 6 10 6L12 8Z" fill="#29c1a5" opacity="0.12" stroke="#29c1a5" strokeWidth="1.8" strokeLinejoin="round"/>
+        <path d="M12 8H18L21 15L17.5 17.5C19.2 21 21 22.8 24.5 24.5L27 21L34 24V30C34 32.2 32.2 34 30 34C17.8 34 6 22.2 6 10C6 7.8 7.8 6 10 6L12 8Z" fill="var(--md-primary)" opacity="0.12" stroke="var(--md-primary)" strokeWidth="1.8" strokeLinejoin="round"/>
     </svg>
 );
 
@@ -119,7 +119,7 @@ const Contact = () => {
                         {/* Left — info cards */}
                         <div className="con-info-col">
                             <div className="con-info-header">
-                                <span className="sol-label" style={{ color: '#ff7a00', display: 'inline-block', padding: '6px 18px', borderRadius: '100px', background: 'rgba(255, 122, 0, 0.08)', border: '1px solid rgba(255, 122, 0, 0.2)' }}>Contact Information</span>
+                                <span className="sol-label" style={{ color: 'var(--md-secondary)', display: 'inline-block', padding: '6px 18px', borderRadius: '100px', background: 'rgba(255, 122, 0, 0.08)', border: '1px solid rgba(255, 122, 0, 0.2)' }}>Contact Information</span>
                                 <h2 className="con-info-title">
                                     Direct to our founders
                                 </h2>
@@ -141,7 +141,7 @@ const Contact = () => {
                                             </div>
                                         </div>
                                         <div className="con-card-body">
-                                            <span className="sol-label" style={{ color: '#ff7a00' }}>{item.label}</span>
+                                            <span className="sol-label" style={{ color: 'var(--md-secondary)' }}>{item.label}</span>
                                             <h4 className="con-card-title">{item.title}</h4>
                                             {item.lines && item.lines.map(line => (
                                                 <p key={line} className="con-card-line" style={{ color: '#666' }}>{line}</p>
@@ -155,7 +155,7 @@ const Contact = () => {
                         {/* Right — form */}
                         <div className="con-form-wrap">
                             <div className="con-form-card">
-                                <span className="sol-label" style={{ color: '#ff7a00' }}>Message Us Directly</span>
+                                <span className="sol-label" style={{ color: 'var(--md-secondary)' }}>Message Us Directly</span>
                                 <h3 className="con-form-title">How can we help?</h3>
                                 <p style={{ color: '#666', marginBottom: '25px', fontSize: '0.95rem' }}>If you are requesting beta access, please include a brief overview of your current claims volume.</p>
                                 <form className="contact-form" onSubmit={handleSubmit}>
@@ -210,7 +210,7 @@ const Contact = () => {
                                         />
                                     </div>
 
-                                    <button type="submit" className="btn btn-primary con-submit-btn" style={{ backgroundColor: '#ff7a00', borderColor: '#ff7a00', width: '100%', padding: '15px', fontSize: '1.1rem' }}>
+                                    <button type="submit" className="btn btn-primary con-submit-btn" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)', width: '100%', padding: '15px', fontSize: '1.1rem' }}>
                                         Send Message
                                     </button>
                                 </form>
@@ -243,7 +243,7 @@ const Contact = () => {
                                 className="con-faq-item"
                                 style={{ transitionDelay: `${0.1 + i * 0.1}s`, textAlign: 'left', background: '#f8fafb', padding: '30px', borderRadius: '12px', border: '1px solid #e2e8f0', marginBottom: '20px' }}
                             >
-                                <h4 style={{ fontSize: '1.2rem', color: '#10b981', marginBottom: '10px' }}>{faq.q}</h4>
+                                <h4 style={{ fontSize: '1.2rem', color: 'var(--md-primary)', marginBottom: '10px' }}>{faq.q}</h4>
                                 <p style={{ color: '#555', margin: 0, lineHeight: '1.6' }}>{faq.a}</p>
                             </div>
                         ))}

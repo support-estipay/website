@@ -68,7 +68,7 @@ const USMap = () => {
                             >
                                 <path
                                     d={PIN_PATH}
-                                    fill="#F58220"
+                                    fill="#f48027"
                                     stroke="#ffffff"
                                     strokeWidth="1.5"
                                 />

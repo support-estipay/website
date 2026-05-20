@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+﻿import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const roles = [
@@ -31,9 +31,9 @@ const roles = [
                 </div>
                 <div className="bfr-job-list">
                     {[
-                        { name: 'Storm Damage — Oak Ave', pct: 90, color: '#29c1a5', tag: 'Followed Up' },
-                        { name: 'Roof Replacement — Pine St', pct: 55, color: '#F58220', tag: 'In Review' },
-                        { name: 'Hail Claim — Maple Rd', pct: 100, color: '#10b981', tag: 'Paid ✓' },
+                        { name: 'Storm Damage — Oak Ave', pct: 90, color: 'var(--md-primary)', tag: 'Followed Up' },
+                        { name: 'Roof Replacement — Pine St', pct: 55, color: 'var(--md-secondary)', tag: 'In Review' },
+                        { name: 'Hail Claim — Maple Rd', pct: 100, color: 'var(--md-primary)', tag: 'Paid ✓' },
                     ].map((job, i) => (
                         <div key={i} className="bfr-job-row">
                             <div className="bfr-job-name">{job.name}</div>
@@ -75,9 +75,9 @@ const roles = [
                     </div>
                     <div className="bfr-claim-rows">
                         {[
-                            { id: 'PA-0091', carrier: 'Nationwide', status: 'AI Follow-Up Sent', dot: '#29c1a5' },
-                            { id: 'PA-0087', carrier: 'Liberty Mutual', status: 'Docs Ready', dot: '#10b981' },
-                            { id: 'PA-0083', carrier: 'Travelers', status: 'Awaiting Review', dot: '#F58220' },
+                            { id: 'PA-0091', carrier: 'Nationwide', status: 'AI Follow-Up Sent', dot: 'var(--md-primary)' },
+                            { id: 'PA-0087', carrier: 'Liberty Mutual', status: 'Docs Ready', dot: 'var(--md-primary)' },
+                            { id: 'PA-0083', carrier: 'Travelers', status: 'Awaiting Review', dot: 'var(--md-secondary)' },
                         ].map(c => (
                             <div key={c.id} className="bfr-claim-mini-row">
                                 <span className="bfr-claim-dot" style={{ background: c.dot }} />
