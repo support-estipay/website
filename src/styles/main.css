@@ -54,6 +54,7 @@ ul {
     font-weight: 600;
     cursor: pointer;
     text-align: center;
+    white-space: nowrap;
 }
 
 .btn-primary {

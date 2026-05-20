@@ -104,7 +104,13 @@
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 32px;
+}
+
+.nav-links > li:not(.mobile-only) {
+    display: flex;
+    align-items: center;
 }
 
 .nav-links li a {
@@ -383,15 +389,11 @@
     transition: all 0.3s ease;
 }
 
-/* Responsive Navbar */
-@media (max-width: 768px) {
-    body {
-        overflow-x: hidden;
-    }
-
+/* ── Navbar: switches to hamburger at 1024px ─────────────── */
+@media (max-width: 1024px) {
     .nav-links {
         position: absolute;
-        right: 0px;
+        right: 0;
         height: 92vh;
         top: 80px;
         background-color: var(--white);
@@ -403,11 +405,17 @@
         transition: transform 0.5s ease-in;
         padding-top: 50px;
         border-top: 1px solid #eee;
+        overflow-y: auto;
     }
 
     .nav-links li {
         opacity: 0;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+    }
+
+    /* Reset desktop flex alignment so dropdown flows below its trigger */
+    .nav-links > li:not(.mobile-only) {
+        display: block;
     }
 
     .hamburger {
@@ -428,22 +436,19 @@
             opacity: 0;
             transform: translateX(50px);
         }
-
         to {
             opacity: 1;
             transform: translateX(0);
         }
     }
 
-    /* Hamburger Animation to X */
+    /* Hamburger → X animation */
     .toggle .line1 {
         transform: rotate(-45deg) translate(-5px, 6px);
     }
-
     .toggle .line2 {
         opacity: 0;
     }
-
     .toggle .line3 {
         transform: rotate(45deg) translate(-5px, -6px);
     }
@@ -455,7 +460,10 @@
     .mobile-only {
         display: block;
     }
+}
 
+/* ── Hero Section: responsive adjustments at 768px ──────── */
+@media (max-width: 768px) {
     .hero-split-container {
         flex-direction: column;
         text-align: center;
