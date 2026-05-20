@@ -4,13 +4,12 @@ import VideoSection from '../components/VideoSection';
 
 /*
  * ── Demo recordings (public/demos/) ───────────────────────────
- * Copy your audio/video files into public/demos/ using these names,
- * or change the paths below to match your filenames.
+ * Use these filenames; extension must match the file (.mp3 or .mp4).
  */
 const RECORDINGS = {
-    fullDemo: '/demos/insurance-agent-full.mp3',
-    short1: '/demos/insurance-agent-short-1.mp3',
-    short2: '/demos/insurance-agent-short-2.mp3',
+    fullDemo: '/demos/insurance-agent-full.mp4',
+    short1: '/demos/insurance-agent-short-1.mp4',
+    short2: '/demos/insurance-agent-short-2.mp4',
 };
 
 /* ── JSON-LD Schema ─────────────────────────────────────────── */
@@ -37,7 +36,7 @@ const SCHEMA = [
     },
     RECORDINGS.fullDemo && {
         '@context': 'https://schema.org',
-        '@type': 'AudioObject',
+        '@type': 'VideoObject',
         name: 'EstiPay Insurance Agent — Full Platform Demo',
         description: 'See how EstiPay Insurance Agent navigates carrier IVR systems, retrieves claim status, and coordinates approvals — completely autonomously.',
         uploadDate: '2026-05-20',

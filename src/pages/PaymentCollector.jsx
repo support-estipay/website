@@ -4,7 +4,7 @@ import VideoSection from '../components/VideoSection';
 
 /*
  * ── Demo recordings (public/demos/) ───────────────────────────
- * Copy files into public/demos/ using these names, or update paths below.
+ * Use these filenames; set extension to .mp3 or .mp4 to match each file.
  */
 const RECORDINGS = {
     fullDemo: '/demos/payment-collector-full.mp3',
