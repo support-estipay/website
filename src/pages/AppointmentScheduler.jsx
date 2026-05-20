@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import VideoSection from '../components/VideoSection';
 
 /*
- * ── Video IDs ──────────────────────────────────────────────────
- * Replace null values with your Cloudflare Stream Video IDs.
- * See VideoSection.jsx for upload instructions.
+ * ── Demo recordings (public/demos/) ───────────────────────────
+ * Copy files into public/demos/ using these names, or update paths below.
  */
-const VIDEOS = {
-    fullDemo: null,
-    short1: null,
-    short2: null,
+const RECORDINGS = {
+    fullDemo: '/demos/appointment-scheduler-full.mp3',
+    short1: '/demos/appointment-scheduler-short-1.mp3',
+    short2: '/demos/appointment-scheduler-short-2.mp3',
 };
 
 /* ── JSON-LD Schema ─────────────────────────────────────────── */
@@ -35,13 +34,13 @@ const SCHEMA = [
             'High-volume scalability during storm or disaster events',
         ],
     },
-    VIDEOS.fullDemo && {
+    RECORDINGS.fullDemo && {
         '@context': 'https://schema.org',
-        '@type': 'VideoObject',
+        '@type': 'AudioObject',
         name: 'EstiPay Appointment Scheduler — Full Platform Demo',
         description: 'See how EstiPay calls a customer after a loss event, gathers damage details and site access information, and books a confirmed site visit for a company executive — entirely without staff involvement.',
         uploadDate: '2026-05-20',
-        embedUrl: `https://YOUR_STREAM_SUBDOMAIN.cloudflarestream.com/${VIDEOS.fullDemo}/iframe`,
+        contentUrl: `https://estipay.com${RECORDINGS.fullDemo}`,
     },
 ].filter(Boolean);
 
@@ -304,7 +303,7 @@ const AppointmentScheduler = () => {
                         <p className="prod-video-label">Full Demo Walkthrough</p>
                     </div>
                     <VideoSection
-                        streamId={VIDEOS.fullDemo}
+                        src={RECORDINGS.fullDemo}
                         title="EstiPay Appointment Scheduler — Full Platform Demo"
                         isMain
                     />
@@ -313,12 +312,12 @@ const AppointmentScheduler = () => {
                         <p className="prod-video-shorts-title">Quick Looks</p>
                         <div className="prod-video-shorts">
                             <VideoSection
-                                streamId={VIDEOS.short1}
+                                src={RECORDINGS.short1}
                                 title="Appointment Scheduler — Damage Intake Call"
                                 label="Damage intake and site access collection"
                             />
                             <VideoSection
-                                streamId={VIDEOS.short2}
+                                src={RECORDINGS.short2}
                                 title="Appointment Scheduler — Visit Booking Flow"
                                 label="Scheduling the executive site visit"
                             />

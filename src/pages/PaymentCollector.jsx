@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import VideoSection from '../components/VideoSection';
 
 /*
- * ── Video IDs ──────────────────────────────────────────────────
- * Replace null values with your Cloudflare Stream Video IDs.
- * See VideoSection.jsx for upload instructions.
+ * ── Demo recordings (public/demos/) ───────────────────────────
+ * Copy files into public/demos/ using these names, or update paths below.
  */
-const VIDEOS = {
-    fullDemo: null,
-    short1: null,
-    short2: null,
+const RECORDINGS = {
+    fullDemo: '/demos/payment-collector-full.mp3',
+    short1: '/demos/payment-collector-short-1.mp3',
+    short2: '/demos/payment-collector-short-2.mp3',
 };
 
 /* ── JSON-LD Schema ─────────────────────────────────────────── */
@@ -35,13 +34,13 @@ const SCHEMA = [
             'Payment security compliance',
         ],
     },
-    VIDEOS.fullDemo && {
+    RECORDINGS.fullDemo && {
         '@context': 'https://schema.org',
-        '@type': 'VideoObject',
+        '@type': 'AudioObject',
         name: 'EstiPay Payment Collector — Full Platform Demo',
         description: 'See how EstiPay Payment Collector follows up with policyholders post-verification, handles objections with empathy, and secures payment commitments automatically.',
         uploadDate: '2026-05-20',
-        embedUrl: `https://YOUR_STREAM_SUBDOMAIN.cloudflarestream.com/${VIDEOS.fullDemo}/iframe`,
+        contentUrl: `https://estipay.com${RECORDINGS.fullDemo}`,
     },
 ].filter(Boolean);
 
@@ -304,7 +303,7 @@ const PaymentCollector = () => {
                         <p className="prod-video-label">Full Demo Walkthrough</p>
                     </div>
                     <VideoSection
-                        streamId={VIDEOS.fullDemo}
+                        src={RECORDINGS.fullDemo}
                         title="EstiPay Payment Collector — Full Platform Demo"
                         isMain
                     />
@@ -313,12 +312,12 @@ const PaymentCollector = () => {
                         <p className="prod-video-shorts-title">Quick Looks</p>
                         <div className="prod-video-shorts">
                             <VideoSection
-                                streamId={VIDEOS.short1}
+                                src={RECORDINGS.short1}
                                 title="Payment Collector — Empathetic Follow-Up Call"
                                 label="Empathetic first follow-up call"
                             />
                             <VideoSection
-                                streamId={VIDEOS.short2}
+                                src={RECORDINGS.short2}
                                 title="Payment Collector — Promise-to-Pay Capture"
                                 label="Handling objections and securing commitment"
                             />

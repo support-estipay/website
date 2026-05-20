@@ -1,0 +1,306 @@
+/* ============================================================
+   Mobile Navigation Menu
+   - Activates only at <=1024px viewport
+   - Card-based drilldown layout (kore.ai inspired)
+   - Brand-tinted gradient backdrop
+   - Sticky-bottom Pilot Program CTA
+   ============================================================ */
+
+/* ── Bordered hamburger button (replaces 3-div lines) ────── */
+.hamburger {
+    display: none;                          /* shown on mobile via media query */
+    position: relative;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1.5px solid var(--md-outline);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0;
+    color: var(--md-on-surface);
+    transition:
+        background var(--duration-medium-1) var(--easing-standard),
+        border-color var(--duration-medium-1) var(--easing-standard),
+        color var(--duration-medium-1) var(--easing-standard);
+}
+.hamburger:hover {
+    border-color: var(--md-primary);
+    color: var(--md-primary);
+}
+.hamburger--open {
+    background: var(--md-primary-container);
+    border-color: var(--md-primary);
+    color: var(--md-primary-dark);
+}
+
+.hamburger-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        opacity var(--duration-short-4) var(--easing-standard),
+        transform var(--duration-medium-1) var(--easing-emphasized);
+}
+.hamburger-icon--bars  { opacity: 1; transform: rotate(0);     }
+.hamburger-icon--close { opacity: 0; transform: rotate(-90deg); }
+
+.hamburger--open .hamburger-icon--bars  { opacity: 0; transform: rotate(90deg); }
+.hamburger--open .hamburger-icon--close { opacity: 1; transform: rotate(0);     }
+
+/* ── Mobile menu drawer (full-screen below navbar) ───────── */
+.mobile-menu {
+    position: fixed;
+    top: 72px;                              /* navbar height */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: calc(var(--z-navbar) - 1);
+    overflow: hidden;
+    background: linear-gradient(180deg,
+        #e6f5ef 0%,
+        #f4faf7 45%,
+        #ffffff 100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity var(--duration-medium-2) var(--easing-standard),
+        visibility var(--duration-medium-2) var(--easing-standard);
+}
+.mobile-menu--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Lock scroll behind the menu */
+body:has(.mobile-menu--open) {
+    overflow: hidden;
+}
+
+/* Each panel is full-size; switching slides them horizontally.
+   Panels share the same background as the drawer so neither one
+   "shows through" the other during the transition. */
+.mobile-panel {
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 24px 18px 140px;               /* bottom padding clears sticky CTA */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: linear-gradient(180deg,
+        #e6f5ef 0%,
+        #f4faf7 45%,
+        #ffffff 100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s linear 0.4s;
+}
+
+/* Default resting positions */
+.mobile-panel--main      { transform: translateX(0);     opacity: 1; visibility: visible; }
+.mobile-panel--products  { transform: translateX(100%);  opacity: 0; visibility: hidden;  }
+
+/* When drilled into Products: main slides fully off-screen and is
+   removed from the a11y tree; products slides in. */
+.mobile-menu--products .mobile-panel--main {
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.mobile-menu--products .mobile-panel--products {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity   0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s linear 0s;
+}
+
+/* ── Generic card (used for every menu row) ──────────────── */
+.mobile-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    width: 100%;
+    background: var(--md-surface);
+    border: 1px solid var(--md-outline);
+    border-radius: 14px;
+    padding: 22px 22px;
+    text-decoration: none;
+    color: var(--md-on-surface);
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    transition:
+        background var(--duration-short-4) var(--easing-standard),
+        border-color var(--duration-short-4) var(--easing-standard),
+        transform var(--duration-short-4) var(--easing-standard),
+        box-shadow var(--duration-short-4) var(--easing-standard);
+}
+.mobile-card:hover,
+.mobile-card:focus-visible {
+    border-color: var(--md-primary);
+    background: #fbfffd;
+    box-shadow: var(--elevation-teal-3);
+    transform: translateY(-1px);
+}
+.mobile-card:active {
+    transform: translateY(0);
+    box-shadow: var(--elevation-1);
+}
+
+.mobile-card-label {
+    font-weight: 500;
+    color: var(--md-on-surface);
+}
+
+.mobile-card-chevron {
+    color: var(--md-on-surface-variant);
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+/* ── Sub-panel: Back button + section heading ───────────── */
+.mobile-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+    color: var(--md-primary-dark);
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+.mobile-back .material-symbols-outlined { font-size: 1.3rem; }
+.mobile-back:hover { color: var(--md-primary); }
+
+.mobile-subheading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--md-on-surface);
+    letter-spacing: -0.02em;
+    margin: 4px 4px 12px;
+}
+
+/* ── Product card variant (icon + name + description) ────── */
+.mobile-card--product {
+    align-items: center;
+    padding: 18px 20px;
+}
+
+.mobile-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    background: var(--md-primary-container);
+    color: var(--md-primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.mobile-card-icon .material-symbols-outlined { font-size: 1.3rem; }
+
+.mobile-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+}
+.mobile-card-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--md-on-surface);
+}
+.mobile-card-desc {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--md-on-surface-variant);
+    line-height: 1.4;
+}
+
+/* ── "View All Products" card (full brand fill) ──────────── */
+.mobile-card--all {
+    justify-content: center;
+    gap: 8px;
+    background: var(--md-primary);
+    color: #ffffff;
+    border-color: var(--md-primary);
+    font-weight: 600;
+    box-shadow: var(--elevation-teal-3);
+}
+.mobile-card--all:hover {
+    background: var(--md-primary-dark);
+    border-color: var(--md-primary-dark);
+    color: #ffffff;
+    box-shadow: var(--elevation-teal-4);
+}
+.mobile-card--all .material-symbols-outlined {
+    color: inherit;
+    font-size: 1.2rem;
+}
+
+/* ── Sticky bottom Pilot Program CTA ──────────────────────── */
+.mobile-cta-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #ffffff 50%);
+    pointer-events: none;          /* let scrolling pass through the gradient */
+    z-index: 2;
+}
+
+.mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    pointer-events: auto;
+    background: var(--md-secondary);
+    color: #ffffff;
+    border: 1px solid var(--md-secondary);
+    box-shadow: var(--elevation-orange-3);
+    transition: background var(--duration-short-4) var(--easing-standard),
+                box-shadow var(--duration-short-4) var(--easing-standard);
+}
+.mobile-cta:hover {
+    background: var(--md-secondary-dark);
+    border-color: var(--md-secondary-dark);
+    box-shadow: var(--elevation-orange-4);
+}
+.mobile-cta .material-symbols-outlined { font-size: 1.05rem; }
+
+/* ── Responsive: hide on desktop, show on tablet/mobile ──── */
+@media (min-width: 1025px) {
+    .mobile-menu { display: none; }
+}
+
+@media (max-width: 1024px) {
+    .hamburger { display: inline-flex; }
+}

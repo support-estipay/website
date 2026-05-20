@@ -3,20 +3,14 @@ import { Link } from 'react-router-dom';
 import VideoSection from '../components/VideoSection';
 
 /*
- * ── Video IDs ──────────────────────────────────────────────────
- * Set these to your Cloudflare Stream Video IDs once uploaded.
- * Leave as null to show styled placeholders.
- *
- * Steps to add a video:
- *   1. Upload to dash.cloudflare.com → Stream
- *   2. Copy the Video ID
- *   3. Replace null with the ID string, e.g. "ea95132c15732419596388e6"
- *   4. Update CLOUDFLARE_SUBDOMAIN in VideoSection.jsx
+ * ── Demo recordings (public/demos/) ───────────────────────────
+ * Copy your audio/video files into public/demos/ using these names,
+ * or change the paths below to match your filenames.
  */
-const VIDEOS = {
-    fullDemo: null,   // Long walkthrough recording
-    short1: null,     // Short clip 1
-    short2: null,     // Short clip 2
+const RECORDINGS = {
+    fullDemo: '/demos/insurance-agent-full.mp3',
+    short1: '/demos/insurance-agent-short-1.mp3',
+    short2: '/demos/insurance-agent-short-2.mp3',
 };
 
 /* ── JSON-LD Schema ─────────────────────────────────────────── */
@@ -41,13 +35,13 @@ const SCHEMA = [
             'Human-agent handoff capability',
         ],
     },
-    VIDEOS.fullDemo && {
+    RECORDINGS.fullDemo && {
         '@context': 'https://schema.org',
-        '@type': 'VideoObject',
+        '@type': 'AudioObject',
         name: 'EstiPay Insurance Agent — Full Platform Demo',
         description: 'See how EstiPay Insurance Agent navigates carrier IVR systems, retrieves claim status, and coordinates approvals — completely autonomously.',
         uploadDate: '2026-05-20',
-        embedUrl: `https://YOUR_STREAM_SUBDOMAIN.cloudflarestream.com/${VIDEOS.fullDemo}/iframe`,
+        contentUrl: `https://estipay.com${RECORDINGS.fullDemo}`,
     },
 ].filter(Boolean);
 
@@ -311,7 +305,7 @@ const InsuranceAgent = () => {
                         <p className="prod-video-label">Full Demo Walkthrough</p>
                     </div>
                     <VideoSection
-                        streamId={VIDEOS.fullDemo}
+                        src={RECORDINGS.fullDemo}
                         title="EstiPay Insurance Agent — Full Platform Demo"
                         isMain
                     />
@@ -321,12 +315,12 @@ const InsuranceAgent = () => {
                         <p className="prod-video-shorts-title">Quick Looks</p>
                         <div className="prod-video-shorts">
                             <VideoSection
-                                streamId={VIDEOS.short1}
+                                src={RECORDINGS.short1}
                                 title="Insurance Agent — IVR Navigation Demo"
                                 label="IVR Navigation in under 60 seconds"
                             />
                             <VideoSection
-                                streamId={VIDEOS.short2}
+                                src={RECORDINGS.short2}
                                 title="Insurance Agent — Human Agent Interaction"
                                 label="Handling a live carrier agent conversation"
                             />

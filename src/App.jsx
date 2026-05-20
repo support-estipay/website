@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/tokens.css';
 import './styles/main.css';
 import './styles/hero.css';
+import './styles/mobile-nav.css';
 import './styles/sections.css';
 import './styles/whyestipay.css';
 import './styles/everything-you-need.css';

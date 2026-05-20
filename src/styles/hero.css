@@ -455,67 +455,12 @@
     gap: var(--space-5);
 }
 
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
+/* Hamburger button styles live in mobile-nav.css */
 
-.hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: var(--md-on-surface);
-    margin: 5px;
-    transition: all var(--duration-medium-2) var(--easing-standard);
-}
-
-/* ── Responsive: hamburger at 1024px ────────────────────── */
+/* ── Responsive: switch to mobile nav at 1024px ─────────── */
 @media (max-width: 1024px) {
-    .nav-links {
-        position: absolute;
-        right: 0;
-        height: 92vh;
-        top: 80px;
-        background-color: var(--md-surface);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        transform: translateX(100%);
-        transition: transform var(--duration-long-1) var(--easing-emphasized);
-        padding-top: 50px;
-        border-top: 1px solid var(--md-outline);
-        overflow-y: auto;
-    }
-
-    .nav-links li {
-        opacity: 0;
-        margin-bottom: var(--space-5);
-    }
-
-    .nav-links > li:not(.mobile-only) {
-        display: block;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .nav-active {
-        transform: translateX(0%);
-    }
-
-    .nav-active li {
-        animation: navLinkFade 0.5s ease forwards 0.3s;
-    }
-
-    @keyframes navLinkFade {
-        from { opacity: 0; transform: translateX(50px); }
-        to   { opacity: 1; transform: translateX(0); }
-    }
-
-    .toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
-    .toggle .line2 { opacity: 0; }
-    .toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+    /* Hide the desktop nav-links bar on mobile — replaced by .mobile-menu */
+    .nav-links { display: none; }
 
     .desktop-only { display: none; }
     .mobile-only  { display: block; }

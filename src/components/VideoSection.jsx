@@ -1,37 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * VideoSection — renders a Cloudflare Stream embed or a styled placeholder.
+ * VideoSection — plays a local recording from /public (audio or video).
  *
- * Usage:
- *   Long demo:  <VideoSection streamId={VIDEOS.fullDemo} title="..." isMain />
- *   Short clip: <VideoSection streamId={VIDEOS.short1}   title="..." label="Feature name" />
+ * Drop files into public/demos/ and set paths in each product page's RECORDINGS object.
  *
- * To fill in a video once uploaded to Cloudflare Stream:
- *   1. Go to dash.cloudflare.com → Stream → Upload your video
- *   2. Copy the Video ID (e.g. "ea95132c15732419596388e6")
- *   3. In the page file, replace `null` with the Video ID string
- *   4. Replace YOUR_STREAM_SUBDOMAIN with your Cloudflare account subdomain
- *      (found in Stream dashboard → "Use the Stream player" URL)
+ *   Main:  <VideoSection src={RECORDINGS.fullDemo} title="..." isMain />
+ *   Short: <VideoSection src={RECORDINGS.short1}   title="..." label="Feature name" />
  */
 
-const CLOUDFLARE_SUBDOMAIN = 'YOUR_STREAM_SUBDOMAIN'; // e.g. "customer-abc123"
+const AUDIO_EXT = /\.(mp3|wav|ogg|m4a|aac)(\?.*)?$/i;
+const VIDEO_EXT = /\.(mp4|webm|mov)(\?.*)?$/i;
 
-const VideoEmbed = ({ streamId, title }) => (
-    <iframe
-        src={`https://${CLOUDFLARE_SUBDOMAIN}.cloudflarestream.com/${streamId}/iframe`}
-        loading="lazy"
-        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-        allowFullScreen
-        title={title}
-        style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
-    />
-);
+const isAudioSrc = (src) => AUDIO_EXT.test(src);
+const isVideoSrc = (src) => VIDEO_EXT.test(src);
 
-VideoEmbed.propTypes = {
-    streamId: PropTypes.string.isRequired,
+const MediaPlayer = ({ src, title, onMissing }) => {
+    if (isAudioSrc(src)) {
+        return (
+            <div className="prod-media-player prod-media-wrap--audio">
+                <span className="material-symbols-outlined prod-media-audio-icon" aria-hidden="true">mic</span>
+                {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+                <audio
+                    className="prod-media-audio"
+                    src={src}
+                    controls
+                    preload="metadata"
+                    title={title}
+                    onError={onMissing}
+                >
+                    Your browser does not support audio playback.
+                </audio>
+            </div>
+        );
+    }
+
+    return (
+        /* eslint-disable-next-line jsx-a11y/media-has-caption */
+        <video
+            className="prod-media-video"
+            src={src}
+            controls
+            playsInline
+            preload="metadata"
+            title={title}
+            onError={onMissing}
+        >
+            Your browser does not support video playback.
+        </video>
+    );
+};
+
+MediaPlayer.propTypes = {
+    src: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    onMissing: PropTypes.func.isRequired,
 };
 
 const VideoPlaceholder = ({ isMain }) => (
@@ -51,40 +75,39 @@ VideoPlaceholder.propTypes = {
     isMain: PropTypes.bool,
 };
 
-const VideoSection = ({ streamId, title, isMain, label }) => {
-    const wrapClass = isMain ? 'prod-video-main-wrap' : 'prod-video-short-wrap';
+const VideoSection = ({ src, title, isMain, label }) => {
+    const [missing, setMissing] = useState(false);
+    const audioWrap = src && isAudioSrc(src)
+        ? (isMain ? ' prod-video-main-wrap--audio' : ' prod-video-short-wrap--audio')
+        : '';
+    const wrapClass = `${isMain ? 'prod-video-main-wrap' : 'prod-video-short-wrap'}${audioWrap}`;
+    const hasMedia = src && !missing && (isAudioSrc(src) || isVideoSrc(src));
+
+    const content = hasMedia
+        ? <MediaPlayer src={src} title={title} onMissing={() => setMissing(true)} />
+        : <VideoPlaceholder isMain={isMain} />;
 
     if (!isMain) {
         return (
             <div className="prod-video-short-item">
-                <div className={wrapClass}>
-                    {streamId
-                        ? <VideoEmbed streamId={streamId} title={title} />
-                        : <VideoPlaceholder isMain={false} />}
-                </div>
+                <div className={wrapClass}>{content}</div>
                 {label && <p className="prod-video-short-label">{label}</p>}
             </div>
         );
     }
 
-    return (
-        <div className={wrapClass}>
-            {streamId
-                ? <VideoEmbed streamId={streamId} title={title} />
-                : <VideoPlaceholder isMain />}
-        </div>
-    );
+    return <div className={wrapClass}>{content}</div>;
 };
 
 VideoSection.propTypes = {
-    streamId: PropTypes.string,
+    src: PropTypes.string,
     title: PropTypes.string.isRequired,
     isMain: PropTypes.bool,
     label: PropTypes.string,
 };
 
 VideoSection.defaultProps = {
-    streamId: null,
+    src: null,
     isMain: false,
     label: null,
 };
