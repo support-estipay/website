@@ -4,7 +4,7 @@
 
 #built-for-role {
     padding: 90px 0 120px;
-    background: var(--md-surface);
+    background: transparent;
     position: relative;
     overflow: visible;
 }

@@ -2,54 +2,22 @@
 
 const TrustBar = () => {
     const items = [
-        "IVR Navigation Automated",
-        "Claim Status Retrieved Without Human Intervention",
-        "Zero Hold Time for Your Team",
-        "24/7 Outbound Calling Capability",
-        "Live Demo Available Now"
+        { icon: 'phonelink_ring', text: 'IVR Navigation Automated' },
+        { icon: 'task_alt',       text: 'Claim Status Retrieved Without Human Intervention' },
+        { icon: 'schedule',       text: 'Zero Hold Time for Your Team' },
+        { icon: 'support_agent',  text: '24/7 Outbound Calling Capability' },
+        { icon: 'play_circle',    text: 'Live Demo Available Now' },
     ];
 
     return (
-        <section className="trust-bar" style={{ backgroundColor: 'var(--md-tertiary)', padding: '16px 0', overflow: 'hidden', whiteSpace: 'nowrap' }}>
-            <style>
-                {`
-                @keyframes scroll-trustbar {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                }
-                .marquee-content {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 60px;
-                    padding-left: 60px;
-                    animation: scroll-trustbar 35s linear infinite;
-                    color: #fff;
-                    font-size: 0.95rem;
-                    font-weight: 500;
-                    width: max-content;
-                }
-                .marquee-content:hover {
-                    animation-play-state: paused;
-                }
-                .marquee-item {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 10px;
-                }
-                `}
-            </style>
-            {/* The wrapper must be wider than the viewport to allow seamless scrolling of inline-flex */}
+        <section className="trust-bar" aria-label="Key capabilities">
+            <div className="trust-bar-fade trust-bar-fade--left" aria-hidden="true" />
+            <div className="trust-bar-fade trust-bar-fade--right" aria-hidden="true" />
             <div className="marquee-content">
-                {items.map((text, idx) => (
+                {[...items, ...items].map((item, idx) => (
                     <span key={idx} className="marquee-item">
-                        <span style={{ color: 'var(--md-secondary)', fontSize: '1.1rem' }}>⚡</span> 
-                        {text}
-                    </span>
-                ))}
-                {items.map((text, idx) => (
-                    <span key={'dup-'+idx} className="marquee-item">
-                        <span style={{ color: 'var(--md-secondary)', fontSize: '1.1rem' }}>⚡</span> 
-                        {text}
+                        <span className="material-symbols-outlined marquee-icon" aria-hidden="true">{item.icon}</span>
+                        {item.text}
                     </span>
                 ))}
             </div>

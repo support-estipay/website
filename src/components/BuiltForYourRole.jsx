@@ -196,12 +196,6 @@ const BuiltForYourRole = () => {
                 </div>
             </div>
 
-            {/* Wave transition into EverythingYouNeed */}
-            <div className="bfr-wave-bottom" aria-hidden="true">
-                <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', width: '100%', height: '70px' }}>
-                    <path d="M0,20 C360,70 1080,0 1440,45 L1440,70 L0,70Z" fill="#f4f7f9" />
-                </svg>
-            </div>
         </section>
     );
 };

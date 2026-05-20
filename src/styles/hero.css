@@ -2,55 +2,61 @@
    Hero Section + Navbar
    ============================================================ */
 
-/* ── Hero Shell ─────────────────────────────────────────── */
+/* ── Hero Shell (light theme) ───────────────────────────── */
 #hero {
     position: relative;
     width: 100%;
     min-height: auto;
     padding-top: 130px;
-    padding-bottom: 100px;
+    padding-bottom: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
-    background: linear-gradient(160deg, #ffffff 0%, #f8fdfb 50%, #f4f7f9 100%);
+    /* Continuous light gradient — flows seamlessly into the section below */
+    background: linear-gradient(180deg,
+        #ffffff 0%,
+        #f6fbf9 35%,
+        #eef7f3 70%,
+        #f4f7f9 100%);
 }
 
-/* Ambient glow orbs — built into hero, no extra HTML */
+/* Ambient glow orbs — softened for light theme */
 #hero .hero-glow-primary {
     position: absolute;
-    top: -80px;
-    right: -100px;
-    width: 600px;
-    height: 600px;
+    top: -120px;
+    right: -120px;
+    width: 700px;
+    height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,155,108,0.18) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(0,155,108,0.20) 0%, transparent 65%);
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
     animation: orb-pulse 10s ease-in-out infinite;
 }
 #hero .hero-glow-secondary {
     position: absolute;
-    bottom: 0;
-    left: -80px;
-    width: 500px;
-    height: 500px;
+    bottom: -100px;
+    left: -120px;
+    width: 600px;
+    height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(18,94,146,0.12) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(18,94,146,0.14) 0%, transparent 65%);
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
     animation: orb-pulse 12s ease-in-out infinite reverse;
 }
 #hero .hero-glow-accent {
     position: absolute;
-    top: 40%;
-    left: 40%;
-    width: 300px;
-    height: 300px;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(244,128,39,0.08) 0%, transparent 65%);
+    background: radial-gradient(circle, rgba(244,128,39,0.10) 0%, transparent 65%);
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
     animation: orb-pulse 14s ease-in-out infinite 3s;
 }
 
@@ -65,32 +71,32 @@
     z-index: 10;
 }
 
-/* Grid background */
+/* Subtle grid background — softer for light theme */
 #hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    z-index: var(--z-below);
+    z-index: 2;
     pointer-events: none;
     background-size: 50px 50px;
     background-image:
-        linear-gradient(to right, rgba(0, 155, 108, 0.12) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 155, 108, 0.12) 1px, transparent 1px);
-    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        linear-gradient(to right, rgba(0, 155, 108, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 155, 108, 0.07) 1px, transparent 1px);
+    -webkit-mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
 }
 
-/* Mouse-spotlight overlay */
+/* Mouse-spotlight overlay — gentle green emphasis on hover */
 #hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: 3;
     pointer-events: none;
     background-size: 50px 50px;
     background-image:
-        linear-gradient(to right, rgba(0, 155, 108, 0.25) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 155, 108, 0.25) 1px, transparent 1px);
+        linear-gradient(to right, rgba(0, 155, 108, 0.20) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 155, 108, 0.20) 1px, transparent 1px);
     -webkit-mask-image: radial-gradient(
         350px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px),
         black 0%,
@@ -143,6 +149,7 @@
     border-bottom-color: transparent;
 }
 
+
 .logo {
     display: flex;
     align-items: center;
@@ -174,6 +181,71 @@
 }
 
 .nav-links li a:hover {
+    color: var(--md-primary);
+}
+
+/* ── Hero headline helpers (light theme) ─────────────────── */
+.hero-h1-light  { color: var(--md-on-surface); }
+.hero-h1-accent {
+    background: linear-gradient(135deg, var(--md-primary) 0%, var(--md-tertiary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* ── Secondary CTA outline button (light) ─────────────────── */
+.btn-hero-outline {
+    background: var(--md-surface) !important;
+    border: 2px solid var(--md-primary) !important;
+    color: var(--md-primary) !important;
+}
+.btn-hero-outline:hover {
+    background: var(--md-primary-container) !important;
+    border-color: var(--md-primary) !important;
+    color: var(--md-primary-dark) !important;
+}
+
+/* ── Product category chips (light theme) ─────────────────── */
+.hero-product-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-8);
+}
+
+.hero-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 10px 20px;
+    border-radius: var(--shape-full);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--md-outline);
+    color: var(--md-on-surface);
+    font-size: var(--type-label-lg-size);
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+        background var(--duration-short-4) var(--easing-standard),
+        border-color var(--duration-short-4) var(--easing-standard),
+        color var(--duration-short-4) var(--easing-standard),
+        transform var(--duration-short-4) var(--easing-standard),
+        box-shadow var(--duration-short-4) var(--easing-standard);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--elevation-1);
+}
+.hero-chip:hover {
+    background: var(--md-surface);
+    border-color: var(--md-primary);
+    color: var(--md-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--elevation-teal-3);
+}
+.hero-chip .material-symbols-outlined {
+    font-size: 1.05rem;
     color: var(--md-primary);
 }
 

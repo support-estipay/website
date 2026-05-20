@@ -386,11 +386,13 @@ ul { list-style: none; }
     letter-spacing: var(--type-headline-lg-letter);
     margin-bottom: var(--space-4);
 }
-.section-header p {
+.section-header p,
+.section-subheading {
     color: var(--md-on-surface-variant);
     font-size: var(--type-body-lg-size);
     line-height: var(--type-body-lg-line);
 }
+.section-header.text-center { text-align: center; }
 
 /* Dot-matrix background pattern */
 .bg-dots {
@@ -726,7 +728,7 @@ ul { list-style: none; }
    ============================================================ */
 .claims-section {
     padding: var(--space-24) 0;
-    background-color: var(--md-surface);
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -761,3 +763,297 @@ ul { list-style: none; }
     .cut-card-inner { padding: var(--space-6) var(--space-5); }
     .section-header { margin-bottom: var(--space-10); }
 }
+
+/* ============================================================
+   PAGE LOADER — full-viewport initial reveal (kore.ai style)
+   Concentric swirled rings draw in around the centered logo,
+   then the whole overlay fades to reveal the site below.
+   ============================================================ */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(180deg,
+        #f1f5f8 0%,
+        #ebf3f7 50%,
+        #f1f5f8 100%);
+    opacity: 1;
+    transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-loader--fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Lock body scroll while loader is visible */
+body:has(.page-loader:not(.page-loader--fade)) {
+    overflow: hidden;
+}
+
+.loader-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    /* Slight oversize so blur doesn't reveal hard edges at viewport border */
+    transform: scale(1.02);
+}
+
+.loader-ring {
+    stroke-dashoffset: var(--ring-circ, 4000);
+    opacity: 0;
+    animation: loader-ring-draw 1.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform-origin: 600px 600px;
+    transform-box: view-box;
+}
+
+@keyframes loader-ring-draw {
+    0%   { opacity: 0; stroke-dashoffset: var(--ring-circ, 4000); }
+    25%  { opacity: 1; }
+    100% { opacity: 1; stroke-dashoffset: 0; }
+}
+
+/* Centered logo */
+.loader-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loader-logo {
+    width: clamp(110px, 14vw, 170px);
+    height: auto;
+    opacity: 0;
+    transform: scale(0.88);
+    filter: blur(8px);
+    animation: loader-logo-in 0.85s cubic-bezier(0.4, 0, 0.2, 1) 0.65s forwards;
+}
+
+@keyframes loader-logo-in {
+    0%   { opacity: 0; transform: scale(0.88); filter: blur(8px); }
+    100% { opacity: 1; transform: scale(1);    filter: blur(0);   }
+}
+
+/* Respect users who prefer reduced motion — show static frame, fade out fast */
+@media (prefers-reduced-motion: reduce) {
+    .loader-ring { animation-duration: 0.4s; }
+    .loader-logo { animation-duration: 0.4s; animation-delay: 0.1s; }
+    .page-loader { transition-duration: 0.3s; }
+}
+
+/* ============================================================
+   FLUID BACKDROP — sections sit on this continuous gradient
+   ============================================================ */
+main {
+    position: relative;
+    background: linear-gradient(180deg,
+        #f4f7f9 0%,
+        #ffffff 8%,
+        #f6fbf9 22%,
+        #ffffff 38%,
+        #f0f7f4 55%,
+        #ffffff 72%,
+        #eef7f3 88%,
+        #ffffff 100%);
+}
+
+/* Make most sections transparent so the backdrop shows through.
+   Sections that need an opaque background can still set their own. */
+main > section {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================================
+   TRUST BAR — light, fluid, no hard break
+   ============================================================ */
+.trust-bar {
+    position: relative;
+    padding: 18px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    background: linear-gradient(180deg, #f4f7f9 0%, #ffffff 100%);
+    border-top: 1px solid var(--md-outline-variant);
+    border-bottom: 1px solid var(--md-outline-variant);
+}
+
+.trust-bar-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+}
+.trust-bar-fade--left  {
+    left: 0;
+    background: linear-gradient(to right, #f4f7f9 0%, rgba(244,247,249,0) 100%);
+}
+.trust-bar-fade--right {
+    right: 0;
+    background: linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0) 100%);
+}
+
+@keyframes scroll-trustbar {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.trust-bar .marquee-content {
+    display: inline-flex;
+    align-items: center;
+    gap: 56px;
+    padding-left: 60px;
+    animation: scroll-trustbar 40s linear infinite;
+    color: var(--md-on-surface);
+    font-size: 0.95rem;
+    font-weight: 500;
+    width: max-content;
+    position: relative;
+    z-index: 1;
+}
+.trust-bar .marquee-content:hover { animation-play-state: paused; }
+
+.trust-bar .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--md-on-surface);
+}
+.trust-bar .marquee-icon {
+    color: var(--md-primary);
+    font-size: 1.15rem;
+}
+
+/* ============================================================
+   FLUID SECTION HELPERS — soft top/bottom fades for blending
+   ============================================================ */
+.section-fade-top {
+    position: relative;
+}
+.section-fade-top::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+.section-fade-bottom {
+    position: relative;
+}
+.section-fade-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Layered blur orb — drop into any section to add ambient color */
+.section-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+}
+.section-orb--green {
+    background: radial-gradient(circle, rgba(0,155,108,0.20) 0%, transparent 70%);
+}
+.section-orb--blue {
+    background: radial-gradient(circle, rgba(18,94,146,0.16) 0%, transparent 70%);
+}
+.section-orb--orange {
+    background: radial-gradient(circle, rgba(244,128,39,0.14) 0%, transparent 70%);
+}
+
+/* ============================================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================================ */
+[data-reveal] {
+    opacity: 0;
+    transition:
+        opacity  0.70s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.70s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Default: fade up */
+[data-reveal]:not([data-reveal="left"]):not([data-reveal="right"]):not([data-reveal="scale"]):not([data-reveal="fade"]) {
+    transform: translateY(32px);
+}
+[data-reveal="left"]  { transform: translateX(-36px); }
+[data-reveal="right"] { transform: translateX(36px); }
+[data-reveal="scale"] { transform: scale(0.92); }
+[data-reveal="fade"]  { transform: none; }
+
+[data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+}
+
+/* Cascade stagger helpers */
+[data-reveal][data-delay="100"] { transition-delay: 0.10s; }
+[data-reveal][data-delay="150"] { transition-delay: 0.15s; }
+[data-reveal][data-delay="200"] { transition-delay: 0.20s; }
+[data-reveal][data-delay="300"] { transition-delay: 0.30s; }
+[data-reveal][data-delay="400"] { transition-delay: 0.40s; }
+[data-reveal][data-delay="500"] { transition-delay: 0.50s; }
+[data-reveal][data-delay="600"] { transition-delay: 0.60s; }
+
+/* ============================================================
+   ENHANCED MICROINTERACTIONS
+   ============================================================ */
+
+/* Lift card on hover */
+.card-lift {
+    transition:
+        transform var(--duration-medium-1) var(--easing-standard),
+        box-shadow var(--duration-medium-1) var(--easing-standard);
+}
+.card-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--elevation-teal-4);
+}
+
+/* Glow button pulse on hover */
+.btn-glow:hover {
+    box-shadow:
+        0 0 0 4px rgba(0, 155, 108, 0.15),
+        0 8px 24px rgba(0, 155, 108, 0.30);
+}
+.btn-glow-orange:hover {
+    box-shadow:
+        0 0 0 4px rgba(244, 128, 39, 0.15),
+        0 8px 24px rgba(244, 128, 39, 0.35);
+}
+
+/* Icon spin on hover — wrap icon in .icon-spin parent */
+.icon-spin-wrap .material-symbols-outlined {
+    transition: transform var(--duration-medium-2) var(--easing-emphasized);
+    display: inline-block;
+}
+.icon-spin-wrap:hover .material-symbols-outlined {
+    transform: rotate(15deg) scale(1.15);
+}
+
+/* Number ticker helper */
+@keyframes count-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.count-entered { animation: count-up 0.5s var(--easing-emphasized) forwards; }

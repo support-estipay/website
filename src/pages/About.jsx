@@ -1,6 +1,4 @@
 ﻿import React, { useEffect, useRef, useState } from 'react';
-import CTA from '../components/CTA';
-import claimsImage from '../assets/claims_communication.png';
 
 const IconCustomerFirst = () => (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +38,7 @@ const values = [
         label: 'Foundation',
         title: 'The Operator Comes First',
         features: [
-            'Every decision starts with the people doing the work � contractors, adjusters, and claims ops teams. If it doesn�t make their day faster and simpler, we don�t ship it.'
+            `Every decision starts with the people doing the work — contractors, adjusters, and claims ops teams. If it doesn't make their day faster and simpler, we don't ship it.`
         ],
     },
     {
@@ -48,7 +46,7 @@ const values = [
         label: 'Core Driver',
         title: 'Automation That Actually Works',
         features: [
-            'We build AI that adapts to the real world � not rigid scripts that break the moment something unexpected happens. Real automation means handling the unexpected, not avoiding it.'
+            'We build AI that adapts to the real world — not rigid scripts that break the moment something unexpected happens. Real automation means handling the unexpected, not avoiding it.'
         ],
     },
     {
@@ -56,7 +54,7 @@ const values = [
         label: 'Commitment',
         title: 'Radical Transparency',
         features: [
-            'We are honest about where the product is. We don�t oversell. We don�t use fake metrics. We show you exactly what EstiPay does � and we let the demo speak for itself.'
+            `We are honest about where the product is. We don't oversell. We don't use fake metrics. We show you exactly what EstiPay does — and we let the demo speak for itself.`
         ],
     },
     {
@@ -123,7 +121,7 @@ const About = () => {
                         <span className="sec-hero-accent">Heart of Every Delayed Claim</span>
                     </h1>
                     <p className="sec-hero-subtitle" style={{ maxWidth: '800px', margin: '0 auto 30px' }}>
-                        EstiPay was founded on a simple belief � the insurance claims process is broken, and AI can fix it. We are the team building that fix.
+                        EstiPay was founded on a simple belief — the insurance claims process is broken, and AI can fix it. We are the team building that fix.
                     </p>
                 </div>
             </section>
@@ -145,10 +143,10 @@ const About = () => {
                                 Insurance claims should pay out in days, not months. But the contractors, adjusters, and restoration crews who do the work spend more time chasing carriers than closing jobs. They navigate endless IVR menus, leave voicemails that disappear, and wait on hold for information that should be instant.
                             </p>
                             <p className="abt-mission-body">
-                                We built EstiPay to eliminate that bottleneck entirely. An AI voice agent that makes the calls, navigates the menus, speaks to human agents, and returns structured claim status � so the professionals who do the work get paid without the fight.
+                                We built EstiPay to eliminate that bottleneck entirely. An AI voice agent that makes the calls, navigates the menus, speaks to human agents, and returns structured claim status — so the professionals who do the work get paid without the fight.
                             </p>
                             <p className="abt-mission-body" style={{ marginBottom: '30px' }}>
-                                We are currently in active development and onboarding our first beta partners. If you work in insurance claims and want to be part of shaping this product � we want to hear from you.
+                                We are currently in active development and onboarding our first beta partners. If you work in insurance claims and want to be part of shaping this product — we want to hear from you.
                             </p>
                             <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                                 Join the Beta <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle' }}>arrow_forward</span>
@@ -156,7 +154,7 @@ const About = () => {
                         </div>
                         <div className="abt-mission-visual" style={{ position: 'relative' }}>
                             <div style={{ position: 'absolute', inset: '-20px', background: 'radial-gradient(circle at center, rgba(41, 193, 165, 0.15) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 0 }}></div>
-                            <img src={claimsImage} alt="Claims Dashboard UI" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px rgba(41,193,165,0.1)', border: '1px solid rgba(41,193,165,0.2)', position: 'relative', zIndex: 1, objectFit: 'cover' }} />
+                            <img src="/assets/dashboard-light.png" alt="Claims Dashboard UI" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px rgba(41,193,165,0.1)', border: '1px solid rgba(41,193,165,0.2)', position: 'relative', zIndex: 1, objectFit: 'cover' }} />
                         </div>
                     </div>
                 </div>
@@ -173,7 +171,7 @@ const About = () => {
                         <span className="sec-badge sec-badge--dark">Our Values</span>
                         <h2 className="sec-section-title sec-section-title--light" style={{ color: '#1a1a2e' }}>The Principles Behind Every Product Decision</h2>
                         <p className="sec-section-subtitle sec-section-subtitle--light" style={{ color: '#4b5563' }}>
-                            These aren�t wall decorations. They are the standards we hold every build decision, every conversation, and every partnership to.
+                            These aren't wall decorations. They are the standards we hold every build decision, every conversation, and every partnership to.
                         </p>
                     </div>
                     <div className={`sol-cards sol-cards--4col${valuesVisible ? ' sol-visible' : ''}`} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
@@ -209,18 +207,18 @@ const About = () => {
                         <span className="sec-badge sec-badge--dark">Product Status</span>
                         <h2 className="sec-section-title sec-section-title--light" style={{ color: '#1a1a2e' }}>Here Is Exactly Where We Stand</h2>
                         <p className="sec-section-subtitle sec-section-subtitle--light" style={{ color: '#4b5563' }}>
-                            We believe in showing you the real picture � not a polished version of it.
+                            We believe in showing you the real picture — not a polished version of it.
                         </p>
                     </div>
                     <div style={{ maxWidth: '600px', margin: '0 auto', background: '#f9fafb', padding: '40px', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '20px', color: '#1a1a2e', fontSize: '1.1rem' }}>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>layers</span></span> Core architecture � Complete</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>account_tree</span></span> IVR navigation engine � Built and tested</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>mic</span></span> AI voice agent � Active in demo environment</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>headset_mic</span></span> Human agent interaction layer � Complete</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>trending_up</span></span> Dashboard and data extraction � In final build</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px', borderTop: '1px solid #e5e7eb', paddingTop: '20px' }}><span style={{ color: 'var(--md-secondary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>person_add</span></span> Beta partner onboarding � Open now</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-secondary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>event_available</span></span> General availability � Coming Q4 2026</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>layers</span></span> Core architecture — Complete</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>account_tree</span></span> IVR navigation engine — Built and tested</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>mic</span></span> AI voice agent — Active in demo environment</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>headset_mic</span></span> Human agent interaction layer — Complete</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>trending_up</span></span> Dashboard and data extraction — In final build</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px', borderTop: '1px solid #e5e7eb', paddingTop: '20px' }}><span style={{ color: 'var(--md-secondary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>person_add</span></span> Beta partner onboarding — Open now</li>
+                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-secondary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>event_available</span></span> General availability — Coming Q4 2026</li>
                         </ul>
                         <div style={{ marginTop: '40px', textAlign: 'center' }}>
                             <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)' }}>Become a Beta Partner <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle' }}>arrow_forward</span></a>

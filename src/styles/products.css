@@ -273,7 +273,7 @@
     font-weight: 500;
 }
 
-/* Breadcrumb */
+/* Breadcrumb (light hero) */
 .prod-breadcrumb {
     display: flex;
     align-items: center;
@@ -291,7 +291,7 @@
     transition: color 0.2s ease;
 }
 
-.prod-breadcrumb a:hover { color: var(--primary-green); }
+.prod-breadcrumb a:hover { color: var(--md-primary); }
 
 .prod-breadcrumb-sep { font-size: 0.7rem; }
 

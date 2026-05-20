@@ -14,6 +14,7 @@ import './styles/products.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import PageLoader from './components/PageLoader';
 
 import Home from './pages/Home';
 import Products from './pages/Products';
@@ -29,6 +30,8 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <BrowserRouter>
+      {/* Initial page-load reveal — only mounts once per site load */}
+      <PageLoader />
       <ScrollToTop />
       <div className="App">
         <Routes>
