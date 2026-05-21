@@ -28,7 +28,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(rgba(0, 155, 108, 0.12) 1.5px, transparent 1.5px);
+    background-image: radial-gradient(var(--md-grid-line) 1.5px, transparent 1.5px);
     background-size: 32px 32px;
     pointer-events: none;
     z-index: var(--z-below);
@@ -41,7 +41,7 @@
     right: -120px;
     width: 480px;
     height: 480px;
-    background: radial-gradient(circle, rgba(0, 155, 108, 0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--md-tertiary-a10) 0%, transparent 70%);
     pointer-events: none;
     z-index: var(--z-below);
 }
@@ -70,9 +70,9 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-1) + 2px;
-    background: rgba(244, 128, 39, 0.10);
-    color: var(--md-secondary);
-    border: 1px solid rgba(244, 128, 39, 0.25);
+    background: var(--md-tertiary-container);
+    color: var(--md-on-tertiary-container);
+    border: 1px solid var(--md-tertiary-a14);
     border-radius: var(--shape-full);
     padding: var(--space-1) + 2px var(--space-4);
     font-size: var(--type-label-md-size);
@@ -299,8 +299,8 @@
     flex-shrink: 0;
 }
 
-.eyn-doc-badge.ready       { background: rgba(0, 155, 108, 0.12); color: var(--md-primary-dark); }
-.eyn-doc-badge.processing  { background: rgba(244, 128, 39, 0.12);  color: var(--md-secondary); }
+.eyn-doc-badge.ready       { background: var(--md-primary-a12); color: var(--md-on-primary-container); }
+.eyn-doc-badge.processing  { background: var(--md-secondary-a12);  color: var(--md-on-secondary-container); }
 
 /* Tracking Mockup */
 .eyn-claim-list {
@@ -349,9 +349,9 @@
     border-left: 3px solid transparent;
 }
 
-.eyn-alert-urgent  { background: rgba(244, 128, 39, 0.07); border-left-color: var(--md-secondary); }
-.eyn-alert-success { background: rgba(0, 155, 108, 0.07);  border-left-color: var(--md-primary); }
-.eyn-alert-warn    { background: rgba(251, 191, 36, 0.07);  border-left-color: #f59e0b; }
+.eyn-alert-urgent  { background: var(--md-secondary-a07); border-left-color: var(--md-secondary); }
+.eyn-alert-success { background: var(--md-primary-a08);  border-left-color: var(--md-primary); }
+.eyn-alert-warn    { background: var(--md-secondary-container);  border-left-color: var(--md-secondary); }
 
 .eyn-alert-icon {
     font-size: 16px;

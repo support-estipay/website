@@ -136,7 +136,7 @@ const Hero = () => {
                             href="https://interbizconsulting.eb-sites.com/4534599536082944"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn btn-orange btn-hero-pill"
+                            className="btn btn-filled-secondary btn-hero-pill"
                         >
                             Join Our Pilot Program
                             <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1.1rem' }}>arrow_forward</span>
@@ -175,7 +175,7 @@ const Hero = () => {
             {/* Bottom wave transition — flows from hero into the light TrustBar */}
             <div className="hero-wave-bottom" aria-hidden="true">
                 <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block', width: '100%', height: '100%' }}>
-                    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70Z" fill="#f4f7f9" />
+                    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70Z" fill="var(--md-surface-variant)" />
                 </svg>
             </div>
 

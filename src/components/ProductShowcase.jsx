@@ -65,7 +65,7 @@ export default function ProductShowcase() {
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 {/* Section header */}
                 <div className="section-header text-center" data-reveal>
-                    <span className="section-badge">PLATFORM</span>
+                    <span className="section-badge section-badge--blue">PLATFORM</span>
                     <h2>Three Products. One Seamless Platform.</h2>
                     <p className="section-subheading">
                         EstiPay automates the most time-consuming parts of the claims and restoration
@@ -107,12 +107,12 @@ export default function ProductShowcase() {
                         <ul className="pshow-features" aria-label="Features">
                             {product.features.map(f => (
                                 <li key={f} className="pshow-feature-item">
-                                    <span className="pshow-check material-symbols-outlined" aria-hidden="true">check_circle</span>
+                                    <span className="pshow-check material-symbols-outlined ms-icon--success" aria-hidden="true">check_circle</span>
                                     {f}
                                 </li>
                             ))}
                         </ul>
-                        <Link to={product.link} className="btn btn-primary pshow-cta">
+                        <Link to={product.link} className="btn btn-tonal pshow-cta">
                             Explore {product.label}
                             <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem' }}>arrow_forward</span>
                         </Link>

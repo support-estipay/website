@@ -18,8 +18,8 @@
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(0, 155, 108, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 155, 108, 0.04) 1px, transparent 1px);
+        linear-gradient(var(--md-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--md-grid-line) 1px, transparent 1px);
     background-size: 48px 48px;
     pointer-events: none;
     z-index: var(--z-below);
@@ -49,9 +49,9 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-1) + 2px;
-    background: rgba(244, 128, 39, 0.10);
-    color: var(--md-secondary);
-    border: 1px solid rgba(244, 128, 39, 0.25);
+    background: var(--md-tertiary-container);
+    color: var(--md-on-tertiary-container);
+    border: 1px solid var(--md-tertiary-a14);
     border-radius: var(--shape-full);
     padding: var(--space-1) + 2px var(--space-4);
     font-size: var(--type-label-md-size);

@@ -41,12 +41,12 @@ const USMap = () => {
                                     <Geography
                                         key={geo.rsmKey}
                                         geography={geo}
-                                        fill={highlighted ? 'rgba(41,193,165,0.45)' : '#c9ede8'}
+                                        fill={highlighted ? 'var(--md-primary-map-fill)' : 'var(--md-primary-map-muted)'}
                                         stroke="#ffffff"
                                         strokeWidth={0.7}
                                         style={{
                                             default: { outline: 'none' },
-                                            hover:   { outline: 'none', fill: highlighted ? 'rgba(41,193,165,0.65)' : '#aeddd6' },
+                                            hover:   { outline: 'none', fill: highlighted ? 'var(--md-primary-map-fill-hover)' : 'var(--md-primary-map-muted-hover)' },
                                             pressed: { outline: 'none' },
                                         }}
                                     />
@@ -80,7 +80,7 @@ const USMap = () => {
                                         x="-42" y="-52"
                                         width="84" height="24"
                                         rx="6"
-                                        fill="#1a1a2e"
+                                        fill="var(--md-on-surface)"
                                         opacity="0.9"
                                     />
                                     <text

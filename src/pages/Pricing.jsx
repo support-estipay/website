@@ -55,7 +55,7 @@ const Pricing = () => {
                                 <li>Team collaboration tools</li>
                                 <li>API access</li>
                             </ul>
-                            <a href="#" className="btn btn-orange">Get Started</a>
+                            <a href="#" className="btn btn-filled-secondary">Get Started</a>
                         </div>
 
                         <div className="pricing-card">

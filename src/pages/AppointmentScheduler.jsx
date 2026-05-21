@@ -203,7 +203,7 @@ const AppointmentScheduler = () => {
                         EstiPay's Appointment Scheduler calls customers after a loss event, gathers damage details and site access information, and books a confirmed date and time for one of your executives to visit — without a single manual call from your team.
                     </p>
                     <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
-                        <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 32px', fontSize: '1rem' }}>
+                        <Link to="/contact" className="btn btn-tonal" style={{ padding: '15px 32px', fontSize: '1rem' }}>
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
@@ -366,7 +366,7 @@ const AppointmentScheduler = () => {
                         EstiPay calls your customers, gathers the details that matter, and books the visit — so your executive arrives informed and on time, every time. Contact us to discuss deployment for your restoration operation.
                     </p>
                     <div className="prod-cta-actions">
-                        <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 36px', fontSize: '1rem' }}>
+                        <Link to="/contact" className="btn btn-tonal" style={{ padding: '15px 36px', fontSize: '1rem' }}>
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/" className="btn btn-outline" style={{ padding: '15px 36px', fontSize: '1rem' }}>

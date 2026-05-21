@@ -468,7 +468,7 @@
 }
 
 .btn-white-pill:hover {
-    background: #e6f0fa;
+    background: var(--md-tertiary-container);
     transform: translateY(-2px);
 }
 

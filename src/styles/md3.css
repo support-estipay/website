@@ -1,0 +1,253 @@
+/* ============================================================
+   Material Design 3 — Component layer
+   Uses tokens.css only. Import after tokens.css, before pages.
+   https://m3.material.io/styles/color/overview
+   ============================================================ */
+
+/* -- MD3 state layers (hover / focus / press) ---------------- */
+:root {
+  --md-state-hover-primary:    color-mix(in srgb, var(--md-primary) 8%, transparent);
+  --md-state-hover-secondary:  color-mix(in srgb, var(--md-secondary) 8%, transparent);
+  --md-state-hover-tertiary:   color-mix(in srgb, var(--md-tertiary) 8%, transparent);
+  --md-state-hover-surface:    color-mix(in srgb, var(--md-on-surface) 8%, transparent);
+  --md-state-focus-ring:       var(--md-primary);
+  --md-scrim:                  rgba(0, 0, 0, 0.32);
+}
+
+/* -- Links (MD3) --------------------------------------------- */
+.link {
+  color: var(--md-tertiary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--duration-medium-1) var(--easing-standard);
+}
+.link:hover { color: var(--md-tertiary-dark); }
+
+.link-primary {
+  color: var(--md-primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+.link-primary:hover {
+  color: var(--md-primary);
+  text-decoration: underline;
+}
+
+/* -- Surfaces (MD3 containers) ------------------------------- */
+.surface-page {
+  background: var(--md-surface-container-lowest);
+}
+
+.surface-muted {
+  background: var(--md-surface-container-low);
+}
+
+.surface-tertiary-tint {
+  background: var(--section-bg-tertiary);
+}
+
+.surface-variant {
+  background: var(--md-surface-variant);
+}
+
+/* Alternating section rhythm on marketing pages */
+.section-md3:nth-of-type(even) {
+  background: var(--md-surface-container-lowest);
+}
+.section-md3:nth-of-type(odd) {
+  background: transparent;
+}
+
+/* -- Layout helpers ------------------------------------------ */
+.stack-row {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.stack-row--start { justify-content: flex-start; }
+
+/* -- MD3 Cards ----------------------------------------------- */
+.md3-card {
+  background: var(--md-surface-container-lowest);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--shape-lg);
+  box-shadow: var(--elevation-1);
+  padding: var(--space-6);
+  transition:
+    box-shadow var(--duration-medium-2) var(--easing-standard),
+    border-color var(--duration-medium-1) var(--easing-standard);
+}
+.md3-card:hover {
+  box-shadow: var(--elevation-2);
+  border-color: var(--md-outline);
+}
+.md3-card--elevated {
+  background: var(--md-surface-container-low);
+  box-shadow: var(--elevation-2);
+}
+.md3-card--filled {
+  background: var(--md-surface-container);
+  border-color: transparent;
+}
+
+/* -- MD3 Chips (assist / filter style) ----------------------- */
+.md3-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--shape-sm);
+  font-size: var(--type-label-md-size);
+  font-weight: var(--type-label-md-weight);
+  border: 1px solid var(--md-outline-variant);
+  background: var(--md-surface-container-low);
+  color: var(--md-on-surface);
+}
+.md3-chip--tertiary {
+  background: var(--md-tertiary-container);
+  color: var(--md-on-tertiary-container);
+  border-color: var(--md-tertiary-a14);
+}
+.md3-chip--secondary {
+  background: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+  border-color: var(--md-secondary-a18);
+}
+.md3-chip--primary {
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  border-color: var(--md-primary-a20);
+}
+
+/* -- MD3 Eyebrow (replaces inline label styles) -------------- */
+.md3-eyebrow {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: var(--shape-full);
+  font-size: var(--type-label-md-size);
+  font-weight: var(--type-label-md-weight);
+  letter-spacing: var(--type-label-md-letter);
+  text-transform: uppercase;
+  background: var(--md-tertiary-container);
+  color: var(--md-on-tertiary-container);
+  border: 1px solid var(--md-tertiary-a14);
+  margin-bottom: var(--space-4);
+}
+.md3-eyebrow--secondary {
+  background: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+  border-color: var(--md-secondary-a18);
+}
+
+/* -- Icon color roles ---------------------------------------- */
+.ms-icon { color: var(--md-tertiary); }
+.ms-icon--primary   { color: var(--md-primary); }
+.ms-icon--secondary { color: var(--md-secondary); }
+.ms-icon--tertiary  { color: var(--md-tertiary); }
+.ms-icon--success   { color: var(--md-primary-dark); }
+.ms-icon--error     { color: var(--md-error); }
+.ms-icon--muted     { color: var(--md-on-surface-variant); }
+
+/* -- MD3 Text button ----------------------------------------- */
+.btn-text {
+  background: transparent;
+  color: var(--md-tertiary);
+  border: none;
+  box-shadow: none;
+  padding: var(--space-2) var(--space-3);
+}
+.btn-text:hover {
+  background: var(--md-state-hover-tertiary);
+  color: var(--md-tertiary-dark);
+  transform: none;
+}
+
+/* -- MD3 Filled Tertiary ------------------------------------- */
+.btn-filled-tertiary {
+  background-color: var(--md-tertiary);
+  color: var(--md-on-tertiary);
+  box-shadow: var(--elevation-2);
+}
+.btn-filled-tertiary:hover {
+  background-color: var(--md-tertiary-dark);
+  box-shadow: var(--elevation-3);
+  transform: translateY(-2px);
+}
+
+/* -- MD3 Tonal Secondary / Tertiary -------------------------- */
+.btn-tonal-secondary {
+  background-color: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+  box-shadow: var(--elevation-1);
+}
+.btn-tonal-secondary:hover {
+  background-color: color-mix(in srgb, var(--md-secondary-container) 80%, var(--md-secondary));
+  box-shadow: var(--elevation-2);
+  transform: translateY(-2px);
+}
+
+.btn-tonal-tertiary {
+  background-color: var(--md-tertiary-container);
+  color: var(--md-on-tertiary-container);
+  box-shadow: var(--elevation-1);
+}
+.btn-tonal-tertiary:hover {
+  background-color: color-mix(in srgb, var(--md-tertiary-container) 80%, var(--md-tertiary));
+  box-shadow: var(--elevation-2);
+  transform: translateY(-2px);
+}
+
+/* -- MD3 Outlined variants ----------------------------------- */
+.btn-outlined-primary {
+  background: transparent;
+  color: var(--md-primary);
+  border: 1.5px solid var(--md-primary);
+}
+.btn-outlined-primary:hover {
+  background: var(--md-state-hover-primary);
+  border-color: var(--md-primary-dark);
+  color: var(--md-primary-dark);
+}
+
+.btn-outlined-secondary {
+  background: transparent;
+  color: var(--md-secondary-dark);
+  border: 1.5px solid var(--md-secondary);
+}
+.btn-outlined-secondary:hover {
+  background: var(--md-state-hover-secondary);
+}
+
+.btn-outlined-tertiary {
+  background: transparent;
+  color: var(--md-tertiary);
+  border: 1.5px solid var(--md-tertiary);
+}
+.btn-outlined-tertiary:hover {
+  background: var(--md-state-hover-tertiary);
+}
+
+/* btn-outline aliases MD3 Outlined (neutral) */
+.btn-outline {
+  background-color: transparent;
+  color: var(--md-on-surface);
+  border: 1.5px solid var(--md-outline);
+}
+.btn-outline:hover {
+  border-color: var(--md-tertiary);
+  color: var(--md-tertiary);
+  background-color: var(--md-tertiary-container);
+}
+
+/* Disabled (MD3 38% opacity on container) */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.38;
+  pointer-events: none;
+  box-shadow: none;
+  transform: none;
+}

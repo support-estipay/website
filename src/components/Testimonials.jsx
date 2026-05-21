@@ -47,7 +47,7 @@ export default function Testimonials() {
             <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                 {/* Section header */}
                 <div className="section-header text-center" data-reveal>
-                    <span className="section-badge section-badge--orange">TESTIMONIALS</span>
+                    <span className="section-badge section-badge--orange md-badge--secondary">TESTIMONIALS</span>
                     <h2>Trusted by Claims Professionals</h2>
                     <p className="section-subheading">
                         See how restoration contractors, public adjusters, and claims teams

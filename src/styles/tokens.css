@@ -1,58 +1,119 @@
 /* ============================================================
-   EstiPay -- Material Design 3 Token Layer
-   Single source of truth for all design decisions.
-   All other stylesheets reference these variables.
+   EstiPay — Material Design 3 Token Layer
+   Single source of truth. Tonal values derived from logo seeds
+   via Material Theme Builder conventions (light scheme).
 
-   Brand palette (three exact colors):
-     #009b6c  -- Forest green  (primary action, buttons, success)
-     #125e92  -- Corporate blue (structure, gradients, depth)
-     #f48027  -- Amber orange   (CTA, alerts, accent)
+   Logo seeds (do not change):
+     #009b6c  — Primary   (C-mark green)
+     #f48027  — Secondary (swoosh orange)
+     #125e92  — Tertiary  (wordmark blue)
    ============================================================ */
 :root {
 
-  /* -- Color Roles (MD3) ------------------------------------- */
+  /* -- Primary (logo green, tone 40) ------------------------- */
   --md-primary:              #009b6c;
-  --md-primary-dark:         #007a55;   /* AA-compliant shade for small text */
-  --md-on-primary:           #FFFFFF;
-  --md-primary-container:    #cceedd;   /* light primary tint */
-  --md-on-primary-container: #003824;
+  --md-primary-dark:         #007a55;
+  --md-on-primary:           #ffffff;
+  --md-primary-container:    #b8f0dc;
+  --md-on-primary-container: #002114;
 
-  --md-secondary:            #f48027;   /* amber orange -- CTA / accent */
+  /* -- Secondary (logo orange, tone 40) ---------------------- */
+  --md-secondary:            #f48027;
   --md-secondary-dark:       #d96f1a;
-  --md-on-secondary:         #FFFFFF;
-  --md-secondary-container:  #fde8cf;
+  --md-on-secondary:         #ffffff;
+  --md-secondary-container:  #ffdcc8;
+  --md-on-secondary-container: #4a2800;
 
-  --md-tertiary:             #125e92;   /* corporate blue */
-  --md-on-tertiary:          #FFFFFF;
+  /* -- Tertiary (logo blue, tone 40) ------------------------- */
+  --md-tertiary:             #125e92;
+  --md-tertiary-dark:        #0d4a73;
+  --md-on-tertiary:          #ffffff;
+  --md-tertiary-container:   #cde5f5;
+  --md-on-tertiary-container: #001d35;
 
-  --md-error:                #B3261E;
-  --md-on-error:             #FFFFFF;
+  /* -- Error (MD3 system) ------------------------------------ */
+  --md-error:                #b3261e;
+  --md-on-error:             #ffffff;
+  --md-error-container:      #f9dedc;
+  --md-on-error-container:   #410e0b;
 
-  /* -- Surface & Background ---------------------------------- */
-  --md-background:           #FFFFFF;
-  --md-on-background:        #1C1B1F;
+  /* -- Neutral / Surface (MD3 light scheme) ------------------ */
+  --md-background:           #fffbfe;
+  --md-on-background:        #1c1b1f;
 
-  --md-surface:              #FFFFFF;
-  --md-surface-variant:      #F4F7F9;   /* alternate section bg */
-  --md-surface-container:    #F6F8FA;   /* card / mockup inner bg */
-  --md-on-surface:           #1C1B1F;   /* primary body text */
-  --md-on-surface-variant:   #6B7280;   /* secondary / muted text */
+  --md-surface:              #fffbfe;
+  --md-surface-dim:          #ded8e1;
+  --md-surface-bright:       #fffbfe;
 
-  --md-inverse-surface:      #005f40;   /* footer dark green */
-  --md-on-inverse-surface:   #F2F0F4;   /* text on dark surfaces */
+  --md-surface-container-lowest:  #ffffff;
+  --md-surface-container-low:     #f6f8fa;
+  --md-surface-container-high:    #e8ecef;
+  --md-surface-container-highest: #e0e5e9;
+  --md-surface-container:         var(--md-surface-container-low);
 
-  --md-outline:              #E5E7EB;   /* borders, dividers */
-  --md-outline-variant:      #F1F3F5;   /* subtle dividers */
+  /* Section alt background (subtle cool neutral) */
+  --md-surface-variant:      #f4f7f9;
 
-  /* -- Brand Gradients: #009b6c -> #125e92 ------------------- */
+  --md-on-surface:           #1c1b1f;
+  --md-on-surface-variant:   #49454f;
+
+  /* -- Inverse (footer) — tertiary-derived (logo blue, MD3) ---- */
+  --md-inverse-surface:      #0c2d47;
+  --md-on-inverse-surface:   #e6eef5;
+  --md-inverse-primary:      #8ecae6;
+
+  /* -- Section backgrounds (MD3 60% neutral rule) ------------ */
+  --section-bg-default:      var(--md-surface-container-lowest);
+  --section-bg-muted:        var(--md-surface-container-low);
+  --section-bg-tertiary:     color-mix(in srgb, var(--md-tertiary-container) 55%, var(--md-surface-container-lowest));
+  --section-gradient-main:   linear-gradient(180deg,
+        var(--md-surface-container-low) 0%,
+        var(--md-surface-container-lowest) 35%,
+        var(--section-bg-tertiary) 65%,
+        var(--md-surface-container-lowest) 100%);
+
+  /* Neutral decorative grid (not primary-tinted) */
+  --md-grid-line:            rgba(28, 27, 31, 0.06);
+  --md-grid-line-strong:     rgba(28, 27, 31, 0.10);
+
+  --md-outline:              #c4c7cc;
+  --md-outline-variant:      #e5e7eb;
+
+  /* -- Dark surfaces (modals, product bands) — tertiary-derived */
+  --md-surface-dark:                    #0c2d47;
+  --md-surface-dark-container:          #123d5c;
+  --md-surface-dark-container-high:     #1a4d6e;
+  --md-on-surface-dark:                 #e6eef5;
+  --md-on-surface-dark-variant:         #a8bdd0;
+  --md-outline-dark:                    #2d5f82;
+
+  /* -- Alpha helpers (brand-tinted overlays) ----------------- */
+  --md-primary-a08:  rgba(0, 155, 108, 0.08);
+  --md-primary-a12:  rgba(0, 155, 108, 0.12);
+  --md-primary-a20:  rgba(0, 155, 108, 0.20);
+  --md-secondary-a07: rgba(244, 128, 39, 0.07);
+  --md-secondary-a12: rgba(244, 128, 39, 0.12);
+  --md-secondary-a18: rgba(244, 128, 39, 0.18);
+  --md-tertiary-a08: rgba(18, 94, 146, 0.08);
+  --md-tertiary-a10: rgba(18, 94, 146, 0.10);
+  --md-tertiary-a14: rgba(18, 94, 146, 0.14);
+  --md-tertiary-a20: rgba(18, 94, 146, 0.20);
+
+  /* Map / chart tints (primary-derived, not off-brand mint) */
+  --md-primary-map-fill:       rgba(0, 155, 108, 0.45);
+  --md-primary-map-fill-hover: rgba(0, 155, 108, 0.65);
+  --md-primary-map-muted:      #c5e8dc;
+  --md-primary-map-muted-hover:#a8d9c8;
+
+  /* -- Brand gradients (logo colors only) -------------------- */
   --gradient-brand:      linear-gradient(135deg, #009b6c 0%, #125e92 100%);
   --gradient-brand-135:  linear-gradient(135deg, #009b6c 0%, #125e92 100%);
-  --gradient-step:       linear-gradient(135deg, #009b6c 0%, #0d7bbf 100%);
+  --gradient-step:       linear-gradient(135deg, #009b6c 0%, #125e92 100%);
   --gradient-teal:       linear-gradient(135deg, #009b6c 0%, #007a55 100%);
   --gradient-teal-180:   linear-gradient(180deg, #009b6c 0%, #007a55 100%);
-  --gradient-orange:     linear-gradient(135deg, #f48027, #d96f1a);
+  --gradient-orange:     linear-gradient(135deg, #f48027 0%, #d96f1a 100%);
 
-  /* -- Elevation (MD3 tonal shadows) ------------------------- */
+  /* -- Elevation (MD3) --------------------------------------- */
   --elevation-0: none;
   --elevation-1: 0 1px 2px rgba(0,0,0,.06), 0 1px 3px rgba(0,0,0,.08);
   --elevation-2: 0 2px 6px rgba(0,0,0,.08), 0 1px 4px rgba(0,0,0,.06);
@@ -60,7 +121,6 @@
   --elevation-4: 0 8px 24px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
   --elevation-5: 0 16px 40px rgba(0,0,0,.14), 0 6px 12px rgba(0,0,0,.06);
 
-  /* Brand-tinted elevations */
   --elevation-teal-2: 0 2px 8px rgba(0,155,108,.12);
   --elevation-teal-3: 0 4px 16px rgba(0,155,108,.18);
   --elevation-teal-4: 0 12px 32px rgba(0,155,108,.22);
@@ -96,73 +156,67 @@
   --space-30: 120px;
 
   /* -- Typography Scale (Inter) ------------------------------ */
-  /* Inter: geometric, neutral, industry-leading web UI font  */
   --font-main:  'Inter', system-ui, -apple-system, sans-serif;
   --font-mono:  'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
 
-  /* Display ? hero headlines */
-  --type-display-lg-size:   3.25rem;    /* 52px */
+  --type-display-lg-size:   3.25rem;
   --type-display-lg-weight: 800;
   --type-display-lg-line:   1.1;
   --type-display-lg-letter: -0.035em;
 
-  --type-display-md-size:   2.625rem;   /* 42px */
+  --type-display-md-size:   2.625rem;
   --type-display-md-weight: 800;
   --type-display-md-line:   1.15;
   --type-display-md-letter: -0.03em;
 
-  /* Headline ? section titles */
-  --type-headline-lg-size:   2.125rem;  /* 34px */
+  --type-headline-lg-size:   2.125rem;
   --type-headline-lg-weight: 700;
   --type-headline-lg-line:   1.2;
   --type-headline-lg-letter: -0.025em;
 
-  --type-headline-md-size:   1.625rem;  /* 26px */
+  --type-headline-md-size:   1.625rem;
   --type-headline-md-weight: 700;
   --type-headline-md-line:   1.3;
   --type-headline-md-letter: -0.02em;
 
-  --type-headline-sm-size:   1.25rem;   /* 20px */
+  --type-headline-sm-size:   1.25rem;
   --type-headline-sm-weight: 600;
   --type-headline-sm-line:   1.4;
   --type-headline-sm-letter: -0.01em;
 
-  /* Title ? card/label titles */
-  --type-title-lg-size:   1.125rem;     /* 18px */
+  --type-title-lg-size:   1.125rem;
   --type-title-lg-weight: 600;
   --type-title-lg-line:   1.5;
 
-  --type-title-md-size:   1rem;         /* 16px */
+  --type-title-md-size:   1rem;
   --type-title-md-weight: 500;
   --type-title-md-line:   1.5;
 
-  --type-title-sm-size:   0.9375rem;    /* 15px */
+  --type-title-sm-size:   0.9375rem;
   --type-title-sm-weight: 500;
   --type-title-sm-line:   1.5;
 
-  /* Body ? readable prose, Inter optimised */
-  --type-body-lg-size:   1.0625rem;     /* 17px */
+  --type-body-lg-size:   1.0625rem;
   --type-body-lg-weight: 400;
   --type-body-lg-line:   1.7;
 
-  --type-body-md-size:   1rem;          /* 16px */
+  --type-body-md-size:   1rem;
   --type-body-md-weight: 400;
   --type-body-md-line:   1.65;
 
-  --type-body-sm-size:   0.875rem;      /* 14px */
+  --type-body-sm-size:   0.875rem;
   --type-body-sm-weight: 400;
   --type-body-sm-line:   1.6;
 
-  /* Label ? UI tags, badges, captions */
-  --type-label-lg-size:   0.875rem;     /* 14px */
+  --type-label-lg-size:   0.875rem;
   --type-label-lg-weight: 600;
   --type-label-lg-letter: 0.005em;
 
-  --type-label-md-size:   0.8125rem;    /* 13px */
+  --type-label-md-size:   0.8125rem;
   --type-label-md-weight: 600;
   --type-label-md-letter: 0.03em;
 
-  --type-label-sm-size:   0.6875rem;    /* 11px */
+  --type-label-sm-size:   0.6875rem;
   --type-label-sm-weight: 600;
   --type-label-sm-letter: 0.05em;
 
@@ -191,7 +245,7 @@
   --z-modal:  300;
   --z-tooltip: 400;
 
-  /* -- Legacy aliases (keep old names alive during cleanup) -- */
+  /* -- Legacy aliases ---------------------------------------- */
   --primary-green:          var(--md-primary);
   --primary-dark:           var(--md-primary-dark);
   --secondary-orange:       var(--md-secondary);
@@ -200,5 +254,5 @@
   --text-dark:              var(--md-on-surface);
   --text-gray:              var(--md-on-surface-variant);
   --bg-light:               var(--md-surface-variant);
-  --white:                  var(--md-surface);
+  --white:                  var(--md-surface-container-lowest);
 }

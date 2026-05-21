@@ -129,7 +129,7 @@ const FAQ = () => {
                         <p className="faq2-cta-heading">Still have questions?</p>
                         <p className="faq2-cta-sub">Our team is happy to walk you through anything.</p>
                     </div>
-                    <a href="/contact" className="btn btn-orange faq2-cta-btn">Contact Us</a>
+                    <a href="/contact" className="btn btn-tonal faq2-cta-btn">Contact Us</a>
                 </div>
             </div>
         </section>

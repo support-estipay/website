@@ -44,8 +44,8 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    background: rgba(244, 125, 38, 0.1);
-    border: 1px solid rgba(244, 125, 38, 0.2);
+    background: var(--md-secondary-a12);
+    border: 1px solid var(--md-secondary-a18);
     color: var(--md-secondary);
     font-size: var(--type-label-md-size);
     font-weight: var(--type-label-md-weight);
@@ -73,7 +73,7 @@
     letter-spacing: -0.03em;
 }
 .cta-highlight { color: var(--md-on-surface); }
-.cta-part-1    { color: var(--md-primary-dark); }
+.cta-part-1    { color: var(--md-tertiary); }
 
 /* Subtitle */
 .cta-subtitle {
@@ -110,12 +110,14 @@
         box-shadow var(--duration-medium-1) var(--easing-standard);
     white-space: nowrap;
 }
+/* MD3 Filled Secondary — conversion CTA (logo orange) */
 .btn-cta--primary {
-    background: var(--gradient-orange);
+    background: var(--md-secondary);
     color: var(--md-on-secondary);
     box-shadow: var(--elevation-orange-4);
 }
 .btn-cta--primary:hover {
+    background: var(--md-secondary-dark);
     transform: translateY(-3px);
     box-shadow: var(--elevation-orange-5);
 }
@@ -149,7 +151,7 @@
 }
 /* icon inside trust row */
 .cta-trust-row li .ms-icon {
-    color: var(--md-primary-dark);
+    color: var(--md-inverse-primary);
     font-size: 0.85rem;
     font-variation-settings: 'FILL' 1;
 }
@@ -171,7 +173,7 @@ footer::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(5, 60, 43, 0.55) 0%, transparent 70%);
+    background: radial-gradient(ellipse 80% 60% at 50% 110%, var(--md-tertiary-a20) 0%, transparent 70%);
     pointer-events: none;
 }
 

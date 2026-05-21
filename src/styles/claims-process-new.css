@@ -32,9 +32,9 @@
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-1) + 2px var(--space-4);
-    background-color: rgba(244, 128, 39, 0.1);
-    color: var(--md-secondary);
-    border: 1px solid rgba(244, 128, 39, 0.3);
+    background-color: var(--md-tertiary-container);
+    color: var(--md-on-tertiary-container);
+    border: 1px solid var(--md-tertiary-a14);
     border-radius: var(--shape-full);
     font-size: var(--type-label-md-size);
     font-weight: 600;
@@ -257,9 +257,9 @@
 }
 
 .claims-process-section.dark-theme .key-tools-badge {
-    background-color: rgba(244, 128, 39, 0.1);
-    color: var(--md-secondary);
-    border: 1px solid rgba(244, 128, 39, 0.3);
+    background-color: var(--md-tertiary-a14);
+    color: var(--md-on-surface-dark);
+    border: 1px solid var(--md-outline-dark);
 }
 
 /* ── Responsive ─────────────────────────────────────────── */

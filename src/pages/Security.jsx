@@ -193,8 +193,7 @@ const Security = () => {
             {/* ── Section 1: Hero ───────────────────────────────── */}
             <section
                 ref={heroRef}
-                className={`sec-hero${heroVisible ? ' sec-hero-visible' : ''}`}
-                style={{ background: '#ffffff' }}
+                className={`sec-hero surface-page${heroVisible ? ' sec-hero-visible' : ''}`}
             >
                 <div className="sec-hero-blobs">
                     <div className="sec-hero-blob sec-hero-blob--tl" />
@@ -210,7 +209,7 @@ const Security = () => {
                         EstiPay is built with enterprise-grade security from the ground up. Every call, every document, every data point handled by our platform is protected with the same standards demanded by the insurance industry itself.
                     </p>
                     <div className="sol-cta-wrap" style={{ marginTop: '20px' }}>
-                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary sol-cta-btn" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)', padding: '15px 30px', fontSize: '1.1rem' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
+                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
                     </div>
                 </div>
             </section>
@@ -248,8 +247,8 @@ const Security = () => {
             {/* ── Section 3: Enterprise ─────────────────────── */}
             <section
                 ref={corpRef}
-                className={`sec-infra-section${corpVisible ? ' sec-infra-visible' : ''}`}
-                style={{ padding: '80px 0', background: '#ffffff' }}
+                className={`sec-infra-section surface-page${corpVisible ? ' sec-infra-visible' : ''}`}
+                style={{ padding: '80px 0' }}
             >
                 <div className="container">
                     <div className="sec-infra-header" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
@@ -260,7 +259,7 @@ const Security = () => {
                             <p className="sec-section-subtitle" style={{ fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '40px' }}>
                             If your organization has specific security requirements, data residency needs, or compliance frameworks that must be met — talk to us. We build for enterprise from day one and are happy to walk through our security architecture in detail.
                         </p>
-                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary sol-cta-btn" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)', padding: '15px 30px', fontSize: '1.1rem', display: 'inline-block' }}>Contact Our Team <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
+                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem', display: 'inline-block' }}>Contact Our Team <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
                     </div>
                 </div>
             </section>

@@ -203,7 +203,7 @@ const InsuranceAgent = () => {
                         EstiPay's Insurance Agent automates every outbound carrier call — navigating IVR systems, retrieving claim status, coordinating documentation, and securing approvals, around the clock, without a single staff member on hold.
                     </p>
                     <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
-                        <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 32px', fontSize: '1rem' }}>
+                        <Link to="/contact" className="btn btn-tonal" style={{ padding: '15px 32px', fontSize: '1rem' }}>
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
@@ -368,7 +368,7 @@ const InsuranceAgent = () => {
                         EstiPay's Insurance Agent handles every carrier call — 24 hours a day, seven days a week. Contact us to discuss deployment for your restoration operation.
                     </p>
                     <div className="prod-cta-actions">
-                        <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 36px', fontSize: '1rem' }}>
+                        <Link to="/contact" className="btn btn-tonal" style={{ padding: '15px 36px', fontSize: '1rem' }}>
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/" className="btn btn-outline" style={{ padding: '15px 36px', fontSize: '1rem' }}>

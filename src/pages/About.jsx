@@ -107,8 +107,7 @@ const About = () => {
             {/* -- Hero ------------------------------------------- */}
             <section
                 ref={heroRef}
-                className={`sec-hero${heroVisible ? ' sec-hero-visible' : ''}`}
-                style={{ background: '#ffffff' }}
+                className={`sec-hero surface-page${heroVisible ? ' sec-hero-visible' : ''}`}
             >
                 <div className="sec-hero-blobs">
                     <div className="sec-hero-blob sec-hero-blob--tl" />
@@ -148,13 +147,13 @@ const About = () => {
                             <p className="abt-mission-body" style={{ marginBottom: '30px' }}>
                                 We are currently in active development and onboarding our first beta partners. If you work in insurance claims and want to be part of shaping this product — we want to hear from you.
                             </p>
-                            <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                            <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                                 Join the Beta <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle' }}>arrow_forward</span>
                             </a>
                         </div>
                         <div className="abt-mission-visual" style={{ position: 'relative' }}>
                             <div style={{ position: 'absolute', inset: '-20px', background: 'radial-gradient(circle at center, rgba(41, 193, 165, 0.15) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 0 }}></div>
-                            <img src="/assets/dashboard-light.png" alt="Claims Dashboard UI" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px rgba(41,193,165,0.1)', border: '1px solid rgba(41,193,165,0.2)', position: 'relative', zIndex: 1, objectFit: 'cover' }} />
+                            <img src="/assets/dashboard-light.png" alt="Claims Dashboard UI" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px var(--md-primary-a12)', border: '1px solid var(--md-primary-a20)', position: 'relative', zIndex: 1, objectFit: 'cover' }} />
                         </div>
                     </div>
                 </div>
@@ -169,8 +168,8 @@ const About = () => {
                 <div className="container">
                     <div className="abt-values-header">
                         <span className="sec-badge sec-badge--dark">Our Values</span>
-                        <h2 className="sec-section-title sec-section-title--light" style={{ color: '#1a1a2e' }}>The Principles Behind Every Product Decision</h2>
-                        <p className="sec-section-subtitle sec-section-subtitle--light" style={{ color: '#4b5563' }}>
+                        <h2 className="sec-section-title sec-section-title--light" style={{ color: 'var(--md-on-surface)' }}>The Principles Behind Every Product Decision</h2>
+                        <p className="sec-section-subtitle sec-section-subtitle--light" style={{ color: 'var(--md-on-surface-variant)' }}>
                             These aren't wall decorations. They are the standards we hold every build decision, every conversation, and every partnership to.
                         </p>
                     </div>
@@ -179,16 +178,16 @@ const About = () => {
                             <div
                                 key={item.title}
                                 className="sol-card"
-                                style={{ transitionDelay: `${0.08 + i * 0.1}s`, padding: '30px 20px', background: '#ffffff', borderColor: 'rgba(0,0,0,0.1)' }}
+                                style={{ transitionDelay: `${0.08 + i * 0.1}s`, padding: '30px 20px', background: 'var(--md-surface-container-lowest)', borderColor: 'var(--md-outline-variant)' }}
                             >
                                 <div className="sol-icon-wrap" style={{ marginBottom: '20px', background: 'transparent', border: 'none', padding: 0, justifyContent: 'flex-start' }}>
                                     <div className="sol-icon-bubble" style={{ background: 'rgba(41, 193, 165, 0.08)', borderColor: 'rgba(41, 193, 165, 0.15)' }}>{item.icon}</div>
                                 </div>
                                 <div className="sol-card-body" style={{ padding: 0 }}>
-                                    <span className="sol-label" style={{ color: 'var(--md-secondary)', fontWeight: 'bold' }}>{item.label}</span>
-                                    <h3 className="sol-card-title" style={{ fontSize: '1.2rem', margin: '10px 0', color: '#1a1a2e' }}>{item.title}</h3>
+                                    <span className="sol-label" style={{ color: 'var(--md-tertiary)', fontWeight: 'bold' }}>{item.label}</span>
+                                    <h3 className="sol-card-title" style={{ fontSize: '1.2rem', margin: '10px 0', color: 'var(--md-on-surface)' }}>{item.title}</h3>
                                     {item.features.map(f => (
-                                        <p key={f} style={{ color: '#374151', fontSize: '0.95rem', lineHeight: '1.6' }}>{f}</p>
+                                        <p key={f} style={{ color: 'var(--md-on-surface-variant)', fontSize: '0.95rem', lineHeight: '1.6' }}>{f}</p>
                                     ))}
                                 </div>
                             </div>
@@ -205,13 +204,13 @@ const About = () => {
                 <div className="container">
                     <div className="abt-stats-header">
                         <span className="sec-badge sec-badge--dark">Product Status</span>
-                        <h2 className="sec-section-title sec-section-title--light" style={{ color: '#1a1a2e' }}>Here Is Exactly Where We Stand</h2>
-                        <p className="sec-section-subtitle sec-section-subtitle--light" style={{ color: '#4b5563' }}>
+                        <h2 className="sec-section-title sec-section-title--light" style={{ color: 'var(--md-on-surface)' }}>Here Is Exactly Where We Stand</h2>
+                        <p className="sec-section-subtitle sec-section-subtitle--light" style={{ color: 'var(--md-on-surface-variant)' }}>
                             We believe in showing you the real picture — not a polished version of it.
                         </p>
                     </div>
-                    <div style={{ maxWidth: '600px', margin: '0 auto', background: '#f9fafb', padding: '40px', borderRadius: '12px', border: '1px solid #e5e7eb' }}>
-                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '20px', color: '#1a1a2e', fontSize: '1.1rem' }}>
+                    <div style={{ maxWidth: '600px', margin: '0 auto', background: 'var(--md-surface-container-low)', padding: '40px', borderRadius: 'var(--shape-md)', border: '1px solid var(--md-outline-variant)' }}>
+                        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '20px', color: 'var(--md-on-surface)', fontSize: '1.1rem' }}>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>layers</span></span> Core architecture — Complete</li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>account_tree</span></span> IVR navigation engine — Built and tested</li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>mic</span></span> AI voice agent — Active in demo environment</li>
@@ -221,7 +220,7 @@ const About = () => {
                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-secondary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>event_available</span></span> General availability — Coming Q4 2026</li>
                         </ul>
                         <div style={{ marginTop: '40px', textAlign: 'center' }}>
-                            <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ backgroundColor: 'var(--md-secondary)', borderColor: 'var(--md-secondary)' }}>Become a Beta Partner <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle' }}>arrow_forward</span></a>
+                            <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary">Become a Beta Partner <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle' }}>arrow_forward</span></a>
                         </div>
                     </div>
                 </div>

@@ -139,11 +139,10 @@ ul { list-style: none; }
 .ms-filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
 .ms-bold   { font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24; }
 
-/* Inline icon paired with adjacent text (e.g. bullet checkmarks, button labels) */
+/* Inline icon — default tertiary; see md3.css for role modifiers */
 .ms-icon {
     font-size: 1rem;
     vertical-align: middle;
-    color: var(--md-primary);
     margin-right: var(--space-1);
     font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
 }
@@ -173,17 +172,47 @@ ul { list-style: none; }
         border-color     var(--duration-medium-1) var(--easing-standard);
 }
 
+/* MD3 Filled — highest emphasis (primary role = logo green) */
 .btn-primary {
-    background-color: var(--md-secondary);
-    color: var(--md-on-secondary);
-    box-shadow: var(--elevation-2);
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
+    box-shadow: var(--elevation-teal-2);
 }
 .btn-primary:hover {
+    background-color: var(--md-primary-dark);
+    box-shadow: var(--elevation-teal-4);
+    transform: translateY(-2px);
+}
+
+/* MD3 Filled Tonal — medium emphasis */
+.btn-tonal {
+    background-color: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+    box-shadow: var(--elevation-1);
+}
+.btn-tonal:hover {
+    background-color: color-mix(in srgb, var(--md-primary-container) 85%, var(--md-primary));
+    box-shadow: var(--elevation-2);
+    transform: translateY(-2px);
+}
+
+/* MD3 Filled Secondary — accent CTAs (logo orange, use sparingly) */
+.btn-filled-secondary,
+.btn-orange,
+.btn-cta {
+    background-color: var(--md-secondary);
+    color: var(--md-on-secondary);
+    box-shadow: var(--elevation-orange-3);
+}
+.btn-filled-secondary:hover,
+.btn-orange:hover,
+.btn-cta:hover {
     background-color: var(--md-secondary-dark);
     box-shadow: var(--elevation-orange-4);
     transform: translateY(-2px);
 }
 
+/* Legacy alias — same as btn-primary */
 .btn-green {
     background-color: var(--md-primary);
     color: var(--md-on-primary);
@@ -195,35 +224,15 @@ ul { list-style: none; }
     transform: translateY(-2px);
 }
 
-.btn-orange {
-    background-color: var(--md-secondary);
-    color: var(--md-on-secondary);
-    box-shadow: var(--elevation-orange-3);
-}
-.btn-orange:hover {
-    background-color: var(--md-secondary-dark);
-    box-shadow: var(--elevation-orange-4);
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: var(--md-on-surface);
-    border: 1.5px solid var(--md-outline);
-}
-.btn-outline:hover {
-    border-color: var(--md-primary);
-    color: var(--md-primary);
-    background-color: var(--md-primary-container);
-}
+/* Outlined buttons — defined in md3.css (tertiary hover per MD3) */
 
 .btn-outline-light {
     background-color: transparent;
-    color: #fff;
+    color: var(--md-on-primary);
     border: 1.5px solid rgba(255,255,255,0.4);
 }
 .btn-outline-light:hover {
-    border-color: #fff;
+    border-color: var(--md-on-primary);
     background-color: rgba(255,255,255,0.1);
 }
 
@@ -266,7 +275,11 @@ ul { list-style: none; }
 .text-blue    { color: var(--md-tertiary); }
 .text-orange  { color: var(--md-secondary); }
 .text-center  { text-align: center; }
-.text-white   { color: #fff; }
+.text-white   { color: var(--md-on-primary); }
+
+/* MD3 on-surface helpers (replace ad-hoc #555 / #666 in JSX) */
+.text-muted   { color: var(--md-on-surface-variant); }
+.text-emphasis { color: var(--md-on-surface); }
 
 /* ============================================================
    GLASS CARD  (glassmorphism)
@@ -317,7 +330,9 @@ ul { list-style: none; }
 /* ============================================================
    SECTION BADGES (pill labels above h2 headings)
    ============================================================ */
-.section-badge {
+/* MD3: section labels use tertiary (blue) by default */
+.section-badge,
+.md-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -328,20 +343,30 @@ ul { list-style: none; }
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    background: var(--md-primary-container);
-    color: var(--md-primary-dark);
+    background: var(--md-tertiary-container);
+    color: var(--md-on-tertiary-container);
     margin-bottom: var(--space-4);
-    border: 1px solid rgba(0,155,108,0.2);
+    border: 1px solid var(--md-tertiary-a14);
 }
-.section-badge--blue {
-    background: rgba(18,94,146,0.1);
-    color: var(--md-tertiary);
-    border-color: rgba(18,94,146,0.2);
+.section-badge--blue,
+.md-badge--tertiary {
+    background: var(--md-tertiary-container);
+    color: var(--md-on-tertiary-container);
+    border-color: var(--md-tertiary-a14);
 }
-.section-badge--orange {
+/* MD3 secondary — accent labels only (~10% of UI) */
+.section-badge--orange,
+.md-badge--secondary {
     background: var(--md-secondary-container);
-    color: var(--md-secondary-dark);
-    border-color: rgba(244,128,39,0.2);
+    color: var(--md-on-secondary-container);
+    border-color: var(--md-secondary-a18);
+}
+/* MD3 primary — trust / success labels only */
+.section-badge--green,
+.md-badge--primary {
+    background: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+    border-color: var(--md-primary-a20);
 }
 .section-badge--dark {
     background: rgba(255,255,255,0.12);
@@ -875,15 +900,7 @@ body:has(.page-loader:not(.page-loader--fade)) {
    ============================================================ */
 main {
     position: relative;
-    background: linear-gradient(180deg,
-        #f4f7f9 0%,
-        #ffffff 8%,
-        #f6fbf9 22%,
-        #ffffff 38%,
-        #f0f7f4 55%,
-        #ffffff 72%,
-        #eef7f3 88%,
-        #ffffff 100%);
+    background: var(--section-gradient-main);
 }
 
 /* Make most sections transparent so the backdrop shows through.
@@ -901,7 +918,7 @@ main > section {
     padding: 18px 0;
     overflow: hidden;
     white-space: nowrap;
-    background: linear-gradient(180deg, #f4f7f9 0%, #ffffff 100%);
+    background: linear-gradient(180deg, var(--md-surface-container-low) 0%, var(--md-surface-container-lowest) 100%);
     border-top: 1px solid var(--md-outline-variant);
     border-bottom: 1px solid var(--md-outline-variant);
 }

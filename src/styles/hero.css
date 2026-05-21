@@ -15,10 +15,9 @@
     overflow: hidden;
     /* Continuous light gradient — flows seamlessly into the section below */
     background: linear-gradient(180deg,
-        #ffffff 0%,
-        #f6fbf9 35%,
-        #eef7f3 70%,
-        #f4f7f9 100%);
+        var(--md-surface-container-lowest) 0%,
+        var(--md-surface-container-low) 50%,
+        var(--section-bg-tertiary) 100%);
 }
 
 /* Ambient glow orbs — softened for light theme */
@@ -29,7 +28,7 @@
     width: 700px;
     height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(0,155,108,0.20) 0%, transparent 65%);
+    background: radial-gradient(circle, var(--md-primary-a12) 0%, transparent 65%);
     pointer-events: none;
     z-index: 1;
     animation: orb-pulse 10s ease-in-out infinite;
@@ -41,7 +40,7 @@
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(18,94,146,0.14) 0%, transparent 65%);
+    background: radial-gradient(circle, var(--md-tertiary-a20) 0%, transparent 65%);
     pointer-events: none;
     z-index: 1;
     animation: orb-pulse 12s ease-in-out infinite reverse;
@@ -80,8 +79,8 @@
     pointer-events: none;
     background-size: 50px 50px;
     background-image:
-        linear-gradient(to right, rgba(0, 155, 108, 0.07) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 155, 108, 0.07) 1px, transparent 1px);
+        linear-gradient(to right, var(--md-grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--md-grid-line) 1px, transparent 1px);
     -webkit-mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
 }
@@ -95,8 +94,8 @@
     pointer-events: none;
     background-size: 50px 50px;
     background-image:
-        linear-gradient(to right, rgba(0, 155, 108, 0.20) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 155, 108, 0.20) 1px, transparent 1px);
+        linear-gradient(to right, var(--md-tertiary-a14) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--md-tertiary-a14) 1px, transparent 1px);
     -webkit-mask-image: radial-gradient(
         350px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px),
         black 0%,
@@ -239,14 +238,14 @@
 }
 .hero-chip:hover {
     background: var(--md-surface);
-    border-color: var(--md-primary);
+    border-color: var(--md-tertiary);
     color: var(--md-primary-dark);
     transform: translateY(-2px);
     box-shadow: var(--elevation-teal-3);
 }
 .hero-chip .material-symbols-outlined {
     font-size: 1.05rem;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
 }
 
 /* ── Hero Entry Animations ───────────────────────────────── */
@@ -314,9 +313,9 @@
 .badge {
     display: inline-block;
     padding: var(--space-1) + 2px var(--space-4);
-    background-color: rgba(244, 128, 39, 0.1);
-    color: var(--md-secondary);
-    border: 1px solid rgba(244, 128, 39, 0.3);
+    background-color: var(--md-secondary-container);
+    color: var(--md-on-secondary-container);
+    border: 1px solid var(--md-secondary-a18);
     border-radius: var(--shape-full);
     font-size: var(--type-label-md-size);
     font-weight: 600;

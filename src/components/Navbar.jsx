@@ -251,7 +251,7 @@ const Navbar = () => {
                     href={PILOT_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-primary desktop-only"
+                    className="btn btn-filled-secondary desktop-only"
                 >
                     Join Our Pilot Program
                 </a>

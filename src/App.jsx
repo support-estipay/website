@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/tokens.css';
 import './styles/main.css';
+import './styles/md3.css';
 import './styles/hero.css';
 import './styles/mobile-nav.css';
 import './styles/sections.css';

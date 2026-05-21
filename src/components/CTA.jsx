@@ -20,8 +20,8 @@ const CTA = () => {
                 </h2>
 
                 <ul className="cta-trust-row" data-reveal data-delay="150">
-                    <li><span className="material-symbols-outlined ms-icon" aria-hidden="true">check_circle</span> No credit card required</li>
-                    <li><span className="material-symbols-outlined ms-icon" aria-hidden="true">check_circle</span> Demo available on request</li>
+                    <li><span className="material-symbols-outlined ms-icon ms-icon--success" aria-hidden="true">check_circle</span> No credit card required</li>
+                    <li><span className="material-symbols-outlined ms-icon ms-icon--success" aria-hidden="true">check_circle</span> Demo available on request</li>
                 </ul>
 
                 <p className="cta-subtitle" data-reveal data-delay="200">
