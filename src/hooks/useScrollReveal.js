@@ -5,7 +5,7 @@ import { useEffect } from 'react';
  * Adds `is-revealed` class when they enter the viewport.
  * Pair with [data-reveal] CSS in main.css.
  *
- * Usage: call once in a top-level page component (e.g. Home.jsx).
+ * Usage: call once in a top-level page component.
  */
 export function useScrollReveal(selector = '[data-reveal]', options = {}) {
     useEffect(() => {

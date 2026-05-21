@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/tokens.css';
 import './styles/main.css';
 import './styles/hero.css';
@@ -35,17 +35,13 @@ function App() {
       <ScrollToTop />
       <div className="App">
         <Routes>
-          {/* Site now opens directly on the full Products page */}
-          <Route path="/" element={<Navigate to="/products" replace />} />
+          {/* Site opens directly on the full Products page at the root URL */}
+          <Route path="/" element={<><Navbar /><Products /><Footer /></>} />
 
-          {/* Product routes */}
-          <Route path="/products"                       element={<><Navbar /><Products /><Footer /></>} />
+          {/* Individual product detail routes */}
           <Route path="/products/insurance-agent"       element={<><Navbar /><InsuranceAgent /><Footer /></>} />
           <Route path="/products/appointment-scheduler" element={<><Navbar /><AppointmentScheduler /><Footer /></>} />
           <Route path="/products/payment-collector"     element={<><Navbar /><PaymentCollector /><Footer /></>} />
-
-          {/* Legacy /product redirect handled by redirecting to /products */}
-          <Route path="/product" element={<><Navbar /><Products /><Footer /></>} />
 
           <Route path="/solutions" element={<><Navbar /><Solutions /><Footer /></>} />
           <Route path="/pricing"   element={<><Navbar /><Pricing /><Footer /></>} />

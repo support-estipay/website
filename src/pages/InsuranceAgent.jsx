@@ -120,7 +120,7 @@ const RELATED = [
         desc: 'After restoration work is verified, collect payment via automated, empathetic voice follow-up.',
     },
     {
-        slug: '/products',
+        slug: '/',
         icon: 'layers',
         label: 'Full Platform',
         title: 'View the Full Platform',
@@ -187,9 +187,7 @@ const InsuranceAgent = () => {
                 </div>
                 <div className="container sec-hero-container">
                     <nav className="prod-breadcrumb" aria-label="Breadcrumb">
-                        <Link to="/">Home</Link>
-                        <span className="prod-breadcrumb-sep"><span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.85rem', verticalAlign: 'middle' }}>chevron_right</span></span>
-                        <Link to="/products">Products</Link>
+                        <Link to="/">Products</Link>
                         <span className="prod-breadcrumb-sep"><span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '0.85rem', verticalAlign: 'middle' }}>chevron_right</span></span>
                         <span>Insurance Agent</span>
                     </nav>
@@ -208,7 +206,7 @@ const InsuranceAgent = () => {
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 32px', fontSize: '1rem' }}>
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
-                        <Link to="/products" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
+                        <Link to="/" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
                             ← All Products
                         </Link>
                     </div>
@@ -370,7 +368,7 @@ const InsuranceAgent = () => {
                         <Link to="/contact" className="btn btn-primary" style={{ padding: '15px 36px', fontSize: '1rem' }}>
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
-                        <Link to="/products" className="btn btn-outline" style={{ padding: '15px 36px', fontSize: '1rem' }}>
+                        <Link to="/" className="btn btn-outline" style={{ padding: '15px 36px', fontSize: '1rem' }}>
                             View All Products
                         </Link>
                     </div>

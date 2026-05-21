@@ -91,7 +91,7 @@ const Navbar = () => {
         return () => document.removeEventListener('keydown', onKey);
     }, [isNavActive]);
 
-    const isProductsActive = location.pathname.startsWith('/products');
+    const isProductsActive = location.pathname === '/' || location.pathname.startsWith('/products/');
 
     /* ──────────────────────────────────────────────────────────
        Mobile menu markup — rendered via React Portal to <body>
@@ -164,7 +164,7 @@ const Navbar = () => {
                     </Link>
                 ))}
 
-                <Link to="/products" className="mobile-card mobile-card--all" onClick={closeNav}>
+                <Link to="/" className="mobile-card mobile-card--all" onClick={closeNav}>
                     View Full Platform
                     <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                 </Link>
@@ -190,7 +190,7 @@ const Navbar = () => {
     return (
         <>
         <nav className={`navbar${isScrolled ? ' scrolled' : ''}`}>
-            <Link to="/products" className="logo" onClick={closeNav}>
+            <Link to="/" className="logo" onClick={closeNav}>
                 <img src="/assets/logoF.png" alt="EstiPay Logo" className="logo-img" />
             </Link>
 
@@ -233,7 +233,7 @@ const Navbar = () => {
 
                         <hr className="nav-dropdown-divider" />
 
-                        <Link to="/products" className="nav-dropdown-all" role="menuitem" onClick={closeNav}>
+                        <Link to="/" className="nav-dropdown-all" role="menuitem" onClick={closeNav}>
                             View Full Platform
                             <span className="material-symbols-outlined" style={{ fontSize: '1rem' }} aria-hidden="true">arrow_forward</span>
                         </Link>
