@@ -142,7 +142,7 @@
 
 /* Demo Placeholder */
 .demo-placeholder {
-    background: linear-gradient(135deg, var(--md-primary-container) 0%, var(--md-tertiary-container) 100%);
+    background: linear-gradient(135deg, var(--md-tertiary-container) 0%, var(--md-tertiary-container) 100%);
     border-radius: var(--shape-md);
     height: 400px;
     display: flex;
@@ -173,7 +173,7 @@
 .security-badge:hover {
     border-color: var(--primary-green);
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px var(--md-primary-a12);
+    box-shadow: 0 10px 20px var(--md-tertiary-a12);
 }
 
 .badge-icon {
@@ -337,7 +337,7 @@
 .form-group textarea {
     padding: 12px 16px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: var(--shape-input);
     font-family: inherit;
     font-size: 1rem;
     transition: border-color 0.3s ease;
@@ -389,13 +389,11 @@
    Solutions Page ? Industry Cards
    ============================================ */
 
-/* Darker grid-patterned background for the cards section */
+/* Solutions segments ? flows with page (no full-width color band) */
 .sol-cards-section {
-    background-color: var(--md-primary-container);
-    background-image:
-        linear-gradient(var(--md-primary-a08) 1px, transparent 1px),
-        linear-gradient(90deg, var(--md-primary-a08) 1px, transparent 1px);
-    background-size: 40px 40px;
+    padding: var(--space-20) 0 var(--space-24);
+    background: transparent;
+    background-image: none;
 }
 
 .sol-cards {
@@ -408,7 +406,7 @@
 .sol-card {
     background: var(--md-surface-container-lowest);
     border: 1px solid rgba(0, 0, 0, 0.07);
-    border-radius: var(--shape-xl);
+    border-radius: var(--shape-card);
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
     transition:
@@ -428,15 +426,15 @@
 }
 
 .sol-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 28px 56px var(--md-primary-a12), 0 4px 16px rgba(0, 0, 0, 0.07);
-    border-color: var(--md-primary-a20);
+    transform: translateY(-6px);
+    box-shadow: var(--elevation-4);
+    border-color: var(--md-outline);
 }
 
-/* Icon header area */
+/* Icon header area ? only when .sol-icon-wrap is used (grid cards) */
 .sol-icon-wrap {
-    background: linear-gradient(135deg, var(--md-primary-container) 0%, #f6f8fa 100%);
-    border-bottom: 1px solid rgba(0, 155, 108, 0.1);
+    background: linear-gradient(135deg, var(--md-tertiary-container) 0%, var(--md-surface-container-low) 100%);
+    border-bottom: 1px solid var(--md-outline-variant);
     padding: 32px 28px;
     display: flex;
     align-items: center;
@@ -447,9 +445,9 @@
     width: 72px;
     height: 72px;
     background: var(--md-surface-container-lowest);
-    border-radius: 18px;
-    border: 1px solid var(--md-primary-a20);
-    box-shadow: 0 4px 16px var(--md-primary-a12);
+    border-radius: var(--shape-icon-box);
+    border: 1px solid var(--md-tertiary-a20);
+    box-shadow: 0 4px 16px var(--md-tertiary-a12);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -457,7 +455,7 @@
 }
 
 .sol-card:hover .sol-icon-bubble {
-    box-shadow: 0 8px 24px var(--md-primary-a20);
+    box-shadow: 0 8px 24px var(--md-tertiary-a20);
     transform: scale(1.06);
 }
 
@@ -510,7 +508,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--md-primary);
+    background: var(--md-tertiary);
     flex-shrink: 0;
 }
 
@@ -522,9 +520,11 @@
 }
 
 .sol-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 16px 48px;
     font-size: 1rem;
-    border-radius: var(--shape-sm) + 2px;
 }
 
 /* Responsive */
@@ -582,7 +582,7 @@
 .sec-badge {
     display: inline-block;
     padding: 6px 18px;
-    border-radius: 100px;
+    border-radius: var(--shape-chip);
     background: var(--md-tertiary-container);
     border: 1px solid var(--md-tertiary-a14);
     color: var(--md-on-tertiary-container);
@@ -599,7 +599,8 @@
     color: var(--md-on-inverse-surface);
 }
 
-.sec-green { color: var(--md-primary); }
+.sec-green,
+.sec-accent { color: var(--md-primary); }
 
 .sec-section-title {
     font-size: 2.5rem;
@@ -682,7 +683,7 @@
 .sec-card-label {
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
     letter-spacing: 0.04em;
     text-transform: uppercase;
     margin-bottom: 4px;
@@ -709,12 +710,7 @@
    ============================================================ */
 .sec-hero {
     padding: 100px 0 90px;
-    /* Light, continuous gradient ? flows into the next section */
-    background: linear-gradient(180deg,
-        var(--md-surface-container-lowest) 0%,
-        var(--md-surface-container-low) 40%,
-        var(--section-bg-tertiary) 80%,
-        var(--md-surface-container-lowest) 100%);
+    background: transparent;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -727,12 +723,16 @@
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse 80% 60% at 50% 45%,
-        var(--md-primary-a12) 0%,
-        rgba(18, 94, 146, 0.06) 45%,
-        transparent 75%);
-    clip-path: circle(0% at 50% 45%);
+    background: radial-gradient(ellipse 75% 55% at 50% 40%,
+        var(--md-tertiary-a08) 0%,
+        transparent 70%);
+    clip-path: circle(0% at 50% 40%);
     animation: sec-hero-reveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+}
+
+/* Per-section grid removed when page uses .page-flow */
+.page-flow .sec-hero::before {
+    display: none;
 }
 
 @keyframes sec-hero-reveal {
@@ -748,8 +748,8 @@
     pointer-events: none;
     background-size: 50px 50px;
     background-image:
-        linear-gradient(to right, var(--md-primary-a08) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--md-primary-a08) 1px, transparent 1px);
+        linear-gradient(to right, var(--md-tertiary-a08) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--md-tertiary-a08) 1px, transparent 1px);
     mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 45%, transparent 100%);
 }
@@ -772,7 +772,7 @@
     height: 600px;
     top: -200px;
     left: -200px;
-    background: radial-gradient(circle, var(--md-primary-a20) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--md-tertiary-a14) 0%, transparent 70%);
 }
 
 .sec-hero-blob--br {
@@ -805,7 +805,7 @@
 .sec-hero-badge {
     display: inline-block;
     padding: 6px 18px;
-    border-radius: 100px;
+    border-radius: var(--shape-chip);
     background: var(--md-tertiary-container);
     border: 1px solid var(--md-tertiary-a14);
     color: var(--md-on-tertiary-container);
@@ -826,7 +826,7 @@
 }
 
 .sec-hero-accent {
-    background: linear-gradient(135deg, var(--md-primary) 0%, var(--md-tertiary) 100%);
+    background: var(--gradient-brand-text);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -866,15 +866,15 @@
 .sec-hero-visible .sec-hero-stat { opacity: 1; transform: translateY(0); }
 
 .sec-hero-stat:hover {
-    border-color: var(--md-primary-a20);
-    background: var(--md-primary-a08);
+    border-color: var(--md-tertiary-a20);
+    background: var(--md-tertiary-a08);
 }
 
 .sec-hero-stat-value {
     display: block;
     font-size: 1.6rem;
     font-weight: 800;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
     letter-spacing: -0.02em;
     margin-bottom: 4px;
 }
@@ -901,8 +901,8 @@
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(var(--md-primary-a08) 1px, transparent 1px),
-        linear-gradient(90deg, var(--md-primary-a08) 1px, transparent 1px);
+        linear-gradient(var(--md-tertiary-a08) 1px, transparent 1px),
+        linear-gradient(90deg, var(--md-tertiary-a08) 1px, transparent 1px);
     background-size: 48px 48px;
     pointer-events: none;
     z-index: 0;
@@ -952,8 +952,8 @@
 
 .sec-comp-card:hover {
     transform: translateY(-12px);
-    box-shadow: 0 30px 60px var(--md-primary-a12), 0 4px 16px rgba(0, 0, 0, 0.08);
-    border-color: var(--md-primary-a20);
+    box-shadow: 0 30px 60px var(--md-tertiary-a12), 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-color: var(--md-tertiary-a20);
 }
 
 /* - Compliance Mockup Internals ---------------- */
@@ -970,21 +970,21 @@
     font-size: 0.68rem;
     font-weight: 700;
     padding: 2px 10px;
-    border-radius: 100px;
-    background: var(--md-primary-a12);
-    color: var(--md-primary);
+    border-radius: var(--shape-chip);
+    background: var(--md-tertiary-a12);
+    color: var(--md-tertiary);
     margin-bottom: 4px;
 }
 .sec-cert-bar-row   { display: flex; align-items: center; gap: 6px; width: 100%; }
 .sec-cert-bar-label { font-size: 0.6rem; color: var(--md-on-surface-variant); min-width: 72px; }
-.sec-cert-bar-wrap  { flex: 1; height: 5px; background: var(--md-outline-variant); border-radius: 100px; overflow: hidden; }
-.sec-cert-bar       { height: 100%; background: var(--md-primary); border-radius: 100px; }
+.sec-cert-bar-wrap  { flex: 1; height: 5px; background: var(--md-outline-variant); border-radius: var(--shape-chip); overflow: hidden; }
+.sec-cert-bar       { height: 100%; background: var(--md-primary); border-radius: var(--shape-chip); }
 
 .sec-hipaa-body { padding: 10px 14px; display: flex; flex-direction: column; gap: 7px; }
 .sec-check-row  { display: flex; align-items: center; gap: 8px; }
 .sec-check-icon {
     width: 16px; height: 16px; border-radius: 50%;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
     font-size: 16px;
     line-height: 1;
     display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
@@ -999,7 +999,7 @@
 .sec-gdpr-actions { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
 .sec-gdpr-action-pill {
     font-size: 0.6rem; font-weight: 600;
-    padding: 3px 8px; border-radius: 100px;
+    padding: 3px 8px; border-radius: var(--shape-chip);
     background: #f1f5f9; color: var(--md-on-surface); border: 1px solid var(--md-outline);
 }
 
@@ -1008,7 +1008,7 @@
 }
 .sec-iso-ring {
     width: 56px; height: 56px; border-radius: 50%;
-    border: 3px solid var(--md-primary);
+    border: 3px solid var(--md-tertiary);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 .sec-iso-grade { font-size: 1rem; font-weight: 800; color: var(--md-primary); line-height: 1; }
@@ -1023,7 +1023,7 @@
 }
 .sec-iso-pillar-bar {
     width: 100%;
-    background: linear-gradient(180deg, #009b6c 0%, #007a55 100%);
+    background: var(--gradient-blue-180);
     border-radius: 3px 3px 0 0; opacity: 0.85;
 }
 .sec-iso-pillar span { font-size: 0.5rem; color: var(--md-on-surface-variant); text-align: center; }
@@ -1032,22 +1032,14 @@
    Section 3: Advanced Security Features
    ============================================================ */
 .sec-feat-section {
-    padding: 110px 0 120px;
-    background: var(--md-primary-container);
+    padding: var(--space-20) 0 var(--space-24);
+    background: transparent;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .sec-feat-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(var(--md-primary-a08) 1px, transparent 1px),
-        linear-gradient(90deg, var(--md-primary-a08) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-    z-index: 0;
+    display: none;
 }
 
 .sec-feat-section .container { position: relative; z-index: 1; }
@@ -1093,9 +1085,9 @@
 .sec-feat-visible .sec-feat-card { opacity: 1; transform: translateY(0); }
 
 .sec-feat-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 30px 60px var(--md-primary-a12), 0 4px 16px rgba(0, 0, 0, 0.08);
-    border-color: var(--md-primary-a20);
+    transform: translateY(-6px);
+    box-shadow: var(--elevation-4);
+    border-color: var(--md-outline);
 }
 
 /* - Feature Mockup Internals ------------------- */
@@ -1122,7 +1114,7 @@
 .sec-rbac-role     { font-size: 0.68rem; font-weight: 600; color: var(--md-on-surface); }
 .sec-rbac-perm     { display: inline-flex; align-items: center; justify-content: center; text-align: center; }
 .sec-rbac-perm .material-symbols-outlined { font-size: 14px; font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 20; }
-.sec-rbac-perm.on  { color: var(--md-primary); }
+.sec-rbac-perm.on  { color: var(--md-tertiary); }
 .sec-rbac-perm.off { color: #d1d5db; }
 
 /* Audit */
@@ -1150,7 +1142,7 @@
 .sec-backup-bar-col { flex: 1; display: flex; align-items: flex-end; height: 100%; }
 .sec-backup-bar {
     width: 100%;
-    background: linear-gradient(180deg, #009b6c 0%, #007a55 100%);
+    background: var(--gradient-blue-180);
     border-radius: 3px 3px 0 0; opacity: 0.85;
 }
 .sec-backup-note { font-size: 0.58rem; color: var(--md-on-surface-variant); text-align: center; }
@@ -1166,8 +1158,8 @@
 }
 .sec-pentest-item   { font-size: 0.65rem; color: var(--md-on-surface); }
 .sec-pentest-status {
-    font-size: 0.6rem; font-weight: 700; padding: 2px 7px; border-radius: 100px;
-    background: var(--md-primary-a12); color: var(--md-primary);
+    font-size: 0.6rem; font-weight: 700; padding: 2px 7px; border-radius: var(--shape-chip);
+    background: var(--md-tertiary-a12); color: var(--md-tertiary);
 }
 
 /* DDoS */
@@ -1185,27 +1177,20 @@
 .sec-ddos-bar    { width: 100%; border-radius: 2px 2px 0 0; }
 .sec-ddos-footer { display: flex; justify-content: space-between; align-items: center; }
 .sec-ddos-blocked{ font-size: 0.58rem; color: var(--md-error); font-weight: 600; }
-.sec-ddos-shield { font-size: 0.6rem; color: var(--md-primary); font-weight: 600; }
+.sec-ddos-shield { font-size: 0.6rem; color: var(--md-tertiary); font-weight: 600; }
 
 /* ============================================================
    Section 4: Infrastructure (Dark)
    ============================================================ */
 .sec-infra-section {
     padding: 120px 0 100px;
-    background: var(--md-surface-container-lowest);
+    background: transparent;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .sec-infra-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(var(--md-primary-a08) 1px, transparent 1px),
-        linear-gradient(90deg, var(--md-primary-a08) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
+    display: none;
 }
 
 .sec-infra-header {
@@ -1251,8 +1236,8 @@
 
 .sec-infra-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 28px 56px var(--md-primary-a12), 0 4px 16px rgba(0, 0, 0, 0.2);
-    border-color: var(--md-primary-a20);
+    box-shadow: 0 28px 56px var(--md-tertiary-a12), 0 4px 16px rgba(0, 0, 0, 0.2);
+    border-color: var(--md-tertiary-a20);
 }
 
 .sec-infra-icon-wrap {
@@ -1267,9 +1252,9 @@
 .sec-infra-icon {
     width: 60px;
     height: 60px;
-    background: var(--md-primary-a08);
-    border-radius: 14px;
-    border: 1px solid var(--md-primary-a12);
+    background: var(--md-tertiary-a08);
+    border-radius: var(--shape-icon-box);
+    border: 1px solid var(--md-tertiary-a12);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1278,13 +1263,13 @@
 
 .sec-infra-icon i {
     font-size: 1.35rem;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
     opacity: 0.85;
 }
 
 .sec-infra-card:hover .sec-infra-icon {
-    background: var(--md-primary-a12);
-    box-shadow: 0 6px 20px var(--md-primary-a20);
+    background: var(--md-tertiary-a12);
+    box-shadow: 0 6px 20px var(--md-tertiary-a20);
     transform: scale(1.05);
 }
 
@@ -1302,7 +1287,7 @@
 .sec-infra-label {
     font-size: 0.72rem;
     font-weight: 700;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 8px;
@@ -1340,7 +1325,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--md-primary);
+    background: var(--md-tertiary);
     flex-shrink: 0;
 }
 
@@ -1373,21 +1358,13 @@
 /* --- Mission Section ---------------------------------------- */
 .abt-mission-section {
     padding: 110px 0 120px;
-    background: var(--md-surface-container-lowest);
+    background: transparent;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .abt-mission-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(var(--md-primary-a08) 1px, transparent 1px),
-        linear-gradient(90deg, var(--md-primary-a08) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-    z-index: 0;
+    display: none;
 }
 
 .abt-mission-section .container { position: relative; z-index: 1; }
@@ -1426,7 +1403,7 @@
     margin-top: 8px;
     padding: 14px 36px;
     font-size: 1rem;
-    border-radius: var(--shape-sm) + 2px;
+    border-radius: var(--shape-button);
 }
 
 /* Visual column ? slides in from right */
@@ -1502,15 +1479,15 @@
 }
 
 .abt-milestone-dot.done {
-    background: var(--md-primary);
-    border-color: var(--md-primary-a20);
+    background: var(--md-tertiary);
+    border-color: var(--md-tertiary-a20);
     box-shadow: 0 0 0 4px rgba(0, 155, 108, 0.1);
 }
 
 .abt-milestone-year {
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
     min-width: 38px;
     font-family: monospace;
 }
@@ -1548,9 +1525,9 @@
 /* --- Stats Section ----------------------------------- */
 .abt-stats-section {
     padding: 120px 0 100px;
-    background: var(--md-surface-container-lowest);
+    background: transparent;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .abt-stats-section::before {
@@ -1603,14 +1580,14 @@
 
 .abt-stat-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 28px 56px var(--md-primary-a12), 0 4px 16px rgba(0, 0, 0, 0.2);
-    border-color: var(--md-primary-a20);
+    box-shadow: 0 28px 56px var(--md-tertiary-a12), 0 4px 16px rgba(0, 0, 0, 0.2);
+    border-color: var(--md-tertiary-a20);
 }
 
 .abt-stat-value {
     font-size: clamp(2.2rem, 4vw, 3rem);
     font-weight: 800;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
     letter-spacing: -0.03em;
     margin-bottom: 8px;
     line-height: 1;
@@ -1631,28 +1608,40 @@
 
 /* --- CTA Section -------------------------------------------- */
 .abt-cta-section {
-    padding: 110px 0 120px;
-    background: var(--md-surface-variant);
+    padding: 110px var(--space-6) 120px;
+    background: var(--md-surface-container-low);
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .abt-cta-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(var(--md-primary-a08) 1px, transparent 1px),
-        linear-gradient(90deg, var(--md-primary-a08) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-    z-index: 0;
+    display: none;
 }
 
 .abt-cta-inner {
     position: relative;
     z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 40px;
+    background: var(--md-surface-container-lowest);
+    border: 1px solid var(--md-outline-variant);
+    border-radius: var(--shape-xl);
+    box-shadow: var(--elevation-3);
+    overflow: hidden;
     text-align: center;
+}
+
+.abt-cta-inner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-brand);
+    pointer-events: none;
     max-width: 680px;
     margin: 0 auto;
     opacity: 0;
@@ -1700,11 +1689,10 @@
 
 /* --- Contact Main Section ----------------------------------- */
 .con-section {
-    background-color: var(--md-primary-container);
-    background-image:
-        linear-gradient(var(--md-primary-a08) 1px, transparent 1px),
-        linear-gradient(90deg, var(--md-primary-a08) 1px, transparent 1px);
-    background-size: 40px 40px;
+    background: transparent;
+    background-image: none;
+    padding-top: var(--space-10);
+    position: relative;
 }
 
 .con-layout {
@@ -1750,7 +1738,7 @@
 .con-info-card {
     background: var(--md-surface-container-lowest);
     border: 1px solid rgba(0, 0, 0, 0.07);
-    border-radius: var(--shape-xl);
+    border-radius: var(--shape-card);
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
     display: flex;
@@ -1771,14 +1759,14 @@
 }
 
 .con-info-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 22px 44px rgba(0, 155, 108, 0.13), 0 4px 12px rgba(0, 0, 0, 0.06);
-    border-color: var(--md-primary-a20);
+    transform: translateY(-4px);
+    box-shadow: var(--elevation-3);
+    border-color: var(--md-outline);
 }
 
 .con-card-icon-wrap {
-    background: linear-gradient(135deg, var(--md-primary-container) 0%, #f6f8fa 100%);
-    border-right: 1px solid rgba(0, 155, 108, 0.1);
+    background: var(--md-tertiary-container);
+    border-right: 1px solid var(--md-outline-variant);
     padding: 22px 18px;
     display: flex;
     align-items: center;
@@ -1791,9 +1779,9 @@
     width: 56px;
     height: 56px;
     background: var(--md-surface-container-lowest);
-    border-radius: 14px;
-    border: 1px solid var(--md-primary-a20);
-    box-shadow: 0 4px 12px rgba(0, 155, 108, 0.1);
+    border-radius: var(--shape-icon-box);
+    border: 1px solid var(--md-tertiary-a14);
+    box-shadow: var(--elevation-1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1801,7 +1789,7 @@
 }
 
 .con-info-card:hover .con-card-icon-bubble {
-    box-shadow: 0 8px 22px var(--md-primary-a20);
+    box-shadow: var(--elevation-3);
     transform: scale(1.06);
 }
 
@@ -1835,13 +1823,13 @@
 .con-card-link {
     font-size: 0.88rem;
     font-weight: 600;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .con-card-link:hover {
-    color: #007a55;
+    color: var(--md-primary-dark);
     text-decoration: underline;
 }
 
@@ -1862,7 +1850,7 @@
 .con-form-card {
     background: var(--md-surface-container-lowest);
     border: 1px solid rgba(0, 0, 0, 0.07);
-    border-radius: var(--shape-xl);
+    border-radius: var(--shape-card);
     padding: 40px 44px;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
 }
@@ -1877,29 +1865,22 @@
 
 .con-submit-btn {
     width: 100%;
-    padding: 15px 0;
+    padding: 15px 1.375rem;
     font-size: 1rem;
-    border-radius: var(--shape-sm) + 2px;
     margin-top: 4px;
+    justify-content: center;
 }
 
 /* --- FAQ Section (Dark) ------------------------------------- */
 .con-faq-section {
     padding: 110px 0 120px;
-    background: var(--md-surface-container-lowest);
+    background: transparent;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .con-faq-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(var(--md-primary-a08) 1px, transparent 1px),
-        linear-gradient(90deg, var(--md-primary-a08) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
+    display: none;
 }
 
 .con-faq-header {
@@ -1948,8 +1929,8 @@
 }
 
 .con-faq-item:hover {
-    border-color: var(--md-primary-a20);
-    background: var(--md-primary-a08);
+    border-color: var(--md-tertiary-a20);
+    background: var(--md-tertiary-a08);
 }
 
 .con-faq-item h4 {
@@ -1979,8 +1960,8 @@
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(var(--md-primary-a08) 1px, transparent 1px),
-        linear-gradient(90deg, var(--md-primary-a08) 1px, transparent 1px);
+        linear-gradient(var(--md-tertiary-a08) 1px, transparent 1px),
+        linear-gradient(90deg, var(--md-tertiary-a08) 1px, transparent 1px);
     background-size: 48px 48px;
     pointer-events: none;
     z-index: 0;
@@ -2020,10 +2001,10 @@
 
 .usmap-map-wrap {
     background: var(--md-surface-variant);
-    border: 1px solid var(--md-primary-a12);
+    border: 1px solid var(--md-tertiary-a12);
     border-radius: var(--shape-xl);
     overflow: hidden;
-    box-shadow: 0 4px 24px var(--md-primary-a08), 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 4px 24px var(--md-tertiary-a08), 0 2px 8px rgba(0,0,0,0.04);
     padding: 24px 16px 8px;
 }
 
@@ -2045,7 +2026,7 @@
 
 .usmap-dot {
     font-size: 1.1rem;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
     font-weight: 700;
     line-height: 1;
 }

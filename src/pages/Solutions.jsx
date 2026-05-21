@@ -100,10 +100,10 @@ const Solutions = () => {
     }, []);
 
     return (
-        <div className="page-container">
+        <div className="page-container page-flow">
             <section
                 ref={heroRef}
-                className={`sec-hero surface-page${heroVisible ? ' sec-hero-visible' : ''}`}
+                className={`sec-hero${heroVisible ? ' sec-hero-visible' : ''}`}
             >
                 <div className="sec-hero-blobs">
                     <div className="sec-hero-blob sec-hero-blob--tl" />
@@ -119,12 +119,12 @@ const Solutions = () => {
                         EstiPay was designed specifically for claims professionals who need faster communication, better visibility, and less time on the phone with carriers. Every solution is purpose-built for your workflow.
                     </p>
                     <div className="sol-cta-wrap" style={{ marginTop: '30px', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
-                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem', display: 'inline-block' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
+                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
                     </div>
                 </div>
             </section>
 
-            <section className="content-section sol-cards-section">
+            <section className="content-section sol-cards-section section-flow">
                 <div className="container" style={{ maxWidth: '1000px' }}>
                     <div ref={cardsRef} className={`sol-cards${visible ? ' sol-visible' : ''}`} style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '40px' }}>
                         {solution_segments.map((item, i) => (
@@ -152,8 +152,8 @@ const Solutions = () => {
                                         </ul>
                                     </div>
 
-                                    <div style={{ background: 'rgba(41, 193, 165, 0.05)', padding: '20px', borderRadius: '8px', borderLeft: '4px solid var(--md-primary)', marginBottom: '25px' }}>
-                                        <strong style={{ color: 'var(--md-on-surface)' }}>Result:</strong> <span style={{ color: 'var(--md-on-surface-variant)' }}>{item.result}</span>
+                                    <div className="md3-callout" style={{ marginBottom: '25px' }}>
+                                        <strong>Result:</strong> {item.result}
                                     </div>
 
                                     <a href="https://interbizconsulting.eb-sites.com/4534599536082944" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--md-secondary)', fontWeight: 'bold', textDecoration: 'none' }}>
@@ -166,11 +166,11 @@ const Solutions = () => {
                 </div>
             </section>
             
-            <section style={{ padding: '80px 0', textAlign: 'center', background: '#fff' }}>
+            <section className="section-flow section-flow--divided" style={{ padding: '80px 0', textAlign: 'center' }}>
                 <div className="container">
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '15px', color: 'var(--md-on-surface)' }}>Not Sure Which Solution Fits Your Team?</h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--md-on-surface-variant)', marginBottom: '30px', maxWidth: '600px', margin: '0 auto 30px' }}>Talk to us in 15 minutes and we’ll show you exactly how EstiPay maps to your specific workflow.</p>
-                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem', display: 'inline-block' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
+                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
                     <p style={{ marginTop: '15px', fontSize: '0.9rem', color: 'var(--md-on-surface-variant)' }}>Currently accepting beta partners across all three segments.</p>
                 </div>
             </section>

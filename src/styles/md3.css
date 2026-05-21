@@ -39,6 +39,118 @@
   background: var(--md-surface-container-lowest);
 }
 
+/* Hero + flow pages: no solid surface on the hero band */
+.sec-hero.surface-page,
+.surface-page.sec-hero {
+  background: transparent;
+}
+
+/* ============================================================
+   PAGE FLOW — one continuous canvas (no color-block sections)
+   Add page-flow to .page-container on marketing pages.
+   ============================================================ */
+.page-container.page-flow {
+  position: relative;
+  background: var(--md-surface-container-lowest);
+  isolation: isolate;
+}
+
+/* Ambient wash + soft brand glows (full page, not per-section) */
+.page-container.page-flow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  min-height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 85% 45% at 50% -5%, var(--md-tertiary-a10) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 35% at 92% 18%, var(--md-secondary-a07) 0%, transparent 52%),
+    radial-gradient(ellipse 50% 30% at 8% 55%, var(--md-primary-a08) 0%, transparent 48%),
+    linear-gradient(
+      180deg,
+      var(--md-surface-container-low) 0%,
+      var(--md-surface-container-lowest) 12%,
+      var(--md-surface-container-lowest) 88%,
+      var(--md-surface-container-low) 100%
+    );
+}
+
+/* Single grid across the page — fades at top/bottom, never a hard cut */
+.page-container.page-flow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  min-height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(var(--md-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--md-grid-line) 1px, transparent 1px);
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.22) 6%,
+    rgba(0, 0, 0, 0.45) 22%,
+    rgba(0, 0, 0, 0.45) 78%,
+    rgba(0, 0, 0, 0.22) 94%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.22) 6%,
+    rgba(0, 0, 0, 0.45) 22%,
+    rgba(0, 0, 0, 0.45) 78%,
+    rgba(0, 0, 0, 0.22) 94%,
+    transparent 100%
+  );
+}
+
+.page-container.page-flow > section,
+.page-container.page-flow > footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tighter vertical rhythm — sections read as one scroll */
+.page-flow .sec-hero {
+  padding: 100px 0 var(--space-10);
+}
+
+.page-flow .abt-mission-section,
+.page-flow .con-section,
+.page-flow .content-section.section-flow,
+.page-flow .abt-stats-section,
+.page-flow .con-faq-section,
+.page-flow .sec-feat-section,
+.page-flow .sec-infra-section {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-20);
+}
+
+.page-flow .sec-infra-section,
+.page-flow .sec-infra-section::before {
+  background: transparent;
+}
+
+.page-flow .sec-infra-section::before {
+  display: none;
+}
+
+.page-flow .section-flow--divided {
+  border-top: none;
+  margin-top: 0;
+  padding-top: var(--space-16);
+}
+
 .surface-muted {
   background: var(--md-surface-container-low);
 }
@@ -74,7 +186,7 @@
 .md3-card {
   background: var(--md-surface-container-lowest);
   border: 1px solid var(--md-outline-variant);
-  border-radius: var(--shape-lg);
+  border-radius: var(--shape-card);
   box-shadow: var(--elevation-1);
   padding: var(--space-6);
   transition:
@@ -100,7 +212,7 @@
   align-items: center;
   gap: var(--space-1);
   padding: var(--space-1) var(--space-3);
-  border-radius: var(--shape-sm);
+  border-radius: var(--shape-chip);
   font-size: var(--type-label-md-size);
   font-weight: var(--type-label-md-weight);
   border: 1px solid var(--md-outline-variant);
@@ -127,7 +239,7 @@
 .md3-eyebrow {
   display: inline-block;
   padding: 6px 18px;
-  border-radius: var(--shape-full);
+  border-radius: var(--shape-chip);
   font-size: var(--type-label-md-size);
   font-weight: var(--type-label-md-weight);
   letter-spacing: var(--type-label-md-letter);
@@ -231,6 +343,200 @@
   background: var(--md-state-hover-tertiary);
 }
 
+/* ============================================================
+   CTA BAND — replaces green full-width containers
+   Usage on <section>: add ONE variant class alongside cta-band
+     (default)           cta-band  or  cta-band--card
+     cool blue tint      cta-band--blue
+     minimal divider     cta-band--minimal
+     gradient frame      cta-band--outline
+     dark brand strip    cta-band--dark
+   Inner wrapper: cta-band__panel (keep prod-cta-inner for animations)
+   ============================================================ */
+.cta-band {
+  padding: 80px var(--space-6);
+  background: var(--md-surface-container-low);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.cta-band::before {
+  display: none;
+}
+
+.cta-band__panel,
+.prod-cta-inner.cta-band__panel,
+.abt-cta-inner.cta-band__panel {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 40px;
+  background: var(--md-surface-container-lowest);
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--shape-card);
+  box-shadow: var(--elevation-3);
+  overflow: hidden;
+}
+
+.cta-band__panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-brand);
+  pointer-events: none;
+}
+
+/* Variant: soft blue section, white card (no green) */
+.cta-band--blue {
+  background: var(--section-bg-tertiary);
+}
+
+/* Variant: no outer tint — page flows through */
+.cta-band--minimal {
+  background: transparent;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  border-top: 1px solid var(--md-outline-variant);
+  border-bottom: 1px solid var(--md-outline-variant);
+}
+
+.cta-band--minimal .cta-band__panel,
+.cta-band--minimal .prod-cta-inner {
+  box-shadow: var(--elevation-1);
+}
+
+/* Variant: gradient border frame, white interior */
+.cta-band--outline {
+  background: var(--md-surface-container-low);
+}
+
+.cta-band--outline .cta-band__panel,
+.cta-band--outline .prod-cta-inner {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--md-surface-container-lowest), var(--md-surface-container-lowest)) padding-box,
+    var(--gradient-brand) border-box;
+  box-shadow: var(--elevation-2);
+}
+
+.cta-band--outline .cta-band__panel::after {
+  display: none;
+}
+
+/* Variant: logo blue band, light text */
+.cta-band--dark {
+  background: var(--md-inverse-surface);
+}
+
+.cta-band--dark .cta-band__panel,
+.cta-band--dark .prod-cta-inner {
+  background: var(--md-surface-dark-container);
+  border-color: var(--md-outline-dark);
+  box-shadow: var(--elevation-4);
+}
+
+.cta-band--dark .cta-band__panel::after,
+.cta-band--dark .prod-cta-inner::after {
+  background: linear-gradient(90deg, var(--md-secondary) 0%, var(--md-inverse-primary) 100%);
+}
+
+.cta-band--dark .prod-cta-title,
+.cta-band--dark .sec-section-title {
+  color: var(--md-on-surface-dark);
+}
+
+.cta-band--dark .prod-cta-subtitle,
+.cta-band--dark .sec-section-subtitle {
+  color: var(--md-on-surface-dark-variant);
+}
+
+/* ============================================================
+   FLOW SECTIONS — no full-width color “slides”
+   Use instead of .sol-cards-section green bands, etc.
+   Content lives on the page canvas; cards provide elevation.
+   ============================================================ */
+.section-flow {
+  padding: var(--space-20) 0 var(--space-24);
+  background: transparent;
+  position: relative;
+}
+
+.section-flow::before {
+  display: none;
+}
+
+.section-flow__header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto var(--space-12);
+}
+
+.section-flow__stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-flow__stack .sol-card,
+.section-flow__stack .sec-feat-card,
+.section-flow__stack .md3-card {
+  border: 1px solid var(--md-outline-variant);
+  box-shadow: var(--elevation-2);
+}
+
+/* Optional: soft separator between narrative blocks (not a colored band) */
+.section-flow--divided {
+  border-top: 1px solid var(--md-outline-variant);
+}
+
+/* Inline callout — replaces green “Result” strips */
+.md3-callout {
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--shape-md);
+  background: var(--md-surface-container-low);
+  border-left: 4px solid var(--md-primary);
+  color: var(--md-on-surface-variant);
+  line-height: 1.6;
+}
+
+.md3-callout strong {
+  color: var(--md-on-surface);
+}
+
+/* Contact / list row cards — no green icon rail */
+.con-info-card--flow,
+.sol-card--flow {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.con-card-icon-wrap--flow {
+  background: var(--md-primary-container);
+  border-right: none;
+  border-bottom: none;
+  padding: var(--space-5);
+  flex-shrink: 0;
+}
+
+.con-card-icon-bubble--flow,
+.sol-icon-bubble--flow {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--shape-icon-box);
+  background: var(--md-surface-container-lowest);
+  border: 1px solid var(--md-primary-a20);
+  box-shadow: var(--elevation-1);
+}
+
 /* btn-outline aliases MD3 Outlined (neutral) */
 .btn-outline {
   background-color: transparent;
@@ -250,4 +556,28 @@
   pointer-events: none;
   box-shadow: none;
   transform: none;
+}
+
+/* Shape consistency — all button variants share pill radius (MD3) */
+.btn,
+.btn-primary,
+.btn-tonal,
+.btn-green,
+.btn-filled-secondary,
+.btn-orange,
+.btn-cta,
+.btn-filled-tertiary,
+.btn-tonal-secondary,
+.btn-tonal-tertiary,
+.btn-outlined,
+.btn-outlined-primary,
+.btn-outlined-secondary,
+.btn-outlined-tertiary,
+.btn-hero-pill,
+.btn-cta--primary,
+.btn-cta--ghost,
+.sol-cta-btn,
+.con-submit-btn,
+.abt-mission-cta {
+  border-radius: var(--shape-button);
 }

@@ -142,8 +142,8 @@ const Products = () => {
                         Three specialized voice agents — Insurance Agent, Appointment Scheduler, and Payment Collector — that automate the entire claims-to-cash pipeline. Use one, use all, or bundle the platform.
                     </p>
                     <div className="stack-row" style={{ marginTop: '28px' }}>
-                        <Link to="/contact" className="btn btn-tonal" style={{ padding: '14px 28px', fontSize: '0.95rem' }}>
-                            Talk to Sales <span className="material-symbols-outlined ms-icon--primary" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
+                        <Link to="/contact" className="btn btn-filled-secondary" style={{ padding: '14px 28px', fontSize: '0.95rem' }}>
+                            Talk to Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem' }}>arrow_forward</span>
                         </Link>
                         <Link to="/solutions" className="btn btn-outline" style={{ padding: '14px 28px', fontSize: '0.95rem' }}>
                             See Use Cases
@@ -263,8 +263,8 @@ const Products = () => {
             </section>
 
             {/* ── CTA ───────────────────────────────────────── */}
-            <section className="prod-cta-section" ref={ctaRef}>
-                <div className="container prod-cta-inner">
+            <section className="prod-cta-section cta-band" ref={ctaRef}>
+                <div className="container prod-cta-inner cta-band__panel">
                     <span className="sec-badge" style={{ marginBottom: '18px', display: 'inline-block' }}>
                         Ready to Automate?
                     </span>
@@ -275,7 +275,7 @@ const Products = () => {
                         Start with the agent that solves your biggest bottleneck today. Add more as you scale. Every agent is available standalone or as part of the full EstiPay platform.
                     </p>
                     <div className="prod-cta-actions">
-                        <Link to="/contact" className="btn btn-tonal" style={{ padding: '14px 32px', fontSize: '0.95rem' }}>
+                        <Link to="/contact" className="btn btn-filled-secondary" style={{ padding: '14px 32px', fontSize: '0.95rem' }}>
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/solutions" className="btn btn-outline" style={{ padding: '14px 32px', fontSize: '0.95rem' }}>

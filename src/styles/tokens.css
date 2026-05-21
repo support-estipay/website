@@ -99,19 +99,28 @@
   --md-tertiary-a14: rgba(18, 94, 146, 0.14);
   --md-tertiary-a20: rgba(18, 94, 146, 0.20);
 
-  /* Map / chart tints (primary-derived, not off-brand mint) */
-  --md-primary-map-fill:       rgba(0, 155, 108, 0.45);
-  --md-primary-map-fill-hover: rgba(0, 155, 108, 0.65);
-  --md-primary-map-muted:      #c5e8dc;
-  --md-primary-map-muted-hover:#a8d9c8;
+  /* Map / chart — green highlight, blue base states */
+  --md-primary-map-fill:       rgba(0, 155, 108, 0.42);
+  --md-primary-map-fill-hover: rgba(0, 155, 108, 0.62);
+  --md-primary-map-muted:      #cde5f5;
+  --md-primary-map-muted-hover:#a8cce8;
 
-  /* -- Brand gradients (logo colors only) -------------------- */
-  --gradient-brand:      linear-gradient(135deg, #009b6c 0%, #125e92 100%);
-  --gradient-brand-135:  linear-gradient(135deg, #009b6c 0%, #125e92 100%);
-  --gradient-step:       linear-gradient(135deg, #009b6c 0%, #125e92 100%);
-  --gradient-teal:       linear-gradient(135deg, #009b6c 0%, #007a55 100%);
-  --gradient-teal-180:   linear-gradient(180deg, #009b6c 0%, #007a55 100%);
-  --gradient-orange:     linear-gradient(135deg, #f48027 0%, #d96f1a 100%);
+  /*
+   * Brand gradients — all three logo colors, used sparingly:
+   *   brand-text  → headlines (green → blue)
+   *   brand       → thin accents, borders (green → blue → orange)
+   *   brand-135   → cards, frames (green → blue)
+   *   teal / blue / orange → role-specific UI only
+   */
+  --gradient-brand-text:   linear-gradient(135deg, #009b6c 0%, #125e92 100%);
+  --gradient-brand:        linear-gradient(135deg, #009b6c 0%, #125e92 52%, #f48027 100%);
+  --gradient-brand-135:    linear-gradient(135deg, #009b6c 0%, #125e92 100%);
+  --gradient-step:         linear-gradient(135deg, #009b6c 0%, #125e92 100%);
+  --gradient-blue:         linear-gradient(135deg, #125e92 0%, #0d4a73 100%);
+  --gradient-blue-180:     linear-gradient(180deg, #125e92 0%, #0d4a73 100%);
+  --gradient-orange:       linear-gradient(135deg, #f48027 0%, #d96f1a 100%);
+  --gradient-teal:         linear-gradient(135deg, #009b6c 0%, #007a55 100%);
+  --gradient-teal-180:     linear-gradient(180deg, #009b6c 0%, #007a55 100%);
 
   /* -- Elevation (MD3) --------------------------------------- */
   --elevation-0: none;
@@ -121,10 +130,14 @@
   --elevation-4: 0 8px 24px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
   --elevation-5: 0 16px 40px rgba(0,0,0,.14), 0 6px 12px rgba(0,0,0,.06);
 
-  --elevation-teal-2: 0 2px 8px rgba(0,155,108,.12);
-  --elevation-teal-3: 0 4px 16px rgba(0,155,108,.18);
-  --elevation-teal-4: 0 12px 32px rgba(0,155,108,.22);
-  --elevation-teal-5: 0 20px 48px rgba(0,155,108,.25);
+  --elevation-blue-2: 0 2px 8px rgba(18, 94, 146, 0.12);
+  --elevation-blue-3: 0 4px 16px rgba(18, 94, 146, 0.18);
+  --elevation-blue-4: 0 12px 32px rgba(18, 94, 146, 0.22);
+  --elevation-blue-5: 0 20px 48px rgba(18, 94, 146, 0.28);
+  --elevation-teal-2: 0 2px 8px rgba(0, 155, 108, 0.12);
+  --elevation-teal-3: 0 4px 16px rgba(0, 155, 108, 0.16);
+  --elevation-teal-4: 0 12px 32px rgba(0, 155, 108, 0.20);
+  --elevation-teal-5: 0 20px 48px rgba(0, 155, 108, 0.24);
   --elevation-orange-3: 0 4px 12px rgba(244,128,39,.18);
   --elevation-orange-4: 0 8px 28px rgba(244,128,39,.35);
   --elevation-orange-5: 0 14px 36px rgba(244,128,39,.5);
@@ -137,6 +150,14 @@
   --shape-xl:   20px;
   --shape-2xl:  28px;
   --shape-full: 9999px;
+
+  /* Semantic roles — use these in components */
+  --shape-button:   var(--shape-full);
+  --shape-chip:     var(--shape-full);
+  --shape-card:     var(--shape-xl);
+  --shape-input:    var(--shape-md);
+  --shape-icon-box: var(--shape-lg);
+  --shape-media:    var(--shape-xl);
 
   /* -- Spacing (8px base grid) ------------------------------- */
   --space-1:   4px;
@@ -246,6 +267,7 @@
   --z-tooltip: 400;
 
   /* -- Legacy aliases ---------------------------------------- */
+  --brand-accent:           var(--md-primary);
   --primary-green:          var(--md-primary);
   --primary-dark:           var(--md-primary-dark);
   --secondary-orange:       var(--md-secondary);

@@ -69,7 +69,7 @@
 }
 
 .how-it-works-left .green-text {
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
     font-size: var(--type-title-lg-size);
     font-weight: 500;
 }
@@ -99,7 +99,7 @@
     transform: translateY(-50%);
     width: 80px;
     height: 80px;
-    background-color: var(--md-primary);
+    background-color: var(--md-tertiary);
     color: var(--md-on-primary);
     border-radius: 50%;
     display: flex;
@@ -201,7 +201,7 @@
 }
 
 .green-subtitle {
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
     font-size: var(--type-title-lg-size);
     font-weight: 500;
 }
@@ -239,7 +239,7 @@
     height: 80px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: var(--gradient-teal);
+    background: var(--gradient-brand);
     color: var(--md-on-primary);
     font-size: 1.8rem;
     font-weight: 700;
@@ -354,7 +354,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
     position: absolute;
     top: -35px;
     left: 50%;
@@ -455,7 +455,7 @@
     background: var(--md-surface);
     color: var(--md-tertiary);
     padding: var(--space-3) var(--space-8);
-    border-radius: var(--shape-full);
+    border-radius: var(--shape-button);
     text-decoration: none;
     font-weight: 600;
     font-size: var(--type-body-md-size);
@@ -516,7 +516,7 @@ details > summary::-webkit-details-marker { display: none; }
 
 details.faq-item[open] .toggle-icon {
     transform: rotate(180deg);
-    color: var(--md-primary);
+    color: var(--md-tertiary);
 }
 
 .faq-answer {
@@ -613,7 +613,7 @@ details.faq-item[open] .toggle-icon {
 }
 
 .faq2-inline-link {
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: opacity var(--duration-medium-1) var(--easing-standard);
@@ -649,15 +649,15 @@ details.faq-item[open] .toggle-icon {
 }
 
 .faq2-filter-btn--active {
-    background: var(--md-primary);
-    border-color: var(--md-primary);
+    background: var(--md-tertiary);
+    border-color: var(--md-tertiary);
     color: var(--md-on-primary);
     font-weight: 700;
 }
 
 .faq2-filter-btn--active:hover {
-    background: var(--md-primary-dark);
-    border-color: var(--md-primary-dark);
+    background: var(--md-tertiary-dark);
+    border-color: var(--md-tertiary-dark);
     color: var(--md-on-primary);
 }
 
@@ -684,7 +684,7 @@ details.faq-item[open] .toggle-icon {
 
 .faq2-item--open {
     background: rgba(0, 155, 108, 0.06);
-    border-left: 3px solid var(--md-primary);
+    border-left: 3px solid var(--md-tertiary);
 }
 
 .faq2-question {
@@ -768,7 +768,7 @@ details.faq-item[open] .toggle-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
     flex-shrink: 0;
 }
 
@@ -941,7 +941,7 @@ details.faq-item[open] .toggle-icon {
     width: 48px;
     height: 48px;
     border-radius: var(--shape-lg);
-    background: var(--md-primary-container);
+    background: var(--md-tertiary-container);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -949,7 +949,7 @@ details.faq-item[open] .toggle-icon {
 }
 .stat-icon-wrap .material-symbols-outlined {
     font-size: 1.5rem;
-    color: var(--md-primary);
+    color: var(--md-tertiary);
 }
 
 .stat-value {
@@ -1023,8 +1023,8 @@ details.faq-item[open] .toggle-icon {
         transform var(--duration-short-4) var(--easing-standard);
 }
 .pshow-tab:hover {
-    border-color: var(--tab-accent, var(--md-primary));
-    color: var(--tab-accent, var(--md-primary));
+    border-color: var(--tab-accent, var(--md-tertiary));
+    color: var(--tab-accent, var(--md-tertiary));
     transform: translateY(-2px);
 }
 .pshow-tab--active {
@@ -1058,7 +1058,7 @@ details.faq-item[open] .toggle-icon {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--panel-accent, var(--md-primary));
+    background: var(--panel-accent, var(--md-tertiary));
     margin-bottom: var(--space-5);
     box-shadow: 0 0 0 4px rgba(0,0,0,0.06);
 }
@@ -1099,7 +1099,7 @@ details.faq-item[open] .toggle-icon {
 
 .pshow-check {
     font-size: 1.1rem;
-    color: var(--panel-accent, var(--md-primary));
+    color: var(--panel-accent, var(--md-tertiary));
     flex-shrink: 0;
 }
 
@@ -1212,7 +1212,7 @@ details.faq-item[open] .toggle-icon {
     border: 1px solid var(--md-outline);
     border-radius: var(--shape-2xl);
     padding: var(--space-8);
-    border-left: 4px solid var(--testi-accent, var(--md-primary));
+    border-left: 4px solid var(--testi-accent, var(--md-secondary));
     transition:
         border-color var(--duration-medium-2) var(--easing-standard),
         transform var(--duration-medium-2) var(--easing-standard),
@@ -1222,7 +1222,7 @@ details.faq-item[open] .toggle-icon {
 }
 .testi-card:hover,
 .testi-card--featured {
-    border-color: var(--testi-accent, var(--md-primary));
+    border-color: var(--testi-accent, var(--md-secondary));
     transform: translateY(-6px);
     box-shadow: var(--elevation-teal-4);
 }
@@ -1233,7 +1233,7 @@ details.faq-item[open] .toggle-icon {
     right: var(--space-6);
     font-size: 5rem;
     line-height: 1;
-    color: var(--testi-accent, var(--md-primary));
+    color: var(--testi-accent, var(--md-secondary));
     opacity: 0.18;
     font-family: Georgia, serif;
     pointer-events: none;

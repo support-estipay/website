@@ -255,7 +255,7 @@
 
 .we-doc-badge.ready {
     background: rgba(0, 155, 108, 0.12);
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
 }
 
 .we-doc-badge.processing {
@@ -326,7 +326,7 @@
 .we-feature-label {
     font-size: var(--type-label-md-size);
     font-weight: 600;
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
     letter-spacing: var(--type-label-md-letter);
     text-transform: uppercase;
     margin-bottom: var(--space-1);

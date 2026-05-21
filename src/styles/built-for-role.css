@@ -196,7 +196,7 @@
 
 .bfr-mini-stat:last-child { border-right: none; }
 
-.bfr-mini-stat.highlight .bfr-mini-val { color: var(--md-primary-dark); }
+.bfr-mini-stat.highlight .bfr-mini-val { color: var(--md-tertiary-dark); }
 
 .bfr-mini-val {
     font-size: 1rem;
@@ -292,7 +292,7 @@
     gap: 7px;
     padding: var(--space-1) + 2px var(--space-2);
     background: var(--md-surface-container);
-    border-radius: 7px;
+    border-radius: var(--shape-xs);
     border: 1px solid var(--md-outline-variant);
 }
 
@@ -360,7 +360,7 @@
 
 .bfr-backlog-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--md-primary) 0%, var(--md-primary-dark) 100%);
+    background: var(--gradient-teal);
     border-radius: var(--shape-full);
 }
 

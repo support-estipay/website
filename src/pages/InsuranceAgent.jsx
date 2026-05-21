@@ -203,7 +203,7 @@ const InsuranceAgent = () => {
                         EstiPay's Insurance Agent automates every outbound carrier call — navigating IVR systems, retrieving claim status, coordinating documentation, and securing approvals, around the clock, without a single staff member on hold.
                     </p>
                     <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
-                        <Link to="/contact" className="btn btn-tonal" style={{ padding: '15px 32px', fontSize: '1rem' }}>
+                        <Link to="/contact" className="btn btn-filled-secondary" style={{ padding: '15px 32px', fontSize: '1rem' }}>
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
@@ -360,15 +360,15 @@ const InsuranceAgent = () => {
             </section>
 
             {/* ── CTA ───────────────────────────────────────── */}
-            <section className="prod-cta-section" ref={ctaRef}>
-                <div className="container prod-cta-inner">
+            <section className="prod-cta-section cta-band" ref={ctaRef}>
+                <div className="container prod-cta-inner cta-band__panel">
                     <span className="sec-badge" style={{ marginBottom: '20px', display: 'inline-block' }}>Get Started</span>
                     <h2 className="prod-cta-title">Stop Paying Your Team<br />to Sit on Hold.</h2>
                     <p className="prod-cta-subtitle">
                         EstiPay's Insurance Agent handles every carrier call — 24 hours a day, seven days a week. Contact us to discuss deployment for your restoration operation.
                     </p>
                     <div className="prod-cta-actions">
-                        <Link to="/contact" className="btn btn-tonal" style={{ padding: '15px 36px', fontSize: '1rem' }}>
+                        <Link to="/contact" className="btn btn-filled-secondary" style={{ padding: '15px 36px', fontSize: '1rem' }}>
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/" className="btn btn-outline" style={{ padding: '15px 36px', fontSize: '1rem' }}>

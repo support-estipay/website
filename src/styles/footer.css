@@ -101,7 +101,7 @@
     align-items: center;
     gap: var(--space-2) + 2px;
     padding: 15px var(--space-8);
-    border-radius: var(--shape-sm);
+    border-radius: var(--shape-button);
     font-weight: 700;
     font-size: var(--type-body-md-size);
     text-decoration: none;

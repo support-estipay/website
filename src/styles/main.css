@@ -153,9 +153,10 @@ ul { list-style: none; }
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--space-2);
     padding: 0.65rem 1.375rem;
-    border-radius: var(--shape-sm);
+    border-radius: var(--shape-button);
     font-family: var(--font-main);
     font-size: var(--type-label-lg-size);
     font-weight: var(--type-label-lg-weight);
@@ -172,7 +173,33 @@ ul { list-style: none; }
         border-color     var(--duration-medium-1) var(--easing-standard);
 }
 
-/* MD3 Filled — highest emphasis (primary role = logo green) */
+/* Icons inside filled buttons — match label (on-primary / on-secondary) */
+.btn .material-symbols-outlined {
+    color: currentColor;
+    margin: 0;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.btn-primary .material-symbols-outlined,
+.btn-primary .ms-icon--primary,
+.btn-green .material-symbols-outlined {
+    color: var(--md-on-primary);
+}
+
+.btn-filled-secondary .material-symbols-outlined,
+.btn-filled-secondary .ms-icon--primary,
+.btn-orange .material-symbols-outlined,
+.btn-cta .material-symbols-outlined,
+.btn-cta--primary .material-symbols-outlined {
+    color: var(--md-on-secondary);
+}
+
+.btn-filled-tertiary .material-symbols-outlined {
+    color: var(--md-on-tertiary);
+}
+
+/* MD3 Filled Primary — logo green (forms, trust actions) */
 .btn-primary {
     background-color: var(--md-primary);
     color: var(--md-on-primary);
@@ -184,7 +211,7 @@ ul { list-style: none; }
     transform: translateY(-2px);
 }
 
-/* MD3 Filled Tonal — medium emphasis */
+/* MD3 Filled Tonal — green container (medium emphasis) */
 .btn-tonal {
     background-color: var(--md-primary-container);
     color: var(--md-on-primary-container);
@@ -236,11 +263,11 @@ ul { list-style: none; }
     background-color: rgba(255,255,255,0.1);
 }
 
-/* Hero pill CTA */
+/* Hero pill CTA — same corner radius as all buttons */
 .btn-hero-pill {
     cursor: pointer;
     padding: 0.8rem 1.75rem;
-    border-radius: var(--shape-full);
+    border-radius: var(--shape-button);
     font-family: var(--font-main);
     font-size: 1rem;
     font-weight: 700;
@@ -260,7 +287,7 @@ ul { list-style: none; }
 /* Gradient text — brand colors */
 .text-gradient,
 .highlight {
-    background: var(--gradient-brand);
+    background: var(--gradient-brand-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -270,9 +297,16 @@ ul { list-style: none; }
 /* Colour helpers */
 .text-dark    { color: var(--md-on-surface); }
 .text-gray    { color: var(--md-on-surface-variant); }
-.text-green   { color: var(--md-primary); }
+.text-green   { color: var(--md-primary); }          /* success only */
 .text-teal    { color: var(--md-primary-dark); }
 .text-blue    { color: var(--md-tertiary); }
+.text-brand   {
+    background: var(--gradient-brand-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
 .text-orange  { color: var(--md-secondary); }
 .text-center  { text-align: center; }
 .text-white   { color: var(--md-on-primary); }
@@ -313,9 +347,9 @@ ul { list-style: none; }
     opacity: 0;
     animation: orb-pulse 8s ease-in-out infinite;
 }
-.glow-orb--primary   { background: var(--md-primary);   opacity: 0.18; }
+.glow-orb--primary   { background: var(--md-primary);   opacity: 0.12; }
+.glow-orb--tertiary  { background: var(--md-tertiary);   opacity: 0.10; }
 .glow-orb--secondary { background: var(--md-secondary); opacity: 0.14; }
-.glow-orb--tertiary  { background: var(--md-tertiary);  opacity: 0.12; }
 .glow-orb--sm  { width: 200px; height: 200px; }
 .glow-orb--md  { width: 400px; height: 400px; }
 .glow-orb--lg  { width: 600px; height: 600px; }
@@ -520,7 +554,11 @@ ul { list-style: none; }
     font-weight: 800;
     line-height: 1;
     letter-spacing: var(--type-display-md-letter);
-    color: var(--md-primary);
+    background: var(--gradient-brand-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 .stat-block__label {
     font-size: var(--type-body-sm-size);
@@ -579,7 +617,7 @@ ul { list-style: none; }
     margin-bottom: var(--space-6);
     font-size: 22px;
     color: var(--md-primary);
-    border: 1px solid rgba(0,155,108,0.15);
+    border: 1px solid var(--md-primary-a20);
     transition: all var(--duration-medium-1) var(--easing-standard);
 }
 
@@ -635,7 +673,7 @@ ul { list-style: none; }
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 1px solid var(--md-primary);
+    border: 1px solid var(--md-primary-a12);
     background: transparent;
     animation: ripple-wave 8s infinite linear;
 }

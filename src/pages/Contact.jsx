@@ -9,7 +9,7 @@ const IconEmail = () => (
 
 const IconPhone = () => (
     <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 8H18L21 15L17.5 17.5C19.2 21 21 22.8 24.5 24.5L27 21L34 24V30C34 32.2 32.2 34 30 34C17.8 34 6 22.2 6 10C6 7.8 7.8 6 10 6L12 8Z" fill="var(--md-primary)" opacity="0.12" stroke="var(--md-primary)" strokeWidth="1.8" strokeLinejoin="round"/>
+        <path d="M12 8H18L21 15L17.5 17.5C19.2 21 21 22.8 24.5 24.5L27 21L34 24V30C34 32.2 32.2 34 30 34C17.8 34 6 22.2 6 10C6 7.8 7.8 6 10 6L12 8Z" fill="var(--md-tertiary)" opacity="0.12" stroke="var(--md-tertiary)" strokeWidth="1.8" strokeLinejoin="round"/>
     </svg>
 );
 
@@ -85,12 +85,12 @@ const Contact = () => {
     };
 
     return (
-        <div className="page-container">
+        <div className="page-container page-flow">
 
             {/* ── Hero ───────────────────────────────────────── */}
             <section
                 ref={heroRef}
-                className={`sec-hero surface-page${heroVisible ? ' sec-hero-visible' : ''}`}
+                className={`sec-hero${heroVisible ? ' sec-hero-visible' : ''}`}
             >
                 <div className="sec-hero-blobs">
                     <div className="sec-hero-blob sec-hero-blob--tl" />
@@ -118,7 +118,7 @@ const Contact = () => {
                         {/* Left — info cards */}
                         <div className="con-info-col">
                             <div className="con-info-header">
-                                <span className="sol-label" style={{ color: 'var(--md-on-tertiary-container)', display: 'inline-block', padding: '6px 18px', borderRadius: '100px', background: 'var(--md-tertiary-container)', border: '1px solid var(--md-tertiary-a14)' }}>Contact Information</span>
+                                <span className="sec-badge">Contact Information</span>
                                 <h2 className="con-info-title">
                                     Direct to our founders
                                 </h2>
@@ -140,7 +140,7 @@ const Contact = () => {
                                             </div>
                                         </div>
                                         <div className="con-card-body">
-                                            <span className="sol-label" style={{ color: 'var(--md-tertiary)' }}>{item.label}</span>
+                                            <span className="sol-label" style={{ color: 'var(--md-primary)' }}>{item.label}</span>
                                             <h4 className="con-card-title">{item.title}</h4>
                                             {item.lines && item.lines.map(line => (
                                                 <p key={line} className="con-card-line" style={{ color: 'var(--md-on-surface-variant)' }}>{line}</p>
@@ -154,7 +154,7 @@ const Contact = () => {
                         {/* Right — form */}
                         <div className="con-form-wrap">
                             <div className="con-form-card">
-                                <span className="sol-label" style={{ color: 'var(--md-tertiary)' }}>Message Us Directly</span>
+                                <span className="sol-label" style={{ color: 'var(--md-primary)' }}>Message Us Directly</span>
                                 <h3 className="con-form-title">How can we help?</h3>
                                 <p style={{ color: 'var(--md-on-surface-variant)', marginBottom: '25px', fontSize: '0.95rem' }}>If you are requesting beta access, please include a brief overview of your current claims volume.</p>
                                 <form className="contact-form" onSubmit={handleSubmit}>
@@ -209,7 +209,7 @@ const Contact = () => {
                                         />
                                     </div>
 
-                                    <button type="submit" className="btn btn-primary con-submit-btn" style={{ width: '100%', padding: '15px', fontSize: '1.1rem' }}>
+                                    <button type="submit" className="btn btn-primary con-submit-btn" style={{ fontSize: '1.1rem' }}>
                                         Send Message
                                     </button>
                                 </form>
@@ -223,12 +223,8 @@ const Contact = () => {
             <section
                 ref={faqRef}
                 className={`con-faq-section${faqVisible ? ' con-faq-visible' : ''}`}
-                style={{ paddingBottom: '120px' }}
             >
-                <div className="sec-hero-blobs" style={{ pointerEvents: 'none' }}>
-                    <div className="sec-hero-blob sec-hero-blob--tl" style={{ opacity: 0.5 }} />
-                </div>
-                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                <div className="container">
                     <div className="con-faq-header">
                         <h2 className="sec-section-title" style={{ color: 'var(--md-on-surface)' }}>
                                 Before You Hit Send
@@ -240,7 +236,7 @@ const Contact = () => {
                             <div
                                 key={i}
                                 className="con-faq-item"
-                                style={{ transitionDelay: `${0.1 + i * 0.1}s`, textAlign: 'left', background: 'var(--md-surface-container-low)', padding: '30px', borderRadius: 'var(--shape-md)', border: '1px solid var(--md-outline-variant)', marginBottom: '20px' }}
+                                style={{ transitionDelay: `${0.1 + i * 0.1}s`, textAlign: 'left', background: 'var(--md-surface-container-low)', padding: '30px', borderRadius: 'var(--shape-card)', border: '1px solid var(--md-outline-variant)', marginBottom: '20px' }}
                             >
                                 <h4 style={{ fontSize: '1.2rem', color: 'var(--md-primary)', marginBottom: '10px' }}>{faq.q}</h4>
                                 <p style={{ color: 'var(--md-on-surface-variant)', margin: 0, lineHeight: '1.6' }}>{faq.a}</p>

@@ -16,7 +16,7 @@
     justify-content: center;
     background: transparent;
     border: 1.5px solid var(--md-outline);
-    border-radius: 10px;
+    border-radius: var(--shape-sm);
     cursor: pointer;
     padding: 0;
     color: var(--md-on-surface);
@@ -26,13 +26,13 @@
         color var(--duration-medium-1) var(--easing-standard);
 }
 .hamburger:hover {
-    border-color: var(--md-primary);
-    color: var(--md-primary);
+    border-color: var(--md-tertiary);
+    color: var(--md-tertiary);
 }
 .hamburger--open {
-    background: var(--md-primary-container);
-    border-color: var(--md-primary);
-    color: var(--md-primary-dark);
+    background: var(--md-tertiary-container);
+    border-color: var(--md-tertiary);
+    color: var(--md-tertiary-dark);
 }
 
 .hamburger-icon {
@@ -133,7 +133,7 @@ body:has(.mobile-menu--open) {
     width: 100%;
     background: var(--md-surface);
     border: 1px solid var(--md-outline);
-    border-radius: 14px;
+    border-radius: var(--shape-lg);
     padding: 22px 22px;
     text-decoration: none;
     color: var(--md-on-surface);
@@ -151,7 +151,7 @@ body:has(.mobile-menu--open) {
 }
 .mobile-card:hover,
 .mobile-card:focus-visible {
-    border-color: var(--md-primary);
+    border-color: var(--md-tertiary);
     background: #fbfffd;
     box-shadow: var(--elevation-teal-3);
     transform: translateY(-1px);
@@ -182,13 +182,13 @@ body:has(.mobile-menu--open) {
     border: none;
     cursor: pointer;
     padding: 6px 4px;
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
     font-family: var(--font-main);
     font-size: 0.95rem;
     font-weight: 600;
 }
 .mobile-back .material-symbols-outlined { font-size: 1.3rem; }
-.mobile-back:hover { color: var(--md-primary); }
+.mobile-back:hover { color: var(--md-tertiary); }
 
 .mobile-subheading {
     font-size: 1.5rem;
@@ -207,9 +207,9 @@ body:has(.mobile-menu--open) {
 .mobile-card-icon {
     width: 44px;
     height: 44px;
-    border-radius: 11px;
-    background: var(--md-primary-container);
-    color: var(--md-primary-dark);
+    border-radius: var(--shape-md);
+    background: var(--md-tertiary-container);
+    color: var(--md-tertiary-dark);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -240,15 +240,15 @@ body:has(.mobile-menu--open) {
 .mobile-card--all {
     justify-content: center;
     gap: 8px;
-    background: var(--md-primary);
+    background: var(--md-tertiary);
     color: #ffffff;
-    border-color: var(--md-primary);
+    border-color: var(--md-tertiary);
     font-weight: 600;
     box-shadow: var(--elevation-teal-3);
 }
 .mobile-card--all:hover {
-    background: var(--md-primary-dark);
-    border-color: var(--md-primary-dark);
+    background: var(--md-tertiary-dark);
+    border-color: var(--md-tertiary-dark);
     color: #ffffff;
     box-shadow: var(--elevation-teal-4);
 }
@@ -276,7 +276,7 @@ body:has(.mobile-menu--open) {
     gap: 8px;
     width: 100%;
     padding: 16px 20px;
-    border-radius: 12px;
+    border-radius: var(--shape-md);
     font-family: var(--font-main);
     font-size: 1rem;
     font-weight: 600;

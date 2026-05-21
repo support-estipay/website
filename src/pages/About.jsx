@@ -102,12 +102,12 @@ const About = () => {
     }, []);
 
     return (
-        <div className="page-container">
+        <div className="page-container page-flow">
 
             {/* -- Hero ------------------------------------------- */}
             <section
                 ref={heroRef}
-                className={`sec-hero surface-page${heroVisible ? ' sec-hero-visible' : ''}`}
+                className={`sec-hero${heroVisible ? ' sec-hero-visible' : ''}`}
             >
                 <div className="sec-hero-blobs">
                     <div className="sec-hero-blob sec-hero-blob--tl" />
@@ -153,7 +153,7 @@ const About = () => {
                         </div>
                         <div className="abt-mission-visual" style={{ position: 'relative' }}>
                             <div style={{ position: 'absolute', inset: '-20px', background: 'radial-gradient(circle at center, rgba(41, 193, 165, 0.15) 0%, transparent 70%)', filter: 'blur(40px)', zIndex: 0 }}></div>
-                            <img src="/assets/dashboard-light.png" alt="Claims Dashboard UI" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px var(--md-primary-a12)', border: '1px solid var(--md-primary-a20)', position: 'relative', zIndex: 1, objectFit: 'cover' }} />
+                            <img src="/assets/dashboard-light.png" alt="Claims Dashboard UI" style={{ width: '100%', borderRadius: 'var(--shape-media)', boxShadow: '0 20px 40px var(--md-tertiary-a14)', border: '1px solid var(--md-tertiary-a20)', position: 'relative', zIndex: 1, objectFit: 'cover' }} />
                         </div>
                     </div>
                 </div>
@@ -162,8 +162,7 @@ const About = () => {
             {/* -- Values ----------------------------------------- */}
             <section
                 ref={valuesRef}
-                className={`content-section sol-cards-section${valuesVisible ? ' abt-section-visible' : ''}`}
-                style={{ background: 'var(--md-primary-container)', borderTop: '1px solid rgba(0,0,0,0.08)', borderBottom: '1px solid rgba(0,0,0,0.08)', padding: '100px 0' }}
+                className={`content-section sol-cards-section section-flow${valuesVisible ? ' abt-section-visible' : ''}`}
             >
                 <div className="container">
                     <div className="abt-values-header">
@@ -181,10 +180,10 @@ const About = () => {
                                 style={{ transitionDelay: `${0.08 + i * 0.1}s`, padding: '30px 20px', background: 'var(--md-surface-container-lowest)', borderColor: 'var(--md-outline-variant)' }}
                             >
                                 <div className="sol-icon-wrap" style={{ marginBottom: '20px', background: 'transparent', border: 'none', padding: 0, justifyContent: 'flex-start' }}>
-                                    <div className="sol-icon-bubble" style={{ background: 'rgba(41, 193, 165, 0.08)', borderColor: 'rgba(41, 193, 165, 0.15)' }}>{item.icon}</div>
+                                    <div className="sol-icon-bubble" style={{ background: 'var(--md-tertiary-container)', borderColor: 'var(--md-tertiary-a14)' }}>{item.icon}</div>
                                 </div>
                                 <div className="sol-card-body" style={{ padding: 0 }}>
-                                    <span className="sol-label" style={{ color: 'var(--md-tertiary)', fontWeight: 'bold' }}>{item.label}</span>
+                                    <span className="sol-label" style={{ color: 'var(--md-primary)', fontWeight: 'bold' }}>{item.label}</span>
                                     <h3 className="sol-card-title" style={{ fontSize: '1.2rem', margin: '10px 0', color: 'var(--md-on-surface)' }}>{item.title}</h3>
                                     {item.features.map(f => (
                                         <p key={f} style={{ color: 'var(--md-on-surface-variant)', fontSize: '0.95rem', lineHeight: '1.6' }}>{f}</p>
@@ -209,7 +208,7 @@ const About = () => {
                             We believe in showing you the real picture — not a polished version of it.
                         </p>
                     </div>
-                    <div style={{ maxWidth: '600px', margin: '0 auto', background: 'var(--md-surface-container-low)', padding: '40px', borderRadius: 'var(--shape-md)', border: '1px solid var(--md-outline-variant)' }}>
+                    <div style={{ maxWidth: '600px', margin: '0 auto', background: 'var(--md-surface-container-low)', padding: '40px', borderRadius: 'var(--shape-card)', border: '1px solid var(--md-outline-variant)' }}>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '20px', color: 'var(--md-on-surface)', fontSize: '1.1rem' }}>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>layers</span></span> Core architecture — Complete</li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>account_tree</span></span> IVR navigation engine — Built and tested</li>

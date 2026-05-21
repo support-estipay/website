@@ -33,7 +33,7 @@ const roles = [
                     {[
                         { name: 'Storm Damage — Oak Ave', pct: 90, color: 'var(--md-primary)', tag: 'Followed Up' },
                         { name: 'Roof Replacement — Pine St', pct: 55, color: 'var(--md-secondary)', tag: 'In Review' },
-                        { name: 'Hail Claim — Maple Rd', pct: 100, color: 'var(--md-primary)', tag: 'Paid', tagIcon: 'check_circle' },
+                        { name: 'Hail Claim — Maple Rd', pct: 100, color: 'var(--md-tertiary)', tag: 'Paid', tagIcon: 'check_circle' },
                     ].map((job) => (
                         <div key={job.name} className="bfr-job-row">
                             <div className="bfr-job-name">{job.name}</div>
@@ -81,7 +81,7 @@ const roles = [
                     <div className="bfr-claim-rows">
                         {[
                             { id: 'PA-0091', carrier: 'Nationwide', status: 'AI Follow-Up Sent', dot: 'var(--md-primary)' },
-                            { id: 'PA-0087', carrier: 'Liberty Mutual', status: 'Docs Ready', dot: 'var(--md-primary)' },
+                            { id: 'PA-0087', carrier: 'Liberty Mutual', status: 'Docs Ready', dot: 'var(--md-tertiary)' },
                             { id: 'PA-0083', carrier: 'Travelers', status: 'Awaiting Review', dot: 'var(--md-secondary)' },
                         ].map(c => (
                             <div key={c.id} className="bfr-claim-mini-row">

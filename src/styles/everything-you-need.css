@@ -213,7 +213,7 @@
 
 .eyn-call-status {
     font-size: 0.65rem;
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -444,7 +444,7 @@
 
 .eyn-spoke-app {
     padding: 5px var(--space-1);
-    border-radius: 7px;
+    border-radius: var(--shape-xs);
     border: 1.5px solid var(--spoke-color, var(--md-outline));
     background: color-mix(in srgb, var(--spoke-color, var(--md-outline)) 8%, white);
     text-align: center;
@@ -469,7 +469,7 @@
 .eyn-feature-label {
     font-size: var(--type-label-md-size);
     font-weight: 600;
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
     letter-spacing: var(--type-label-md-letter);
     text-transform: uppercase;
     margin-bottom: var(--space-1);

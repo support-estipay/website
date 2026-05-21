@@ -28,7 +28,7 @@
     width: 700px;
     height: 700px;
     border-radius: 50%;
-    background: radial-gradient(circle, var(--md-primary-a12) 0%, transparent 65%);
+    background: radial-gradient(circle, var(--md-tertiary-a14) 0%, transparent 65%);
     pointer-events: none;
     z-index: 1;
     animation: orb-pulse 10s ease-in-out infinite;
@@ -155,7 +155,7 @@
     gap: var(--space-2) + 2px;
     font-weight: 700;
     font-size: var(--type-headline-md-size);
-    color: var(--md-primary);
+    color: var(--md-tertiary);
 }
 
 .logo-img {
@@ -180,13 +180,13 @@
 }
 
 .nav-links li a:hover {
-    color: var(--md-primary);
+    color: var(--md-tertiary);
 }
 
 /* ── Hero headline helpers (light theme) ─────────────────── */
 .hero-h1-light  { color: var(--md-on-surface); }
 .hero-h1-accent {
-    background: linear-gradient(135deg, var(--md-primary) 0%, var(--md-tertiary) 100%);
+    background: var(--gradient-brand-text);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -239,7 +239,7 @@
 .hero-chip:hover {
     background: var(--md-surface);
     border-color: var(--md-tertiary);
-    color: var(--md-primary-dark);
+    color: var(--md-tertiary-dark);
     transform: translateY(-2px);
     box-shadow: var(--elevation-teal-3);
 }
