@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './styles/tokens.css';
 import './styles/main.css';
 import './styles/hero.css';
@@ -17,7 +17,6 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import PageLoader from './components/PageLoader';
 
-import Home from './pages/Home';
 import Products from './pages/Products';
 import InsuranceAgent from './pages/InsuranceAgent';
 import AppointmentScheduler from './pages/AppointmentScheduler';
@@ -36,7 +35,8 @@ function App() {
       <ScrollToTop />
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* Site now opens directly on the full Products page */}
+          <Route path="/" element={<Navigate to="/products" replace />} />
 
           {/* Product routes */}
           <Route path="/products"                       element={<><Navbar /><Products /><Footer /></>} />
