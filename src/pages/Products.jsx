@@ -96,7 +96,7 @@ const Products = () => {
     }, []);
 
     useEffect(() => {
-        document.title = 'Products — EstiPay AI Voice Platform for Restoration Companies';
+        document.title = 'EstiPay — AI Voice Platform for Restoration Companies';
     }, []);
 
     const heroRef     = useRef(null);
