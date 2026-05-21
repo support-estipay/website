@@ -50,7 +50,9 @@ const features = [
                         { name: 'Photo Evidence Pack.zip', size: '11.2 MB', ready: false },
                     ].map(d => (
                         <div key={d.name} className="eyn-doc-row">
-                            <span className="eyn-doc-icon">{d.ready ? '✅' : '🔄'}</span>
+                            <span className={`eyn-doc-icon material-symbols-outlined ${d.ready ? 'eyn-doc-icon--ready' : 'eyn-doc-icon--processing'}`} aria-hidden="true">
+                                {d.ready ? 'check_circle' : 'cached'}
+                            </span>
                             <div className="eyn-doc-info">
                                 <span className="eyn-doc-name">{d.name}</span>
                                 <span className="eyn-doc-size">{d.size}</span>
@@ -109,12 +111,12 @@ const features = [
                 </div>
                 <div className="eyn-alert-list">
                     {[
-                        { icon: '🔔', msg: 'CLM-1041 needs response in 24h', type: 'urgent', time: 'Just now' },
-                        { icon: '✅', msg: 'CLM-1029 approved — $14,200', type: 'success', time: '12m ago' },
-                        { icon: '⚠️', msg: 'Missing docs on CLM-1035', type: 'warn', time: '1h ago' },
-                    ].map((a, i) => (
-                        <div key={i} className={`eyn-alert-row eyn-alert-${a.type}`}>
-                            <span className="eyn-alert-icon">{a.icon}</span>
+                        { icon: 'notifications_active', msg: 'CLM-1041 needs response in 24h', type: 'urgent', time: 'Just now' },
+                        { icon: 'check_circle',         msg: 'CLM-1029 approved — $14,200',     type: 'success', time: '12m ago' },
+                        { icon: 'warning',              msg: 'Missing docs on CLM-1035',         type: 'warn',    time: '1h ago' },
+                    ].map((a) => (
+                        <div key={a.msg} className={`eyn-alert-row eyn-alert-${a.type}`}>
+                            <span className="eyn-alert-icon material-symbols-outlined" aria-hidden="true">{a.icon}</span>
                             <span className="eyn-alert-msg">{a.msg}</span>
                             <span className="eyn-alert-time">{a.time}</span>
                         </div>

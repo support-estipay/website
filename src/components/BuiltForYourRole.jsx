@@ -33,15 +33,20 @@ const roles = [
                     {[
                         { name: 'Storm Damage — Oak Ave', pct: 90, color: 'var(--md-primary)', tag: 'Followed Up' },
                         { name: 'Roof Replacement — Pine St', pct: 55, color: 'var(--md-secondary)', tag: 'In Review' },
-                        { name: 'Hail Claim — Maple Rd', pct: 100, color: 'var(--md-primary)', tag: 'Paid ✓' },
-                    ].map((job, i) => (
-                        <div key={i} className="bfr-job-row">
+                        { name: 'Hail Claim — Maple Rd', pct: 100, color: 'var(--md-primary)', tag: 'Paid', tagIcon: 'check_circle' },
+                    ].map((job) => (
+                        <div key={job.name} className="bfr-job-row">
                             <div className="bfr-job-name">{job.name}</div>
                             <div className="bfr-job-track">
                                 <div className="bfr-job-bar-wrap">
                                     <div className="bfr-job-bar" style={{ width: `${job.pct}%`, background: job.color }} />
                                 </div>
-                                <span className="bfr-job-tag" style={{ color: job.color }}>{job.tag}</span>
+                                <span className="bfr-job-tag" style={{ color: job.color }}>
+                                    {job.tagIcon && (
+                                        <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '14px', marginRight: '4px', verticalAlign: 'middle', fontVariationSettings: "'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20" }}>{job.tagIcon}</span>
+                                    )}
+                                    {job.tag}
+                                </span>
                             </div>
                         </div>
                     ))}
@@ -109,12 +114,18 @@ const roles = [
                         <div className="bfr-res-stat">
                             <span className="bfr-res-val">4.1d</span>
                             <span className="bfr-res-lbl">Avg. Resolution</span>
-                            <span className="bfr-res-delta positive">↓ 38% faster</span>
+                            <span className="bfr-res-delta positive">
+                                <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '14px', verticalAlign: 'middle', marginRight: '2px' }}>trending_down</span>
+                                38% faster
+                            </span>
                         </div>
                         <div className="bfr-res-stat">
                             <span className="bfr-res-val">96%</span>
                             <span className="bfr-res-lbl">CSAT Score</span>
-                            <span className="bfr-res-delta positive">↑ vs 81% before</span>
+                            <span className="bfr-res-delta positive">
+                                <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '14px', verticalAlign: 'middle', marginRight: '2px' }}>trending_up</span>
+                                vs 81% before
+                            </span>
                         </div>
                     </div>
                     <div className="bfr-backlog-bar-section">
@@ -178,7 +189,7 @@ const BuiltForYourRole = () => {
                                 <h3 className="bfr-card-title">{role.title}</h3>
                                 <p className="bfr-card-desc">{role.description}</p>
                                 <div className="bfr-pain-chip">
-                                    <span className="bfr-pain-icon">⚡</span>
+                                    <span className="bfr-pain-icon material-symbols-outlined" aria-hidden="true">bolt</span>
                                     <span>{role.pain}</span>
                                 </div>
                             </div>

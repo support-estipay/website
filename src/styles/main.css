@@ -110,20 +110,42 @@ ul { list-style: none; }
     .container { padding: 0 var(--space-4); }
 }
 
-/* -- Material Symbols -------------------------------------- */
+/* ────────────────────────────────────────────────────────────
+   Material Symbols — MD3 icon system
+   Variable axes: opsz (optical size), wght (weight),
+                  FILL (outlined/filled), GRAD (grade/emphasis)
+   ──────────────────────────────────────────────────────────── */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     vertical-align: middle;
     line-height: 1;
     user-select: none;
+    /* Prevent icon ligatures from being interpreted as text */
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
-.ms-2x  { font-size: 2em; }
+
+/* Sizing scale — opsz matches the rendered size (MD3 guidance) */
+.ms-sm { font-size: 20px; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20; }
+.ms-md { font-size: 24px; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.ms-lg { font-size: 40px; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 40; }
+.ms-xl { font-size: 48px; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48; }
+.ms-2x { font-size: 2em; }
+
+/* State modifiers — composable with size classes */
+.ms-filled { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.ms-bold   { font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24; }
+
+/* Inline icon paired with adjacent text (e.g. bullet checkmarks, button labels) */
 .ms-icon {
     font-size: 1rem;
     vertical-align: middle;
     color: var(--md-primary);
     margin-right: var(--space-1);
-    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
 }
 
 /* ============================================================

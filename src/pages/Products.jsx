@@ -73,16 +73,16 @@ const INTELLIGENCE = [
 ];
 
 const LIFECYCLE = [
-    { num: '01', icon: '🔍', title: 'Discover & Capture', desc: 'Centralize carrier "rules of engagement" — tone, escalation paths, key data points. Post-call analytics refine these rules over time.' },
-    { num: '02', icon: '📐', title: 'Explore & Plan',     desc: 'Use historical call data to prioritize new dialing logic for complex IVRs and redesign escalation flows across carriers.' },
-    { num: '03', icon: '🚀', title: 'Deliver & Launch',   desc: 'Deploy agents that sound natural, maintain professional persistence, and integrate with restoration CRM and scheduling tools.' },
-    { num: '04', icon: '📊', title: 'Analyze & Optimize', desc: 'Track connect rates, collection yield, and no-show reduction. Insights feed back into prompt tuning and compliance tightening.' },
+    { num: '01', icon: 'travel_explore', title: 'Discover & Capture', desc: 'Centralize carrier "rules of engagement" — tone, escalation paths, key data points. Post-call analytics refine these rules over time.' },
+    { num: '02', icon: 'architecture',   title: 'Explore & Plan',     desc: 'Use historical call data to prioritize new dialing logic for complex IVRs and redesign escalation flows across carriers.' },
+    { num: '03', icon: 'rocket_launch',  title: 'Deliver & Launch',   desc: 'Deploy agents that sound natural, maintain professional persistence, and integrate with restoration CRM and scheduling tools.' },
+    { num: '04', icon: 'insights',       title: 'Analyze & Optimize', desc: 'Track connect rates, collection yield, and no-show reduction. Insights feed back into prompt tuning and compliance tightening.' },
 ];
 
 const HERO_STATS = [
-    { value: '↓ DSO',     label: 'Days Sales Outstanding' },
-    { value: '↑ Connect', label: 'Call-to-Connect Rate' },
-    { value: '0 Hold',    label: 'Staff Hours on Hold' },
+    { icon: 'trending_down', value: 'DSO',     label: 'Days Sales Outstanding' },
+    { icon: 'trending_up',   value: 'Connect', label: 'Call-to-Connect Rate' },
+    { icon: 'do_not_disturb_on', value: '0 Hold', label: 'Staff Hours on Hold' },
 ];
 
 /* ── Component ─────────────────────────────────────────────── */
@@ -152,7 +152,10 @@ const Products = () => {
                     <div className="prod-hero-stats">
                         {HERO_STATS.map((k) => (
                             <div className="prod-hero-stat" key={k.label}>
-                                <span className="prod-hero-stat-value">{k.value}</span>
+                                <span className="prod-hero-stat-value">
+                                    <span className="material-symbols-outlined ms-sm" aria-hidden="true">{k.icon}</span>
+                                    {k.value}
+                                </span>
                                 <span className="prod-hero-stat-label">{k.label}</span>
                             </div>
                         ))}
@@ -245,7 +248,8 @@ const Products = () => {
                                         </div>
                                         <div>
                                             <div className="prod-lifecycle-list-title">
-                                                {step.icon}&nbsp; {step.title}
+                                                <span className="material-symbols-outlined ms-sm" aria-hidden="true" style={{ marginRight: '8px', color: 'var(--md-primary)' }}>{step.icon}</span>
+                                                {step.title}
                                             </div>
                                             <p className="prod-lifecycle-list-desc">{step.desc}</p>
                                         </div>

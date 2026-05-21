@@ -47,7 +47,11 @@ const principles = [
                         <div key={i} className="sec-rbac-row">
                             <span className="sec-rbac-role">{row.role}</span>
                             {row.perms.map((p, j) => (
-                                <span key={j} className={`sec-rbac-perm ${p ? 'on' : 'off'}`}>{p ? '✓' : '—'}</span>
+                                <span key={j} className={`sec-rbac-perm ${p ? 'on' : 'off'}`} aria-hidden="true">
+                                    {p
+                                        ? <span className="material-symbols-outlined">check</span>
+                                        : <span className="material-symbols-outlined">remove</span>}
+                                </span>
                             ))}
                         </div>
                     ))}
@@ -97,7 +101,7 @@ const principles = [
                 <div className="sec-hipaa-body">
                     {['Zero Data Sharing', 'Strict Internal Isolation', 'Total Ownership', 'Deleted Upon Request'].map((item, i) => (
                         <div key={i} className="sec-check-row">
-                            <span className="sec-check-icon">✓</span>
+                            <span className="sec-check-icon material-symbols-outlined" aria-hidden="true">check_circle</span>
                             <span className="sec-check-label">{item}</span>
                         </div>
                     ))}

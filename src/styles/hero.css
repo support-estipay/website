@@ -411,8 +411,18 @@
     position: relative;
     padding-left: 22px;
 }
-.ba-column.before ul li::before { content: "✕"; color: var(--md-error); position: absolute; left: 0; top: 0; font-size: 0.8rem; }
-.ba-column.after  ul li::before { content: "✓"; color: var(--md-primary-dark); position: absolute; left: 0; top: 0; font-size: 0.8rem; }
+.ba-column.before ul li::before,
+.ba-column.after  ul li::before {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-family: 'Material Symbols Outlined';
+    font-size: 16px;
+    line-height: 1;
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+}
+.ba-column.before ul li::before { content: '\e5cd'; color: var(--md-error); }            /* close */
+.ba-column.after  ul li::before { content: '\e86c'; color: var(--md-primary-dark); }     /* check_circle */
 
 /* Hero image */
 .hero-image-col {

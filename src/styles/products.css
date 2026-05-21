@@ -257,13 +257,19 @@
 }
 
 .prod-hero-stat-value {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--primary-green);
     letter-spacing: -0.02em;
     line-height: 1;
     margin-bottom: 4px;
+}
+.prod-hero-stat-value .material-symbols-outlined {
+    font-size: 1.4rem;
+    color: var(--primary-green);
 }
 
 .prod-hero-stat-label {
@@ -394,8 +400,19 @@
 }
 
 .prod-problem-icon {
-    font-size: 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
     margin-bottom: 16px;
+    border-radius: 12px;
+    background: rgba(179, 38, 30, 0.08);
+    color: var(--md-error);
+}
+.prod-problem-icon .material-symbols-outlined {
+    font-size: 26px;
+    font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
 }
 
 .prod-problem-title {

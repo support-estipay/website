@@ -47,22 +47,22 @@ const SCHEMA = [
 /* ── Data ───────────────────────────────────────────────────── */
 const PROBLEMS = [
     {
-        icon: '⏳',
+        icon: 'hourglass_top',
         title: 'Hours Spent on Hold Every Week',
         desc: 'Your team spends 15–20 minutes per claim navigating carrier systems, waiting on hold, and re-verifying the same policyholder information. Multiply that across your claim portfolio and you have hundreds of preventable staff-hours lost every month.',
     },
     {
-        icon: '🌀',
+        icon: 'route',
         title: 'Complex IVR Systems Built to Slow You Down',
         desc: 'Carriers route callers through 5–7 menu levels before reaching the right department. Every wrong turn adds time. Every disconnection means starting over from scratch with no record of where you were.',
     },
     {
-        icon: '📞',
+        icon: 'call',
         title: '"Phone Tag" That Delays Every Claim',
         desc: 'Carriers don\'t pick up. Callbacks never arrive. Status updates get stuck in voicemail queues. Every delay in getting claim information extends your Days Sales Outstanding and holds back cash flow.',
     },
     {
-        icon: '📋',
+        icon: 'assignment_late',
         title: 'Inconsistent Documentation of Verbal Agreements',
         desc: 'When your team manually handles carrier calls, critical verbal agreements — status updates, approval conditions, documented timelines — are captured inconsistently or not at all, creating compliance and dispute risk downstream.',
     },
@@ -207,7 +207,8 @@ const InsuranceAgent = () => {
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
-                            ← All Products
+                            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginRight: '6px', verticalAlign: 'middle' }}>arrow_back</span>
+                            All Products
                         </Link>
                     </div>
                 </div>
@@ -226,7 +227,9 @@ const InsuranceAgent = () => {
                     <div className="prod-problem-cards">
                         {PROBLEMS.map((p, i) => (
                             <article className="prod-problem-card" key={i} style={{ transitionDelay: `${i * 0.08}s` }}>
-                                <div className="prod-problem-icon" aria-hidden="true">{p.icon}</div>
+                                <div className="prod-problem-icon" aria-hidden="true">
+                                    <span className="material-symbols-outlined">{p.icon}</span>
+                                </div>
                                 <h3 className="prod-problem-title">{p.title}</h3>
                                 <p className="prod-problem-desc">{p.desc}</p>
                             </article>

@@ -47,22 +47,22 @@ const SCHEMA = [
 /* ── Data ───────────────────────────────────────────────────── */
 const PROBLEMS = [
     {
-        icon: '💸',
+        icon: 'money_off',
         title: 'Slow Collections Inflate Your DSO',
         desc: 'Every day between completing restoration work and receiving payment is a day your cash is tied up. Manual collections processes — delayed invoices, slow follow-ups, and missed callbacks — push DSO to unsustainable levels and constrain your growth.',
     },
     {
-        icon: '😰',
+        icon: 'sentiment_stressed',
         title: 'Awkward Payment Conversations Nobody Wants to Make',
         desc: 'Asking for money is uncomfortable — especially with policyholders who\'ve just been through a loss event. Your team avoids the conversation, delays the follow-up, or loses the firmness needed to actually collect. This is human nature. EstiPay doesn\'t have this problem.',
     },
     {
-        icon: '📉',
+        icon: 'trending_down',
         title: 'Low Promise-to-Pay Ratios From Inconsistent Follow-Up',
         desc: 'When payment follow-up is done manually and inconsistently, many policyholders simply never hear from you again after invoicing. No reminder. No escalation. No collection. Revenue silently slips away.',
     },
     {
-        icon: '⚖️',
+        icon: 'gavel',
         title: 'Compliance Risk in Collection Conversations',
         desc: 'Payment collection calls carry regulatory risk — consent requirements, disclosure obligations, and anti-fraud rules that vary by region. Manual collection processes leave this compliance footprint unmanaged and undocumented.',
     },
@@ -207,7 +207,8 @@ const PaymentCollector = () => {
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
-                            ← All Products
+                            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginRight: '6px', verticalAlign: 'middle' }}>arrow_back</span>
+                            All Products
                         </Link>
                     </div>
                 </div>
@@ -226,7 +227,9 @@ const PaymentCollector = () => {
                     <div className="prod-problem-cards">
                         {PROBLEMS.map((p, i) => (
                             <article className="prod-problem-card" key={i} style={{ transitionDelay: `${i * 0.08}s` }}>
-                                <div className="prod-problem-icon" aria-hidden="true">{p.icon}</div>
+                                <div className="prod-problem-icon" aria-hidden="true">
+                                    <span className="material-symbols-outlined">{p.icon}</span>
+                                </div>
                                 <h3 className="prod-problem-title">{p.title}</h3>
                                 <p className="prod-problem-desc">{p.desc}</p>
                             </article>

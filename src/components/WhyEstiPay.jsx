@@ -3,7 +3,6 @@
 const features = [
     {
         id: 'claims-tracker',
-        icon: '📋',
         label: 'AI Claim Follow-Ups',
         title: 'AI That Chases. So You Don’t Have To.',
         description: 'Your AI agent calls carriers, navigates IVR systems, and retrieves claim status — so your team never wastes time on hold or waiting for callbacks that never come.',
@@ -36,7 +35,6 @@ const features = [
     },
     {
         id: 'real-time-docs',
-        icon: '⚡',
         label: 'Smart Documentation',
         title: 'Instant Document Assembly',
         description: 'Generate supplement reports, estimate packets, and carrier-ready documents in seconds — no manual entry, no delays, no errors.',
@@ -53,7 +51,9 @@ const features = [
                         { name: 'Photo Evidence Pack.zip', size: '11.2 MB', ready: false },
                     ].map(d => (
                         <div key={d.name} className="we-doc-row">
-                            <span className="we-doc-icon">{d.ready ? '✅' : '🔄'}</span>
+                            <span className={`we-doc-icon material-symbols-outlined ${d.ready ? 'we-doc-icon--ready' : 'we-doc-icon--processing'}`} aria-hidden="true">
+                                {d.ready ? 'check_circle' : 'cached'}
+                            </span>
                             <div className="we-doc-info">
                                 <span className="we-doc-name">{d.name}</span>
                                 <span className="we-doc-size">{d.size}</span>
@@ -69,7 +69,6 @@ const features = [
     },
     {
         id: 'payout-analytics',
-        icon: '📊',
         label: 'Revenue Visibility',
         title: 'See Every Claim. Every Dollar. In Real Time.',
         description: 'Track every open claim, approved supplement, and collected payment in one live dashboard — built for your bottom line, not your accountant’s.',

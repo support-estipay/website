@@ -449,7 +449,13 @@
     line-height: 1.4;
 }
 
-.bfr-pain-icon { flex-shrink: 0; font-size: 0.85rem; line-height: 1.4; }
+.bfr-pain-icon {
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--md-tertiary, #ffb547);
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+}
 
 /* ── CTA Row ─────────────────────────────────────────────── */
 .bfr-cta-row {

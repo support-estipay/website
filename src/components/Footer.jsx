@@ -74,7 +74,7 @@ const Footer = () =>
                     <div className="footer-links">
                         <h4>Product</h4>
                         <ul>
-                            <li><Link to="/product">Product</Link></li>
+                            <li><Link to="/">Product</Link></li>
                             <li><Link to="/solutions">Solutions</Link></li>
                             <li><Link to="/security">Security</Link></li>
                         </ul>

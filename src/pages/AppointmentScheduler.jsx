@@ -47,22 +47,22 @@ const SCHEMA = [
 /* ── Data ───────────────────────────────────────────────────── */
 const PROBLEMS = [
     {
-        icon: '📞',
+        icon: 'phone_missed',
         title: 'Manual Intake Calls Take Too Long and Miss Critical Details',
         desc: 'Every intake call requires a staff member to ask the right questions, record the answers accurately, and pass them on correctly. When call volumes spike after a storm, details get missed — wrong addresses, no gate codes, incomplete damage descriptions — and your executive shows up unprepared.',
     },
     {
-        icon: '⚡',
+        icon: 'thunderstorm',
         title: 'Storm Events Flood Your Lines Overnight',
         desc: 'A single hail storm can generate hundreds of inbound inquiries in 24 hours. Your office team can\'t scale to meet that overnight. Leads go cold, callbacks pile up, and competitors who respond faster win the job.',
     },
     {
-        icon: '🏠',
+        icon: 'home_work',
         title: 'Site Access Problems That Derail the Visit',
         desc: 'Gated communities, locked entrances, and dogs in the backyard are standard realities of residential restoration. When gate codes and access instructions aren\'t collected upfront, your executive wastes time on-site or has to reschedule entirely.',
     },
     {
-        icon: '🔄',
+        icon: 'event_repeat',
         title: 'Back-and-Forth Scheduling That Delays the First Visit',
         desc: 'Coordinating a specific date and time between a customer and an executive involves multiple calls, voicemails, and callbacks. Every day of delay increases the chance the customer calls a competitor — or the damage gets worse.',
     },
@@ -207,7 +207,8 @@ const AppointmentScheduler = () => {
                             Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
                         </Link>
                         <Link to="/" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
-                            ← All Products
+                            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginRight: '6px', verticalAlign: 'middle' }}>arrow_back</span>
+                            All Products
                         </Link>
                     </div>
                 </div>
@@ -226,7 +227,9 @@ const AppointmentScheduler = () => {
                     <div className="prod-problem-cards">
                         {PROBLEMS.map((p, i) => (
                             <article className="prod-problem-card" key={i} style={{ transitionDelay: `${i * 0.08}s` }}>
-                                <div className="prod-problem-icon" aria-hidden="true">{p.icon}</div>
+                                <div className="prod-problem-icon" aria-hidden="true">
+                                    <span className="material-symbols-outlined">{p.icon}</span>
+                                </div>
                                 <h3 className="prod-problem-title">{p.title}</h3>
                                 <p className="prod-problem-desc">{p.desc}</p>
                             </article>

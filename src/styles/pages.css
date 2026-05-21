@@ -131,11 +131,13 @@
 }
 
 .pricing-features li::before {
-    content: '✓';
+    content: '\e86c'; /* check_circle */
     color: var(--primary-green);
-    font-weight: bold;
     margin-right: 12px;
-    font-size: 1.2rem;
+    font-family: 'Material Symbols Outlined';
+    font-size: 18px;
+    line-height: 1;
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
 }
 
 /* Demo Placeholder */
@@ -981,9 +983,11 @@
 .sec-check-row  { display: flex; align-items: center; gap: 8px; }
 .sec-check-icon {
     width: 16px; height: 16px; border-radius: 50%;
-    background: rgba(0, 155, 108, 0.12); color: var(--md-primary);
-    font-size: 0.58rem; font-weight: 700;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    color: var(--md-primary);
+    font-size: 16px;
+    line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
 }
 .sec-check-label { font-size: 0.7rem; color: var(--md-on-surface); }
 
@@ -1115,7 +1119,8 @@
 .sec-rbac-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 4px; align-items: center; }
 .sec-rbac-col-head { font-size: 0.58rem; font-weight: 700; color: var(--md-on-surface-variant); text-align: center; text-transform: uppercase; }
 .sec-rbac-role     { font-size: 0.68rem; font-weight: 600; color: var(--md-on-surface); }
-.sec-rbac-perm     { font-size: 0.65rem; font-weight: 700; text-align: center; }
+.sec-rbac-perm     { display: inline-flex; align-items: center; justify-content: center; text-align: center; }
+.sec-rbac-perm .material-symbols-outlined { font-size: 14px; font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 20; }
 .sec-rbac-perm.on  { color: var(--md-primary); }
 .sec-rbac-perm.off { color: #d1d5db; }
 
