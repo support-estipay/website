@@ -39,3 +39,9 @@ npm run preview
 ```bash
 npm run lint
 ```
+
+## Deploy Commands
+
+```bash
+npx wrangler pages deploy dist
+```
