@@ -1,4 +1,5 @@
 ﻿import React, { useEffect, useRef, useState } from 'react';
+import azureAiFoundryIcon from '../assets/platform/azure-ai-foundry-icon.png';
 
 const IconCustomerFirst = () => (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,9 +70,9 @@ const values = [
 
 const platformLayers = [
     {
-        logoSrc: '/assets/platform/azure-ai-foundry.png?v=13',
+        logoMarkSrc: azureAiFoundryIcon,
+        logoWordmark: 'Azure AI Foundry',
         logoAlt: 'Microsoft Azure AI Foundry',
-        logoHiRes: true,
         label: 'Intelligence',
         tech: 'Microsoft Azure AI Foundry',
         description:
@@ -79,8 +80,9 @@ const platformLayers = [
         featured: true,
     },
     {
-        logoSrc: '/assets/platform/twilio.png?v=7',
+        logoSrc: '/assets/platform/twilio.png?v=16',
         logoAlt: 'Twilio',
+        logoHiRes: true,
         label: 'Voice & Telephony',
         tech: 'Twilio',
         description:
@@ -88,8 +90,9 @@ const platformLayers = [
         featured: false,
     },
     {
-        logoSrc: '/assets/platform/fastapi.png?v=7',
+        logoSrc: '/assets/platform/fastapi.png?v=16',
         logoAlt: 'FastAPI',
+        logoHiRes: true,
         label: 'Application',
         tech: 'FastAPI',
         description:
@@ -97,8 +100,9 @@ const platformLayers = [
         featured: false,
     },
     {
-        logoSrc: '/assets/platform/azure.png?v=7',
+        logoSrc: '/assets/platform/azure.png?v=16',
         logoAlt: 'Microsoft Azure',
+        logoHiRes: true,
         label: 'Cloud Platform',
         tech: 'Azure App Service · Database · Blob Storage',
         description:
@@ -261,14 +265,33 @@ const About = () => {
                                 style={{ transitionDelay: `${0.08 + i * 0.1}s`, padding: '30px 20px', background: 'var(--md-surface-container-lowest)', borderColor: 'var(--md-outline-variant)' }}
                             >
                                 <div className="sol-icon-wrap" style={{ marginBottom: '20px', background: 'transparent', border: 'none', padding: 0, justifyContent: 'flex-start' }}>
-                                    <div className="sol-icon-bubble abt-platform-icon-bubble">
-                                        <img
-                                            src={item.logoSrc}
-                                            alt={item.logoAlt}
-                                            className={`abt-platform-logo${item.logoHiRes ? ' abt-platform-logo--hires' : ''}`}
-                                            loading="lazy"
-                                            decoding="async"
-                                        />
+                                    <div
+                                        className={`sol-icon-bubble abt-platform-icon-bubble${item.logoWordmark ? ' abt-platform-icon-bubble--lockup' : ''}`}
+                                    >
+                                        {item.logoWordmark ? (
+                                            <div className="abt-platform-logo-lockup">
+                                                <img
+                                                    src={item.logoMarkSrc}
+                                                    alt=""
+                                                    className="abt-platform-logo-mark"
+                                                    width={40}
+                                                    height={40}
+                                                    decoding="async"
+                                                />
+                                                <span className="abt-platform-logo-wordmark" aria-hidden="true">
+                                                    {item.logoWordmark}
+                                                </span>
+                                                <span className="sr-only">{item.logoAlt}</span>
+                                            </div>
+                                        ) : (
+                                            <img
+                                                src={item.logoSrc}
+                                                alt={item.logoAlt}
+                                                className={`abt-platform-logo${item.logoHiRes ? ' abt-platform-logo--hires' : ''}`}
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        )}
                                     </div>
                                 </div>
                                 <div className="sol-card-body" style={{ padding: 0 }}>
