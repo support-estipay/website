@@ -257,8 +257,25 @@ const Security = () => {
                                 For Teams That <span className="sec-green">Need More</span>
                             </h2>
                             <p className="sec-section-subtitle" style={{ fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '40px' }}>
-                            If your organization has specific security requirements, data residency needs, or compliance frameworks that must be met — talk to us. We build for enterprise from day one and are happy to walk through our security architecture in detail.
+                            If your organization has specific security requirements, data residency needs, or compliance frameworks that must be met — contact us. We build for enterprise from day one and are happy to walk through our security architecture in detail.
                         </p>
+                        <div className="sec-ai-trust" style={{ marginBottom: '40px' }}>
+                            <h3 className="sec-ai-trust-title">AI & Data on Microsoft Azure</h3>
+                            <ul className="sec-ai-trust-list">
+                                <li className="sec-ai-trust-item">
+                                    <span className="sec-check-icon material-symbols-outlined" aria-hidden="true">check_circle</span>
+                                    <span><strong>Enterprise AI deployment</strong> — AI inference runs through Microsoft Azure AI Foundry, not ad-hoc public APIs.</span>
+                                </li>
+                                <li className="sec-ai-trust-item">
+                                    <span className="sec-check-icon material-symbols-outlined" aria-hidden="true">check_circle</span>
+                                    <span><strong>Unified cloud boundary</strong> — Application hosting, database, blob storage, and AI services run on Microsoft Azure.</span>
+                                </li>
+                                <li className="sec-ai-trust-item">
+                                    <span className="sec-check-icon material-symbols-outlined" aria-hidden="true">check_circle</span>
+                                    <span><strong>Auditable voice interactions</strong> — Carrier calls via Twilio are recorded, logged, and stored securely for review and compliance.</span>
+                                </li>
+                            </ul>
+                        </div>
                         <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem' }}>Contact Our Team <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
                     </div>
                 </div>

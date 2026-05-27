@@ -143,7 +143,7 @@ const Products = () => {
                     </p>
                     <div className="stack-row" style={{ marginTop: '28px' }}>
                         <Link to="/contact" className="btn btn-filled-secondary" style={{ padding: '14px 28px', fontSize: '0.95rem' }}>
-                            Talk to Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem' }}>arrow_forward</span>
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem' }}>arrow_forward</span>
                         </Link>
                         <Link to="/solutions" className="btn btn-outline" style={{ padding: '14px 28px', fontSize: '0.95rem' }}>
                             See Use Cases

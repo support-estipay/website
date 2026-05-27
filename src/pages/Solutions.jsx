@@ -169,7 +169,7 @@ const Solutions = () => {
             <section className="section-flow section-flow--divided" style={{ padding: '80px 0', textAlign: 'center' }}>
                 <div className="container">
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '15px', color: 'var(--md-on-surface)' }}>Not Sure Which Solution Fits Your Team?</h2>
-                    <p style={{ fontSize: '1.2rem', color: 'var(--md-on-surface-variant)', marginBottom: '30px', maxWidth: '600px', margin: '0 auto 30px' }}>Talk to us in 15 minutes and we’ll show you exactly how EstiPay maps to your specific workflow.</p>
+                    <p style={{ fontSize: '1.2rem', color: 'var(--md-on-surface-variant)', marginBottom: '30px', maxWidth: '600px', margin: '0 auto 30px' }}>Contact us and we’ll show you exactly how EstiPay maps to your specific workflow.</p>
                     <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
                     <p style={{ marginTop: '15px', fontSize: '0.9rem', color: 'var(--md-on-surface-variant)' }}>Currently accepting beta partners across all three segments.</p>
                 </div>

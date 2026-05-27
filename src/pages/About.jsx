@@ -67,15 +67,57 @@ const values = [
     },
 ];
 
+const platformLayers = [
+    {
+        logoSrc: '/assets/platform/azure-ai-foundry.png?v=13',
+        logoAlt: 'Microsoft Azure AI Foundry',
+        logoHiRes: true,
+        label: 'Intelligence',
+        tech: 'Microsoft Azure AI Foundry',
+        description:
+            'Powers real-time reasoning for IVR navigation, live agent dialogue, and structured claim extraction — not fixed scripts.',
+        featured: true,
+    },
+    {
+        logoSrc: '/assets/platform/twilio.png?v=7',
+        logoAlt: 'Twilio',
+        label: 'Voice & Telephony',
+        tech: 'Twilio',
+        description:
+            'Carrier-grade outbound calling, audio streaming, and call control for 24/7 voice agents.',
+        featured: false,
+    },
+    {
+        logoSrc: '/assets/platform/fastapi.png?v=7',
+        logoAlt: 'FastAPI',
+        label: 'Application',
+        tech: 'FastAPI',
+        description:
+            'Secure APIs and orchestration that connect voice, AI, and your dashboard in real time — deployed on Microsoft Azure.',
+        featured: false,
+    },
+    {
+        logoSrc: '/assets/platform/azure.png?v=7',
+        logoAlt: 'Microsoft Azure',
+        label: 'Cloud Platform',
+        tech: 'Azure App Service · Database · Blob Storage',
+        description:
+            'Hosting, encrypted databases, and document storage for claim records, call logs, and recordings — all on Microsoft Azure.',
+        featured: false,
+    },
+];
+
 const About = () => {
     const heroRef = useRef(null);
     const missionRef = useRef(null);
     const valuesRef = useRef(null);
+    const platformRef = useRef(null);
     const statusRef = useRef(null);
 
     const [heroVisible, setHeroVisible] = useState(false);
     const [missionVisible, setMissionVisible] = useState(false);
     const [valuesVisible, setValuesVisible] = useState(false);
+    const [platformVisible, setPlatformVisible] = useState(false);
     const [statusVisible, setStatusVisible] = useState(false);
 
     useEffect(() => {
@@ -86,10 +128,11 @@ const About = () => {
             );
 
         const pairs = [
-            { ref: heroRef,    setter: setHeroVisible },
-            { ref: missionRef, setter: setMissionVisible },
-            { ref: valuesRef,  setter: setValuesVisible },
-            { ref: statusRef,  setter: setStatusVisible },
+            { ref: heroRef,      setter: setHeroVisible },
+            { ref: missionRef,   setter: setMissionVisible },
+            { ref: valuesRef,    setter: setValuesVisible },
+            { ref: platformRef,  setter: setPlatformVisible },
+            { ref: statusRef,    setter: setStatusVisible },
         ];
 
         const observers = pairs.map(({ ref, setter }) => {
@@ -195,6 +238,53 @@ const About = () => {
                 </div>
             </section>
 
+            {/* -- Platform & Technology -------------------- */}
+            <section
+                ref={platformRef}
+                className={`content-section sol-cards-section section-flow abt-platform-section${platformVisible ? ' abt-section-visible' : ''}`}
+            >
+                <div className="container">
+                    <div className="abt-platform-header">
+                        <span className="sec-badge sec-badge--dark">Platform & Technology</span>
+                        <h2 className="sec-section-title sec-section-title--light" style={{ color: 'var(--md-on-surface)' }}>
+                            Enterprise Infrastructure Behind Every Call
+                        </h2>
+                        <p className="sec-section-subtitle sec-section-subtitle--light" style={{ color: 'var(--md-on-surface-variant)' }}>
+                            EstiPay runs on Microsoft Azure end to end — from Azure AI Foundry to App Service, database, and secure file storage.
+                        </p>
+                    </div>
+                    <div className={`sol-cards sol-cards--4col${platformVisible ? ' sol-visible' : ''}`} style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
+                        {platformLayers.map((item, i) => (
+                            <div
+                                key={item.label}
+                                className={`sol-card${item.featured ? ' abt-platform-card--featured' : ''}`}
+                                style={{ transitionDelay: `${0.08 + i * 0.1}s`, padding: '30px 20px', background: 'var(--md-surface-container-lowest)', borderColor: 'var(--md-outline-variant)' }}
+                            >
+                                <div className="sol-icon-wrap" style={{ marginBottom: '20px', background: 'transparent', border: 'none', padding: 0, justifyContent: 'flex-start' }}>
+                                    <div className="sol-icon-bubble abt-platform-icon-bubble">
+                                        <img
+                                            src={item.logoSrc}
+                                            alt={item.logoAlt}
+                                            className={`abt-platform-logo${item.logoHiRes ? ' abt-platform-logo--hires' : ''}`}
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="sol-card-body" style={{ padding: 0 }}>
+                                    <span className="sol-label" style={{ color: 'var(--md-primary)', fontWeight: 'bold' }}>{item.label}</span>
+                                    <p className="abt-platform-tech">{item.tech}</p>
+                                    <p style={{ color: 'var(--md-on-surface-variant)', fontSize: '0.95rem', lineHeight: '1.6', margin: 0 }}>{item.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <p className="abt-platform-footnote">
+                        We choose proven enterprise platforms so reliability and security are built in, not bolted on later.
+                    </p>
+                </div>
+            </section>
+
             {/* -- Product Status --------------------------- */}
             <section
                 ref={statusRef}
@@ -216,7 +306,6 @@ const About = () => {
                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>headset_mic</span></span> Human agent interaction layer — Complete</li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-primary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>trending_up</span></span> Dashboard and data extraction — In final build</li>
                             <li style={{ display: 'flex', alignItems: 'center', gap: '15px', borderTop: '1px solid #e5e7eb', paddingTop: '20px' }}><span style={{ color: 'var(--md-secondary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>person_add</span></span> Beta partner onboarding — Open now</li>
-                            <li style={{ display: 'flex', alignItems: 'center', gap: '15px' }}><span style={{ color: 'var(--md-secondary)', width: '1.25em', display: 'inline-flex', justifyContent: 'center' }} aria-hidden><span className="material-symbols-outlined" style={{ fontSize: '1.25em' }}>event_available</span></span> General availability — Coming Q4 2026</li>
                         </ul>
                         <div style={{ marginTop: '40px', textAlign: 'center' }}>
                             <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary">Become a Beta Partner <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle' }}>arrow_forward</span></a>

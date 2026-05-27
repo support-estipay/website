@@ -1210,6 +1210,44 @@
 .sec-infra-visible .sec-infra-header .sec-section-title    { transition-delay: 0.25s; }
 .sec-infra-visible .sec-infra-header .sec-section-subtitle { transition-delay: 0.4s; }
 
+.sec-ai-trust {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.sec-ai-trust-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--md-on-surface);
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.sec-ai-trust-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sec-ai-trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--md-on-surface-variant);
+}
+
+.sec-ai-trust-item .sec-check-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
 .sec-infra-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1521,6 +1559,85 @@
 .abt-section-visible .abt-values-header .sec-badge                  { transition-delay: 0.1s; }
 .abt-section-visible .abt-values-header .sec-section-title          { transition-delay: 0.25s; }
 .abt-section-visible .abt-values-header .sec-section-subtitle       { transition-delay: 0.4s; }
+
+/* --- Platform & Technology Section -------------------- */
+.abt-platform-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 72px;
+}
+
+.abt-platform-header > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--easing-emphasized),
+                transform 0.8s var(--easing-emphasized);
+}
+
+.abt-section-visible .abt-platform-header > *                       { opacity: 1; transform: translateY(0); }
+.abt-section-visible .abt-platform-header .sec-badge                  { transition-delay: 0.1s; }
+.abt-section-visible .abt-platform-header .sec-section-title          { transition-delay: 0.25s; }
+.abt-section-visible .abt-platform-header .sec-section-subtitle       { transition-delay: 0.4s; }
+
+.abt-platform-tech {
+    font-weight: 600;
+    color: var(--md-on-surface);
+    font-size: 0.95rem;
+    margin: 8px 0 12px;
+}
+
+.abt-platform-footnote {
+    text-align: center;
+    max-width: 640px;
+    margin: 48px auto 0;
+    color: var(--md-on-surface-variant);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.abt-platform-card--featured {
+    border-color: var(--md-primary);
+    box-shadow: 0 0 0 1px var(--md-primary-a12);
+}
+
+.sol-card .sol-icon-bubble.abt-platform-icon-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 176px !important;
+    height: 40px !important;
+    min-width: 176px;
+    min-height: 40px;
+    max-width: 176px;
+    padding: 0;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 0;
+    box-shadow: none !important;
+    box-sizing: border-box;
+}
+
+.sol-card:hover .sol-icon-bubble.abt-platform-icon-bubble {
+    transform: none;
+    box-shadow: none !important;
+}
+
+.abt-platform-logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* 2× asset displayed at 1× layout size — sharper wordmark text */
+.abt-platform-logo--hires {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
 
 /* --- Stats Section ----------------------------------- */
 .abt-stats-section {
