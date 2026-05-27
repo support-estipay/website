@@ -1,15 +1,33 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import VideoSection from '../components/VideoSection';
+import ProductDemosSection, { buildDemoSchemaEntries } from '../components/ProductDemosSection';
 
 /*
  * ── Demo recordings (public/demos/) ───────────────────────────
- * Use these filenames; set extension to .mp3 or .mp4 to match each file.
+ * Add entries to fullWalkthroughs or snippets when new files are ready.
+ * Optional tabLabel on walkthroughs when you add more than one full demo.
  */
-const RECORDINGS = {
-    fullDemo: '/demos/appointment-scheduler-full.mp3',
-    short1: '/demos/appointment-scheduler-short-1.mp3',
-    short2: '/demos/appointment-scheduler-short-2.mp3',
+const PRODUCT_DEMOS = {
+    fullWalkthroughs: [
+        {
+            src: '/demos/appointment-scheduler-full.mp3',
+            title: 'EstiPay Appointment Scheduler — Full Platform Demo',
+            description:
+                'See how EstiPay calls a customer after a loss event, gathers damage details and site access information, and books a confirmed site visit for a company executive — entirely without staff involvement.',
+        },
+    ],
+    snippets: [
+        {
+            src: '/demos/appointment-scheduler-short-1.mp3',
+            title: 'Appointment Scheduler — Damage Intake Call',
+            label: 'Damage intake and site access collection',
+        },
+        {
+            src: '/demos/appointment-scheduler-short-2.mp3',
+            title: 'Appointment Scheduler — Visit Booking Flow',
+            label: 'Scheduling the executive site visit',
+        },
+    ],
 };
 
 /* ── JSON-LD Schema ─────────────────────────────────────────── */
@@ -34,14 +52,7 @@ const SCHEMA = [
             'High-volume scalability during storm or disaster events',
         ],
     },
-    RECORDINGS.fullDemo && {
-        '@context': 'https://schema.org',
-        '@type': 'AudioObject',
-        name: 'EstiPay Appointment Scheduler — Full Platform Demo',
-        description: 'See how EstiPay calls a customer after a loss event, gathers damage details and site access information, and books a confirmed site visit for a company executive — entirely without staff involvement.',
-        uploadDate: '2026-05-20',
-        contentUrl: `https://estipay.com${RECORDINGS.fullDemo}`,
-    },
+    ...buildDemoSchemaEntries(PRODUCT_DEMOS.fullWalkthroughs),
 ].filter(Boolean);
 
 /* ── Data ───────────────────────────────────────────────────── */
@@ -300,30 +311,10 @@ const AppointmentScheduler = () => {
                         </p>
                     </div>
 
-                    <div style={{ marginBottom: '12px' }}>
-                        <p className="prod-video-label">Full Demo Walkthrough</p>
-                    </div>
-                    <VideoSection
-                        src={RECORDINGS.fullDemo}
-                        title="EstiPay Appointment Scheduler — Full Platform Demo"
-                        isMain
+                    <ProductDemosSection
+                        fullWalkthroughs={PRODUCT_DEMOS.fullWalkthroughs}
+                        snippets={PRODUCT_DEMOS.snippets}
                     />
-
-                    <div style={{ marginTop: '40px' }}>
-                        <p className="prod-video-shorts-title">Quick Looks</p>
-                        <div className="prod-video-shorts">
-                            <VideoSection
-                                src={RECORDINGS.short1}
-                                title="Appointment Scheduler — Damage Intake Call"
-                                label="Damage intake and site access collection"
-                            />
-                            <VideoSection
-                                src={RECORDINGS.short2}
-                                title="Appointment Scheduler — Visit Booking Flow"
-                                label="Scheduling the executive site visit"
-                            />
-                        </div>
-                    </div>
                 </div>
             </section>
 

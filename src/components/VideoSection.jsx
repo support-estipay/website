@@ -4,11 +4,9 @@ import PropTypes from 'prop-types';
 /**
  * VideoSection — plays a local recording from /public (audio or video).
  *
- * Drop files into public/demos/ (.mp3 or .mp4) and set paths in each page's RECORDINGS object.
+ * Drop files into public/demos/ (.mp3 or .mp4) and list them in each page's PRODUCT_DEMOS config.
  * The path extension must match the file (e.g. insurance-agent-full.mp4).
- *
- *   Main:  <VideoSection src={RECORDINGS.fullDemo} title="..." isMain />
- *   Short: <VideoSection src={RECORDINGS.short1}   title="..." label="Feature name" />
+ * Product pages render demos via ProductDemosSection (fullWalkthroughs + snippets arrays).
  */
 
 const AUDIO_EXT = /\.(mp3|wav|ogg|m4a|aac)(\?.*)?$/i;

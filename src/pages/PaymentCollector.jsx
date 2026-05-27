@@ -1,15 +1,33 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import VideoSection from '../components/VideoSection';
+import ProductDemosSection, { buildDemoSchemaEntries } from '../components/ProductDemosSection';
 
 /*
  * ── Demo recordings (public/demos/) ───────────────────────────
- * Use these filenames; set extension to .mp3 or .mp4 to match each file.
+ * Add entries to fullWalkthroughs or snippets when new files are ready.
+ * Optional tabLabel on walkthroughs when you add more than one full demo.
  */
-const RECORDINGS = {
-    fullDemo: '/demos/payment-collector-full.mp3',
-    short1: '/demos/payment-collector-short-1.mp3',
-    short2: '/demos/payment-collector-short-2.mp3',
+const PRODUCT_DEMOS = {
+    fullWalkthroughs: [
+        {
+            src: '/demos/payment-collector-full.mp3',
+            title: 'EstiPay Payment Collector — Full Platform Demo',
+            description:
+                'See how EstiPay Payment Collector follows up with policyholders post-verification, handles objections with empathy, and secures payment commitments automatically.',
+        },
+    ],
+    snippets: [
+        {
+            src: '/demos/payment-collector-short-1.mp3',
+            title: 'Payment Collector — Empathetic Follow-Up Call',
+            label: 'Empathetic first follow-up call',
+        },
+        {
+            src: '/demos/payment-collector-short-2.mp3',
+            title: 'Payment Collector — Promise-to-Pay Capture',
+            label: 'Handling objections and securing commitment',
+        },
+    ],
 };
 
 /* ── JSON-LD Schema ─────────────────────────────────────────── */
@@ -34,14 +52,7 @@ const SCHEMA = [
             'Payment security compliance',
         ],
     },
-    RECORDINGS.fullDemo && {
-        '@context': 'https://schema.org',
-        '@type': 'AudioObject',
-        name: 'EstiPay Payment Collector — Full Platform Demo',
-        description: 'See how EstiPay Payment Collector follows up with policyholders post-verification, handles objections with empathy, and secures payment commitments automatically.',
-        uploadDate: '2026-05-20',
-        contentUrl: `https://estipay.com${RECORDINGS.fullDemo}`,
-    },
+    ...buildDemoSchemaEntries(PRODUCT_DEMOS.fullWalkthroughs),
 ].filter(Boolean);
 
 /* ── Data ───────────────────────────────────────────────────── */
@@ -300,30 +311,10 @@ const PaymentCollector = () => {
                         </p>
                     </div>
 
-                    <div style={{ marginBottom: '12px' }}>
-                        <p className="prod-video-label">Full Demo Walkthrough</p>
-                    </div>
-                    <VideoSection
-                        src={RECORDINGS.fullDemo}
-                        title="EstiPay Payment Collector — Full Platform Demo"
-                        isMain
+                    <ProductDemosSection
+                        fullWalkthroughs={PRODUCT_DEMOS.fullWalkthroughs}
+                        snippets={PRODUCT_DEMOS.snippets}
                     />
-
-                    <div style={{ marginTop: '40px' }}>
-                        <p className="prod-video-shorts-title">Quick Looks</p>
-                        <div className="prod-video-shorts">
-                            <VideoSection
-                                src={RECORDINGS.short1}
-                                title="Payment Collector — Empathetic Follow-Up Call"
-                                label="Empathetic first follow-up call"
-                            />
-                            <VideoSection
-                                src={RECORDINGS.short2}
-                                title="Payment Collector — Promise-to-Pay Capture"
-                                label="Handling objections and securing commitment"
-                            />
-                        </div>
-                    </div>
                 </div>
             </section>
 

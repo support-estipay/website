@@ -1,15 +1,38 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import VideoSection from '../components/VideoSection';
+import ProductDemosSection, { buildDemoSchemaEntries } from '../components/ProductDemosSection';
 
 /*
  * ── Demo recordings (public/demos/) ───────────────────────────
- * Use these filenames; extension must match the file (.mp3 or .mp4).
+ * Add entries to fullWalkthroughs or snippets when new files are ready.
+ * Optional tabLabel on walkthroughs when you add more than one full demo.
  */
-const RECORDINGS = {
-    fullDemo: '/demos/insurance-agent-full.mp4',
-    short1: '/demos/insurance-agent-short-1.mp4',
-    short2: '/demos/insurance-agent-short-2.mp4',
+const PRODUCT_DEMOS = {
+    fullWalkthroughs: [
+        {
+            src: '/demos/insurance-agent-full.mp4',
+            title: 'EstiPay Insurance Agent — Full Platform Demo',
+            description:
+                'See how EstiPay Insurance Agent navigates carrier IVR systems, retrieves claim status, and coordinates approvals — completely autonomously.',
+        }
+    ],
+    snippets: [
+        {
+            src: '/demos/insurance-agent-short-1.mp4',
+            title: 'Insurance Agent — IVR Navigation Demo',
+            label: 'IVR Navigation',
+        },
+        {
+            src: '/demos/insurance-agent-short-2.mp4',
+            title: 'Insurance Agent — Human Agent Interaction',
+            label: 'Handling a live carrier agent conversation',
+        },
+        {
+            src: '/demos/insurance-agent-short-3.mp4',
+            title: 'Insurance Agent — Voicemail',
+            label: 'Dropping a voicemail',
+        }
+    ],
 };
 
 /* ── JSON-LD Schema ─────────────────────────────────────────── */
@@ -34,14 +57,7 @@ const SCHEMA = [
             'Human-agent handoff capability',
         ],
     },
-    RECORDINGS.fullDemo && {
-        '@context': 'https://schema.org',
-        '@type': 'VideoObject',
-        name: 'EstiPay Insurance Agent — Full Platform Demo',
-        description: 'See how EstiPay Insurance Agent navigates carrier IVR systems, retrieves claim status, and coordinates approvals — completely autonomously.',
-        uploadDate: '2026-05-20',
-        contentUrl: `https://estipay.com${RECORDINGS.fullDemo}`,
-    },
+    ...buildDemoSchemaEntries(PRODUCT_DEMOS.fullWalkthroughs),
 ].filter(Boolean);
 
 /* ── Data ───────────────────────────────────────────────────── */
@@ -300,32 +316,10 @@ const InsuranceAgent = () => {
                         </p>
                     </div>
 
-                    {/* Full Demo */}
-                    <div style={{ marginBottom: '12px' }}>
-                        <p className="prod-video-label">Full Demo Walkthrough</p>
-                    </div>
-                    <VideoSection
-                        src={RECORDINGS.fullDemo}
-                        title="EstiPay Insurance Agent — Full Platform Demo"
-                        isMain
+                    <ProductDemosSection
+                        fullWalkthroughs={PRODUCT_DEMOS.fullWalkthroughs}
+                        snippets={PRODUCT_DEMOS.snippets}
                     />
-
-                    {/* Short Clips */}
-                    <div style={{ marginTop: '40px' }}>
-                        <p className="prod-video-shorts-title">Quick Looks</p>
-                        <div className="prod-video-shorts">
-                            <VideoSection
-                                src={RECORDINGS.short1}
-                                title="Insurance Agent — IVR Navigation Demo"
-                                label="IVR Navigation in under 60 seconds"
-                            />
-                            <VideoSection
-                                src={RECORDINGS.short2}
-                                title="Insurance Agent — Human Agent Interaction"
-                                label="Handling a live carrier agent conversation"
-                            />
-                        </div>
-                    </div>
                 </div>
             </section>
 
