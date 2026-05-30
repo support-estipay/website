@@ -61,11 +61,13 @@ const Navbar = () => {
     };
 
     const toggleProducts = (e) => {
-        /* On desktop, CSS :hover handles the dropdown.
-           On mobile, this is no longer used (mobile uses drilldown). */
         e.preventDefault();
-        setIsProductsOpen(prev => !prev);
+        setIsProductsOpen((prev) => !prev);
     };
+
+    const openProductsMenu = () => setIsProductsOpen(true);
+
+    const closeProductsMenu = () => setIsProductsOpen(false);
 
     /* Close desktop dropdown on outside click */
     useEffect(() => {
@@ -200,6 +202,8 @@ const Navbar = () => {
                 <li
                     className={`nav-item-dropdown ${isProductsOpen ? 'is-open' : ''}`}
                     ref={dropdownRef}
+                    onMouseEnter={openProductsMenu}
+                    onMouseLeave={closeProductsMenu}
                 >
                     <button
                         className="nav-dropdown-trigger"

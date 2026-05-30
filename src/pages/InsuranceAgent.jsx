@@ -4,35 +4,52 @@ import ProductDemosSection, { buildDemoSchemaEntries } from '../components/Produ
 
 /*
  * ── Demo recordings (public/demos/) ───────────────────────────
- * Add entries to fullWalkthroughs or snippets when new files are ready.
- * Optional tabLabel on walkthroughs when you add more than one full demo.
+ * Full walkthrough uses insurance-agent-full.mp3 + full transcript.
+ * Chapters seek/highlight regions within the same recording (no separate clips).
  */
+const INSURANCE_AGENT_TRANSCRIPT = '/demos/insurance-agent-full-transcript.json';
+
+/** Chapter boundaries (seconds) — consecutive moments in the full carrier call. */
+const CALL_CHAPTERS = [
+    {
+        id: 'ivr',
+        label: 'IVR Navigation',
+        icon: 'dialpad',
+        start: 0,
+        end: 93.1,
+        description: 'Automated menu navigation and claim lookup',
+    },
+    {
+        id: 'live-rep',
+        label: 'Live carrier rep',
+        icon: 'support_agent',
+        start: 93.1,
+        end: 246.57,
+        description: 'Handoff and conversation with a human representative',
+    },
+    {
+        id: 'voicemail',
+        label: 'Voicemail',
+        icon: 'voicemail',
+        start: 246.57,
+        end: 296.86,
+        description: 'Leaving a structured voicemail when needed',
+    },
+];
+
 const PRODUCT_DEMOS = {
     fullWalkthroughs: [
         {
-            src: '/demos/insurance-agent-full.mp4',
-            title: 'EstiPay Insurance Agent — Full Platform Demo',
+            src: '/demos/insurance-agent-full.mp3',
+            transcript: INSURANCE_AGENT_TRANSCRIPT,
+            title: 'EstiPay Insurance Agent — Live Allstate Carrier Call',
+            subtitle: 'Hear EstiPay navigate IVR, reach a live rep, and retrieve claim status — autonomously.',
             description:
-                'See how EstiPay Insurance Agent navigates carrier IVR systems, retrieves claim status, and coordinates approvals — completely autonomously.',
-        }
-    ],
-    snippets: [
-        {
-            src: '/demos/insurance-agent-short-1.mp4',
-            title: 'Insurance Agent — IVR Navigation Demo',
-            label: 'IVR Navigation',
+                'Real call recording: EstiPay Insurance Agent navigates the Allstate IVR, verifies claim details, and coordinates with a live carrier representative to check claim status.',
+            chapters: CALL_CHAPTERS,
         },
-        {
-            src: '/demos/insurance-agent-short-2.mp4',
-            title: 'Insurance Agent — Human Agent Interaction',
-            label: 'Handling a live carrier agent conversation',
-        },
-        {
-            src: '/demos/insurance-agent-short-3.mp4',
-            title: 'Insurance Agent — Voicemail',
-            label: 'Dropping a voicemail',
-        }
     ],
+    snippets: [],
 };
 
 /* ── JSON-LD Schema ─────────────────────────────────────────── */
@@ -160,6 +177,7 @@ const InsuranceAgent = () => {
 
     useEffect(() => {
         document.title = 'Insurance Agent — Automated Carrier Negotiation | EstiPay';
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }, []);
 
     const heroRef    = useRef(null);
@@ -310,16 +328,13 @@ const InsuranceAgent = () => {
                 <div className="container">
                     <div className="prod-section-header">
                         <span className="sec-badge">See It in Action</span>
-                        <h2 className="sec-section-title">Watch the Insurance Agent Work</h2>
+                        <h2 className="sec-section-title">Hear the Insurance Agent in Action</h2>
                         <p className="sec-section-subtitle">
-                            See how EstiPay navigates a live carrier call, handles the IVR, engages a human agent, and returns structured claim data — entirely on its own.
+                            Listen to one real carrier call with a synchronized transcript. Jump to key moments — IVR navigation, live rep handoff, and voicemail — highlighted in the same recording.
                         </p>
                     </div>
 
-                    <ProductDemosSection
-                        fullWalkthroughs={PRODUCT_DEMOS.fullWalkthroughs}
-                        snippets={PRODUCT_DEMOS.snippets}
-                    />
+                    <ProductDemosSection fullWalkthroughs={PRODUCT_DEMOS.fullWalkthroughs} />
                 </div>
             </section>
 

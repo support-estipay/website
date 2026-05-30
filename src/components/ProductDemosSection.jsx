@@ -1,6 +1,7 @@
 import React, { useId, useState } from 'react';
 import PropTypes from 'prop-types';
-import VideoSection from './VideoSection';
+import { DemoAudioProvider } from '../context/DemoAudioContext';
+import VideoSection, { isCallRecordingDemo } from './VideoSection';
 
 const AUDIO_EXT = /\.(mp3|wav|ogg|m4a|aac)(\?.*)?$/i;
 
@@ -26,10 +27,39 @@ export const buildDemoSchemaEntries = (fullWalkthroughs = []) =>
 
 const walkthroughTabLabel = (demo) => demo.tabLabel ?? demo.label ?? demo.title;
 
-const snippetLayoutClass = (count) => {
-    if (count >= SNIPPET_SCROLL_THRESHOLD) return 'prod-video-shorts--scroll';
-    if (count >= SNIPPET_MOBILE_SCROLL_MIN) return 'prod-video-shorts--grid-mobile-scroll';
+const countCallRecordingSnippets = (snippets) =>
+    snippets.filter((demo) => isCallRecordingDemo(demo)).length;
+
+const snippetLayoutClass = (snippets) => {
+    const callCount = countCallRecordingSnippets(snippets);
+    const total = snippets.length;
+
+    if (callCount > 0 && callCount === total) {
+        return 'prod-video-shorts--call-list';
+    }
+    if (callCount > 0 && callCount < total) {
+        return 'prod-video-shorts--mixed';
+    }
+    if (total >= SNIPPET_SCROLL_THRESHOLD) return 'prod-video-shorts--scroll';
+    if (total >= SNIPPET_MOBILE_SCROLL_MIN) return 'prod-video-shorts--grid-mobile-scroll';
     return 'prod-video-shorts--grid';
+};
+
+const walkthroughSectionLabel = (fullWalkthroughs) => {
+    const hasCallRecording = fullWalkthroughs.some((demo) => isCallRecordingDemo(demo));
+    if (hasCallRecording) {
+        return fullWalkthroughs.length === 1 ? 'Real Carrier Call' : 'Real Carrier Calls';
+    }
+    return fullWalkthroughs.length === 1 ? 'Full Demo Walkthrough' : 'Full Demo Walkthroughs';
+};
+
+const snippetsSectionTitle = (snippets) => {
+    const callCount = countCallRecordingSnippets(snippets);
+    const total = snippets.length;
+
+    if (callCount === total && callCount > 0) return 'Key Moments';
+    if (callCount > 0 && callCount < total) return 'Clips & Key Moments';
+    return 'Demo snippets';
 };
 
 const WalkthroughPlayer = ({ demos }) => {
@@ -43,6 +73,12 @@ const WalkthroughPlayer = ({ demos }) => {
             <VideoSection
                 src={demo.src}
                 title={demo.title}
+                transcript={demo.transcript}
+                transcriptStart={demo.transcriptStart}
+                transcriptEnd={demo.transcriptEnd}
+                speakers={demo.speakers}
+                subtitle={demo.subtitle}
+                chapters={demo.chapters}
                 isMain
             />
         );
@@ -89,6 +125,12 @@ const WalkthroughPlayer = ({ demos }) => {
                     key={activeDemo.src ?? activeDemo.title}
                     src={activeDemo.src}
                     title={activeDemo.title}
+                    transcript={activeDemo.transcript}
+                    transcriptStart={activeDemo.transcriptStart}
+                    transcriptEnd={activeDemo.transcriptEnd}
+                    speakers={activeDemo.speakers}
+                    subtitle={activeDemo.subtitle}
+                    chapters={activeDemo.chapters}
                     isMain
                 />
             </div>
@@ -103,13 +145,28 @@ WalkthroughPlayer.propTypes = {
             title: PropTypes.string.isRequired,
             tabLabel: PropTypes.string,
             label: PropTypes.string,
+            transcript: PropTypes.string,
+            transcriptStart: PropTypes.number,
+            transcriptEnd: PropTypes.number,
+            speakers: PropTypes.object,
+            subtitle: PropTypes.string,
+            chapters: PropTypes.arrayOf(
+                PropTypes.shape({
+                    id: PropTypes.string.isRequired,
+                    label: PropTypes.string.isRequired,
+                    start: PropTypes.number.isRequired,
+                    end: PropTypes.number.isRequired,
+                    description: PropTypes.string,
+                    icon: PropTypes.string,
+                }),
+            ),
         }),
     ).isRequired,
 };
 
 /**
  * Full demo walkthrough(s) + demo snippets.
- * Multiple walkthroughs use tabs; snippets use a 2-col grid or horizontal scroll when the list grows.
+ * Call recordings use a hero player (walkthrough) and compact list cards (snippets).
  */
 const ProductDemosSection = ({ fullWalkthroughs = [], snippets = [] }) => {
     const hasWalkthroughs = fullWalkthroughs.length > 0;
@@ -119,11 +176,12 @@ const ProductDemosSection = ({ fullWalkthroughs = [], snippets = [] }) => {
         return null;
     }
 
-    const walkthroughLabel =
-        fullWalkthroughs.length === 1 ? 'Full Demo Walkthrough' : 'Full Demo Walkthroughs';
+    const walkthroughLabel = walkthroughSectionLabel(fullWalkthroughs);
+    const snippetsTitle = snippetsSectionTitle(snippets);
+    const snippetsLayout = snippetLayoutClass(snippets);
 
     return (
-        <>
+        <DemoAudioProvider>
             {hasWalkthroughs && (
                 <div className="prod-demo-walkthrough-block">
                     <p className="prod-video-label">{walkthroughLabel}</p>
@@ -135,20 +193,25 @@ const ProductDemosSection = ({ fullWalkthroughs = [], snippets = [] }) => {
                 <div
                     className={`prod-demo-snippets${hasWalkthroughs ? ' prod-demo-snippets--spaced' : ''}`}
                 >
-                    <p className="prod-video-shorts-title">Demo snippets</p>
-                    <div className={`prod-video-shorts ${snippetLayoutClass(snippets.length)}`}>
+                    <p className="prod-video-shorts-title">{snippetsTitle}</p>
+                    <div className={`prod-video-shorts ${snippetsLayout}`}>
                         {snippets.map((demo) => (
                             <VideoSection
                                 key={demo.src ?? demo.title}
                                 src={demo.src}
                                 title={demo.title}
                                 label={demo.label}
+                                transcript={demo.transcript}
+                                transcriptStart={demo.transcriptStart}
+                                transcriptEnd={demo.transcriptEnd}
+                                speakers={demo.speakers}
+                                subtitle={demo.subtitle}
                             />
                         ))}
                     </div>
                 </div>
             )}
-        </>
+        </DemoAudioProvider>
     );
 };
 
@@ -160,6 +223,21 @@ ProductDemosSection.propTypes = {
             tabLabel: PropTypes.string,
             description: PropTypes.string,
             uploadDate: PropTypes.string,
+            transcript: PropTypes.string,
+            transcriptStart: PropTypes.number,
+            transcriptEnd: PropTypes.number,
+            speakers: PropTypes.object,
+            subtitle: PropTypes.string,
+            chapters: PropTypes.arrayOf(
+                PropTypes.shape({
+                    id: PropTypes.string.isRequired,
+                    label: PropTypes.string.isRequired,
+                    start: PropTypes.number.isRequired,
+                    end: PropTypes.number.isRequired,
+                    description: PropTypes.string,
+                    icon: PropTypes.string,
+                }),
+            ),
         }),
     ),
     snippets: PropTypes.arrayOf(
@@ -167,6 +245,11 @@ ProductDemosSection.propTypes = {
             src: PropTypes.string,
             title: PropTypes.string.isRequired,
             label: PropTypes.string,
+            transcript: PropTypes.string,
+            transcriptStart: PropTypes.number,
+            transcriptEnd: PropTypes.number,
+            speakers: PropTypes.object,
+            subtitle: PropTypes.string,
         }),
     ),
 };
