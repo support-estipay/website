@@ -630,12 +630,12 @@
 
 /* Main Demo */
 .prod-video-main-wrap {
-    border-radius: 20px;
+    border-radius: var(--shape-xl);
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
     aspect-ratio: 16 / 9;
-    background: var(--md-tertiary-container);
+    background: var(--md-surface-container-lowest);
     margin-bottom: 40px;
     position: relative;
 }
@@ -903,8 +903,9 @@
 
 .prod-video-short-wrap--call-recording {
     aspect-ratio: auto;
-    overflow: visible;
-    background: var(--md-surface);
+    overflow: hidden;
+    border-radius: var(--shape-xl);
+    background: var(--md-surface-container-lowest);
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
@@ -919,8 +920,8 @@
    ============================================================ */
 .prod-video-main-wrap--call-recording {
     aspect-ratio: auto;
-    overflow: visible;
-    background: var(--md-surface);
+    overflow: hidden;
+    background: var(--md-surface-container-lowest);
     min-height: 0;
 }
 
@@ -928,6 +929,9 @@
     display: flex;
     flex-direction: column;
     gap: 0;
+    overflow: hidden;
+    border-radius: inherit;
+    background: var(--md-surface-container-lowest);
 }
 
 .call-recording__header {
@@ -938,6 +942,7 @@
     padding: 24px 28px 16px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     background: linear-gradient(135deg, var(--md-tertiary-container) 0%, #e8f4ef 100%);
+    border-radius: var(--shape-xl) var(--shape-xl) 0 0;
 }
 
 .call-recording__header-text {
@@ -988,7 +993,12 @@
 
 .call-recording__player {
     padding: 20px 28px 24px;
-    background: var(--md-surface);
+    background: var(--md-surface-container-lowest);
+}
+
+.call-recording--compact .call-recording__player {
+    padding: 16px 18px 12px;
+    border-radius: var(--shape-xl) var(--shape-xl) 0 0;
 }
 
 /* Full player: play + waveform + current time in one row */
@@ -1213,6 +1223,9 @@
 
 .call-recording__transcript-section {
     border-top: 1px solid rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border-radius: 0 0 var(--shape-xl) var(--shape-xl);
+    background: var(--md-surface-container-lowest);
 }
 
 .call-recording__transcript-toggle {
@@ -1240,6 +1253,7 @@
     padding: 8px 16px 20px;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    scrollbar-gutter: stable;
 }
 
 .call-recording__transcript-loading,
@@ -1342,10 +1356,6 @@
 }
 
 /* Compact variant — demo snippets */
-.call-recording--compact .call-recording__player {
-    padding: 16px 18px 12px;
-}
-
 .call-recording--compact .call-recording__compact-head {
     display: flex;
     align-items: flex-start;
