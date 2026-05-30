@@ -177,7 +177,6 @@ const InsuranceAgent = () => {
 
     useEffect(() => {
         document.title = 'Insurance Agent — Automated Carrier Negotiation | EstiPay';
-        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }, []);
 
     const heroRef    = useRef(null);

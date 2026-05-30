@@ -1,14 +1,22 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 /**
- * Observes all elements matching `selector` in the document.
- * Adds `is-revealed` class when they enter the viewport.
- * Pair with [data-reveal] CSS in main.css.
- *
- * Usage: call once in a top-level page component.
+ * Observes elements matching `selector` and adds `is-revealed` in view.
+ * Re-runs on route change so below-the-fold sections animate once per page.
  */
 export function useScrollReveal(selector = '[data-reveal]', options = {}) {
+    const { pathname } = useLocation();
+
     useEffect(() => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const elements = document.querySelectorAll(selector);
+        if (prefersReducedMotion) {
+            elements.forEach(el => el.classList.add('is-revealed'));
+            return undefined;
+        }
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
@@ -19,15 +27,17 @@ export function useScrollReveal(selector = '[data-reveal]', options = {}) {
                 });
             },
             {
-                threshold: 0.12,
-                rootMargin: '0px 0px -48px 0px',
+                threshold: 0.08,
+                rootMargin: '0px 0px -32px 0px',
                 ...options,
             }
         );
 
-        const elements = document.querySelectorAll(selector);
-        elements.forEach(el => observer.observe(el));
+        elements.forEach(el => {
+            el.classList.remove('is-revealed');
+            observer.observe(el);
+        });
 
         return () => observer.disconnect();
-    }, [selector]);
+    }, [pathname, selector]);
 }

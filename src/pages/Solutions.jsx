@@ -127,29 +127,27 @@ const Solutions = () => {
             </section>
 
             <section className="content-section sol-cards-section section-flow">
-                <div className="container" style={{ maxWidth: '1000px' }}>
-                    <div ref={cardsRef} className={`sol-cards${visible ? ' sol-visible' : ''}`} style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '40px' }}>
+                <div className="container">
+                    <div ref={cardsRef} className={`sol-cards sol-cards--stack${visible ? ' sol-visible' : ''}`}>
                         {solution_segments.map((item, i) => (
                             <div
                                 key={item.label}
-                                className="sol-card"
-                                style={{ transitionDelay: `${0.08 + i * 0.1}s`, textAlign: 'left', padding: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}
+                                className="sol-card sol-card--narrative"
+                                style={{ transitionDelay: `${0.08 + i * 0.1}s` }}
                             >
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                                    <div className="sol-icon-bubble" style={{ position: 'relative', width: '60px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(18, 94, 146, 0.1)', borderRadius: '50%' }}>{item.icon}</div>
-                                    <span className="sol-label" style={{ margin: 0, fontWeight: 'bold', color: 'var(--md-tertiary)' }}>{item.label}</span>
+                                <div className="sol-card-head">
+                                    <div className="sol-card-icon-ring">{item.icon}</div>
+                                    <span className="sol-label">{item.label}</span>
                                 </div>
-                                <div className="sol-card-body" style={{ padding: 0 }}>
-                                    <h3 className="sol-card-title" style={{ fontSize: '2rem', marginBottom: '15px' }}>{item.title}</h3>
-                                    <p style={{ fontSize: '1.1rem', color: 'var(--md-on-surface-variant)', lineHeight: '1.6', marginBottom: '25px' }}>{item.body}</p>
-                                    
+                                <div className="sol-card-body">
+                                    <h3 className="sol-card-title">{item.title}</h3>
+                                    <p className="sol-card-lead">{item.body}</p>
+
                                     <div style={{ marginBottom: '25px' }}>
-                                        <h4 style={{ color: 'var(--md-on-surface)', marginBottom: '15px', fontSize: '1.1rem' }}>How EstiPay Helps:</h4>
-                                        <ul className="sol-features" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                                        <h4 className="sol-card-features-title">How EstiPay Helps:</h4>
+                                        <ul className="sol-features">
                                             {item.features.map(f => (
-                                                <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '1rem', color: 'var(--md-on-surface-variant)' }}>
-                                                    <span>{f}</span>
-                                                </li>
+                                                <li key={f}>{f}</li>
                                             ))}
                                         </ul>
                                     </div>
@@ -158,7 +156,7 @@ const Solutions = () => {
                                         <strong>Result:</strong> {item.result}
                                     </div>
 
-                                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--md-secondary)', fontWeight: 'bold', textDecoration: 'none' }}>
+                                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" className="sol-card-cta">
                                         {item.cta}
                                     </a>
                                 </div>
@@ -168,10 +166,10 @@ const Solutions = () => {
                 </div>
             </section>
             
-            <section className="section-flow section-flow--divided" style={{ padding: '80px 0', textAlign: 'center' }}>
+            <section className="section-flow section-flow--divided sol-cta-band">
                 <div className="container">
-                    <h2 style={{ fontSize: '2.5rem', marginBottom: '15px', color: 'var(--md-on-surface)' }}>Not Sure Which Solution Fits Your Team?</h2>
-                    <p style={{ fontSize: '1.2rem', color: 'var(--md-on-surface-variant)', marginBottom: '30px', maxWidth: '600px', margin: '0 auto 30px' }}>Contact us and we’ll show you exactly how EstiPay maps to your specific workflow.</p>
+                    <h2>Not Sure Which Solution Fits Your Team?</h2>
+                    <p>Contact us and we’ll show you exactly how EstiPay maps to your specific workflow.</p>
                     <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary btn-hero">
                         Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                     </a>

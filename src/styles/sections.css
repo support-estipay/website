@@ -50,13 +50,18 @@
     z-index: 2;
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     gap: var(--space-20);
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
 }
 
 .how-it-works-left {
-    flex: 1.2;
-    padding-left: 100px;
+    flex: 1;
+    padding-left: 0;
+    text-align: center;
 }
 
 .how-it-works-left h2 {
@@ -77,7 +82,7 @@
 .how-it-works-right {
     flex: 1;
     position: relative;
-    padding-left: var(--space-16);
+    padding-left: 0;
 }
 
 .workflow-steps {

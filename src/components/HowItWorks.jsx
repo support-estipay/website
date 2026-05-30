@@ -19,10 +19,10 @@ const StepCard = ({ step, index, setActiveStep }) => {
         <motion.div 
             ref={ref}
             className="step-card"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, ease: [0, 0, 0, 1] }}
         >
             <div className="step-info">
                 <div className="step-icon-main">

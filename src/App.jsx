@@ -13,8 +13,7 @@ import './styles/footer.css';
 import './styles/pages.css';
 import './styles/products.css';
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import PageShell from './components/PageShell';
 import ScrollToTop from './components/ScrollToTop';
 
 import Products from './pages/Products';
@@ -33,19 +32,15 @@ function App() {
       <ScrollToTop />
       <div className="App">
         <Routes>
-          {/* Site opens directly on the full Products page at the root URL */}
-          <Route path="/" element={<><Navbar /><Products /><Footer /></>} />
-
-          {/* Individual product detail routes */}
-          <Route path="/products/insurance-agent"       element={<><Navbar /><InsuranceAgent /><Footer /></>} />
-          <Route path="/products/appointment-scheduler" element={<><Navbar /><AppointmentScheduler /><Footer /></>} />
-          <Route path="/products/payment-collector"     element={<><Navbar /><PaymentCollector /><Footer /></>} />
-
-          <Route path="/solutions" element={<><Navbar /><Solutions /><Footer /></>} />
-          <Route path="/pricing"   element={<><Navbar /><Pricing /><Footer /></>} />
-          <Route path="/security"  element={<><Navbar /><Security /><Footer /></>} />
-          <Route path="/about"     element={<><Navbar /><About /><Footer /></>} />
-          <Route path="/contact"   element={<><Navbar /><Contact /><Footer /></>} />
+          <Route path="/" element={<PageShell><Products /></PageShell>} />
+          <Route path="/products/insurance-agent" element={<PageShell><InsuranceAgent /></PageShell>} />
+          <Route path="/products/appointment-scheduler" element={<PageShell><AppointmentScheduler /></PageShell>} />
+          <Route path="/products/payment-collector" element={<PageShell><PaymentCollector /></PageShell>} />
+          <Route path="/solutions" element={<PageShell><Solutions /></PageShell>} />
+          <Route path="/pricing" element={<PageShell><Pricing /></PageShell>} />
+          <Route path="/security" element={<PageShell><Security /></PageShell>} />
+          <Route path="/about" element={<PageShell><About /></PageShell>} />
+          <Route path="/contact" element={<PageShell><Contact /></PageShell>} />
         </Routes>
       </div>
     </BrowserRouter>
