@@ -257,6 +257,19 @@
   --duration-long-2:    400ms;
   --duration-extra-long: 700ms;
 
+  /* -- Navbar (A+B+C island) --------------------------------- */
+  --navbar-height:           64px;
+  --navbar-height-scrolled:  60px;
+  --navbar-inset-x:          0px;
+  --navbar-inset-top:        0px;
+  --navbar-island-radius:    0px;
+  --navbar-max-width:        1280px;
+  --navbar-total-offset:     calc(
+        var(--navbar-inset-top)
+        + env(safe-area-inset-top, 0px)
+        + var(--navbar-height)
+    );
+
   /* -- Z-index Stack ----------------------------------------- */
   --z-below:   -1;
   --z-base:     0;
@@ -277,4 +290,12 @@
   --text-gray:              var(--md-on-surface-variant);
   --bg-light:               var(--md-surface-variant);
   --white:                  var(--md-surface-container-lowest);
+}
+
+html[data-navbar-scrolled="true"] {
+  --navbar-total-offset: calc(
+        var(--navbar-inset-top)
+        + env(safe-area-inset-top, 0px)
+        + var(--navbar-height-scrolled)
+    );
 }

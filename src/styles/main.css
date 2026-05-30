@@ -39,7 +39,7 @@ body {
     font-size: var(--type-body-md-size);
     font-weight: 400;
     color: var(--md-on-surface);
-    background-color: var(--md-background);
+    background-color: var(--md-surface-container-lowest);
     line-height: var(--type-body-md-line);
     overflow-x: hidden;
 }

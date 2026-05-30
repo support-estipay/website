@@ -211,7 +211,7 @@ const InsuranceAgent = () => {
     }, []);
 
     return (
-        <div className="page-container">
+        <div className="page-container page-flow">
 
             {/* ── HERO ──────────────────────────────────────── */}
             <section className="sec-hero" ref={heroRef}>
@@ -233,15 +233,15 @@ const InsuranceAgent = () => {
                         Insurance Agent —<br />
                         <span className="sec-hero-accent">Negotiate Claims. Handle Carriers.</span>
                     </h1>
-                    <p className="sec-hero-subtitle">
+                    <p className="sec-hero-subtitle sec-hero-subtitle--wide">
                         EstiPay's Insurance Agent automates every outbound carrier call — navigating IVR systems, retrieving claim status, coordinating documentation, and securing approvals, around the clock, without a single staff member on hold.
                     </p>
-                    <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
-                        <Link to="/contact" className="btn btn-filled-secondary" style={{ padding: '15px 32px', fontSize: '1rem' }}>
-                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
+                    <div className="stack-row sec-hero-actions">
+                        <Link to="/contact" className="btn btn-filled-secondary btn-hero">
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                         </Link>
-                        <Link to="/" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
-                            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginRight: '6px', verticalAlign: 'middle' }}>arrow_back</span>
+                        <Link to="/" className="btn btn-outline btn-hero">
+                            <span className="material-symbols-outlined" aria-hidden="true">arrow_back</span>
                             All Products
                         </Link>
                     </div>

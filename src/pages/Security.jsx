@@ -205,11 +205,13 @@ const Security = () => {
                         Your Claims Data Is Safe.<br />
                         <span className="sec-hero-accent">Full Stop.</span>
                     </h1>
-                    <p className="sec-hero-subtitle" style={{ maxWidth: '800px', margin: '0 auto 30px' }}>
+                    <p className="sec-hero-subtitle sec-hero-subtitle--wide">
                         EstiPay is built with enterprise-grade security from the ground up. Every call, every document, every data point handled by our platform is protected with the same standards demanded by the insurance industry itself.
                     </p>
-                    <div className="sol-cta-wrap" style={{ marginTop: '20px' }}>
-                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
+                    <div className="stack-row sec-hero-actions">
+                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary btn-hero">
+                            Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                        </a>
                     </div>
                 </div>
             </section>

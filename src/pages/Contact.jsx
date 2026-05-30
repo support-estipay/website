@@ -102,7 +102,7 @@ const Contact = () => {
                         Let’s Talk About<br />
                         <span className="sec-hero-accent">Your Workflow</span>
                     </h1>
-                    <p className="sec-hero-subtitle" style={{ maxWidth: '800px', margin: '0 auto 30px' }}>
+                    <p className="sec-hero-subtitle sec-hero-subtitle--wide">
                         Whether you have a question about the beta, want to see a specific integration, or just want to know if EstiPay works for your specific use case — we’re here.
                     </p>
                 </div>

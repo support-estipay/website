@@ -54,7 +54,7 @@
 /* ── Mobile menu drawer (full-screen below navbar) ───────── */
 .mobile-menu {
     position: fixed;
-    top: 72px;                              /* navbar height */
+    top: var(--navbar-total-offset);
     left: 0;
     right: 0;
     bottom: 0;

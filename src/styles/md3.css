@@ -53,6 +53,7 @@
   position: relative;
   background: var(--md-surface-container-lowest);
   isolation: isolate;
+  padding-top: 0;
 }
 
 /* Ambient wash + soft brand glows (full page, not per-section) */
@@ -72,8 +73,8 @@
     radial-gradient(ellipse 50% 30% at 8% 55%, var(--md-primary-a08) 0%, transparent 48%),
     linear-gradient(
       180deg,
-      var(--md-surface-container-low) 0%,
-      var(--md-surface-container-lowest) 12%,
+      var(--md-surface-container-lowest) 0%,
+      var(--md-surface-container-lowest) 30%,
       var(--md-surface-container-lowest) 88%,
       var(--md-surface-container-low) 100%
     );
@@ -96,18 +97,18 @@
     linear-gradient(90deg, var(--md-grid-line) 1px, transparent 1px);
   mask-image: linear-gradient(
     180deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.22) 6%,
-    rgba(0, 0, 0, 0.45) 22%,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.32) 12%,
+    rgba(0, 0, 0, 0.45) 28%,
     rgba(0, 0, 0, 0.45) 78%,
     rgba(0, 0, 0, 0.22) 94%,
     transparent 100%
   );
   -webkit-mask-image: linear-gradient(
     180deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.22) 6%,
-    rgba(0, 0, 0, 0.45) 22%,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.32) 12%,
+    rgba(0, 0, 0, 0.45) 28%,
     rgba(0, 0, 0, 0.45) 78%,
     rgba(0, 0, 0, 0.22) 94%,
     transparent 100%
@@ -122,7 +123,8 @@
 
 /* Tighter vertical rhythm — sections read as one scroll */
 .page-flow .sec-hero {
-  padding: 100px 0 var(--space-10);
+  padding-top: calc(var(--navbar-total-offset) + 80px);
+  padding-bottom: var(--space-10);
 }
 
 .page-flow .abt-mission-section,
@@ -150,6 +152,38 @@
   border-top: none;
   margin-top: 0;
   padding-top: var(--space-16);
+}
+
+/* Product & legacy sections — inherit flow canvas (no color blocks) */
+.page-flow .surface-page,
+.page-flow .prod-section,
+.page-flow .prod-section--white,
+.page-flow .prod-section--soft,
+.page-flow .prod-section--green,
+.page-flow .prod-section--blue,
+.page-flow .prod-combined-section,
+.page-flow .content-section.bg-light {
+  background: transparent;
+  border-top: none;
+}
+
+.page-flow .prod-section--grid::before {
+  display: none;
+}
+
+.page-flow .prod-section,
+.page-flow .surface-page {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-20);
+}
+
+.page-flow .prod-combined-section {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-20);
+}
+
+.page-flow .content-section {
+  background: transparent;
 }
 
 .surface-muted {
@@ -182,6 +216,11 @@
 }
 
 .stack-row--start { justify-content: flex-start; }
+
+.btn-hero {
+  padding: 14px 28px;
+  font-size: 0.95rem;
+}
 
 /* -- MD3 Cards ----------------------------------------------- */
 .md3-card {

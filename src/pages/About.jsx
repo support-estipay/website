@@ -166,7 +166,7 @@ const About = () => {
                         Built to Fix the Broken Communication at the<br />
                         <span className="sec-hero-accent">Heart of Every Delayed Claim</span>
                     </h1>
-                    <p className="sec-hero-subtitle" style={{ maxWidth: '800px', margin: '0 auto 30px' }}>
+                    <p className="sec-hero-subtitle sec-hero-subtitle--wide">
                         EstiPay was founded on a simple belief — the insurance claims process is broken, and AI can fix it. We are the team building that fix.
                     </p>
                 </div>

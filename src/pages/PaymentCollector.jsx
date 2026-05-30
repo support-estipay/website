@@ -188,7 +188,7 @@ const PaymentCollector = () => {
     }, []);
 
     return (
-        <div className="page-container">
+        <div className="page-container page-flow">
 
             {/* ── HERO ──────────────────────────────────────── */}
             <section className="sec-hero" ref={heroRef}>
@@ -210,15 +210,15 @@ const PaymentCollector = () => {
                         Payment Collector —<br />
                         <span className="sec-hero-accent">Close the Revenue Cycle With Voice AI</span>
                     </h1>
-                    <p className="sec-hero-subtitle">
+                    <p className="sec-hero-subtitle sec-hero-subtitle--wide">
                         EstiPay's Payment Collector finalizes the restoration revenue cycle via automated, empathetic voice interaction — securing payments as soon as work is verified, reducing DSO, and accelerating your cash flow without a single awkward conversation for your team.
                     </p>
-                    <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
-                        <Link to="/contact" className="btn btn-filled-secondary" style={{ padding: '15px 32px', fontSize: '1rem' }}>
-                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
+                    <div className="stack-row sec-hero-actions">
+                        <Link to="/contact" className="btn btn-filled-secondary btn-hero">
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                         </Link>
-                        <Link to="/" className="btn btn-outline" style={{ padding: '15px 32px', fontSize: '1rem' }}>
-                            <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginRight: '6px', verticalAlign: 'middle' }}>arrow_back</span>
+                        <Link to="/" className="btn btn-outline btn-hero">
+                            <span className="material-symbols-outlined" aria-hidden="true">arrow_back</span>
                             All Products
                         </Link>
                     </div>

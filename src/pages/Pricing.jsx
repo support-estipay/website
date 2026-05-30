@@ -2,15 +2,24 @@ import React from 'react';
 
 const Pricing = () => {
     return (
-        <div className="page-container">
-            <section className="page-hero">
-                <div className="container">
-                    <h1>Simple, <span className="highlight">Transparent Pricing</span></h1>
-                    <p className="subtitle">Choose the plan that fits your needs</p>
+        <div className="page-container page-flow">
+            <section className="sec-hero sec-hero-visible">
+                <div className="sec-hero-blobs" aria-hidden="true">
+                    <div className="sec-hero-blob sec-hero-blob--tl" />
+                    <div className="sec-hero-blob sec-hero-blob--br" />
+                </div>
+                <div className="container sec-hero-container">
+                    <span className="sec-hero-badge">Pricing</span>
+                    <h1 className="sec-hero-title">
+                        Simple, <span className="sec-hero-accent">Transparent Pricing</span>
+                    </h1>
+                    <p className="sec-hero-subtitle sec-hero-subtitle--wide">
+                        Choose the plan that fits your needs
+                    </p>
                 </div>
             </section>
 
-            <section className="content-section">
+            <section className="content-section section-flow">
                 <div className="container">
                     <div className="pricing-cards">
                         <div className="pricing-card">
@@ -31,7 +40,7 @@ const Pricing = () => {
                                 <li>Mobile access</li>
                                 <li>Basic reporting</li>
                             </ul>
-                            <a href="#" className="btn btn-outline">Get Started</a>
+                            <a href="#" className="btn btn-outline btn-hero">Get Started</a>
                         </div>
 
                         <div className="pricing-card pricing-card-featured">
@@ -55,7 +64,7 @@ const Pricing = () => {
                                 <li>Team collaboration tools</li>
                                 <li>API access</li>
                             </ul>
-                            <a href="#" className="btn btn-filled-secondary">Get Started</a>
+                            <a href="#" className="btn btn-filled-secondary btn-hero">Get Started</a>
                         </div>
 
                         <div className="pricing-card">
@@ -76,13 +85,13 @@ const Pricing = () => {
                                 <li>SLA guarantees</li>
                                 <li>Training & onboarding</li>
                             </ul>
-                            <a href="#" className="btn btn-outline">Contact Sales</a>
+                            <a href="#" className="btn btn-outline btn-hero">Contact Sales</a>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="content-section bg-light">
+            <section className="content-section section-flow section-flow--divided">
                 <div className="container">
                     <div className="section-header">
                         <h2>Frequently Asked Questions</h2>

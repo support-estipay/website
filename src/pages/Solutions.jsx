@@ -111,15 +111,17 @@ const Solutions = () => {
                 </div>
                 <div className="container sec-hero-container">
                     <span className="sec-hero-badge">Solutions</span>
-                    <h1 className="sec-hero-title" style={{ fontSize: '3rem', lineHeight: '1.2' }}>
+                    <h1 className="sec-hero-title">
                         Built for the People Who Do the Work and <br />
                         <span className="sec-hero-accent">Wait the Longest to Get Paid</span>
                     </h1>
-                    <p className="sec-hero-subtitle" style={{ maxWidth: '800px', margin: '0 auto 30px' }}>
+                    <p className="sec-hero-subtitle sec-hero-subtitle--wide">
                         EstiPay was designed specifically for claims professionals who need faster communication, better visibility, and less time on the phone with carriers. Every solution is purpose-built for your workflow.
                     </p>
-                    <div className="sol-cta-wrap" style={{ marginTop: '30px', flexDirection: 'column', alignItems: 'center', gap: '15px' }}>
-                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
+                    <div className="stack-row sec-hero-actions">
+                        <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary btn-hero">
+                            Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -170,7 +172,9 @@ const Solutions = () => {
                 <div className="container">
                     <h2 style={{ fontSize: '2.5rem', marginBottom: '15px', color: 'var(--md-on-surface)' }}>Not Sure Which Solution Fits Your Team?</h2>
                     <p style={{ fontSize: '1.2rem', color: 'var(--md-on-surface-variant)', marginBottom: '30px', maxWidth: '600px', margin: '0 auto 30px' }}>Contact us and we’ll show you exactly how EstiPay maps to your specific workflow.</p>
-                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary sol-cta-btn" style={{ padding: '15px 30px', fontSize: '1.1rem' }}>Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', verticalAlign: 'middle', marginLeft: '6px' }}>arrow_forward</span></a>
+                    <a href="https://interbizconsulting.eb-sites.com/4534599536082944" target="_blank" rel="noopener noreferrer" className="btn btn-filled-secondary btn-hero">
+                        Join Our Pilot Program <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+                    </a>
                     <p style={{ marginTop: '15px', fontSize: '0.9rem', color: 'var(--md-on-surface-variant)' }}>Currently accepting beta partners across all three segments.</p>
                 </div>
             </section>

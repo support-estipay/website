@@ -124,7 +124,7 @@ const Products = () => {
     }, []);
 
     return (
-        <div className="page-container">
+        <div className="page-container page-flow">
 
             {/* ── HERO ──────────────────────────────────────── */}
             <section className="sec-hero" ref={heroRef}>
@@ -138,14 +138,14 @@ const Products = () => {
                         The AI Voice Ecosystem Built for<br />
                         <span className="sec-hero-accent">Restoration Revenue Cycles</span>
                     </h1>
-                    <p className="sec-hero-subtitle">
+                    <p className="sec-hero-subtitle sec-hero-subtitle--wide">
                         Three specialized voice agents — Insurance Agent, Appointment Scheduler, and Payment Collector — that automate the entire claims-to-cash pipeline. Use one, use all, or bundle the platform.
                     </p>
-                    <div className="stack-row" style={{ marginTop: '28px' }}>
-                        <Link to="/contact" className="btn btn-filled-secondary" style={{ padding: '14px 28px', fontSize: '0.95rem' }}>
-                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem' }}>arrow_forward</span>
+                    <div className="stack-row sec-hero-actions">
+                        <Link to="/contact" className="btn btn-filled-secondary btn-hero">
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                         </Link>
-                        <Link to="/solutions" className="btn btn-outline" style={{ padding: '14px 28px', fontSize: '0.95rem' }}>
+                        <Link to="/solutions" className="btn btn-outline btn-hero">
                             See Use Cases
                         </Link>
                     </div>
@@ -164,7 +164,7 @@ const Products = () => {
             </section>
 
             {/* ── COMPACT PRODUCT CARDS ─────────────────────── */}
-            <section className="surface-page" style={{ padding: '72px 0 80px' }}>
+            <section className="section-flow">
                 <div className="container">
                     <div className="prod-section-intro">
                         <span className="prod-section-intro-eyebrow">Core Products</span>
@@ -275,10 +275,10 @@ const Products = () => {
                         Start with the agent that solves your biggest bottleneck today. Add more as you scale. Every agent is available standalone or as part of the full EstiPay platform.
                     </p>
                     <div className="prod-cta-actions">
-                        <Link to="/contact" className="btn btn-filled-secondary" style={{ padding: '14px 32px', fontSize: '0.95rem' }}>
-                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true" style={{ fontSize: '1rem', marginLeft: '6px', verticalAlign: 'middle' }}>arrow_forward</span>
+                        <Link to="/contact" className="btn btn-filled-secondary btn-hero">
+                            Contact Sales <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                         </Link>
-                        <Link to="/solutions" className="btn btn-outline" style={{ padding: '14px 32px', fontSize: '0.95rem' }}>
+                        <Link to="/solutions" className="btn btn-outline btn-hero">
                             Explore Use Cases
                         </Link>
                     </div>

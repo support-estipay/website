@@ -41,7 +41,12 @@ const Navbar = () => {
     const location    = useLocation();
 
     useEffect(() => {
-        const onScroll = () => setIsScrolled(window.scrollY > 20);
+        const onScroll = () => {
+            const scrolled = window.scrollY > 20;
+            setIsScrolled(scrolled);
+            document.documentElement.toggleAttribute('data-navbar-scrolled', scrolled);
+        };
+        onScroll();
         window.addEventListener('scroll', onScroll, { passive: true });
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
@@ -85,6 +90,12 @@ const Navbar = () => {
         closeNav();
     }, [location.pathname]);
 
+    /* Reset scroll state on route change */
+    useEffect(() => {
+        const scrolled = window.scrollY > 20;
+        document.documentElement.toggleAttribute('data-navbar-scrolled', scrolled);
+    }, [location.pathname]);
+
     /* Close mobile menu on Escape */
     useEffect(() => {
         if (!isNavActive) return undefined;
@@ -97,11 +108,7 @@ const Navbar = () => {
 
     /* ──────────────────────────────────────────────────────────
        Mobile menu markup — rendered via React Portal to <body>
-       so it escapes the navbar's containing block (the navbar
-       has `backdrop-filter`, which per CSS spec promotes it to
-       a containing block for `position: fixed` descendants).
-       Without this portal the drawer would be trapped inside
-       the 72px-tall navbar and appear invisible.
+       so it escapes the navbar shell's containing block.
        ────────────────────────────────────────────────────────── */
     const mobileMenuPortal = createPortal(
         <div
@@ -191,7 +198,8 @@ const Navbar = () => {
 
     return (
         <>
-        <nav className={`navbar${isScrolled ? ' scrolled' : ''}`}>
+        <nav className={`navbar${isScrolled ? ' scrolled' : ''}`} aria-label="Main navigation">
+            <div className="navbar-inner">
             <Link to="/" className="logo" onClick={closeNav}>
                 <img src="/assets/logoF.png" alt="EstiPay Logo" className="logo-img" />
             </Link>
@@ -255,7 +263,7 @@ const Navbar = () => {
                     href={PILOT_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-filled-secondary desktop-only"
+                    className="btn btn-filled-secondary btn-nav-cta desktop-only"
                 >
                     Join Our Pilot Program
                 </a>
@@ -284,7 +292,7 @@ const Navbar = () => {
                     </span>
                 </button>
             </div>
-
+            </div>
         </nav>
         {mobileMenuPortal}
         </>
